@@ -9,6 +9,8 @@
   <script src="../javascript/main.js"></script>
   <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
 
 
 </head>
@@ -26,7 +28,16 @@
 
 
     <a-camera id="js--camera">
-      <a-cursor ></a-cursor>
+      <a-entity
+        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1"
+        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+        cursor="fuse: true; fuseTimeout: 2000"
+        material="color: black; shader: flat"
+        geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+        position= "0 0 -0.5"
+        raycaster="objects: .clickable"
+      ></a-entity>    
     </a-camera>
 
 
@@ -37,7 +48,7 @@
     <a-box id="js--table" position="0 0.5 -2" rotation="0 0 0" color="#4CC3D9" width='2'></a-box>
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-    <a-circle id="js--pizzaOnTable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle>
+    <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle>
   </a-scene>
 
 </body>
