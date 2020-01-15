@@ -48,7 +48,7 @@
         animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
         cursor="fuse: true; fuseTimeout: 2000"
         material="color: black; shader: flat"
-        geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+        geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
         position= "0 0 -0.5"
         raycaster="objects: .clickable"
       ></a-entity>
@@ -57,9 +57,9 @@
 
     <!-- Werkbanken en sink -->
     <a-entity position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
-    <a-entity position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
-    <a-entity position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
-    <a-entity position="0.75 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
+    <a-entity position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity position="0.75 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity position="-1 0 -5.68" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
     <!-- Bakjes -->
     <a-entity position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
@@ -80,7 +80,7 @@
     <!-- Pizzabodem -->
     <a-entity position="4.84 1.26 -0.27" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity>
     <a-entity position="3.46 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
-    <a-entity position="1.655 1 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
+    <a-entity position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
     <a-entity position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
     <!-- Handschoenendoosje -->
     <a-entity position=".8 1.2 -3.25" rotation="0 0 -90" scale=".13 .13 .13" gltf-model="#handschoenendoosje-glb"></a-entity>
@@ -90,8 +90,13 @@
     <!-- zeep -->
     <a-entity position="-0.662 1.080 -5.786" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
 
+
+    <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 -6" width="20" height="3.5" opacity="5"></a-plane>
+    <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 6"  rotation ="0 180 0" width="20" height="3.5"></a-plane>
+
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 -6" width="20" height="8" opacity="5"></a-plane>
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 3"  rotation ="0 180 0" width="20" height="8"></a-plane>
+
     <a-plane src="../media/omgeving/ground.jpg" repeat="40 30" position="0 0 0" rotation="-90 0 0" width="20" height="15"></a-plane>
     <a-plane src="../media/omgeving/plafond.jpg" repeat="60 30" position="0 3.5 0" rotation="-270 0 0" width="20" height="15"></a-plane>
 
