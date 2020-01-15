@@ -39,6 +39,8 @@
       <a-asset-item id='sausfles_bbq-glb' src="../media/sausfles/sausfles_bbq.glb"></a-asset-item>
       <a-asset-item id='krijtbord-glb' src="../media/krijtbord/krijtbord.glb"></a-asset-item>
       <a-asset-item id='scherm-glb' src="../media/scherm/scherm.glb"></a-asset-item>
+      <a-asset-item id='tomatensaus-glb' src="../media/Tomatensaus/tomatensausbak_test.glb"></a-asset-item>
+      <a-asset-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-asset-item>
     </a-assets>
 
 
@@ -62,7 +64,7 @@
     <a-entity position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity position="0.772 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity position="-1 0 -5.68" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
+    <a-entity position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
     <!-- Bakjes -->
     <a-entity position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
     <a-entity position="4.03 0.98 -5.93" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
@@ -85,16 +87,22 @@
     <a-entity position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
     <a-entity position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
     <!-- Handschoenendoosje -->
-    <a-entity position=".8 1.2 -3.25" rotation="0 0 -90" scale=".13 .13 .13" gltf-model="#handschoenendoosje-glb"></a-entity>
+    <a-entity position="-1.152 0.988 -5.572" rotation="0 270 0" scale="0.25 0.25 0.25" gltf-model="#handschoenendoosje-glb"></a-entity>
     <!-- Sausflessen -->
     <a-entity position="6.467 1.1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
     <a-entity position="6.645 1.1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
     <!-- Zeep -->
-    <a-entity position="-0.662 1.080 -5.786" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
+    <a-entity position="-0.472 1.080 -5.302" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
     <!-- krijtbord -->
     <a-entity position="1.193 2.376 -5.848" rotation="270 0 0" scale="0.8 0.3 0.3" gltf-model="#krijtbord-glb"></a-entity>
     <!-- Scherm -->
     <a-entity position="4.69 1.897 -4.958" rotation="0 90 10" gltf-model="#scherm-glb"></a-entity>
+
+    <!-- tomatensaus -->
+    <a-entity position="-0.186 1.165 -5.25"  scale="0.12 0.12 0.12" gltf-model="#tomatensaus-glb"></a-entity>
+
+    <!-- lepel -->
+    <a-entity position="-0.264 1.218 -5.25"  scale="0.08 0.08 0.08" gltf-model="#lepel-glb"></a-entity>
 
     <!-- Omgeving -->
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 -6" width="20" height="3.5" opacity="5"></a-plane>
@@ -104,6 +112,13 @@
 
     <a-plane src="../media/omgeving/ground.jpg" repeat="40 30" position="0 0 0" rotation="-90 0 0" width="20" height="15"></a-plane>
     <a-plane src="../media/omgeving/plafond.jpg" repeat="60 30" position="0 3.5 0" rotation="-270 0 0" width="20" height="15"></a-plane>
+
+    <!-- text  -->
+    <!-- <a-text position="0.903 2.822 -5.812" font="../fonts/font.fnt" fontImage="../fonts/font.png" value="To do:"></a-text> -->
+    <!-- <entity position="0.903 2.822 -5.812"  text="text: To do:; font: ../fonts/font.ttf; fontImage: ../fonts/font.png"></a-entity> -->
+
+    <a-text position="0.903 2.822 -5.812" value="To do: "></a-text>
+
 
 
     <a-box id="js--table" position="-3.396 0.5 -2.567" rotation="0 -90 0" color="#4CC3D9" width='11'></a-box>
@@ -118,7 +133,7 @@
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-    <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14 rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
+    <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
   </a-scene>
