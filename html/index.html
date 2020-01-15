@@ -15,12 +15,24 @@
 <body>
 
   <a-scene id="js--scene">
+    <!-- Assets -->
+    <a-assets>
+      <a-asset-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-asset-item>
+      <a-asset-item id='werkbank-glb' src="../media/werkbank/werkbanknormaal_original.glb"></a-asset-item>
+      <a-asset-item id='sink-glb' src="../media/sink/sink.glb"></a-asset-item>
+    </a-assets>
+
     <a-entity environment="preset: japan; groundColor: #445; grid: cross"></a-entity>
 
 
     <a-camera id="js--camera">
       <a-cursor ></a-cursor>
     </a-camera>
+
+
+    <a-entity position="1 0 -5" scale="0.3 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
+    <a-entity position="1.5 -.1 -5" scale="0.3 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity position="1 0 -5" scale="0.3 0.3 0.3" gltf-model="#sink-glb"></a-entity>
 
     <a-box id="js--table" position="0 0.5 -2" rotation="0 0 0" color="#4CC3D9" width='2'></a-box>
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
