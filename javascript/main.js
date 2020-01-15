@@ -2,6 +2,8 @@ window.onload = function(){
 
     const camera = document.getElementById('js--camera');
     const table = document.getElementById('js--table');
+    const teleport = document.getElementsByClassName('js--teleport');
+
     const pickup = document.getElementById('js--pickup');
     const pickup2 = document.getElementById('js--pickup-test');
     const scene = document.getElementById("js--scene");
@@ -23,6 +25,16 @@ window.onload = function(){
             table.removeAttribute("class");
             addListeners();
         }
+    };
+
+
+
+    for(let i = 0; i < teleport.length; i++){
+        teleport[i].onclick = (event) => {
+            let att = document.createAttribute("animation");
+            att.value = "property: position; easing: linear; dur: 1000; to: " + teleport[i].getAttribute('position').x + " 1.6 " + teleport[i].getAttribute('position').z;
+            camera.setAttribute('animation', att.value);
+        };
     };
     
     

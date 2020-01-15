@@ -40,12 +40,26 @@
       ></a-entity>    
     </a-camera>
 
+  
+
 
     <a-entity position="1 0 -5" scale="0.3 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity position="1.5 -.1 -5" scale="0.3 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity position="1 0 -5" scale="0.3 0.3 0.3" gltf-model="#sink-glb"></a-entity>
+    
 
     <a-box id="js--table" position="0 0.5 -2" rotation="0 0 0" color="#4CC3D9" width='2'></a-box>
+<!-- 
+    <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
+    position="0 10 10"></a-entity> -->
+
+
+    <a-box class="js--teleport clickable" position="-4 0.5 4" color="blue" height="1" width="1">
+      <a-entity light="type: spot; angle: 45"></a-entity>
+    </a-box>
+    <a-box class="js--teleport clickable" position="4 0.5 4" color="blue" height="1" width="1"></a-box>
+    <a-box class="js--teleport clickable" position="4 0.5 -4" color="blue" height="1" width="1"></a-box>
+
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
     <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle>
