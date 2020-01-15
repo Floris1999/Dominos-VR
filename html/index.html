@@ -37,19 +37,16 @@
         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
         position= "0 0 -0.5"
         raycaster="objects: .clickable"
-      ></a-entity>    
+      ></a-entity>
     </a-camera>
 
-  
-
-
-    <a-entity position="1 0 -5" scale="0.3 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
-    <a-entity position="1.5 -.1 -5" scale="0.3 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity position="1 0 -5" scale="0.3 0.3 0.3" gltf-model="#sink-glb"></a-entity>
-    
+    <a-plane src="brick.jpg" shader="flat" position="0 0 -6" width="20" height="8" opacity="5"></a-plane>
+    <a-plane src="brick.jpg" shader="flat" position="0 0 6"  rotation ="0 180 0" width="20" height="8"></a-plane>
+    <a-plane src="ground.jpg" repeat="40 30" position="0 -2 0" rotation="-90 0 0" width="20" height="15"></a-plane>
+    <a-plane src="plafond.jpg" repeat="60 30" position="0 4 0" rotation="-270 0 0" width="20" height="15"></a-plane>
 
     <a-box id="js--table" position="0 0.5 -2" rotation="0 0 0" color="#4CC3D9" width='2'></a-box>
-<!-- 
+<!--
     <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2"
     position="0 10 10"></a-entity> -->
 
