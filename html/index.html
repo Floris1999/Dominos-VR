@@ -55,7 +55,7 @@
 
 
     <!-- Werkbanken en sink -->
-    <a-entity position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
+    <a-entity id="js--werkbank1" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity position="0.75 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
@@ -78,7 +78,7 @@
     <!-- <a-entity position="5 .98 -5.33" rotation="0 -90 0" scale=".3 .3 .3" gltf-model="#oven_2-glb"></a-entity> -->
     <!-- Pizzabodem -->
     <a-entity position="4.84 1.26 -0.27" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity>
-    <a-entity position="3.46 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
+    <!-- <a-entity position="3.46 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity> -->
     <a-entity position="1.655 1 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
     <a-entity position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
     <!-- Handschoenendoosje -->
@@ -97,13 +97,17 @@
 
 
 
-    <a-box class="js--teleport clickable" position="-4 0.5 4" color="blue" height="1" width="1"></a-box>
-    <a-box class="js--teleport clickable" position="4 0.5 4" color="blue" height="1" width="1"></a-box>
-    <a-box class="js--teleport clickable" position="4 0.5 -4" color="blue" height="1" width="1"></a-box>
+    <a-plane class="js--teleport clickable" position="-0.923 0.18 -4" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="1.293 0.18 -4" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="4.527 0.18 -4" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="6.071 0.18 -2.37" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-    <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle>
+    <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14 rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
+
+    <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
   </a-scene>
 
 </body>

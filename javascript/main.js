@@ -1,7 +1,7 @@
 window.onload = function(){
 
     const camera = document.getElementById('js--camera');
-    const table = document.getElementById('js--table');
+    const table = document.getElementById('js--werkbank1');
     const teleport = document.getElementsByClassName('js--teleport');
 
     const pickup = document.getElementById('js--pickup');
@@ -18,8 +18,9 @@ window.onload = function(){
     table.onclick = (event) => {
         if(hold){
             console.log("je hovered over de tafel");
-            child = makeObject("js--pizzaOnTable", "a-circle", "0 1.024 -2", "0.25", scene, true);
-            child.setAttribute("rotation", "-90 0 0");
+            let child = makeObject("js--pizzaOnTable", "a-circle", "4.4 1.2 -5", "0.25", scene, true, "#deegbal_fase_3-glb");
+            child.setAttribute("scale", ".2 .2 .2");
+            child.setAttribute("rotation", "0 0 0");
             document.getElementById("js--holdPizza").remove();
             hold = false;
             table.removeAttribute("class");
@@ -42,7 +43,8 @@ window.onload = function(){
     function addListeners(){
         document.getElementById('js--pizzaOnTable').onclick = (event) => {
             if(!hold){
-                makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true);
+                let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, "#deegbal_fase_3-glb");
+                object.setAttribute("scale", ".25 .25 .25");
                 document.getElementById('js--pizzaOnTable').remove();
                 table.setAttribute("class", "clickable");
                 hold = true;
@@ -50,12 +52,13 @@ window.onload = function(){
         };
     }
 
-    function makeObject(id, entity, position, size, parent, pickup){
+    function makeObject(id, entity, position, size, parent, pickup, gltf){
         console.log("object wordt aangemaakt");        
         let child = document.createElement(entity);
         child.setAttribute("id", id);
         child.setAttribute("position", position);
-        child.setAttribute("radius", size);
+        if(gltf){
+            child.setAttribute("gltf-model", gltf)        }
         if(pickup){
             child.setAttribute("class", "clickable");
         }
