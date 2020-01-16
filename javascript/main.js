@@ -17,6 +17,8 @@ window.onload = function(){
 
     const deegbal = document.getElementById("deegbal1");
 
+    const lepel = document.getElementById("js--lepel");
+
 
 
     addListeners();
@@ -35,12 +37,22 @@ window.onload = function(){
     // };
 
     var hold = false;
+    var holdLepel = false;
 
-    table1.onclick = (event) => {
-        
+    var currentpizza = "#deegbal_fase_3-glb";
+
+    lepel.onclick = (event) => {
+        this.console.log("test");
+        pizza = document.getElementById('js--pizzaOnTable');
+        pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+        currentpizza = "#pizzabodem_rauw_saus-glb"
+    };
+
+
+    table1.onclick = (event) => {    
         if(hold){
             this.console.log("bknaladbdbl");
-            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, "#deegbal_fase_3-glb");
+            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
             console.log(event.detail.intersection.point);
             child.setAttribute("scale", ".2 .2 .2");
             child.setAttribute("rotation", "0 0 0");
@@ -58,7 +70,7 @@ window.onload = function(){
     table2.onclick = (event) => {
         if(hold){
             console.log("table2");
-            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, "#deegbal_fase_3-glb");
+            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
             child.setAttribute("scale", ".2 .2 .2");
             child.setAttribute("rotation", "0 0 0");
             document.getElementById("js--holdPizza").remove();
@@ -75,7 +87,7 @@ window.onload = function(){
         console.log("test");
         if(hold){
             console.log("table3");
-            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, "#deegbal_fase_3-glb");
+            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
             child.setAttribute("scale", ".2 .2 .2");
             child.setAttribute("rotation", "0 0 0");
             document.getElementById("js--holdPizza").remove();
@@ -90,7 +102,7 @@ window.onload = function(){
 
     oven.onclick = (event) => {
         if(hold){
-            let child = makeObject("js--pizzaOnTable", "a-circle", "8.133 1.260 -0.701", "0.25", scene, true, "#deegbal_fase_3-glb");
+            let child = makeObject("js--pizzaOnTable", "a-circle", "8.133 1.260 -0.701", "0.25", scene, true, "");
             child.setAttribute("scale", ".2 .2 .2");
             child.setAttribute("rotation", "0 0 0");
             document.getElementById("js--holdPizza").remove();
@@ -105,6 +117,7 @@ window.onload = function(){
             addListeners();
         }
     };
+
     
     // for(let i = 0; i < tables.length; i++){
     //     tables[i].onclick = (event) => {
@@ -135,8 +148,10 @@ window.onload = function(){
 
     function addListeners(){
         document.getElementById('js--pizzaOnTable').onclick = (event) => {
+            if(holdLepel){
+            }
             if(!hold){
-                let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, "#deegbal_fase_3-glb");
+                let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
                 object.setAttribute("scale", ".25 .25 .25");
                 document.getElementById('js--pizzaOnTable').remove();
                 table1.setAttribute("class", "clickable");
@@ -145,8 +160,12 @@ window.onload = function(){
                 oven.setAttribute("class", "clickable");
                 hold = true;
             }
+            
         };
     }
+
+
+
 
     function makeObject(id, entity, position, size, parent, pickup, gltf){
         console.log("object wordt aangemaakt");        
