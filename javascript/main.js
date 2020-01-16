@@ -8,6 +8,24 @@ window.onload = function(){
     const pickup2 = document.getElementById('js--pickup-test');
     const scene = document.getElementById("js--scene");
 
+    // krijtbordcheck
+    const doughfase1 = document.getElementById('js--fase1');
+    let img1 = document.getElementById('js--kruisje1');
+    const audio = new Audio("../media/sounds/krijtbordsound.mp3")
+
+    //state veranderen oven
+    const ovenstate1 = document.getElementById('js--oven');
+    const ovenstate2 = document.getElementById("js--oven2")
+    const doughfase2 = document.getElementById('js--fase2');
+
+    // var getstate1 = ovenstate1.getAttribute("visible");
+    // console.log(getstate1);
+    const i = 0
+
+    test = true;
+
+
+
 
 
     addListeners();
@@ -37,8 +55,8 @@ window.onload = function(){
             camera.setAttribute('animation', att.value);
         };
     };
-    
-    
+
+
 
     function addListeners(){
         document.getElementById('js--pizzaOnTable').onclick = (event) => {
@@ -53,7 +71,7 @@ window.onload = function(){
     }
 
     function makeObject(id, entity, position, size, parent, pickup, gltf){
-        console.log("object wordt aangemaakt");        
+        console.log("object wordt aangemaakt");
         let child = document.createElement(entity);
         child.setAttribute("id", id);
         child.setAttribute("position", position);
@@ -65,5 +83,33 @@ window.onload = function(){
         parent.appendChild(child);
         return child;
     }
+
+    doughfase1.onclick= () => {
+      img1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
+      console.log("clicked");
+      audio.play();
+    }
+
+    doughfase2.onclick = () => {
+      timeout();
+
+    }
+
+    function timeout() {
+    setTimeout(function () {
+      var getstate1 = ovenstate1.getAttribute("visible");
+      if(getstate1 == true){
+        // ovenstate1.removeAttribute("visible");
+        ovenstate1.setAttribute("visible", "false");
+        ovenstate2.setAttribute("visible", "true");
+        console.log("loop");
+        console.log(getstate1);
+      }if (getstate1 == false) {
+        ovenstate1.setAttribute("visible", "true");
+        ovenstate2.setAttribute("visible", "false");
+      }
+
+        timeout();
+    }, 400);
 }
-  
+}

@@ -79,13 +79,13 @@
     <a-entity position="4.921 1.091 -5.751" rotation="0 -180 25" scale=".3 .3 .3" gltf-model="#ananas-glb"></a-entity>
     <a-entity position="5.542 1.085 -5.830" rotation="0 -180 25" scale=".3 .3 .3" gltf-model="#salami-glb"></a-entity>
     <!-- Oven -->
-    <a-entity position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb"></a-entity>
-    <!-- <a-entity position="5 .98 -5.33" rotation="0 -90 0" scale=".3 .3 .3" gltf-model="#oven_2-glb"></a-entity> -->
+    <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb" visible="true"></a-entity>
+    <a-entity id="js--oven2" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_2-glb" visible="false"></a-entity>
     <!-- Pizzabodem -->
     <a-entity position="4.84 1.26 -0.27" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity>
     <a-entity position="3.46 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
-    <a-entity position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
-    <a-entity position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
+    <a-entity id="js--fase2" class="clickable" position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
+    <a-entity id="js--fase1" class="clickable" position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
     <!-- Handschoenendoosje -->
     <a-entity position="-1.152 0.988 -5.572" rotation="0 270 0" scale="0.25 0.25 0.25" gltf-model="#handschoenendoosje-glb"></a-entity>
     <!-- Sausflessen -->
@@ -94,7 +94,7 @@
     <!-- Zeep -->
     <a-entity position="-0.472 1.080 -5.302" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
     <!-- krijtbord -->
-    <a-entity position="1.193 2.376 -5.848" rotation="270 0 0" scale="0.8 0.3 0.3" gltf-model="#krijtbord-glb"></a-entity>
+    <a-entity position="1.231 2.376 -5.848" rotation="270 0 0" scale="1 0.3 0.3" gltf-model="#krijtbord-glb"></a-entity>
     <!-- Scherm -->
     <a-entity position="4.69 1.897 -4.958" rotation="0 90 10" gltf-model="#scherm-glb"></a-entity>
 
@@ -114,10 +114,25 @@
     <a-plane src="../media/omgeving/plafond.jpg" repeat="60 30" position="0 3.5 0" rotation="-270 0 0" width="20" height="15"></a-plane>
 
     <!-- text  -->
-    <!-- <a-text position="0.903 2.822 -5.812" font="../fonts/font.fnt" fontImage="../fonts/font.png" value="To do:"></a-text> -->
-    <!-- <entity position="0.903 2.822 -5.812"  text="text: To do:; font: ../fonts/font.ttf; fontImage: ../fonts/font.png"></a-entity> -->
+    <a-text position="0 2.967 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Ga hygenisch te werk" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 2.793 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Vorm de deegbal" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 2.617 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Voeg tomatensaus aan de pizza toe" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 2.442 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Doe de juiste ingrediënten op de pizza" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 2.249 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Stop de pizza in de oven" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 2.085 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Haal de pizza uit de oven" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 1.920 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Snijd de pizza" scale="0.5 0.5 0.5"></a-text>
+    <a-text position="0 1.755 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Stop de pizza in de doos" scale="0.5 0.5 0.5"></a-text>
 
-    <a-text position="0.903 2.822 -5.812" value="To do: "></a-text>
+    <!-- krijtbord img -->
+    <a-image id="js--kruisje1" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.9777 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje2" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.801 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje3" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.595 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje4" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.419 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje5" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.242 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje6" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.075 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje7" src="../media/krijtbord/krijtbordimg3.png" position="2.4 1.928 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje8" src="../media/krijtbord/krijtbordimg3.png" position="2.4 1.771 -5.802" scale="0.2 0.2 0.2"></a-image>
+
 
 
 
