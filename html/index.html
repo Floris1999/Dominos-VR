@@ -47,7 +47,7 @@
 
     <a-camera id="js--camera" position="-2 1.8 -3">
       <a-entity
-        id="cursor"
+        id="js--cursor"
         animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
         animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1"
         animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
@@ -62,9 +62,10 @@
 
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
-    <a-entity position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity position="0.772 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity id="js--werkbank2" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity id="js--werkbank3" position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity class="js--werkbank" position="0.772 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    
     <a-entity position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
     <!-- Bakjes -->
     <a-entity position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
@@ -80,13 +81,14 @@
     <a-entity position="4.921 1.091 -5.751" rotation="0 -180 25" scale=".3 .3 .3" gltf-model="#ananas-glb"></a-entity>
     <a-entity position="5.542 1.085 -5.830" rotation="0 -180 25" scale=".3 .3 .3" gltf-model="#salami-glb"></a-entity>
     <!-- Oven -->
-    <a-entity position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb"></a-entity>
+    <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb"></a-entity>
     <!-- <a-entity position="5 .98 -5.33" rotation="0 -90 0" scale=".3 .3 .3" gltf-model="#oven_2-glb"></a-entity> -->
+    
     <!-- Pizzabodem -->
-    <a-entity position="4.84 1.26 -0.27" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity>
+    <!-- <a-entity position="4.84 1.26 -0.701" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity> -->
     <a-entity position="3.46 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
     <a-entity position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
-    <a-entity position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
+    <a-entity id="deegbal1" class="clickable" position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
     <!-- Handschoenendoosje -->
     <a-entity position="-1.152 0.988 -5.572" rotation="0 270 0" scale="0.25 0.25 0.25" gltf-model="#handschoenendoosje-glb"></a-entity>
     <!-- Sausflessen -->
@@ -126,10 +128,10 @@
 
 
 
-    <a-plane class="js--teleport clickable" position="-0.923 0.18 -4" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
-    <a-plane class="js--teleport clickable" position="1.293 0.18 -4" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
-    <a-plane class="js--teleport clickable" position="4.527 0.18 -4" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
-    <a-plane class="js--teleport clickable" position="6.071 0.18 -2.37" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="1.293 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="4.527 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-plane class="js--teleport clickable" position="6.071 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
 
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
