@@ -50,24 +50,34 @@ window.onload = function(){
 
 
     const teleport = document.getElementsByClassName('js--teleport');
-    const test2 = document.getElementsByClassName('js--pizzaTest');
 
 
 
     //list met alle ingredienten
-    const ananas = document.getElementById("js--ananas_pizza");
-    const cheese = document.getElementById("js--cheese_pizza");
+    //const ananas = document.getElementById("js--ananas_pizza");
+    //const cheese = document.getElementById("js--cheese_pizza");
+
+    const cheese = document.getElementsByClassName('js--pizzaTest');
+    const ananas = document.getElementsByClassName('js--ananasClass');
+    const salami = document.getElementsByClassName('js--salamiClass');
+    const shoarma = document.getElementsByClassName('js--shoarmaClass');
+    const tomaat = document.getElementsByClassName('js--tomaatClass');
 
 
 
-    var ingredientsList = [[cheese, true], [ananas, true]]
+
+    this.console.log(salami);
+
+
+
+
+
+    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false]]
 
     const holdPizza = document.getElementById("js--holdPizza");
     const pizzaOnTable = document.getElementById("js--pizzaOnTable");
 
-    this.console.log(pizzaOnTable)
-    this.console.log(holdPizza)
-
+    const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
 
     
     addListeners();
@@ -75,7 +85,6 @@ window.onload = function(){
     var hold = false;
     var holdLepel = false;
 
-    var currentpizza = "#deegbal_fase_3-glb";
     var soeplepel_saus = "#soeplepel_saus-glb";
 
     // tomatensaus.onclick = (event) => {
@@ -100,8 +109,9 @@ window.onload = function(){
             console.log("table1");
             holdPizza.setAttribute("visible",false);
             pizzaOnTable.setAttribute("visible",true);
-            pizzaOnTable.setAttribute("position", event.detail.intersection.point);
-            makePizza();
+            let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+            pizzaOnTable.setAttribute("position", posi);
+            //makePizza();
             hold = false;
             table1.removeAttribute("class");
             table2.removeAttribute("class");
@@ -121,7 +131,8 @@ window.onload = function(){
             // document.getElementById("js--holdPizza").remove();
             holdPizza.setAttribute("visible",false);
             pizzaOnTable.setAttribute("visible",true);
-            pizzaOnTable.setAttribute("position", event.detail.intersection.point);
+            let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+            pizzaOnTable.setAttribute("position", posi);
 
             hold = false;
             table1.removeAttribute("class");
@@ -138,7 +149,9 @@ window.onload = function(){
             console.log("table3");
             holdPizza.setAttribute("visible",false);
             pizzaOnTable.setAttribute("visible",true);
-            pizzaOnTable.setAttribute("position", event.detail.intersection.point);
+            let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+            pizzaOnTable.setAttribute("position", posi);
+
             hold = false;
             table1.removeAttribute("class");
             table2.removeAttribute("class");
@@ -166,15 +179,6 @@ window.onload = function(){
         }
     };
 
-    makePizza = () => {
-        for(let i = 0; i < ingredientsList.length; i++){
-            test2[i].setAttribute("visible",true);  
-            // if(ingredientsList[i][1]){
-            //     element = ingredientsList[i][0];
-            //     test2.setAttribute("visible",true);
-            // }
-        };
-    }
 
 
     // for(let i = 0; i < tables.length; i++){
@@ -202,6 +206,49 @@ window.onload = function(){
         };
     };
 
+    for(let i = 0; i < ingredientenBakjes.length; i++){
+        ingredientenBakjes[i].onclick = (event) => {
+            ingredient = ingredientenBakjes[i].id;
+            switch(ingredient){
+                case "bakje_kaas":
+                    ingredientsList[0][1] = true;
+                    for(let i = 0; i < ingredientsList.length; i++){
+                        this.console.log(ingredientsList[0][0][i]);
+                        ingredientsList[0][0][i].setAttribute("visible",true); 
+                    };  
+                    break;
+                case "bakje_ananas":
+                        ingredientsList[1][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[1][0][i]);
+                            ingredientsList[1][0][i].setAttribute("visible",true); 
+                        };  
+                        break;
+                case "bakje_salami":
+                        ingredientsList[1][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[2][0][i]);
+                            ingredientsList[2][0][i].setAttribute("visible",true); 
+                        };  
+                        break;
+                case "bakje_shoarma":
+                        ingredientsList[1][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[3][0][i]);
+                            ingredientsList[3][0][i].setAttribute("visible",true); 
+                        };  
+                        break;
+                case "bakje_tomaat":
+                        ingredientsList[1][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[4][0][i].setAttribute("visible",true); 
+                        };  
+                        break;
+            }
+        };
+    };
+
 
 
     function addListeners(){
@@ -226,8 +273,10 @@ window.onload = function(){
                 // object.setAttribute("scale", ".25 .25 .25");
                 holdPizza.setAttribute("visible",true);
                 pizzaOnTable.setAttribute("visible",false);
-                cheese.setAttribute("visible",true);
-                makePizza();
+
+                pizzaOnTable.setAttribute("position", "20 20 20");
+
+                //cheese.setAttribute("visible",true);
                 //document.getElementById('js--pizzaOnTable').remove();
                 table1.setAttribute("class", "clickable");
                 table2.setAttribute("class", "clickable");
