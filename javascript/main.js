@@ -77,7 +77,16 @@ window.onload = function(){
     lepel.onclick = (event) => {
         this.console.log("test");
         pizza = document.getElementById('js--pizzaOnTable');
+        pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
+        setTimeout((event) => {
+          pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
+        }, 1000)
+        setTimeout((event) => {
+        pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
+        }, 2000)
+        setTimeout((event) => {
         pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+      }, 3000)
         currentpizza = "#pizzabodem_rauw_saus-glb"
     };
 
