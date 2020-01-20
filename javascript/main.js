@@ -168,8 +168,7 @@ window.onload = function(){
 
     makePizza = () => {
         for(let i = 0; i < ingredientsList.length; i++){
-            test2[i].setAttribute("visible",true);
-
+            test2[i].setAttribute("visible",true);  
             // if(ingredientsList[i][1]){
             //     element = ingredientsList[i][0];
             //     test2.setAttribute("visible",true);
@@ -209,6 +208,7 @@ window.onload = function(){
         pizzaOnTable.onclick = (event) => {
             if(holdLepel){
               pizza = document.getElementById('js--pizzaOnTable');
+
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
               setTimeout((event) => {
                 pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
@@ -218,6 +218,7 @@ window.onload = function(){
               }, 2000)
               setTimeout((event) => {
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+              holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               }, 3000)
             }
             if(!hold){
