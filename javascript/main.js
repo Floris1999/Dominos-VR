@@ -16,7 +16,7 @@ window.onload = function(){
     const scene = document.getElementById("js--scene");
 
     // krijtbordcheck
-    // const doughfase1 = document.getElementById('js--fase1');
+    const doughfase1 = document.getElementById('js--fase1');
     let img1 = document.getElementById('js--kruisje1');
     const audio = new Audio("../media/sounds/krijtbordsound.mp3")
 
@@ -194,19 +194,19 @@ window.onload = function(){
     function addListeners(){
         document.getElementById('js--pizzaOnTable').onclick = (event) => {
           console.log("werkt");
-          if(holdLepel === true){
-            let pizza = document.getElementById('js--pizzaOnTable');
-            pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
-               setTimeout((event) => {
-            pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
-            }, 1000)
-            setTimeout((event) => {
-            pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
-            }, 2000)
-            setTimeout((event) => {
-            pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
-            }, 3000)
-          };
+          // if(holdLepel){
+          //   let pizza = document.getElementById('js--pizzaOnTable');
+          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
+          //      setTimeout((event) => {
+          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
+          //   }, 1000)
+          //   setTimeout((event) => {
+          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
+          //   }, 2000)
+          //   setTimeout((event) => {
+          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+          //   }, 3000)
+          // };
           if(!hold){
             let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
             object.setAttribute("scale", ".25 .25 .25");
