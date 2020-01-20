@@ -42,18 +42,6 @@ window.onload = function(){
     addListeners();
 
 
-    // deegbal.onclick = (event) => {
-    //     console.log("je hovered over de tafel");
-
-    //     var cursor = document.getElementById('js--cursor');
-    //     //this.console.log();
-    //     console.log(event.detail.intersection.point);
-    //     //if (!cursor.components.intersectedEl) { return; }
-    //     //var intersection = cursor.components.raycaster.getIntersection(cursor.components.intersectedEl);
-    //     //var intersectionPosition = intersection.point;
-
-    // };
-
     var hold = false;
     var holdLepel = false;
 
