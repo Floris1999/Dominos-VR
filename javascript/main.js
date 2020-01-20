@@ -1,15 +1,9 @@
 window.onload = function(){
-
     const camera = document.getElementById('js--camera');
     const table1 = document.getElementById('js--werkbank1');
     const table2 = document.getElementById('js--werkbank2');
     const table3 = document.getElementById('js--werkbank3');
-
     const oven = document.getElementById('js--oven');
-
-
-
-    const teleport = document.getElementsByClassName('js--teleport');
 
     const pickup = document.getElementById('js--pickup');
     const pickup2 = document.getElementById('js--pickup-test');
@@ -21,7 +15,6 @@ window.onload = function(){
     const audio = new Audio("../media/sounds/krijtbordsound.mp3")
 
     //text
-
     const opdracht1 = document.getElementById('js--optie1');
     const opdracht2 = document.getElementById('js--optie2');
     const opdracht3 = document.getElementById('js--optie3');
@@ -30,6 +23,8 @@ window.onload = function(){
     const opdracht6 = document.getElementById('js--optie6');
     const opdracht7 = document.getElementById('js--optie7');
     const opdracht8 = document.getElementById('js--optie8');
+
+
     var cameratxt = document.getElementById('js--cameratxt');
 
     //state veranderen oven
@@ -50,6 +45,22 @@ window.onload = function(){
 
     const lepel = document.getElementById("js--lepel");
 
+
+
+
+    const teleport = document.getElementsByClassName('js--teleport');
+
+    //list met alle ingredienten
+    const ananas = document.getElementById("js--ananas_pizza");
+
+
+    var ingredientsList = [['vdd', false], [ananas, true], ['bdil', false], ['abdila', false]]
+
+    const holdPizza = document.getElementById("js--holdPizza");
+    const pizzaOnTable = document.getElementById("js--pizzaOnTable");
+
+    this.console.log(pizzaOnTable)
+    this.console.log(holdPizza)
 
 
 
@@ -81,12 +92,11 @@ window.onload = function(){
 
     table1.onclick = (event) => {
         if(hold){
-            this.console.log("bknaladbdbl");
-            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
-            console.log(event.detail.intersection.point);
-            child.setAttribute("scale", ".2 .2 .2");
-            child.setAttribute("rotation", "0 0 0");
-            document.getElementById("js--holdPizza").remove();
+            console.log("table1");
+            holdPizza.setAttribute("visible",false);
+            pizzaOnTable.setAttribute("visible",true);
+            pizzaOnTable.setAttribute("position", event.detail.intersection.point);
+
             hold = false;
             table1.removeAttribute("class");
             table2.removeAttribute("class");
@@ -100,10 +110,14 @@ window.onload = function(){
     table2.onclick = (event) => {
         if(hold){
             console.log("table2");
-            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
-            child.setAttribute("scale", ".2 .2 .2");
-            child.setAttribute("rotation", "0 0 0");
-            document.getElementById("js--holdPizza").remove();
+            // let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
+            // child.setAttribute("scale", ".2 .2 .2");
+            // child.setAttribute("rotation", "0 0 0");
+            // document.getElementById("js--holdPizza").remove();
+            holdPizza.setAttribute("visible",false);
+            pizzaOnTable.setAttribute("visible",true);
+            pizzaOnTable.setAttribute("position", event.detail.intersection.point);
+
             hold = false;
             table1.removeAttribute("class");
             table2.removeAttribute("class");
@@ -117,10 +131,9 @@ window.onload = function(){
         console.log("test");
         if(hold){
             console.log("table3");
-            let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
-            child.setAttribute("scale", ".2 .2 .2");
-            child.setAttribute("rotation", "0 0 0");
-            document.getElementById("js--holdPizza").remove();
+            holdPizza.setAttribute("visible",false);
+            pizzaOnTable.setAttribute("visible",true);
+            pizzaOnTable.setAttribute("position", event.detail.intersection.point);
             hold = false;
             table1.removeAttribute("class");
             table2.removeAttribute("class");
@@ -135,7 +148,7 @@ window.onload = function(){
             let child = makeObject("js--pizzaOnTable", "a-circle", "8.133 1.260 -0.701", "0.25", scene, true, "");
             child.setAttribute("scale", ".2 .2 .2");
             child.setAttribute("rotation", "0 0 0");
-            document.getElementById("js--holdPizza").remove();
+            document.getElementById("js--holdPizza").setAttribute("visible",false);;
             hold = false;
             let att = document.createAttribute("animation");
             att.value = "property: position; easing: linear; dur: 1000; to: 4.84 1.26 -0.701";
@@ -147,6 +160,17 @@ window.onload = function(){
             addListeners();
         }
     };
+
+    makePizza = () => {
+        console.log(ingredientsList);
+        for(let i = 0; i < ingredientsList.length; i++){
+            if(ingredientsList[i][1]){
+                this.console.log();
+                element = ingredientsList[i][0];
+                element.setAttribute("visible",true);
+            }
+        };
+    }
 
 
     // for(let i = 0; i < tables.length; i++){
@@ -177,13 +201,15 @@ window.onload = function(){
 
 
     function addListeners(){
-        document.getElementById('js--pizzaOnTable').onclick = (event) => {
+        pizzaOnTable.onclick = (event) => {
             if(holdLepel){
             }
             if(!hold){
-                let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
-                object.setAttribute("scale", ".25 .25 .25");
-                document.getElementById('js--pizzaOnTable').remove();
+                // let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
+                // object.setAttribute("scale", ".25 .25 .25");
+                holdPizza.setAttribute("visible",true);
+                pizzaOnTable.setAttribute("visible",false);
+                //document.getElementById('js--pizzaOnTable').remove();
                 table1.setAttribute("class", "clickable");
                 table2.setAttribute("class", "clickable");
                 table3.setAttribute("class", "clickable");
