@@ -49,13 +49,17 @@ window.onload = function(){
 
 
     const teleport = document.getElementsByClassName('js--teleport');
+    const test2 = document.getElementsByClassName('js--pizzaTest');
+
+
 
     //list met alle ingredienten
     const ananas = document.getElementById("js--ananas_pizza");
     const cheese = document.getElementById("js--cheese_pizza");
 
 
-    var ingredientsList = [['vdd', false], [ananas, true], ['bdil', false], ['abdila', false]]
+
+    var ingredientsList = [[cheese, true], [ananas, true]]
 
     const holdPizza = document.getElementById("js--holdPizza");
     const pizzaOnTable = document.getElementById("js--pizzaOnTable");
@@ -64,8 +68,7 @@ window.onload = function(){
     this.console.log(holdPizza)
 
 
-
-
+    
     addListeners();
 
 
@@ -97,7 +100,7 @@ window.onload = function(){
             holdPizza.setAttribute("visible",false);
             pizzaOnTable.setAttribute("visible",true);
             pizzaOnTable.setAttribute("position", event.detail.intersection.point);
-
+            makePizza();
             hold = false;
             table1.removeAttribute("class");
             table2.removeAttribute("class");
@@ -163,13 +166,13 @@ window.onload = function(){
     };
 
     makePizza = () => {
-        console.log(ingredientsList);
         for(let i = 0; i < ingredientsList.length; i++){
-            if(ingredientsList[i][1]){
-                this.console.log();
-                element = ingredientsList[i][0];
-                element.setAttribute("visible",true);
-            }
+            test2[i].setAttribute("visible",true);
+
+            // if(ingredientsList[i][1]){
+            //     element = ingredientsList[i][0];
+            //     test2.setAttribute("visible",true);
+            // }
         };
     }
 
@@ -210,6 +213,8 @@ window.onload = function(){
                 // object.setAttribute("scale", ".25 .25 .25");
                 holdPizza.setAttribute("visible",true);
                 pizzaOnTable.setAttribute("visible",false);
+                cheese.setAttribute("visible",true);
+                makePizza();
                 //document.getElementById('js--pizzaOnTable').remove();
                 table1.setAttribute("class", "clickable");
                 table2.setAttribute("class", "clickable");
