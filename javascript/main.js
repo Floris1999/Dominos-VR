@@ -52,6 +52,7 @@ window.onload = function(){
 
     //list met alle ingredienten
     const ananas = document.getElementById("js--ananas_pizza");
+    const cheese = document.getElementById("js--cheese_pizza");
 
 
     var ingredientsList = [['vdd', false], [ananas, true], ['bdil', false], ['abdila', false]]
