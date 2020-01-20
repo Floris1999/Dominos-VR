@@ -47,7 +47,6 @@ window.onload = function(){
     test = true;
 
     const deegbal = document.getElementById("deegbal1");
-    const pizzabodem_rauw = document.getElementById("js--pizzaOnTable");
 
     const tomatensaus = document.getElementById("js--tomatensaus");
     const lepel = document.getElementById("js--lepel");
@@ -61,24 +60,23 @@ window.onload = function(){
 
     // deegbal.onclick = (event) => {
     //     console.log("je hovered over de tafel");
-
+    //
     //     var cursor = document.getElementById('js--cursor');
     //     //this.console.log();
     //     console.log(event.detail.intersection.point);
     //     //if (!cursor.components.intersectedEl) { return; }
     //     //var intersection = cursor.components.raycaster.getIntersection(cursor.components.intersectedEl);
     //     //var intersectionPosition = intersection.point;
-
+    //
     // };
 
     var hold = false;
     var holdLepel = false;
-    var holdSausLepel = false;
 
     var currentpizza = "#deegbal_fase_3-glb";
-    var lepelglb = "#soeplepel_saus-glb";
+    var saus_lepel = "#soeplepel_saus-glb";
 
-    // tomatensaus.onclick = (event) => {
+    // lepel.onclick = (event) => {
     //     this.console.log("test");
     //     pizza = document.getElementById('js--pizzaOnTable');
     //     pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
@@ -164,6 +162,7 @@ window.onload = function(){
         }
     };
 
+
     // for(let i = 0; i < tables.length; i++){
     //     tables[i].onclick = (event) => {
     //         if(hold){
@@ -193,43 +192,34 @@ window.onload = function(){
 
     function addListeners(){
         document.getElementById('js--pizzaOnTable').onclick = (event) => {
-          console.log("werkt");
-          // if(holdLepel){
-          //   let pizza = document.getElementById('js--pizzaOnTable');
-          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
-          //      setTimeout((event) => {
-          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
-          //   }, 1000)
-          //   setTimeout((event) => {
-          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
-          //   }, 2000)
-          //   setTimeout((event) => {
-          //   pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
-          //   }, 3000)
-          // };
-          if(!hold){
-            let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
-            object.setAttribute("scale", ".25 .25 .25");
-            document.getElementById('js--pizzaOnTable').remove();
-            table1.setAttribute("class", "clickable");
-            table2.setAttribute("class", "clickable");
-            table3.setAttribute("class", "clickable");
-            oven.setAttribute("class", "clickable");
-            hold = true;
-          };
+            if(holdLepel){
+              console.log("werkt");
+            }
+            if(!hold){
+                let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
+                object.setAttribute("scale", ".25 .25 .25");
+                document.getElementById('js--pizzaOnTable').remove();
+                table1.setAttribute("class", "clickable");
+                table2.setAttribute("class", "clickable");
+                table3.setAttribute("class", "clickable");
+                oven.setAttribute("class", "clickable");
+                hold = true;
+            }
 
         };
-    };
+    }
 
-    function addListeners(){
+    function addListeners2(){
         tomatensaus.onclick = (event) => {
-          if(!hold){
-              let object = makeObject("js--holdLepel", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, lepelglb);
-              object.setAttribute("scale", ".12 .12 .12");
-              object.setAttribute("rotation", "0 0 20");
-              document.getElementById('js--lepel').remove();
-              hold = true;
-              holdLepel = true;
+            if(!hold){
+                let object = makeObject("js--holdSausLepel", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, saus_lepel);
+                object.setAttribute("scale", ".12 .12 .12");
+                lepel.remove();
+                table1.setAttribute("class", "clickable");
+                table2.setAttribute("class", "clickable");
+                table3.setAttribute("class", "clickable");
+                oven.setAttribute("class", "clickable");
+                hold = true;
             }
 
         };
@@ -251,7 +241,6 @@ window.onload = function(){
         parent.appendChild(child);
         return child;
     }
-
 
 //functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
     function hygeniëVoltooid(){
