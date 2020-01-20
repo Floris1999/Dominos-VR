@@ -14,8 +14,7 @@
 
 </head>
 <body>
-
-  <a-scene id="js--scene">
+  <a-scene id="js--scene" visible="true">
     <!-- Assets -->
     <a-assets>
       <a-asset-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-asset-item>
@@ -45,7 +44,6 @@
       <a-asset-item id="pizzadoos-obj" src="../media/pizzadoos/Pizzareal.obj"></a-asset-item>
       <a-asset-item id="pizzadoos-mtl" src="../media/pizzadoos/Pizzareal.mtl"></a-asset-item>
       <a-asset-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzaCutter3.glb"></a-asset-item>
-
       <a-asset-item id='pizzabodem_rauw_saus_fase_1-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb"></a-asset-item>
       <a-asset-item id='pizzabodem_rauw_saus_fase_2-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb"></a-asset-item>
       <a-asset-item id='pizzabodem_rauw_saus_fase_3-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb"></a-asset-item>
@@ -71,8 +69,6 @@
 
   <a-text id="js--cameratxt" value="Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
     </a-camera>
-
-
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
@@ -173,7 +169,7 @@
 
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
-
+    <a-entity vive-controls=âhand: leftâ teleport-controls></a-entity>
     <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity>
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->

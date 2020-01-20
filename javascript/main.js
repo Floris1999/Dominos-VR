@@ -14,6 +14,7 @@ window.onload = function(){
     const pickup = document.getElementById('js--pickup');
     const pickup2 = document.getElementById('js--pickup-test');
     const scene = document.getElementById("js--scene");
+    const scene2 = document.getElementById("js--scene2");
 
     // krijtbordcheck
     const doughfase1 = document.getElementById('js--fase1');
@@ -49,6 +50,10 @@ window.onload = function(){
     const deegbal = document.getElementById("deegbal1");
 
     const lepel = document.getElementById("js--lepel");
+
+    //startgame variabele
+
+    const startGame = document.getElementById("js--startgame");
 
 
 
@@ -272,5 +277,15 @@ window.onload = function(){
     setTimeout(function(){
     cameratxt.setAttribute("value","");
   },8000);
+
+
+  function switchScene(){
+      scene.setAttribute("visible", true);
+      scene2.setAttribute("visible", false);
+  }
+
+  startGame.onclick = () => {
+    switchScene();
+  }
 
 }
