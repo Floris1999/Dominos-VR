@@ -20,10 +20,25 @@ window.onload = function(){
     let img1 = document.getElementById('js--kruisje1');
     const audio = new Audio("../media/sounds/krijtbordsound.mp3")
 
+    //text
+
+    const opdracht1 = document.getElementById('js--optie1');
+    const opdracht2 = document.getElementById('js--optie2');
+    const opdracht3 = document.getElementById('js--optie3');
+    const opdracht4 = document.getElementById('js--optie4');
+    const opdracht5 = document.getElementById('js--optie5');
+    const opdracht6 = document.getElementById('js--optie6');
+    const opdracht7 = document.getElementById('js--optie7');
+    const opdracht8 = document.getElementById('js--optie8');
+    var cameratxt = document.getElementById('js--cameratxt');
+
     //state veranderen oven
     const ovenstate1 = document.getElementById('js--oven');
     const ovenstate2 = document.getElementById("js--oven2")
     const doughfase2 = document.getElementById('js--fase2');
+
+    //ovenstarten
+    const ovenbtn = document.getElementById('js--ovenbtn');
 
     // var getstate1 = ovenstate1.getAttribute("visible");
     // console.log(getstate1);
@@ -50,7 +65,16 @@ window.onload = function(){
     lepel.onclick = (event) => {
         this.console.log("test");
         pizza = document.getElementById('js--pizzaOnTable');
+        pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
+        setTimeout((event) => {
+          pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
+        }, 1000)
+        setTimeout((event) => {
+        pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
+        }, 2000)
+        setTimeout((event) => {
         pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+      }, 3000)
         currentpizza = "#pizzabodem_rauw_saus-glb"
     };
 
@@ -187,18 +211,34 @@ window.onload = function(){
         return child;
     }
 
-    doughfase1.onclick= () => {
+//functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
+    function hygeniëVoltooid(){
       img1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
-      console.log("clicked");
+      opdracht1.setAttribute("opacity","1");
+      opdracht2.setAttribute("opacity","5");
+      cameratxt.setAttribute("value","U bent hygenisch te werkgegaan");
       audio.play();
+      setTimeout(function(){
+      cameratxt.setAttribute("value","");
+    },5000);
     }
 
-    doughfase2.onclick = () => {
+    doughfase1.onclick= () => {
+      hygeniëVoltooid();
+    }
+
+    ovenbtn.onclick = () => {
       timeout();
+      cameratxt.setAttribute("value", "Oven gestart!");
+      setTimeout(function(){
+      cameratxt.setAttribute("value","");
+    },3000);
 
     }
 
+//de oven functioneren
     function timeout() {
+
     setTimeout(function () {
       var getstate1 = ovenstate1.getAttribute("visible");
       if(getstate1 == true){
@@ -215,4 +255,10 @@ window.onload = function(){
         timeout();
     }, 400);
 }
+
+//In het begin zorgen dat de welkomst text 8sec gezien wordt
+    setTimeout(function(){
+    cameratxt.setAttribute("value","");
+  },8000);
+
 }
