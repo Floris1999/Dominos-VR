@@ -1,13 +1,24 @@
 window.onload = function(){
-    const camera = document.getElementById('js--camera');
+
+    //basic declarations
     const table1 = document.getElementById('js--werkbank1');
     const table2 = document.getElementById('js--werkbank2');
     const table3 = document.getElementById('js--werkbank3');
+    const tables = this.document.getElementsByClassName("js--werkbank");
     const oven = document.getElementById('js--oven');
+    const teleport = document.getElementsByClassName('js--teleport');
 
-    const pickup = document.getElementById('js--pickup');
-    const pickup2 = document.getElementById('js--pickup-test');
+    //game declarations
+    const camera = document.getElementById('js--camera');
     const scene = document.getElementById("js--scene");
+    var cameratxt = document.getElementById('js--cameratxt');
+    const holdPizza = document.getElementById("js--holdPizza");
+    const pizzaOnTable = document.getElementById("js--pizzaOnTable");
+
+    //alles tomatensaus
+
+    //alles ingredienten
+
 
     // krijtbordcheck
     const doughfase1 = document.getElementById('js--fase1');
@@ -25,7 +36,6 @@ window.onload = function(){
     const opdracht8 = document.getElementById('js--optie8');
 
 
-    var cameratxt = document.getElementById('js--cameratxt');
 
     //state veranderen oven
     const ovenstate1 = document.getElementById('js--oven');
@@ -37,55 +47,34 @@ window.onload = function(){
 
     // var getstate1 = ovenstate1.getAttribute("visible");
     // console.log(getstate1);
-    const i = 0
 
-    test = true;
 
     const deegbal = document.getElementById("deegbal1");
-
     const tomatensaus = document.getElementById("js--tomatensaus");
     const lepel = document.getElementById("js--lepel");
 
 
-
-
-    const teleport = document.getElementsByClassName('js--teleport');
-
-
-
-    //list met alle ingredienten
-    //const ananas = document.getElementById("js--ananas_pizza");
-    //const cheese = document.getElementById("js--cheese_pizza");
-
+    //list met alle ingrediente
     const cheese = document.getElementsByClassName('js--pizzaTest');
     const ananas = document.getElementsByClassName('js--ananasClass');
     const salami = document.getElementsByClassName('js--salamiClass');
     const shoarma = document.getElementsByClassName('js--shoarmaClass');
     const tomaat = document.getElementsByClassName('js--tomaatClass');
 
-
-
-
-    this.console.log(salami);
-
-
-
-
-
     var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false]]
-
-    const holdPizza = document.getElementById("js--holdPizza");
-    const pizzaOnTable = document.getElementById("js--pizzaOnTable");
-
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
 
     
-    addListeners();
 
     var hold = false;
     var holdLepel = false;
-
     var soeplepel_saus = "#soeplepel_saus-glb";
+
+    //test vars hier
+    const pizzaDoos = document.getElementById("js--pizzaDoos");
+
+    this.console.log(pizzaDoos);
+
 
     // tomatensaus.onclick = (event) => {
     //     this.console.log("test");
@@ -104,62 +93,8 @@ window.onload = function(){
     // };
 
 
-    table1.onclick = (event) => {
-        if(hold){
-            console.log("table1");
-            holdPizza.setAttribute("visible",false);
-            pizzaOnTable.setAttribute("visible",true);
-            let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
-            pizzaOnTable.setAttribute("position", posi);
-            //makePizza();
-            hold = false;
-            table1.removeAttribute("class");
-            table2.removeAttribute("class");
-            table3.removeAttribute("class");
-            oven.removeAttribute("class");
-            addListeners();
-        }
-    };
+    addListeners();
 
-
-    table2.onclick = (event) => {
-        if(hold){
-            console.log("table2");
-            // let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
-            // child.setAttribute("scale", ".2 .2 .2");
-            // child.setAttribute("rotation", "0 0 0");
-            // document.getElementById("js--holdPizza").remove();
-            holdPizza.setAttribute("visible",false);
-            pizzaOnTable.setAttribute("visible",true);
-            let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
-            pizzaOnTable.setAttribute("position", posi);
-
-            hold = false;
-            table1.removeAttribute("class");
-            table2.removeAttribute("class");
-            table3.removeAttribute("class");
-            oven.removeAttribute("class");
-            addListeners();
-        }
-    };
-
-    table3.onclick = (event) => {
-        console.log("test");
-        if(hold){
-            console.log("table3");
-            holdPizza.setAttribute("visible",false);
-            pizzaOnTable.setAttribute("visible",true);
-            let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
-            pizzaOnTable.setAttribute("position", posi);
-
-            hold = false;
-            table1.removeAttribute("class");
-            table2.removeAttribute("class");
-            table3.removeAttribute("class");
-            oven.removeAttribute("class");
-            addListeners();
-        }
-    };
 
     oven.onclick = (event) => {
         if(hold){
@@ -180,21 +115,28 @@ window.onload = function(){
     };
 
 
+    
 
-    // for(let i = 0; i < tables.length; i++){
-    //     tables[i].onclick = (event) => {
-    //         if(hold){
-    //             console.log("je hovered over de tafel");
-    //             let child = makeObject("js--pizzaOnTable", "a-circle", "4.4 1.2 -5", "0.25", scene, true, "#deegbal_fase_3-glb");
-    //             child.setAttribute("scale", ".2 .2 .2");
-    //             child.setAttribute("rotation", "0 0 0");
-    //             document.getElementById("js--holdPizza").remove();
-    //             hold = false;
-    //             tables[i].removeAttribute("class");
-    //             addListeners();
-    //         }
-    //     };
-    // };
+    for(let i = 0; i < tables.length; i++){
+        tables[i].onclick = (event) => {
+            console.log(tables);
+            console.log(i);
+            if(hold){
+                console.log("table3");
+                holdPizza.setAttribute("visible",false);
+                pizzaOnTable.setAttribute("visible",true);
+                let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+                pizzaOnTable.setAttribute("position", posi);
+    
+                hold = false;
+                table1.removeAttribute("class");
+                table2.removeAttribute("class");
+                table3.removeAttribute("class");
+                oven.removeAttribute("class");
+                addListeners();
+            }
+        };
+    };
 
 
 
@@ -225,21 +167,21 @@ window.onload = function(){
                         };  
                         break;
                 case "bakje_salami":
-                        ingredientsList[1][1] = true;
+                        ingredientsList[2][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[2][0][i]);
                             ingredientsList[2][0][i].setAttribute("visible",true); 
                         };  
                         break;
                 case "bakje_shoarma":
-                        ingredientsList[1][1] = true;
+                        ingredientsList[3][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[3][0][i]);
                             ingredientsList[3][0][i].setAttribute("visible",true); 
                         };  
                         break;
                 case "bakje_tomaat":
-                        ingredientsList[1][1] = true;
+                        ingredientsList[4][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[4][0][i]);
                             ingredientsList[4][0][i].setAttribute("visible",true); 
@@ -267,6 +209,7 @@ window.onload = function(){
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               }, 3000)
+
             }
             if(!hold){
                 // let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
@@ -343,7 +286,6 @@ window.onload = function(){
 
 //de oven functioneren
     function timeout() {
-
     setTimeout(function () {
       var getstate1 = ovenstate1.getAttribute("visible");
       if(getstate1 == true){
@@ -362,8 +304,121 @@ window.onload = function(){
 }
 
 //In het begin zorgen dat de welkomst text 8sec gezien wordt
-    setTimeout(function(){
-    cameratxt.setAttribute("value","");
-  },8000);
+
+    removeText = (time) =>{
+        setTimeout(function(){
+            cameratxt.setAttribute("value","");
+        },time);
+    }
+
+  removeText(8000);
+
+
+  pizzaSalami = [true, false, true, false, true];
+
+  pizzaDoos.onclick = () => {
+    if(hold){
+        let fouten = 0;
+        console.log("pizzadoos");
+        holdPizza.setAttribute("visible",false);
+        pizzaOnTable.setAttribute("visible",true);
+        let posi = "0.9 1.162 -0.646";
+        pizzaOnTable.setAttribute("position", posi);
+        hold = false;
+        table1.removeAttribute("class");
+        table2.removeAttribute("class");
+        table3.removeAttribute("class");
+        oven.removeAttribute("class");
+
+
+        for(var i = ingredientsList.length; i--;) {
+            if(ingredientsList[i][1] !== pizzaSalami[i]){
+                this.console.log(pizzaSalami[i]);
+                this.console.log(ingredientsList[i][1])
+                fouten++;
+                this.console.log(fouten);
+            }
+        }
+
+        if(fouten == 0){
+            cameratxt.setAttribute("value","Goed zo je hebt de pizza goed gemaakt");
+        } 
+        if(fouten == 1){
+            cameratxt.setAttribute("value","Fout je hebt 1 ingredient verkeerd");
+        }
+        if(fouten > 1){
+            cameratxt.setAttribute("value","Fout je hebt "+ fouten + " ingredienten verkeerd");
+        }
+
+        removeText(8000);
+
+    }
+  };
+
+  removeClickAble = () => {
+    for(let i = 0; i < tables.length; i++){
+        tables[i].classList.remove("clickable");
+    }
+  }
 
 }
+
+
+
+// niet nodige code weghalen als alles werkt
+// table1.onclick = (event) => {
+//     if(hold){
+//         console.log("table1");
+//         holdPizza.setAttribute("visible",false);
+//         pizzaOnTable.setAttribute("visible",true);
+//         let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+//         pizzaOnTable.setAttribute("position", posi);
+//         //makePizza();
+//         hold = false;
+//         table1.removeAttribute("class");
+//         table2.removeAttribute("class");
+//         table3.removeAttribute("class");
+//         oven.removeAttribute("class");
+//         addListeners();
+//     }
+// };
+
+
+// table2.onclick = (event) => {
+//     if(hold){
+//         console.log("table2");
+//         // let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
+//         // child.setAttribute("scale", ".2 .2 .2");
+//         // child.setAttribute("rotation", "0 0 0");
+//         // document.getElementById("js--holdPizza").remove();
+//         holdPizza.setAttribute("visible",false);
+//         pizzaOnTable.setAttribute("visible",true);
+//         let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+//         pizzaOnTable.setAttribute("position", posi);
+
+//         hold = false;
+//         table1.removeAttribute("class");
+//         table2.removeAttribute("class");
+//         table3.removeAttribute("class");
+//         oven.removeAttribute("class");
+//         addListeners();
+//     }
+// };
+
+// table3.onclick = (event) => {
+//     console.log("test");
+//     if(hold){
+//         console.log("table3");
+//         holdPizza.setAttribute("visible",false);
+//         pizzaOnTable.setAttribute("visible",true);
+//         let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+//         pizzaOnTable.setAttribute("position", posi);
+
+//         hold = false;
+//         table1.removeAttribute("class");
+//         table2.removeAttribute("class");
+//         table3.removeAttribute("class");
+//         oven.removeAttribute("class");
+//         addListeners();
+//     }
+// };

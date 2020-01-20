@@ -87,7 +87,7 @@
   </a-entity> -->
 
     <a-entity id="js--holdPizza" class="clickable" position="0 -0.5 -1.2" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="false">
-      <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="true"></a-entity>
+      <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--shoarma" class="js--shoarmaClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#shoarma_on_pizza-glb" visible="false"></a-entity>
@@ -98,11 +98,11 @@
   <a-text id="js--cameratxt" value="Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
     </a-camera>
 
-
+ class="js--werkbank"
     <!-- Werkbanken en sink -->
-    <a-entity id="js--werkbank1" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
-    <a-entity id="js--werkbank2" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity id="js--werkbank3" position="0.75 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
+    <a-entity id="js--werkbank2" class="js--werkbank" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity id="js--werkbank3" class="js--werkbank" position="0.75 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity class="js--werkbank" position="0.772 -0.045 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
 
     <a-entity position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
@@ -146,7 +146,7 @@
     <a-image src="../media/Tomatensaus/logo.png" position="-0.186 1.230 -5.016" scale="0.12 0.12 0.12"></a-image>
 
     <!-- pizzadoos -->
-    <a-entity scale="0.6 0.6 0.6" position="1.377 1.142 -0.646" rotation="0 -90 0" obj-model="obj: #pizzadoos-obj; mtl:#pizzadoos-mtl"></a-entity>
+    <a-entity id="js--pizzaDoos" class="clickable" scale="0.6 0.6 0.6" position="1.377 1.142 -0.646" rotation="0 -90 0" obj-model="obj: #pizzadoos-obj; mtl:#pizzadoos-mtl"></a-entity>
 
     <!-- pizzasnijder -->
     <a-entity scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
