@@ -102,6 +102,19 @@ window.onload = function(){
 
     addListeners();
 
+    checkCamera = () => {
+        posi = camera.getAttribute('position');
+        posi = posi.x + " " + posi.y + " " + posi.z;
+        this.console.log(posi);
+        if( posi == "0 0 0"){
+            this.console.log("test");
+            camera.setAttribute('position', '-4 2 5');
+        }
+    }
+
+    //checkCamera();
+
+
     oven.onclick = (event) => {
         if(hold){
           holdPizza.setAttribute("visible",false);
@@ -129,7 +142,7 @@ window.onload = function(){
     for(let i = 0; i < tables.length; i++){
         tables[i].onclick = (event) => {
             console.log(tables);
-            console.log(i);
+            checkCamera();
             if(hold){
                 console.log("table3");
                 holdPizza.setAttribute("visible",false);
@@ -152,7 +165,9 @@ window.onload = function(){
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            att.value = "property: position; easing: linear; dur: 1000; to: " + teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').y;
+            posi = teleport[i].getAttribute('position').x +1 + " -0.4 " + teleport[i].getAttribute('position').z - 2;
+            this.console.log(posi);
+            att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
             console.log( teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').z);
             camera.setAttribute('animation', att.value);
         };
