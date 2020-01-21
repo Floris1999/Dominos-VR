@@ -12,10 +12,11 @@
 
 
 
+
+
 </head>
 <body>
-
-  <a-scene id="js--scene">
+  <a-scene id="js--scene" visible="true">
     <!-- Assets -->
     <a-assets>
       <!-- Ingredienten voor in hand-->
@@ -98,6 +99,7 @@
       <a-asset-item id='oven_1-glb' src="../media/oven state 1/oven1.glb"></a-asset-item>
       <a-asset-item id='oven_2-glb' src="../media/oven state 2/oven2.glb"></a-asset-item>
       <a-asset-item id='portal-glb' src="../media/portal/portal.glb"></a-asset-item>
+      <a-asset-item id='waterdruppel-glb' src="../media/teleporting/water.glb"></a-asset-item>
     </a-assets>
 
 
@@ -124,15 +126,12 @@
 
   <a-text id="js--cameratxt" value="Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
     </a-camera>
-
-
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity id="js--werkbank3" position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity class="js--werkbank" position="0.772 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-
-    <a-entity position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
+    <a-entity id="js--sink" class="clickable" position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
 
     <!-- Bakjes -->
     <a-entity position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
@@ -229,12 +228,19 @@
 
     <a-box id="js--table" position="-3.396 0.5 -2.567" rotation="0 -90 0" color="#4CC3D9" width='11'></a-box>
 
+    <!-- waterdruppel -->
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 1 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.110 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.885 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.105 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.770 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <!-- <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.820 -5.330; dur: 500; easing: linear; loop: true;"></a-entity>
+    <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
-    <a-plane class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-circle class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-circle>
     <a-plane class="js--teleport clickable" position="1.293 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
     <a-plane class="js--teleport clickable" position="4.527 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
     <a-plane class="js--teleport clickable" position="6.071 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <!-- <a-entity class="js--teleport clickable" scale="0.03 0.03 0.03" position="-0.923 0.18 -3.012" rotation="0 -90 0" obj-model="obj: #teleport-obj; mtl:#teleport-mtl"></a-entity> -->
 
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
@@ -243,6 +249,7 @@
       <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--ananas_pizza" class="js--pizzaIngredients" position="0 0.4 0" rotation="0 0 0" scale=".4 .4 .4" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
     </a-entity>
+
 
 
 
