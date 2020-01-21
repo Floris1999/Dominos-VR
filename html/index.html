@@ -46,11 +46,11 @@
       <a-asset-item id='salami_hoop_alt-glb' src="../media/salami/salami_hoopje_alt.glb"></a-asset-item>
 
       <!-- PNG ingrediënten hoopjes-->
-      <img id="kaas_hoop-png" src="../media/ingredienten_jpg/kaas_hoop.png"></img>
-      <img id="ham_hoop-png" src="../media/ingredienten_jpg/ham_hoop.png"></img>
-      <img id="shoarma_hoop-png" src="../media/ingredienten_jpg/shoarma_hoop.png"></img>
-      <img id="salami_hoop-png" src="../media/ingredienten_jpg/salami_hoop.png"></img>
-      <img id="ananas_hoop-png" src="../media/ingredienten_jpg/ananas_hoop.png"></img>
+      <img id="kaas_hoop-png" src="../media/ingredienten_jpg/kaas_hoop.PNG"></img>
+      <img id="ham_hoop-png" src="../media/ingredienten_jpg/ham_hoop.PNG"></img>
+      <img id="shoarma_hoop-png" src="../media/ingredienten_jpg/shoarma_hoop.PNG"></img>
+      <img id="salami_hoop-png" src="../media/ingredienten_jpg/salami_hoop.PNG"></img>
+      <img id="ananas_hoop-png" src="../media/ingredienten_jpg/ananas_hoop.PNG"></img>
 
       <!-- Ingredienten op pizza -->
       <a-asset-item id="champignon_on_pizza-glb" src="../media/champignon/champignon_op_pizza.glb"></a-asset-item>
@@ -81,13 +81,13 @@
       <!-- Utensils -->
       <a-asset-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-asset-item>
       <a-asset-item id='soeplepel_saus-glb' src="../media/soeplepel/soeplepel_saus.glb"></a-asset-item>
-      <a-asset-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzaCutter3.glb"></a-asset-item>
+      <a-asset-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzacutter3.glb"></a-asset-item>
       <a-asset-item id='tomatensaus-glb' src="../media/Tomatensaus/tomatensausbak_test.glb"></a-asset-item>
 
       <!-- Items -->
       <a-asset-item id="pizzadoos-obj" src="../media/pizzadoos/Pizzareal.obj"></a-asset-item>
       <a-asset-item id="pizzadoos-mtl" src="../media/pizzadoos/Pizzareal.mtl"></a-asset-item>
-      <a-asset-item id='handschoenendoosje-glb' src="../media/handschoenendoosje/handschoenendoosje.glb"></a-asset-item>
+      <a-asset-item id='handschoenendoosje-glb' src="../media/Handschoenendoosje/handschoenendoosje.glb"></a-asset-item>
       <a-asset-item id='zeep-glb' src="../media/soap/soap.glb"></a-asset-item>
       <a-asset-item id='krijtbord-glb' src="../media/krijtbord/krijtbord.glb"></a-asset-item>
       <a-asset-item id='scherm-glb' src="../media/scherm/scherm.glb"></a-asset-item>
@@ -96,7 +96,7 @@
       <a-asset-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-asset-item>
       <a-asset-item id='werkbank-glb' src="../media/werkbank/werkbanknormaal_original.glb"></a-asset-item>
       <a-asset-item id='sink-glb' src="../media/sink/sink.glb"></a-asset-item>
-      <a-asset-item id='bakje-glb' src="../media/ingredientenbakje/bakje.glb"></a-asset-item>
+      <a-asset-item id='bakje-glb' src="../media/Ingredientenbakje/bakje.glb"></a-asset-item>
       <a-asset-item id='oven_1-glb' src="../media/oven state 1/oven1.glb"></a-asset-item>
       <a-asset-item id='oven_2-glb' src="../media/oven state 2/oven2.glb"></a-asset-item>
       <a-asset-item id='portal-glb' src="../media/portal/portal.glb"></a-asset-item>
@@ -105,7 +105,7 @@
 
 
 
-    <a-camera id="js--camera" position="0 0 0">
+    <a-camera id="js--camera" position="-2 1.8 -3">
       <a-entity
         id="js--cursor"
         animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -133,7 +133,6 @@
   <a-text id="js--cameratxt" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
     </a-camera>
 
-<a-entity class="verplaatstkamer" position="0.879 -2.026 2.657">
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" class="js--werkbank" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
@@ -262,9 +261,6 @@
       <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
       <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
     </a-entity>
-
-</a-entity>
-
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
   </a-scene>
