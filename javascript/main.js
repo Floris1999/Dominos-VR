@@ -108,7 +108,7 @@ window.onload = function(){
         this.console.log(posi);
         if( posi == "0 0 0"){
             this.console.log("test");
-            camera.setAttribute('position', '-4 2 5');
+            camera.setAttribute('position', '-2 1.8 -3');
         }
     }
 
