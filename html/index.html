@@ -69,6 +69,10 @@
       <a-asset-item id='pizzabodem_rauw_saus_fase_3-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb"></a-asset-item>
       <a-asset-item id='soeplepel_saus-glb' src="../media/soeplepel/soeplepel_saus.glb"></a-asset-item>
 
+      <a-asset-item id='waterdruppel-glb' src="../media/teleporting/water.glb"></a-asset-item>
+
+
+
 
     </a-assets>
 
@@ -102,7 +106,7 @@
     <a-entity id="js--werkbank3" position="0.75 0 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity class="js--werkbank" position="0.772 0 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
 
-    <a-entity position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
+    <a-entity id="js--sink" class="clickable" position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
     <!-- Bakjes -->
     <a-entity position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
     <a-entity position="4.03 0.98 -5.93" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
@@ -185,6 +189,12 @@
 
     <a-box id="js--table" position="-3.396 0.5 -2.567" rotation="0 -90 0" color="#4CC3D9" width='11'></a-box>
 
+    <!-- waterdruppel -->
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 1 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.110 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.885 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.105 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.770 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <!-- <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.820 -5.330; dur: 500; easing: linear; loop: true;"></a-entity>
+    <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
     <a-circle class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-circle>
@@ -196,16 +206,13 @@
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-<<<<<<< HEAD
-    <!-- <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb"></a-entity> -->
-=======
     <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb">
       <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--ananas_pizza" class="js--pizzaIngredients" position="0 0.4 0" rotation="0 0 0" scale=".4 .4 .4" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
     </a-entity>
 
 
->>>>>>> development
+
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
   </a-scene>

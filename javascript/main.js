@@ -47,9 +47,12 @@ window.onload = function(){
     const tomatensaus = document.getElementById("js--tomatensaus");
     const lepel = document.getElementById("js--lepel");
 
-    //startgame variabele
 
-    const startGame = document.getElementById("js--startgame");
+    //kraanwater
+
+    const sink = document.getElementById("js--sink");
+    var waterdruppels = document.getElementsByClassName('js--waterdruppels');
+    kraanAan = false;
 
 
 
@@ -74,7 +77,7 @@ window.onload = function(){
     this.console.log(holdPizza)
 
 
-    
+
     addListeners();
 
     var hold = false;
@@ -173,7 +176,7 @@ window.onload = function(){
 
     makePizza = () => {
         for(let i = 0; i < ingredientsList.length; i++){
-            test2[i].setAttribute("visible",true);  
+            test2[i].setAttribute("visible",true);
             // if(ingredientsList[i][1]){
             //     element = ingredientsList[i][0];
             //     test2.setAttribute("visible",true);
@@ -328,8 +331,25 @@ window.onload = function(){
       scene2.setAttribute("visible", false);
   }
 
-  startGame.onclick = () => {
-    switchScene();
+
+  sink.onclick = () => {
+    functioneerKraan();
+  }
+
+  function functioneerKraan(){
+    kraanAan = true;
+    waterdruppels[0].setAttribute("visible",true);
+    waterdruppels[1].setAttribute("visible",true);
+    waterdruppels[2].setAttribute("visible",true);
+
+    if (kraanAan == true) {
+      sink.onclick = () => {
+        kraanAan = false;
+        waterdruppels[0].setAttribute("visible",false);
+        waterdruppels[1].setAttribute("visible",false);
+        waterdruppels[2].setAttribute("visible",false);
+      }
+    }
   }
 
 }
