@@ -152,12 +152,8 @@ window.onload = function(){
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            let posi = teleport[i].getAttribute('position').x  + " 0 " + teleport[i].getAttribute('position').z;
-            console.log(teleport[i].getAttribute('position'));
-            console.log(posi);
+            let posi = (teleport[i].getAttribute('position').x + 0.879)  + " 0 " + (teleport[i].getAttribute('position').z + 2.657);
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
-
-            console.log( teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').z);
             camera.setAttribute('animation', att.value);
         };
     };
@@ -341,7 +337,7 @@ window.onload = function(){
         doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_2.glb");
         doughfase1.setAttribute('animation', att.value);
       }, 2000)
-      
+
       setTimeout(() => {
         doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
 
