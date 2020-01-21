@@ -60,6 +60,15 @@ window.onload = function(){
     const salami = document.getElementsByClassName('js--salamiClass');
     const shoarma = document.getElementsByClassName('js--shoarmaClass');
     const tomaat = document.getElementsByClassName('js--tomaatClass');
+    
+    //kraanwater
+
+    const sink = document.getElementById("js--sink");
+    var waterdruppels = document.getElementsByClassName('js--waterdruppels');
+    kraanAan = false;
+
+
+
 
     var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false]]
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
@@ -358,6 +367,33 @@ window.onload = function(){
   removeClickAble = () => {
     for(let i = 0; i < tables.length; i++){
         tables[i].classList.remove("clickable");
+    }
+  }
+
+
+  function switchScene(){
+      scene.setAttribute("visible", true);
+      scene2.setAttribute("visible", false);
+  }
+
+
+  sink.onclick = () => {
+    functioneerKraan();
+  }
+
+  function functioneerKraan(){
+    kraanAan = true;
+    waterdruppels[0].setAttribute("visible",true);
+    waterdruppels[1].setAttribute("visible",true);
+    waterdruppels[2].setAttribute("visible",true);
+
+    if (kraanAan == true) {
+      sink.onclick = () => {
+        kraanAan = false;
+        waterdruppels[0].setAttribute("visible",false);
+        waterdruppels[1].setAttribute("visible",false);
+        waterdruppels[2].setAttribute("visible",false);
+      }
     }
   }
 

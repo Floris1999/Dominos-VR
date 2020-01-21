@@ -12,45 +12,45 @@
 
 
 
+
+
 </head>
 <body>
-
-  <a-scene id="js--scene">
+  <a-scene id="js--scene" visible="true">
     <!-- Assets -->
     <a-assets>
-      <a-asset-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-asset-item>
-      <a-asset-item id='werkbank-glb' src="../media/werkbank/werkbanknormaal_original.glb"></a-asset-item>
-      <a-asset-item id='sink-glb' src="../media/sink/sink.glb"></a-asset-item>
-      <a-asset-item id='bakje-glb' src="../media/ingredientenbakje/bakje.glb"></a-asset-item>
-
-      <!-- Ingredienten -->
-      <a-asset-item id='kaas_hoop-glb' src="../media/kaas/cheese_hoopje.glb"></a-asset-item>
-      <a-asset-item id='shoarma_hoop-glb' src="../media/shoarma/shoarma_hoopje.glb"></a-asset-item>
-      <a-asset-item id='ananas-glb' src="../media/ananas/pinapple_1_hoopje.glb"></a-asset-item>
-      <a-asset-item id='ham_hoop-glb' src="../media/ham/ham_hoopje.glb"></a-asset-item>
-      <a-asset-item id='salami-glb' src="../media/salami/salami_1_hoopje.glb"></a-asset-item>
+      <!-- Ingredienten voor in hand-->
+      <a-asset-item id="ananas-glb" src="../media/ananas/pinapple_2.glb"></a-asset-item>
       <a-asset-item id="champignon-glb" src="../media/champignon/champignon.glb"></a-asset-item>
+      <a-asset-item id="ham-glb" src="../media/ham/ham_los.glb"></a-asset-item>
+      <a-asset-item id="kaas-glb" src="../media/kaas/cheese_los.glb"></a-asset-item>
       <a-asset-item id="mozzarella-glb" src="../media/mozzarella/mozzarella_los.glb"></a-asset-item>
+      <a-asset-item id="salami-glb" src="../media/salami/salami_2.glb"></a-asset-item>
+      <a-asset-item id="shoarma-glb" src="../media/shoarma/shoarma_los.glb"></a-asset-item>
       <a-asset-item id="tomaatje-glb" src="../media/tomaatje/tomaatje.glb"></a-asset-item>
-
-      <a-asset-item id='oven_1-glb' src="../media/oven state 1/oven1.glb"></a-asset-item>
-      <a-asset-item id='oven_2-glb' src="../media/oven state 2/oven2.glb"></a-asset-item>
-      <a-asset-item id='pizzabodem-glb' src="../media/pizzabodem/pizzabodem.glb"></a-asset-item>
-      <a-asset-item id='deegbal_fase_1-glb' src="../media/deegbal_fases/deegbal_fase_1.glb"></a-asset-item>
-      <a-asset-item id='deegbal_fase_2-glb' src="../media/deegbal_fases/deegbal_fase_2.glb"></a-asset-item>
-      <a-asset-item id='deegbal_fase_3-glb' src="../media/deegbal_fases/deegbal_fase_3.glb"></a-asset-item>
-      <a-asset-item id='handschoenendoosje-glb' src="../media/handschoenendoosje/handschoenendoosje.glb"></a-asset-item>
-      <a-asset-item id='zeep-glb' src="../media/soap/soap.glb"></a-asset-item>
       <a-asset-item id='sausfles_knoflook-glb' src="../media/sausfles/sausfles_knoflook.glb"></a-asset-item>
       <a-asset-item id='sausfles_bbq-glb' src="../media/sausfles/sausfles_bbq.glb"></a-asset-item>
-      <a-asset-item id='krijtbord-glb' src="../media/krijtbord/krijtbord.glb"></a-asset-item>
-      <a-asset-item id='scherm-glb' src="../media/scherm/scherm.glb"></a-asset-item>
-      <a-asset-item id='tomatensaus-glb' src="../media/Tomatensaus/tomatensausbak_test.glb"></a-asset-item>
-      <a-asset-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-asset-item>
-      <a-asset-item id='pizzabodem_rauw_saus-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb"></a-asset-item>
-      <a-asset-item id="pizzadoos-obj" src="../media/pizzadoos/Pizzareal.obj"></a-asset-item>
-      <a-asset-item id="pizzadoos-mtl" src="../media/pizzadoos/Pizzareal.mtl"></a-asset-item>
-      <a-asset-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzaCutter3.glb"></a-asset-item>
+
+      <!-- Ingredienten hoopjes -->
+      <a-asset-item id='kaas_hoop-glb' src="../media/kaas/cheese_hoopje.glb"></a-asset-item>
+      <a-asset-item id='shoarma_hoop-glb' src="../media/shoarma/shoarma_hoopje.glb"></a-asset-item>
+      <a-asset-item id='ananas_hoop-glb' src="../media/ananas/pinapple_1_hoopje.glb"></a-asset-item>
+      <a-asset-item id='ham_hoop-glb' src="../media/ham/ham_hoopje.glb"></a-asset-item>
+      <a-asset-item id='salami-glb' src="../media/salami/salami_1_hoopje.glb"></a-asset-item>
+
+      <!-- Ingredienten hoopjes alternatief-->
+      <a-asset-item id='kaas_hoop_alt-glb' src="../media/kaas/cheese_hoopje_alt.glb"></a-asset-item>
+      <a-asset-item id='shoarma_hoop_alt-glb' src="../media/shoarma/shoarma_hoopje_alt.glb"></a-asset-item>
+      <a-asset-item id='ananas_hoop_alt-glb' src="../media/ananas/pineapple_hoopje_alt.glb"></a-asset-item>
+      <a-asset-item id='ham_hoop_alt-glb' src="../media/ham/ham_hoopje_alt.glb"></a-asset-item>
+      <a-asset-item id='salami_hoop_alt-glb' src="../media/salami/salami_hoopje_alt.glb"></a-asset-item>
+
+      <!-- PNG ingrediënten hoopjes-->
+      <img id="kaas_hoop-png" src="../media/ingredienten_jpg/kaas_hoop.png"></img>
+      <img id="ham_hoop-png" src="../media/ingredienten_jpg/ham_hoop.png"></img>
+      <img id="shoarma_hoop-png" src="../media/ingredienten_jpg/shoarma_hoop.png"></img>
+      <img id="salami_hoop-png" src="../media/ingredienten_jpg/salami_hoop.png"></img>
+      <img id="ananas_hoop-png" src="../media/ingredienten_jpg/ananas_hoop.png"></img>
 
       <!-- Ingredienten op pizza -->
       <a-asset-item id="champignon_on_pizza-glb" src="../media/champignon/champignon_op_pizza.glb"></a-asset-item>
@@ -61,12 +61,45 @@
       <a-asset-item id="shoarma_on_pizza-glb" src="../media/shoarma/shoarma_op_pizza.glb"></a-asset-item>
       <a-asset-item id="tomaat_on_pizza-glb" src="../media/tomaatje/tomaatje_op_pizza.glb"></a-asset-item>
       <a-asset-item id="cheese_op_pizza-glb" src="../media/kaas/cheese_op_pizza.glb"></a-asset-item>
+      <img id="knoflook_saus_op_pizza-png" src="../media/knoflook_saus/pizza_shoarma_saus.png">
 
+      <!-- Deegbal naar pizzabodem -->
+      <a-asset-item id='deegbal_fase_1-glb' src="../media/deegbal_fases/deegbal_fase_1.glb"></a-asset-item>
+      <a-asset-item id='deegbal_fase_2-glb' src="../media/deegbal_fases/deegbal_fase_2.glb"></a-asset-item>
+      <a-asset-item id='deegbal_fase_3-glb' src="../media/deegbal_fases/deegbal_fase_3.glb"></a-asset-item>
+
+      <!-- Ongekookte pizzabodem-->
       <a-asset-item id='pizzabodem_rauw_saus_fase_1-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb"></a-asset-item>
       <a-asset-item id='pizzabodem_rauw_saus_fase_2-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb"></a-asset-item>
       <a-asset-item id='pizzabodem_rauw_saus_fase_3-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb"></a-asset-item>
-      <a-asset-item id='soeplepel_saus-glb' src="../media/soeplepel/soeplepel_saus.glb"></a-asset-item>
+      <a-asset-item id='pizzabodem_rauw_saus-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb"></a-asset-item>
 
+      <!-- Gekookte pizzabodem -->
+      <a-asset-item id='pizzabodem-glb' src="../media/pizzabodem/pizzabodem.glb"></a-asset-item>
+
+      <!-- Utensils -->
+      <a-asset-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-asset-item>
+      <a-asset-item id='soeplepel_saus-glb' src="../media/soeplepel/soeplepel_saus.glb"></a-asset-item>
+      <a-asset-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzaCutter3.glb"></a-asset-item>
+      <a-asset-item id='tomatensaus-glb' src="../media/Tomatensaus/tomatensausbak_test.glb"></a-asset-item>
+
+      <!-- Items -->
+      <a-asset-item id="pizzadoos-obj" src="../media/pizzadoos/Pizzareal.obj"></a-asset-item>
+      <a-asset-item id="pizzadoos-mtl" src="../media/pizzadoos/Pizzareal.mtl"></a-asset-item>
+      <a-asset-item id='handschoenendoosje-glb' src="../media/handschoenendoosje/handschoenendoosje.glb"></a-asset-item>
+      <a-asset-item id='zeep-glb' src="../media/soap/soap.glb"></a-asset-item>
+      <a-asset-item id='krijtbord-glb' src="../media/krijtbord/krijtbord.glb"></a-asset-item>
+      <a-asset-item id='scherm-glb' src="../media/scherm/scherm.glb"></a-asset-item>
+
+      <!-- Omgeving -->
+      <a-asset-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-asset-item>
+      <a-asset-item id='werkbank-glb' src="../media/werkbank/werkbanknormaal_original.glb"></a-asset-item>
+      <a-asset-item id='sink-glb' src="../media/sink/sink.glb"></a-asset-item>
+      <a-asset-item id='bakje-glb' src="../media/ingredientenbakje/bakje.glb"></a-asset-item>
+      <a-asset-item id='oven_1-glb' src="../media/oven state 1/oven1.glb"></a-asset-item>
+      <a-asset-item id='oven_2-glb' src="../media/oven state 2/oven2.glb"></a-asset-item>
+      <a-asset-item id='portal-glb' src="../media/portal/portal.glb"></a-asset-item>
+      <a-asset-item id='waterdruppel-glb' src="../media/teleporting/water.glb"></a-asset-item>
     </a-assets>
 
 
@@ -103,7 +136,7 @@
     <a-entity id="js--werkbank3" class="js--werkbank" position="0.75 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
     <a-entity class="js--werkbank" position="0.772 -0.045 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
 
-    <a-entity position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
+    <a-entity id="js--sink" class="clickable" position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
 
     <!-- Bakjes -->
     <a-entity class="ingredienten_bakje clickable" id="bakje_kaas" position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
@@ -112,44 +145,57 @@
     <a-entity class="ingredienten_bakje clickable" id="bakje_shoarma" position="4.994 0.98 -5.9" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
     <a-entity class="ingredienten_bakje clickable" id="bakje_tomaat" position="5.49 0.98 -5.86" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
     <a-entity position="6.08 0.953 -5.72" rotation="0 90 0" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
-    <!-- Ingredienten -->
-    <!-- <a-entity position="3.386 1.132 -5.786" rotation="25 0 0" scale="1 1 1" gltf-model="#kaas_hoop-glb"></a-entity>
-    <a-entity position="4.07 1.12 -5.91" rotation="0 90 25" scale=".3 .3 .28" gltf-model="#ham_hoop-glb"></a-entity>
-    <a-entity position="4.657 1.152 -5.984" rotation="0 90 25" scale=".3 .3 .3" gltf-model="#shoarma_hoop-glb"></a-entity>
-    <a-entity position="4.952 1.065 -5.82" rotation="0 90 25" scale=".25 .3 .287" gltf-model="#ananas-glb"></a-entity>
-    <a-entity position="5.485 1.124 -5.903" rotation="25 0 0" scale=".3 .3 .3" gltf-model="#salami-glb"></a-entity> -->
+
+    <!-- Ingredienten in bakjes -->
+    <!-- <a-entity position="3.386 1.132 -5.786" rotation="25 0 0" scale="1 1 1.1" gltf-model="#kaas_hoop_alt-glb"></a-entity>
+    <a-entity position="4.07 1.12 -5.91" rotation="0 90 25" scale=".29 .3 .275" gltf-model="#ham_hoop_alt-glb"></a-entity>
+    <a-entity position="4.514 1.134 -5.836" rotation="0 90 25" scale=".23 .3 .3" gltf-model="#shoarma_hoop_alt-glb"></a-entity>
+    <a-entity position="4.952 1.065 -5.82" rotation="0 90 25" scale=".25 .3 .287" gltf-model="#ananas_hoop_alt-glb"></a-entity>
+    <a-entity position="5.485 1.13 -5.903" rotation="25 0 0" scale=".26 .23 .23" gltf-model="#salami_hoop_alt-glb"></a-entity> -->
+    <a-image position="3.386 1.200 -5.750" rotation="115 0 0" scale=".66 .420 .93" src="#kaas_hoop-png"></a-image>
+    <a-image position="4.036 1.12 -5.861" rotation="115 0 0" scale=".37 .3 .28" src="#ham_hoop-png"></a-image>
+    <a-image position="4.507 1.12 -5.847" rotation="115 0 0" scale=".38 .28 .3" src="#shoarma_hoop-png"></a-image>
+    <a-image position="5.002 1.12 -5.82" rotation="115 0 0" scale=".37 .28 .287" src="#ananas_hoop-png"></a-image>
+    <a-image position="5.485 1.12 -5.787" rotation="115 0 0" scale=".36 .27 .3" src="#salami_hoop-png"></a-image>
+
     <!-- Oven -->
     <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb" visible="true"></a-entity>
     <a-entity id="js--oven2" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_2-glb" visible="false"></a-entity>
+
     <!-- Pizzabodem -->
     <!-- <a-entity position="4.84 1.26 -0.701" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity> -->
     <a-entity id="js--fase2" class="clickable" position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
     <a-entity id="js--fase1" class="clickable" position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
+
     <!-- Handschoenendoosje -->
     <a-entity position="-1.152 0.988 -5.572" rotation="0 270 0" scale="0.25 0.25 0.25" gltf-model="#handschoenendoosje-glb"></a-entity>
     <a-image  position="-1.078 1.127 -5.422" scale="0.15 0.15 0.15" src="../media/Handschoenendoosje/zwart-handschoen.png"></a-image>
     <a-text position="-1.300 1.168 -5.422" scale="0.19 0.19 0.19" color="#000000" value="Handschoenen"></a-text>
+
     <!-- Sausflessen -->
     <a-entity position="6.467 1.1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
     <a-entity position="6.645 1.1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
+
     <!-- Zeep -->
     <a-entity position="-0.472 1.080 -5.302" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
-    <!-- krijtbord -->
+
+    <!-- Krijtbord -->
     <a-entity position="1.231 2.376 -5.848" rotation="270 0 0" scale="1 0.3 0.3" gltf-model="#krijtbord-glb"></a-entity>
+
     <!-- Scherm -->
     <a-entity position="4.69 1.897 -4.958" rotation="0 90 10" gltf-model="#scherm-glb"></a-entity>
 
-    <!-- tomatensaus -->
+    <!-- Tomatensaus -->
     <a-entity id="js--tomatensaus" class="clickable" position="-0.186 1.165 -5.25"  scale="0.12 0.12 0.12" gltf-model="#tomatensaus-glb"></a-entity>
     <a-image src="../media/Tomatensaus/logo.png" position="-0.186 1.230 -5.016" scale="0.12 0.12 0.12"></a-image>
 
     <!-- pizzadoos -->
     <a-entity id="js--pizzaDoos" class="clickable" scale="0.6 0.6 0.6" position="1.377 1.142 -0.646" rotation="0 -90 0" obj-model="obj: #pizzadoos-obj; mtl:#pizzadoos-mtl"></a-entity>
 
-    <!-- pizzasnijder -->
+    <!-- Pizzasnijder -->
     <a-entity scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
 
-    <!-- lepel -->
+    <!-- Lepel -->
     <a-entity id="js--lepel" class="clickable" position="-0.264 1.218 -5.25"  scale="0.08 0.08 0.08" gltf-model="#lepel-glb"></a-entity>
 
     <!-- Omgeving -->
@@ -187,12 +233,19 @@
 
     <a-box id="js--table" position="-3.396 0.5 -2.567" rotation="0 -90 0" color="#4CC3D9" width='11'></a-box>
 
+    <!-- waterdruppel -->
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 1 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.110 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.885 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.105 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.770 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
+    <!-- <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.820 -5.330; dur: 500; easing: linear; loop: true;"></a-entity>
+    <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
-    <a-plane class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-circle class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-circle>
     <a-plane class="js--teleport clickable" position="1.293 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
     <a-plane class="js--teleport clickable" position="4.527 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
     <a-plane class="js--teleport clickable" position="6.071 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <!-- <a-entity class="js--teleport clickable" scale="0.03 0.03 0.03" position="-0.923 0.18 -3.012" rotation="0 -90 0" obj-model="obj: #teleport-obj; mtl:#teleport-mtl"></a-entity> -->
 
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
@@ -204,6 +257,7 @@
       <a-entity id="js--shoarma" class="js--shoarmaClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#shoarma_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.0ddd4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
     </a-entity>
+
 
 
 
