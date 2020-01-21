@@ -76,6 +76,7 @@
 
       <!-- Gekookte pizzabodem -->
       <a-asset-item id='pizzabodem-glb' src="../media/pizzabodem/pizzabodem.glb"></a-asset-item>
+      <a-asset-item id='pizzabodem_saus-glb' src="../media/pizzabodem_saus/pizzabodem_saus.glb"></a-asset-item>
 
       <!-- Utensils -->
       <a-asset-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-asset-item>
@@ -121,10 +122,11 @@
 
     <a-entity id="js--holdPizza" class="clickable" position="0 -0.5 -1.2" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="false">
       <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
-      <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
-      <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
-      <a-entity id="js--shoarma" class="js--shoarmaClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#shoarma_on_pizza-glb" visible="false"></a-entity>
-      <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
+      <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
+      <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
+      <a-entity id="js--shoarma" class="js--shoarmaClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#shoarma_on_pizza-glb" visible="false"></a-entity>
+      <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
+      <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
     </a-entity>
 
 
@@ -147,7 +149,7 @@
     <a-entity class="ingredienten_bakje clickable" id="bakje_salami" position="4.5 0.98 -5.915" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
     <a-entity class="ingredienten_bakje clickable" id="bakje_shoarma" position="4.994 0.98 -5.9" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
     <a-entity class="ingredienten_bakje clickable" id="bakje_tomaat" position="5.49 0.98 -5.86" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
-    <a-entity position="6.08 0.953 -5.72" rotation="0 90 0" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="clickable" id="js--bakje_sausflessen" position="6.08 0.953 -5.72" rotation="0 90 0" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
 
     <!-- Ingredienten in bakjes -->
     <!-- <a-entity position="3.386 1.132 -5.786" rotation="25 0 0" scale="1 1 1.1" gltf-model="#kaas_hoop_alt-glb"></a-entity>
@@ -176,7 +178,7 @@
     <a-text position="-1.300 1.168 -5.422" scale="0.19 0.19 0.19" color="#000000" value="Handschoenen"></a-text>
 
     <!-- Sausflessen -->
-    <a-entity position="6.467 1.1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
+    <a-entity id="js--sausfles_knoflook" class="clickable" position="6.467 1.1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
     <a-entity position="6.645 1.1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
 
     <!-- Zeep -->
@@ -244,10 +246,10 @@
     <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
-    <a-circle class="js--teleport clickable" position="-0.923 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-circle>
-    <a-plane class="js--teleport clickable" position="1.293 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
-    <a-plane class="js--teleport clickable" position="4.527 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
-    <a-plane class="js--teleport clickable" position="6.071 0.18 -3.012" color="blue" height="1" width="1" rotation="-90 0 0"></a-plane>
+    <a-entity class="js--teleport clickable" position="-0.923 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.293 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.527 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="6.071 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <!-- <a-entity class="js--teleport clickable" scale="0.03 0.03 0.03" position="-0.923 0.18 -3.012" rotation="0 -90 0" obj-model="obj: #teleport-obj; mtl:#teleport-mtl"></a-entity> -->
 
 
@@ -258,7 +260,8 @@
       <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--shoarma" class="js--shoarmaClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#shoarma_on_pizza-glb" visible="false"></a-entity>
-      <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.0ddd4 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
+      <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
+      <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
     </a-entity>
 
 </a-entity>
