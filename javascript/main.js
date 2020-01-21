@@ -79,12 +79,35 @@ window.onload = function(){
     const handschoenen = document.getElementById('js--handschoenen');
     var handschoenGebruikt = false;
 
+    //tekst monitor
+    const txt1 = document.getElementById('js--ingredient1');
+    const txt2 = document.getElementById('js--ingredient2');
+    const txt3 = document.getElementById('js--ingredient3');
+    const txt4 = document.getElementById('js--ingredient4');
+    const txt5 = document.getElementById('js--ingredient5');
 
 
     var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false] , [knoflook, false]];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
+    const pizzaMargherita = ["kaas", "tomatensaus","Pizza Margerita"];
+    const pizzaShoarma = ["kaas", "tomatensaus", "Shoarma", "knoflooksaus", "Pizza Shoarma"];
+    const pizzaSalamis = ["kaas", "tomatensaus", "salami", "Pizza Salami"];
+
+    const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
+
+//text op de monitor showen
+    txt1.setAttribute("value", verschillendepizza[1][verschillendepizza[1].length-1]);
+    txt2.setAttribute("value", verschillendepizza[1][0]);
+    txt3.setAttribute("value", verschillendepizza[1][1]);
+    txt4.setAttribute("value", verschillendepizza[1][2]);
+    txt5.setAttribute("value", verschillendepizza[1][3]);
+    console.log(txt5);
+
+
+
+console.log(verschillendepizza);
     // Variabelen pickup objecten
     var hold = false;
     var holdLepel = false;
@@ -371,8 +394,13 @@ window.onload = function(){
   setText("Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!", 8000);
 
 
+  const pizzaSalami = [true, false, true, false, true];
+  // const pizzaMargherita = [true, false, false, false, true];
+  // var receptenLijst = [pizzaSalami, pizzaMargherita];
+  // console.log(receptenLijst[1]);
 
-  pizzaSalami = [true, false, true, false, true];
+
+
 
   pizzaDoos.onclick = () => {
     if(hold){
@@ -510,6 +538,10 @@ window.onload = function(){
     else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
       setText("Stop zeep op de handen en was ze daarna!", 4000);
     }
+  }
+
+  function pizzaRecept(){
+    txt1.setAttribute("value", )
   }
 
 
