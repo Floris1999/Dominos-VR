@@ -134,7 +134,7 @@ window.onload = function(){
                 console.log("table3");
                 holdPizza.setAttribute("visible",false);
                 pizzaOnTable.setAttribute("visible",true);
-                let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
+                let posi = (event.detail.intersection.point.x - 0.879) + " 1.085 " + (event.detail.intersection.point.z - 2.657);
                 pizzaOnTable.setAttribute("position", posi);
 
                 hold = false;
