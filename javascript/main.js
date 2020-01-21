@@ -134,7 +134,7 @@ window.onload = function(){
                 console.log("table3");
                 holdPizza.setAttribute("visible",false);
                 pizzaOnTable.setAttribute("visible",true);
-                let posi = (event.detail.intersection.point.x - 0.879) + " 1.085 " + (event.detail.intersection.point.z - 2.657);
+                let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
                 pizzaOnTable.setAttribute("position", posi);
 
                 hold = false;
@@ -152,7 +152,7 @@ window.onload = function(){
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            let posi = (teleport[i].getAttribute('position').x + 0.879)  + " 0 " + (teleport[i].getAttribute('position').z + 2.657);
+            let posi = teleport[i].getAttribute('position').x + "0" + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
             camera.setAttribute('animation', att.value);
         };
