@@ -85,23 +85,6 @@ window.onload = function(){
     this.console.log(pizzaDoos);
 
 
-    // tomatensaus.onclick = (event) => {
-    //     this.console.log("test");
-    //     pizza = document.getElementById('js--pizzaOnTable');
-    //     pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
-    //     setTimeout((event) => {
-    //       pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
-    //     }, 1000)
-    //     setTimeout((event) => {
-    //     pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
-    //     }, 2000)
-    //     setTimeout((event) => {
-    //     pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
-    //   }, 3000)
-    //     currentpizza = "#pizzabodem_rauw_saus-glb"
-    // };
-
-
     addListeners();
 
 
@@ -111,6 +94,7 @@ window.onload = function(){
             child.setAttribute("scale", ".2 .2 .2");
             child.setAttribute("rotation", "0 0 0");
             document.getElementById("js--holdPizza").setAttribute("visible",false);;
+           
             hold = false;
             let att = document.createAttribute("animation");
             att.value = "property: position; easing: linear; dur: 1000; to: 4.84 1.26 -0.701";
@@ -206,7 +190,6 @@ window.onload = function(){
         pizzaOnTable.onclick = (event) => {
             if(holdLepel){
               pizza = document.getElementById('js--pizzaOnTable');
-
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
               setTimeout((event) => {
                 pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
@@ -219,15 +202,15 @@ window.onload = function(){
               holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               }, 3000)
 
+              lepel.remove();
+              holdLepel = false;
             }
             if(!hold){
                 // let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
                 // object.setAttribute("scale", ".25 .25 .25");
                 holdPizza.setAttribute("visible",true);
                 pizzaOnTable.setAttribute("visible",false);
-
                 pizzaOnTable.setAttribute("position", "20 20 20");
-
                 //cheese.setAttribute("visible",true);
                 //document.getElementById('js--pizzaOnTable').remove();
                 table1.setAttribute("class", "clickable");
@@ -282,6 +265,30 @@ window.onload = function(){
 
     doughfase1.onclick= () => {
       hygeniëVoltooid();
+      doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
+      let att = document.createAttribute("animation__turning");
+      att.value = "property: rotation; to: 0 360 0; loop: false; dur: 2000";
+      doughfase1.setAttribute('animation', att.value);
+
+      setTimeout(() => {
+        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_2.glb");
+        doughfase1.setAttribute('animation', att.value);
+      }, 2000)
+      
+      setTimeout(() => {
+        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
+
+        let size = document.createAttribute("animation__scale");
+        size.value += "property: scale; to: .2 .2 .2; loop: false; dur: 2000";
+        //doughfase1.setAttribute('animation__turning', att.value);
+        doughfase1.setAttribute('animation', size.value);
+
+      }, 4000)
+
+      setTimeout(() => {
+        doughfase1.remove();
+        pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
+      }, 6000)
     }
 
     ovenbtn.onclick = () => {
