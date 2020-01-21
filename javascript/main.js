@@ -152,7 +152,11 @@ window.onload = function(){
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            att.value = "property: position; easing: linear; dur: 1000; to: " + teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').y;
+            let posi = teleport[i].getAttribute('position').x  + " 0 " + teleport[i].getAttribute('position').z;
+            console.log(teleport[i].getAttribute('position'));
+            console.log(posi);
+            att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
+
             console.log( teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').z);
             camera.setAttribute('animation', att.value);
         };
