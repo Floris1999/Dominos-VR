@@ -35,7 +35,9 @@ window.onload = function(){
     const opdracht7 = document.getElementById('js--optie7');
     const opdracht8 = document.getElementById('js--optie8');
 
-
+    //Zeep
+    const zeep = document.getElementById('js--zeep');
+    var zeepGebruikt = false;
 
     //state veranderen oven
     const ovenstate1 = document.getElementById('js--oven');
@@ -60,20 +62,26 @@ window.onload = function(){
     const salami = document.getElementsByClassName('js--salamiClass');
     const shoarma = document.getElementsByClassName('js--shoarmaClass');
     const tomaat = document.getElementsByClassName('js--tomaatClass');
-    
+
     //kraanwater
 
     const sink = document.getElementById("js--sink");
     var waterdruppels = document.getElementsByClassName('js--waterdruppels');
-    kraanAan = false;
+    var kraanBezig = false;
+    kraanuitgezetnawassen = false;
 
+
+    //handschoenen
+
+    const handschoenen = document.getElementById('js--handschoenen');
+    var handschoenGebruikt = false;
 
 
 
     var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false]]
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
 
-    
+
 
     var hold = false;
     var holdLepel = false;
@@ -124,7 +132,7 @@ window.onload = function(){
     };
 
 
-    
+
 
     for(let i = 0; i < tables.length; i++){
         tables[i].onclick = (event) => {
@@ -136,7 +144,7 @@ window.onload = function(){
                 pizzaOnTable.setAttribute("visible",true);
                 let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
                 pizzaOnTable.setAttribute("position", posi);
-    
+
                 hold = false;
                 table1.removeAttribute("class");
                 table2.removeAttribute("class");
@@ -152,7 +160,8 @@ window.onload = function(){
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            att.value = "property: position; easing: linear; dur: 1000; to: " + teleport[i].getAttribute('position').x + " 1.6 " + teleport[i].getAttribute('position').z;
+            att.value = "property: position; easing: linear; dur: 1000; to: " + teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').y;
+            console.log( teleport[i].getAttribute('position').x + " -0.4 " + teleport[i].getAttribute('position').z);
             camera.setAttribute('animation', att.value);
         };
     };
@@ -165,36 +174,36 @@ window.onload = function(){
                     ingredientsList[0][1] = true;
                     for(let i = 0; i < ingredientsList.length; i++){
                         this.console.log(ingredientsList[0][0][i]);
-                        ingredientsList[0][0][i].setAttribute("visible",true); 
-                    };  
+                        ingredientsList[0][0][i].setAttribute("visible",true);
+                    };
                     break;
                 case "bakje_ananas":
                         ingredientsList[1][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[1][0][i]);
-                            ingredientsList[1][0][i].setAttribute("visible",true); 
-                        };  
+                            ingredientsList[1][0][i].setAttribute("visible",true);
+                        };
                         break;
                 case "bakje_salami":
                         ingredientsList[2][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[2][0][i]);
-                            ingredientsList[2][0][i].setAttribute("visible",true); 
-                        };  
+                            ingredientsList[2][0][i].setAttribute("visible",true);
+                        };
                         break;
                 case "bakje_shoarma":
                         ingredientsList[3][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[3][0][i]);
-                            ingredientsList[3][0][i].setAttribute("visible",true); 
-                        };  
+                            ingredientsList[3][0][i].setAttribute("visible",true);
+                        };
                         break;
                 case "bakje_tomaat":
                         ingredientsList[4][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[4][0][i]);
-                            ingredientsList[4][0][i].setAttribute("visible",true); 
-                        };  
+                            ingredientsList[4][0][i].setAttribute("visible",true);
+                        };
                         break;
             }
         };
@@ -314,13 +323,15 @@ window.onload = function(){
 
 //In het begin zorgen dat de welkomst text 8sec gezien wordt
 
-    removeText = (time) =>{
+    setText = (text, time) =>{
+      cameratxt.setAttribute("value",text);
         setTimeout(function(){
             cameratxt.setAttribute("value","");
         },time);
     }
 
-  removeText(8000);
+  setText("Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!", 8000);
+
 
 
   pizzaSalami = [true, false, true, false, true];
@@ -350,16 +361,18 @@ window.onload = function(){
         }
 
         if(fouten == 0){
-            cameratxt.setAttribute("value","Goed zo je hebt de pizza goed gemaakt");
-        } 
+            setText("Goed zo je hebt de pizza goed gemaakt", 8000);
+
+        }
         if(fouten == 1){
-            cameratxt.setAttribute("value","Fout je hebt 1 ingredient verkeerd");
+            setText("Fout je hebt 1 ingredient verkeerd", 8000);
+
         }
         if(fouten > 1){
-            cameratxt.setAttribute("value","Fout je hebt "+ fouten + " ingredienten verkeerd");
+            setText("Fout je hebt "+ fouten + " ingredienten verkeerd", 8000);
+
         }
 
-        removeText(8000);
 
     }
   };
@@ -371,31 +384,116 @@ window.onload = function(){
   }
 
 
-  function switchScene(){
-      scene.setAttribute("visible", true);
-      scene2.setAttribute("visible", false);
+
+//   function gebruikZeep(){
+//         setText("Er is zeep op de handen gedaan, zet nu de kraan aan om de handen te wassen!", 8000);
+//         zeepGebruikt = true;
+//
+//         if (zeepGebruikt == true) {
+//           sink.onclick = () => {
+//             functioneerKraan();
+//           }
+//         }
+//
+//         if (zeepGebruikt == false) {
+//           sink.onclick = () => {
+//             setText("Doe eerste zeep op de handen", 3000);
+//           }
+//         }
+//   }
+//
+//   zeep.onclick = () => {
+//     gebruikZeep();
+//   }
+//
+// console.log(zeepGebruikt);
+
+
+
+  function zeepTrue(){
+    zeepGebruikt = true;
+     setText("Er is zeep op de handen gedaan, zet nu de kraan aan om de handen te wassen!", 8000);
   }
 
-
-  sink.onclick = () => {
-    functioneerKraan();
-  }
-
-  function functioneerKraan(){
-    kraanAan = true;
+  function kraanAan(){
+    setText("De handen zijn gewassen, doe nu de kraan uit", 3000);
     waterdruppels[0].setAttribute("visible",true);
     waterdruppels[1].setAttribute("visible",true);
     waterdruppels[2].setAttribute("visible",true);
+    kraanBezig = true;
+  }
 
-    if (kraanAan == true) {
-      sink.onclick = () => {
-        kraanAan = false;
-        waterdruppels[0].setAttribute("visible",false);
-        waterdruppels[1].setAttribute("visible",false);
-        waterdruppels[2].setAttribute("visible",false);
-      }
+  function kraanUit(){
+    setText("De kraan is uit doe de handschoenen aan", 3000);
+    waterdruppels[0].setAttribute("visible",false);
+    waterdruppels[1].setAttribute("visible",false);
+    waterdruppels[2].setAttribute("visible",false);
+    kraanBezig = false;
+  }
+
+  function gebruikHandschoenen(){
+    setText("De handschoenen zijn aangetrokken", 2000);
+    handschoenenGebruikt = true;
+  }
+
+  zeep.onclick = () => {
+    zeepTrue();
+  }
+
+  sink.onclick = () => {
+    console.log(zeepGebruikt);
+    if (kraanBezig == false && zeepGebruikt == true) {
+      kraanAan();
+      console.log("de kraan is aan");
+    }
+    else if (kraanBezig == false && zeepGebruikt == false) {
+      setText("Gebruik eerst zeep voordat de handen zijn gewassen!", 2000);
+    } else {
+      kraanUit();
+      kraanuitgezetnawassen = true;
+      console.log("de kraan is uit");
     }
   }
+
+  handschoenen.onclick = () => {
+
+    if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == true) {
+      gebruikHandschoenen();
+      hygeniëVoltooid();
+    }
+    else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
+        setText("Zet de kraan eerst uit!", 4000);
+    }
+
+    else if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == false) {
+      setText("Was eerst de handen!", 4000);
+    }
+
+    else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
+      setText("Stop zeep op de handen en was ze daarna!", 4000);
+    }
+  }
+
+
+
+
+  // function functioneerKraan(){
+  //   kraanAan = true;
+  //   setText("De handen zijn gewassen, doe nu de kraan uit", 3000);
+  //   waterdruppels[0].setAttribute("visible",true);
+  //   waterdruppels[1].setAttribute("visible",true);
+  //   waterdruppels[2].setAttribute("visible",true);
+  //
+  //   if (kraanAan == true) {
+  //     sink.onclick = () => {
+  //       kraanAan = false;
+  //       setText("De kraan is uit doe de handschoenen aan", 3000);
+  //       waterdruppels[0].setAttribute("visible",false);
+  //       waterdruppels[1].setAttribute("visible",false);
+  //       waterdruppels[2].setAttribute("visible",false);
+  //     }
+  //   }
+  // }
 
 }
 
