@@ -86,24 +86,26 @@ window.onload = function(){
     const txt4 = document.getElementById('js--ingredient4');
     const txt5 = document.getElementById('js--ingredient5');
 
+    //kruisje monitor
+
+    const kruisjeDesktop1 = document.getElementById("js--kruisje-desk1");
+    const kruisjeDesktop2 = document.getElementById("js--kruisje-desk2");
+    const kruisjeDesktop3 = document.getElementById("js--kruisje-desk3");
+    const kruisjeDesktop4 = document.getElementById("js--kruisje-desk4");
+
+
 
     var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false] , [knoflook, false]];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
-    const pizzaMargherita = ["kaas", "tomatensaus","Pizza Margerita"];
-    const pizzaShoarma = ["kaas", "tomatensaus", "Shoarma", "knoflooksaus", "Pizza Shoarma"];
-    const pizzaSalamis = ["kaas", "tomatensaus", "salami", "Pizza Salami"];
+    const pizzaMargherita = ["tomatensaus", "kaas","Pizza Margerita"];
+    const pizzaShoarma = ["tomatensaus", "kaas", "Shoarma", "knoflooksaus", "Pizza Shoarma"];
+    const pizzaSalamis = ["tomatensaus", "kaas", "salami", "Pizza Salami"];
 
     const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
 
-//text op de monitor showen
-    txt1.setAttribute("value", verschillendepizza[1][verschillendepizza[1].length-1]);
-    txt2.setAttribute("value", verschillendepizza[1][0]);
-    txt3.setAttribute("value", verschillendepizza[1][1]);
-    txt4.setAttribute("value", verschillendepizza[1][2]);
-    txt5.setAttribute("value", verschillendepizza[1][3]);
-    console.log(txt5);
+
 
 
 
@@ -203,6 +205,9 @@ console.log(verschillendepizza);
                     for(let i = 0; i < ingredientsList.length; i++){
                         this.console.log(ingredientsList[0][0][i]);
                         ingredientsList[0][0][i].setAttribute("visible",true);
+                        //feedback op de kaas
+                        kruisjeDesktop2.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
+                        audio.play();
                     };
                     break;
                 case "bakje_ananas":
@@ -224,6 +229,9 @@ console.log(verschillendepizza);
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[3][0][i]);
                             ingredientsList[3][0][i].setAttribute("visible",true);
+                            //feedback shoarma
+                            kruisjeDesktop3.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
+                            audio.play();
                         };
                         break;
                 case "bakje_tomaat":
@@ -288,6 +296,11 @@ console.log(verschillendepizza);
 
     tomatensaus.onclick = (event) => {
       if(holdLepel === true){
+
+        //monitor veranderen zodra lepel terug is gezet
+        kruisjeDesktop1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
+        audio.play();
+
         let saus_lepel = document.getElementById("js--holdLepel");
         let object = makeObject("js--lepel", "a-circle", "-0.264 1.218 -5.25", "0.08", scene, true, soeplepel);
         object.setAttribute("scale", "0.08 0.08 0.08");
@@ -320,6 +333,10 @@ console.log(verschillendepizza);
         static_object.remove();
         hold = true;
         holdSausflesKnoflook = true;
+
+        //feedback knoflookSaus
+        kruisjeDesktop4.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
+        audio.play();
       };
     };
 
@@ -363,7 +380,14 @@ console.log(verschillendepizza);
     }
 
     doughfase1.onclick= () => {
-      hygeniëVoltooid();
+      //text op de monitor showen
+          txt1.setAttribute("value", verschillendepizza[1][verschillendepizza[1].length-1]);
+          txt2.setAttribute("value", verschillendepizza[1][0]);
+          txt3.setAttribute("value", verschillendepizza[1][1]);
+          txt4.setAttribute("value", verschillendepizza[1][2]);
+          txt5.setAttribute("value", verschillendepizza[1][3]);
+
+
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
       let att = document.createAttribute("animation__turning");
       att.value = "property: rotation; to: 0 360 0; loop: false; dur: 2000";
