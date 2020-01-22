@@ -62,6 +62,7 @@ window.onload = function(){
     const salami = document.getElementsByClassName('js--salamiClass');
     const shoarma = document.getElementsByClassName('js--shoarmaClass');
     const tomaat = document.getElementsByClassName('js--tomaatClass');
+    const ham = document.getElementsByClassName('js--hamClass');
 
     const knoflook = document.getElementsByClassName('js--knoflookSausClass');
 
@@ -87,7 +88,7 @@ window.onload = function(){
     const txt5 = document.getElementById('js--ingredient5');
 
 
-    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [tomaat, false] , [knoflook, false]];
+    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [knoflook, false]];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
