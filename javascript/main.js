@@ -18,10 +18,15 @@ window.onload = function(){
     //alles tomatensaus
 
     //alles ingredienten
+    //Pizzasnijder
+    const pizzasnijder = document.getElementById('js--pizzasnijder');
+    const gesnedenPizza = document.getElementById('js--gesneden');
 
 
     // krijtbordcheck
     const doughfase1 = document.getElementById('js--fase1');
+    var positiedeeg = doughfase1.getAttribute("position");
+    console.log(positiedeeg);
     const kruisjes = [document.getElementById('js--kruisje1'), document.getElementById('js--kruisje2'), document.getElementById('js--kruisje3'), document.getElementById('js--kruisje4'), document.getElementById('js--kruisje5'),document.getElementById('js--kruisje6')];
     const audio = new Audio("../media/sounds/krijtbordsound.mp3")
 
@@ -121,11 +126,13 @@ console.log(verschillendepizza);
     var hold = false;
     var holdLepel = false;
     var holdSausflesKnoflook = false;
+    var holdSnijder = false;
 
     // GLB models
     var soeplepel_saus = "#soeplepel_saus-glb";
     var soeplepel = "#lepel-glb";
     var sausfles_knoflook_glb = "#sausfles_knoflook-glb";
+    var pizzasnijderglb = "#pizzasnijder-glb";
 
     //test vars hier
     const pizzaDoos = document.getElementById("js--pizzaDoos");
@@ -133,6 +140,7 @@ console.log(verschillendepizza);
     this.console.log(pizzaDoos);
 
     addListeners();
+    holdPizzaSnijder();
 
     oven.onclick = (event) => {
         if(hold){
@@ -239,6 +247,25 @@ console.log(verschillendepizza);
             }
         };
     };
+
+    function holdPizzaSnijder(){
+      pizzasnijder.onclick = () => {
+        if(!hold){
+            let object = makeObject("js--pizzasnijder", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
+            object.setAttribute("scale", "0.1 0.1 0.1");
+            object.setAttribute("rotation", "0 0 -20");
+            pizzasnijder.setAttribute("visible",false);
+            holdSnijder = true;
+        }
+        if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646) {
+            pizzaOnTable.onclick = (event) => {
+          gesnedenPizza.setAttribute("visible", true);
+
+        }
+        }
+
+      }
+    }
 
 
 
@@ -612,6 +639,10 @@ console.log(verschillendepizza);
       setText("Stop zeep op de handen en was ze daarna!", 4000);
     }
   }
+
+  // pizzasnijder.onclick = () => {
+  //   gesnedenPizza.setAttribute("visible", true);
+  // }
 
   function pizzaRecept(){
     txt1.setAttribute("value", )

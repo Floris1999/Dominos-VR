@@ -216,7 +216,14 @@
     <a-entity id="js--pizzaDoos" class="clickable" scale="0.6 0.6 0.6" position="1.377 1.142 -0.646" rotation="0 -90 0" obj-model="obj: #pizzadoos-obj; mtl:#pizzadoos-mtl"></a-entity>
 
     <!-- Pizzasnijder -->
-    <a-entity scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
+    <a-entity class="clickable" id="js--pizzasnijder" scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
+    <a-entity position="0.894 1.186 -0.663" rotation="90 0 0" scale="1.2 1.2 1.2" id="js--gesneden" visible="false">
+    <a-image src="../media/pizzaCutter/streep.png" rotation="0 0 50" scale="0.35 0.35 0.35" position="0 0 0"></a-image>
+    <a-image src="../media/pizzaCutter/streep.png" rotation="0 0 100" scale="0.35 0.35 0.35" position="0 0 0"></a-image>
+    <a-image src="../media/pizzaCutter/streep.png" rotation="0 0 140" scale="0.35 0.35 0.35" position="0 0 0"></a-image>
+    <a-image src="../media/pizzaCutter/streep.png" scale="0.35 0.35 0.35" position="0 0 0"></a-image>
+  </a-entity>
+
 
     <!-- Lepel -->
     <a-entity id="js--lepel" class="clickable" position="2.435 1.175 -5.25" rotation="0 0 10" scale="0.08 0.08 0.08" gltf-model="#lepel-glb"></a-entity>
