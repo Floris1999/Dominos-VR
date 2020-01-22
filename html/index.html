@@ -104,7 +104,23 @@
     </a-assets>
 
 
-
+    <!-- <a-entity id="rig"
+          movement-controls="controls: checkpoint"
+          checkpoint-controls="mode: animate">
+  <a-entity camera position="4 1.6 0"  look-controls="pointerLockEnabled: true">
+            <a-entity
+              id="js--cursor"
+              animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+              animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1"
+              animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+              cursor="fuse: true; fuseTimeout: 2000"
+              material="color: black; shader: flat"
+              geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
+              position= "0 0 -0.5"
+              raycaster="objects: .clickable"
+            ></a-entity>
+  </a-entity> -->
+</a-entity>
     <a-camera id="js--camera" position="-2 1.8 -4">
       <a-entity
         id="js--cursor"

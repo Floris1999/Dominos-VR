@@ -156,6 +156,8 @@ console.log(verschillendepizza);
           setTimeout( (event) => {
             pizzaOnTable.removeAttribute("gltf-model");
             pizzaOnTable.setAttribute("gltf-model", "#pizzabodem_saus-glb");
+            holdPizza.removeAttribute("gltf-model");
+            holdPizza.setAttribute("gltf-model", "#pizzabodem_saus-glb");
           },1000);
         }
     };
@@ -464,15 +466,15 @@ console.log(verschillendepizza);
         }
 
         if(fouten == 0){
-            setText("Goed zo je hebt de pizza goed gemaakt", 8000);
+            setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
 
         }
         if(fouten == 1){
-            setText("Fout je hebt 1 ingredient verkeerd", 8000);
+            setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
 
         }
         if(fouten > 1){
-            setText("Fout je hebt "+ fouten + " ingredienten verkeerd", 8000);
+            setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
 
         }
 
