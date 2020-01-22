@@ -126,7 +126,7 @@
 
   <a-entity id="rig"
             position="-2 1.8 -4">
-      <a-camera id="js--camera" position="0 1.8 0">
+      <a-camera id="js--camera" position="0 0 0">
         <a-entity
           id="js--cursor"
           animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -171,11 +171,6 @@
     <a-entity class="clickable" id="js--bakje_sausflessen" position="6.08 0.953 -5.72" rotation="0 90 0" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
 
     <!-- Ingredienten in bakjes -->
-    <!-- <a-entity position="3.386 1.132 -5.786" rotation="25 0 0" scale="1 1 1.1" gltf-model="#kaas_hoop_alt-glb"></a-entity>
-    <a-entity position="4.07 1.12 -5.91" rotation="0 90 25" scale=".29 .3 .275" gltf-model="#ham_hoop_alt-glb"></a-entity>
-    <a-entity position="4.514 1.134 -5.836" rotation="0 90 25" scale=".23 .3 .3" gltf-model="#shoarma_hoop_alt-glb"></a-entity>
-    <a-entity position="4.952 1.065 -5.82" rotation="0 90 25" scale=".25 .3 .287" gltf-model="#ananas_hoop_alt-glb"></a-entity>
-    <a-entity position="5.485 1.13 -5.903" rotation="25 0 0" scale=".26 .23 .23" gltf-model="#salami_hoop_alt-glb"></a-entity> -->
     <a-image position="3.386 1.200 -5.750" rotation="115 0 0" scale=".66 .420 .93" src="#kaas_hoop-png"></a-image>
     <a-image position="4.036 1.12 -5.861" rotation="115 0 0" scale=".37 .28 .287" src="#ananas_hoop-png"></a-image>
     <a-image position="4.507 1.12 -5.847" rotation="115 0 0" scale=".36 .27 .3" src="#salami_hoop-png"></a-image>
@@ -210,13 +205,11 @@
     <a-entity position="4.69 1.897 -4.958" rotation="0 90 10" gltf-model="#scherm-glb"></a-entity>
 
     <!-- Tomatensaus -->
-    <a-entity id="js--tomatensaus" class="clickable" position="-0.186 1.165 -5.25"  scale="0.12 0.12 0.12" gltf-model="#tomatensaus-glb"></a-entity>
-    <a-image src="../media/Tomatensaus/logo.png" position="-0.186 1.230 -5.016" scale="0.12 0.12 0.12"></a-image>
+    <a-entity id="js--tomatensaus" class="clickable" position="2.5 1.165 -5.25"  scale="0.12 0.12 0.12" gltf-model="#tomatensaus-glb"></a-entity>
+    <a-image src="../media/Tomatensaus/logo.png" position="2.5 1.230 -5.016" scale="0.12 0.12 0.12"></a-image>
 
     <!-- vuilnisbak -->
-    <a-entity id="js--vuilnisbak" position="-2.050 0.059 -5.328" scale="0.15 0.15 0.15"  gltf-model="#vuilnisbak-glb"></a-entity>
-
-    <a-entity id="js--vuilnisbak" position="7.339 0.059 -5.179" scale="0.15 0.15 0.15"  gltf-model="#vuilnisbak-glb"></a-entity>
+    <a-entity id="js--vuilnisbak" position="6.8 0.059 -5.179" scale="0.15 0.15 0.15"  gltf-model="#vuilnisbak-glb"></a-entity>
 
 
     <!-- pizzadoos -->
@@ -226,7 +219,7 @@
     <a-entity scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
 
     <!-- Lepel -->
-    <a-entity id="js--lepel" class="clickable" position="-0.264 1.218 -5.25"  scale="0.08 0.08 0.08" gltf-model="#lepel-glb"></a-entity>
+    <a-entity id="js--lepel" class="clickable" position="2.435 1.175 -5.25" rotation="0 0 10" scale="0.08 0.08 0.08" gltf-model="#lepel-glb"></a-entity>
 
     <!-- Omgeving -->
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 1 -6" width="20" height="5" opacity="5"></a-plane>

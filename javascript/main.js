@@ -31,12 +31,12 @@ window.onload = function(){
     const opdracht3 = document.getElementById('js--optie3');
     const opdracht4 = document.getElementById('js--optie4');
     const opdracht5 = document.getElementById('js--optie5');
-    const opdracht6 = document.getElementById('js--optie6');
-    const opdracht7 = document.getElementById('js--optie7');
 
     const titel1 = document.getElementById("js--titel1");
     const titel2 = document.getElementById("js--titel2");
     const titel3 = document.getElementById("js--titel3");
+    const titel4 = document.getElementById("js--titel4");
+    const titel5 = document.getElementById("js--titel5");
 
     //Zeep
     const zeep = document.getElementById('js--zeep');
@@ -311,8 +311,9 @@ console.log(verschillendepizza);
         //krijtbord fucntioneren
         hygeniëVoltooid3();
         let saus_lepel = document.getElementById("js--holdLepel");
-        let object = makeObject("js--lepel", "a-circle", "-0.264 1.218 -5.25", "0.08", scene, true, soeplepel);
+        let object = makeObject("js--lepel", "a-circle", "2.435 1.175 -5.25", "0.08", scene, true, soeplepel);
         object.setAttribute("scale", "0.08 0.08 0.08");
+        object.setAttribute("rotation", "0 0 10");
         saus_lepel.remove();
         if(deegbal_bereid === true){
           titel2.setAttribute("visible", false);
