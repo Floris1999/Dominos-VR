@@ -33,7 +33,10 @@ window.onload = function(){
     const opdracht5 = document.getElementById('js--optie5');
     const opdracht6 = document.getElementById('js--optie6');
     const opdracht7 = document.getElementById('js--optie7');
-    const opdracht8 = document.getElementById('js--optie8');
+
+    const titel1 = document.getElementById("js--titel1");
+    const titel2 = document.getElementById("js--titel2");
+    const titel3 = document.getElementById("js--titel3");
 
     //Zeep
     const zeep = document.getElementById('js--zeep');
@@ -79,6 +82,9 @@ window.onload = function(){
 
     const handschoenen = document.getElementById('js--handschoenen');
     var handschoenGebruikt = false;
+
+    //States voor te doen bord
+    var deegbal_bereid = false;
 
     //tekst monitor
     const txt1 = document.getElementById('js--ingredient1');
@@ -257,9 +263,7 @@ console.log(verschillendepizza);
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               }, 3000)
-
-              lepel.remove();
-              holdLepel = false;
+              deegbal_bereid = true;
             }
             if(holdSausflesKnoflook){
               let saus = document.getElementById("js--knoflook_saus_pizza");
@@ -295,6 +299,12 @@ console.log(verschillendepizza);
         let object = makeObject("js--lepel", "a-circle", "-0.264 1.218 -5.25", "0.08", scene, true, soeplepel);
         object.setAttribute("scale", "0.08 0.08 0.08");
         saus_lepel.remove();
+        if(deegbal_bereid === true){
+          titel2.setAttribute("visible", false);
+          opdracht2.setAttribute("visible", false);
+          titel3.setAttribute("visible", true);
+          opdracht3.setAttribute("visible", true);
+        }
         setTimeout( (event) => {
           hold = false;
           holdLepel = false;
@@ -356,8 +366,10 @@ console.log(verschillendepizza);
 //functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
     function hygeniëVoltooid(){
       img1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
-      opdracht1.setAttribute("opacity","1");
-      opdracht2.setAttribute("opacity","5");
+      titel1.setAttribute("visible", false);
+      opdracht1.setAttribute("visible",false);
+      titel2.setAttribute("visible", true);
+      opdracht2.setAttribute("visible",true);
       cameratxt.setAttribute("value","U bent hygenisch te werkgegaan");
       audio.play();
       setTimeout(function(){
@@ -517,11 +529,9 @@ console.log(verschillendepizza);
 
   function zeepTrue(){
     zeepGebruikt = true;
-     setText("Er is zeep op de handen gedaan, zet nu de kraan aan om de handen te wassen!", 8000);
   }
 
   function kraanAan(){
-    setText("De handen zijn gewassen, doe nu de kraan uit", 3000);
     waterdruppels[0].setAttribute("visible",true);
     waterdruppels[1].setAttribute("visible",true);
     waterdruppels[2].setAttribute("visible",true);
@@ -529,7 +539,6 @@ console.log(verschillendepizza);
   }
 
   function kraanUit(){
-    setText("De kraan is uit doe de handschoenen aan", 3000);
     waterdruppels[0].setAttribute("visible",false);
     waterdruppels[1].setAttribute("visible",false);
     waterdruppels[2].setAttribute("visible",false);
@@ -537,7 +546,6 @@ console.log(verschillendepizza);
   }
 
   function gebruikHandschoenen(){
-    setText("De handschoenen zijn aangetrokken", 2000);
     handschoenenGebruikt = true;
   }
 
@@ -546,17 +554,11 @@ console.log(verschillendepizza);
   }
 
   sink.onclick = () => {
-    console.log(zeepGebruikt);
     if (kraanBezig == false && zeepGebruikt == true) {
       kraanAan();
-      console.log("de kraan is aan");
-    }
-    else if (kraanBezig == false && zeepGebruikt == false) {
-      setText("Gebruik eerst zeep voordat de handen zijn gewassen!", 2000);
     } else {
       kraanUit();
       kraanuitgezetnawassen = true;
-      console.log("de kraan is uit");
     }
   }
 
