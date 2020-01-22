@@ -199,7 +199,7 @@ console.log(verschillendepizza);
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            let posi = teleport[i].getAttribute('position').x + "0" + teleport[i].getAttribute('position').z;
+            let posi = teleport[i].getAttribute('position').x +" " + teleport[i].getAttribute('position').y +" " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
             document.getElementById("rig").setAttribute('animation', att.value);
         };
