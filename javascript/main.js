@@ -387,7 +387,6 @@ console.log(verschillendepizza);
       kruisjes[0].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
       opdracht1.setAttribute("opacity","1");
       opdracht2.setAttribute("opacity","5");
-      img1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
       titel1.setAttribute("visible", false);
       opdracht1.setAttribute("visible",false);
       titel2.setAttribute("visible", true);
