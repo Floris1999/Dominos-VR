@@ -66,6 +66,8 @@ window.onload = function(){
     const shoarma = document.getElementsByClassName('js--shoarmaClass');
     const tomaat = document.getElementsByClassName('js--tomaatClass');
     const ham = document.getElementsByClassName('js--hamClass');
+    const champignon = document.getElementsByClassName('js--champignonClass');
+    const mozzarella = document.getElementsByClassName('js--mozzarellaClass');
 
     const knoflook = document.getElementsByClassName('js--knoflookSausClass');
 
@@ -102,7 +104,7 @@ window.onload = function(){
 
 
 
-    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [knoflook, false]];
+    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [champignon, false], [mozzarella, false], [tomaat, false]];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
@@ -229,11 +231,32 @@ console.log(verschillendepizza);
                             audio.play();
                         };
                         break;
-                case "bakje_tomaat":
+                case "bakje_ham":
                         ingredientsList[4][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[4][0][i]);
                             ingredientsList[4][0][i].setAttribute("visible",true);
+                        };
+                        break;
+                case "bakje_champignon":
+                        ingredientsList[5][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[5][0][i].setAttribute("visible",true);
+                        };
+                        break;
+                case "bakje_mozzarella":
+                        ingredientsList[6][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[6][0][i].setAttribute("visible",true);
+                        };
+                        break;
+                case "bakje_tomaat":
+                        ingredientsList[7][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[7][0][i].setAttribute("visible",true);
                         };
                         break;
             }
