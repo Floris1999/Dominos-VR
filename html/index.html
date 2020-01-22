@@ -107,8 +107,24 @@
     </a-assets>
 
 
-
-    <a-camera id="js--camera" position="-2 1.8 -3">
+    <!-- <a-entity id="rig"
+          movement-controls="controls: checkpoint"
+          checkpoint-controls="mode: animate">
+  <a-entity camera position="4 1.6 0"  look-controls="pointerLockEnabled: true">
+            <a-entity
+              id="js--cursor"
+              animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+              animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1"
+              animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+              cursor="fuse: true; fuseTimeout: 2000"
+              material="color: black; shader: flat"
+              geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
+              position= "0 0 -0.5"
+              raycaster="objects: .clickable"
+            ></a-entity>
+  </a-entity> -->
+</a-entity>
+    <a-camera id="js--camera" position="-2 1.8 -4">
       <a-entity
         id="js--cursor"
         animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -139,8 +155,8 @@
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" class="js--werkbank" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity id="js--werkbank3" class="js--werkbank" position="0.75 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity class="js--werkbank" position="0.772 -0.045 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity id="js--werkbank3" class="js--werkbank" position="1 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity class="js--werkbank" position="1 -0.045 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
 
     <a-entity id="js--sink" class="clickable" position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
 
@@ -159,10 +175,10 @@
     <a-entity position="4.952 1.065 -5.82" rotation="0 90 25" scale=".25 .3 .287" gltf-model="#ananas_hoop_alt-glb"></a-entity>
     <a-entity position="5.485 1.13 -5.903" rotation="25 0 0" scale=".26 .23 .23" gltf-model="#salami_hoop_alt-glb"></a-entity> -->
     <a-image position="3.386 1.200 -5.750" rotation="115 0 0" scale=".66 .420 .93" src="#kaas_hoop-png"></a-image>
-    <a-image position="4.036 1.12 -5.861" rotation="115 0 0" scale=".37 .3 .28" src="#ham_hoop-png"></a-image>
-    <a-image position="4.507 1.12 -5.847" rotation="115 0 0" scale=".38 .28 .3" src="#shoarma_hoop-png"></a-image>
-    <a-image position="5.002 1.12 -5.82" rotation="115 0 0" scale=".37 .28 .287" src="#ananas_hoop-png"></a-image>
-    <a-image position="5.485 1.12 -5.787" rotation="115 0 0" scale=".36 .27 .3" src="#salami_hoop-png"></a-image>
+    <a-image position="4.036 1.12 -5.861" rotation="115 0 0" scale=".37 .28 .287" src="#ananas_hoop-png"></a-image>
+    <a-image position="4.507 1.12 -5.847" rotation="115 0 0" scale=".36 .27 .3" src="#salami_hoop-png"></a-image>
+    <a-image position="5.002 1.12 -5.82" rotation="115 0 0" scale=".38 .28 .3" src="#shoarma_hoop-png"></a-image>
+    <a-image position="5.485 1.12 -5.787" rotation="115 0 0" scale=".37 .3 .28" src="#ham_hoop-png"></a-image>
 
     <!-- Oven -->
     <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb" visible="true"></a-entity>
@@ -170,7 +186,7 @@
 
     <!-- Pizzabodem -->
     <!-- <a-entity position="4.84 1.26 -0.701" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity> -->
-    <a-entity id="js--fase2" class="clickable" position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
+    <!-- <a-entity id="js--fase2" class="clickable" position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity> -->
     <a-entity id="js--fase1" class="clickable" position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
 
     <!-- Handschoenendoosje -->
@@ -219,24 +235,29 @@
     <a-plane src="../media/omgeving/ground.jpg" repeat="40 30" position="0 0 0" rotation="-90 0 0" width="20" height="15"></a-plane>
     <a-plane src="../media/omgeving/plafond.jpg" repeat="60 30" position="0 3.5 0" rotation="-270 0 0" width="20" height="15"></a-plane>
 
-    <!-- text  -->
-    <a-text  id="js--optie1" position="0 2.967 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="5" value="Ga hygenisch te werk" scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--optie2" position="0 2.793 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Vorm de deegbal" scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--optie3" position="0 2.617 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Voeg tomatensaus aan de pizza toe" scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--optie4" position="0 2.442 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Doe de juiste ingrediënten op de pizza" scale="0.5 0.5 0.5"></a-text>
-    <a-text id="js--optie5"  position="0 2.249 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Stop de pizza in de oven" scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--optie6" position="0 2.085 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Haal de pizza uit de oven" scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--optie7" position="0 1.920 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Snijd de pizza" scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--optie8" position="0 1.755 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="Stop de pizza in de doos" scale="0.5 0.5 0.5"></a-text>
+    <!-- Text  -->
+      <!-- Titel -->
+      <a-text id="js--titel1" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Ga hygenisch te werk" scale="0.5 0.5 0.5" visible="true"></a-text>
+      <a-text id="js--titel2" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Bereid de pizza voor" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel3" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Doe je juiste ingrediënten op de pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel4" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Kook de pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel5" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Maak de pizza klaar voor de klant" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <!-- Inhoud -->
+      <a-text id="js--optie1" position="0.2 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="1" value="1. Doe wat zeep op je handen \n 2. Zet de kraan aan en was je handen \n 3. Doe de kraan weer uit \n 4. Trek je handschoenen aan" scale="0.5 0.5 0.5" visible="true"></a-text>
+      <a-text id="js--optie2" position="0.2 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Maak van de deegbal een pizzabodem \n 2. Pak de lepel met tomatensaus uit de pot \n 3. Smeer de tomatensaus uit op de pizza \n 4. Stop de lepel weer terug in de sauspot" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie3" position="0.2 2.442 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak de pizza op en neem hem mee naar de ingrediënten tafel \n 2. Op het scherm boven de ingediënten kan je vinden welke ingrediënten je op de pizza moet plaatsen" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie4"  position="0.2 2.249 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak je pizza en stop hem in de oven \n 2. Haal de pizza weer uit de oven" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie5" position="0.2 1.755 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Zet de pizza op het werkblad neer en snijd hem in 6 stukken \n 2. Plaats de pizza in de doos" scale="0.5 0.5 0.5" visible="false"></a-text>
 
     <!-- text monitor -->
-    <a-text  id="js--ingredient1" position="3.865 2.831 -5.715" color="#000000" rotation="10 0 0" opacity="5"  scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--ingredient2" position="3.865 2.691 -5.721" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--ingredient3" position="3.865 2.536 -5.758" color="black" rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
-    <a-text  id="js--ingredient4" position="3.865 2.396 -5.785" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient1" position="3.865 2.831 -5.715" color="#000000" rotation="10 0 0" opacity="5"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient2" position="3.865 2.691 -5.721" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient3" position="3.865 2.536 -5.758" color="black" rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient4" position="3.865 2.396 -5.785" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
     <a-text id="js--ingredient5"   position="3.865 2.225 -5.822" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
     <!-- <a-text  id="js--ingredient6" position="3.865 2.831 -5.715" color="black" font="../fonts/chalkfont.fnt" value="Haal de pizza uit de oven" scale="0.5 0.5 0.5"></a-text> -->
 
+    <a-text value="Dit werkblad heeft spleten. Dit zit hier zodat je ingrediënten kan morsen zonder een rommel te maken in de keuken"></a-text>
 
     <!-- desktop image -->
     <a-image id="js--kruisje-desk1" src="../media/krijtbord/krijtbordimg3.png" rotation="10 0 0" position="5.369 2.691 -5.721" scale="0.2 0.2 0.2"></a-image>
@@ -267,21 +288,21 @@
     <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
-    <a-entity class="js--teleport clickable" position="-0.923 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="1.293 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="4.527 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="6.071 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="-0.923 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.293 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.527 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="6.071 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <!-- <a-entity class="js--teleport clickable" scale="0.03 0.03 0.03" position="-0.923 0.18 -3.012" rotation="0 -90 0" obj-model="obj: #teleport-obj; mtl:#teleport-mtl"></a-entity> -->
 
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-    <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb">
+    <a-entity id="js--pizzaOnTable" class="clickable" position="20.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="tue">
       <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--shoarma" class="js--shoarmaClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#shoarma_on_pizza-glb" visible="false"></a-entity>
-      <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
+      <a-entity id="js--ham_pizza" class="js--hamClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#ham_on_pizza-glb" visible="false"></a-entity>
       <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
     </a-entity>
 
