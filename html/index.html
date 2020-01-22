@@ -129,10 +129,10 @@
       <a-camera id="js--camera" position="0 0 0">
         <a-entity
           id="js--cursor"
-          animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-          animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1"
-          animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-          cursor="fuse: true; fuseTimeout: 2000"
+          animation__click="property: scale; startEvents: click; linear: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation__fusing="property: scale; startEvents: fusing; linear: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1"
+          animation__mouseleave="property: scale; startEvents: mouseleave; linear: easeInCubic; dur: 500; to: 1 1 1"
+          cursor="fuse: true; fuseTimeout: 1000"
           material="color: black; shader: flat"
           geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
           position= "0 0 -0.5"
@@ -164,18 +164,23 @@
 
     <!-- Bakjes -->
     <a-entity class="ingredienten_bakje clickable" id="bakje_kaas" position="3.4 1.02 -5.82" rotation="0 90 25" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
-    <a-entity class="ingredienten_bakje clickable" id="bakje_ananas" position="4.03 0.98 -5.93" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
-    <a-entity class="ingredienten_bakje clickable" id="bakje_salami" position="4.5 0.98 -5.915" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
-    <a-entity class="ingredienten_bakje clickable" id="bakje_shoarma" position="4.994 0.98 -5.9" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
-    <a-entity class="ingredienten_bakje clickable" id="bakje_tomaat" position="5.49 0.98 -5.86" rotation="0 90 25" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
-    <a-entity class="clickable" id="js--bakje_sausflessen" position="6.08 0.953 -5.72" rotation="0 90 0" scale="0.35 0.18 0.5" gltf-model="#bakje-glb"></a-entity>
+
+    <a-entity class="ingredienten_bakje clickable" id="bakje_ananas" position="3.95 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="ingredienten_bakje clickable" id="bakje_salami" position="4.28 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="ingredienten_bakje clickable" id="bakje_shoarma" position="4.61 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="ingredienten_bakje clickable" id="bakje_tomaat" position="4.94 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="ingredienten_bakje clickable" id="bakje_salami" position="5.27 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="ingredienten_bakje clickable" id="bakje_shoarma" position="5.6 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+    <a-entity class="ingredienten_bakje clickable" id="bakje_tomaat" position="5.93 1.011 -5.789" rotation="25 0 0" scale="0.23 0.18 0.3" gltf-model="#bakje-glb"></a-entity>
+
+    <a-entity class="clickable" id="js--bakje_sausflessen" position="6.468 0.875 -5.732" scale="0.35 0.18 0.5" rotation="0 90 0"gltf-model="#bakje-glb"></a-entity>
 
     <!-- Ingredienten in bakjes -->
     <a-image position="3.386 1.200 -5.750" rotation="115 0 0" scale=".66 .420 .93" src="#kaas_hoop-png"></a-image>
-    <a-image position="4.036 1.12 -5.861" rotation="115 0 0" scale=".37 .28 .287" src="#ananas_hoop-png"></a-image>
-    <a-image position="4.507 1.12 -5.847" rotation="115 0 0" scale=".36 .27 .3" src="#salami_hoop-png"></a-image>
-    <a-image position="5.002 1.12 -5.82" rotation="115 0 0" scale=".38 .28 .3" src="#shoarma_hoop-png"></a-image>
-    <a-image position="5.485 1.12 -5.787" rotation="115 0 0" scale=".37 .3 .28" src="#ham_hoop-png"></a-image>
+    <a-image position="3.95 1.168 -5.727" rotation="115 0 0" scale=".27 .37 .287" src="#ananas_hoop-png"></a-image>
+    <a-image position="4.283 1.164 -5.714" rotation="115 0 0" scale=".26 .38 .3" src="#salami_hoop-png"></a-image>
+    <a-image position="4.617 1.161 -5.734" rotation="115 0 0" scale=".26 .35 .3" src="#shoarma_hoop-png"></a-image>
+    <a-image position="4.953 1.19 -5.718" rotation="115 0 0" scale=".28 .39 .28" src="#ham_hoop-png"></a-image>
 
     <!-- Oven -->
     <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb" visible="true"></a-entity>
@@ -192,8 +197,8 @@
     <a-text position="-1.300 1.168 -5.422" scale="0.19 0.19 0.19" color="#000000" value="Handschoenen"></a-text>
 
     <!-- Sausflessen -->
-    <a-entity id="js--sausfles_knoflook" class="clickable" position="6.467 1.1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
-    <a-entity position="6.645 1.1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
+    <a-entity id="js--sausfles_knoflook" class="clickable" position="6.9 1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
+    <a-entity position="7.1 1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
 
     <!-- Zeep -->
     <a-entity class="clickable" id="js--zeep" position="-0.472 1.080 -5.302" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
