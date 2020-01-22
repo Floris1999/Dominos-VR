@@ -22,7 +22,7 @@ window.onload = function(){
 
     // krijtbordcheck
     const doughfase1 = document.getElementById('js--fase1');
-    let img1 = document.getElementById('js--kruisje1');
+    const kruisjes = [document.getElementById('js--kruisje1'), document.getElementById('js--kruisje2'), document.getElementById('js--kruisje3'), document.getElementById('js--kruisje4'), document.getElementById('js--kruisje5'),document.getElementById('js--kruisje6')];
     const audio = new Audio("../media/sounds/krijtbordsound.mp3")
 
     //text
@@ -301,6 +301,8 @@ console.log(verschillendepizza);
         kruisjeDesktop1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
         audio.play();
 
+        //krijtbord fucntioneren
+        hygeniëVoltooid3();
         let saus_lepel = document.getElementById("js--holdLepel");
         let object = makeObject("js--lepel", "a-circle", "-0.264 1.218 -5.25", "0.08", scene, true, soeplepel);
         object.setAttribute("scale", "0.08 0.08 0.08");
@@ -369,7 +371,7 @@ console.log(verschillendepizza);
 
 //functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
     function hygeniëVoltooid(){
-      img1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
+      kruisjes[0].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
       opdracht1.setAttribute("opacity","1");
       opdracht2.setAttribute("opacity","5");
       cameratxt.setAttribute("value","U bent hygenisch te werkgegaan");
@@ -379,8 +381,25 @@ console.log(verschillendepizza);
     },5000);
     }
 
+    function hygeniëVoltooid2(){
+      kruisjes[1].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
+      opdracht2.setAttribute("opacity","1");
+      opdracht3.setAttribute("opacity","5");
+      setText("De deegbal is gevormd!")
+      audio.play();
+    }
+
+    function hygeniëVoltooid3(){
+      kruisjes[2].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
+      opdracht3.setAttribute("opacity","1");
+      opdracht4.setAttribute("opacity","5");
+      setText("De tomatensaus is verspreid over de bodem")
+      audio.play();
+    }
+
     doughfase1.onclick= () => {
       //text op de monitor showen
+          hygeniëVoltooid2();
           txt1.setAttribute("value", verschillendepizza[1][verschillendepizza[1].length-1]);
           txt2.setAttribute("value", verschillendepizza[1][0]);
           txt3.setAttribute("value", verschillendepizza[1][1]);
