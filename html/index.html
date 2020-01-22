@@ -105,7 +105,7 @@
 
 
 
-    <a-camera id="js--camera" position="-2 1.8 -3">
+    <a-camera id="js--camera" position="-2 1.8 -4">
       <a-entity
         id="js--cursor"
         animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -136,8 +136,8 @@
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" class="js--werkbank" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity id="js--werkbank3" class="js--werkbank" position="0.75 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
-    <a-entity class="js--werkbank" position="0.772 -0.045 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity id="js--werkbank3" class="js--werkbank" position="2 -0.045 -1" rotation ="0 90 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
+    <a-entity class="js--werkbank" position="2 -0.045 -0.25" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
 
     <a-entity id="js--sink" class="clickable" position="-0.840 -0.036 -5.202" rotation="0 90 0" scale="0.2 0.2445 0.3" gltf-model="#sink-glb"></a-entity>
 
@@ -167,7 +167,7 @@
 
     <!-- Pizzabodem -->
     <!-- <a-entity position="4.84 1.26 -0.701" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#pizzabodem-glb"></a-entity> -->
-    <a-entity id="js--fase2" class="clickable" position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity>
+    <!-- <a-entity id="js--fase2" class="clickable" position="1.655 1.05 -5.21" rotation="0 0 0" scale=".16 .16 .16" gltf-model="#deegbal_fase_2-glb"></a-entity> -->
     <a-entity id="js--fase1" class="clickable" position="1 1.05 -5.14" rotation="0 0 0" scale=".13 .13 .13" gltf-model="#deegbal_fase_1-glb"></a-entity>
 
     <!-- Handschoenendoosje -->
@@ -244,16 +244,16 @@
     <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
-    <a-entity class="js--teleport clickable" position="-0.923 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="1.293 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="4.527 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="6.071 0.18 -3.012" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="-0.923 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.293 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.527 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="6.071 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <!-- <a-entity class="js--teleport clickable" scale="0.03 0.03 0.03" position="-0.923 0.18 -3.012" rotation="0 -90 0" obj-model="obj: #teleport-obj; mtl:#teleport-mtl"></a-entity> -->
 
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-    <a-entity id="js--pizzaOnTable" class="clickable" position="2.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb">
+    <a-entity id="js--pizzaOnTable" class="clickable" position="20.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="tue">
       <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
