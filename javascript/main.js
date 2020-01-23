@@ -104,7 +104,7 @@ window.onload = function(){
 
 
 
-    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [champignon, false], [mozzarella, false], [tomaat, false]];
+    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [champignon, false], [mozzarella, false], [tomaat, false], [knoflook, false]];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
@@ -165,6 +165,9 @@ console.log(verschillendepizza);
     for(let i = 0; i < tables.length; i++){
         tables[i].onclick = (event) => {
             console.log(tables);
+            if(holdLepel){
+              return;
+            }
             if(hold){
                 console.log("table3");
                 holdPizza.setAttribute("visible",false);
@@ -287,10 +290,10 @@ console.log(verschillendepizza);
               saus.setAttribute("visible" ,false);
               console.log(saus);
 
-              ingredientsList[5][1] = true;
+              ingredientsList[8][1] = true;
               for(let i = 0; i < ingredientsList.length; i++){
                   this.console.log(ingredientsList[4][0][i]);
-                  ingredientsList[5][0][i].setAttribute("visible",true);
+                  ingredientsList[8][0][i].setAttribute("visible",true);
               };
             }
             if(!hold){
@@ -370,6 +373,7 @@ console.log(verschillendepizza);
         let holdObject = document.getElementById("js--hold_sausfles_knoflook");
         let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.9 1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
         static_object.setAttribute("scale", "0.3 0.3 0.3");
+        static_object.setAttribute("class", "clickable");
         holdObject.remove();
         setTimeout( (event) => {
           hold = false;
