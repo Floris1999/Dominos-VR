@@ -7,6 +7,7 @@ window.onload = function(){
     const tables = this.document.getElementsByClassName("js--werkbank");
     const oven = document.getElementById('js--oven');
     const teleport = document.getElementsByClassName('js--teleport');
+    const vuilnisbak = this.document.getElementById("js--vuilnisbak");
 
     //game declarations
     const camera = document.getElementById('js--camera');
@@ -134,17 +135,7 @@ console.log(verschillendepizza);
 
     addListeners();
 
-    checkCamera = () => {
-        posi = camera.getAttribute('position');
-        posi = posi.x + " " + posi.y + " " + posi.z;
-        this.console.log(posi);
-        if( posi == "0 0 0"){
-            this.console.log("test");
-            camera.setAttribute('position', '-2 1.8 -3');
-        }
-    }
 
-    //checkCamera();
 
 
     oven.onclick = (event) => {
@@ -170,13 +161,19 @@ console.log(verschillendepizza);
         }
     };
 
-
+    vuilnisbak.onclick = () => {
+      if(hold){
+        holdPizza.setAttribute("visible",false);
+        pizzaOnTable.setAttribute("visible",false);
+        doughfase1.setAttribute("position", "1 1.05 -5.14");
+      }
+    }
+    
 
 
     for(let i = 0; i < tables.length; i++){
         tables[i].onclick = (event) => {
             console.log(tables);
-            checkCamera();
             if(hold){
                 console.log("table3");
                 holdPizza.setAttribute("visible",false);
@@ -199,7 +196,7 @@ console.log(verschillendepizza);
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            let posi = teleport[i].getAttribute('position').x +" " + teleport[i].getAttribute('position').y +" " + teleport[i].getAttribute('position').z;
+            let posi = teleport[i].getAttribute('position').x +" 1.8 " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
             document.getElementById("rig").setAttribute('animation', att.value);
         };
@@ -383,6 +380,8 @@ console.log(verschillendepizza);
         return child;
     }
 
+    
+
 //functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
     function hygeniëVoltooid(){
       kruisjes[0].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
@@ -446,7 +445,7 @@ console.log(verschillendepizza);
       }, 4000)
 
       setTimeout(() => {
-        doughfase1.remove();
+        doughfase1.setAttribute("position", "1 1.05 -9.14");
         pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
       }, 6000)
     }
@@ -496,7 +495,7 @@ console.log(verschillendepizza);
   // var receptenLijst = [pizzaSalami, pizzaMargherita];
   // console.log(receptenLijst[1]);
 
-
+    
 
 
   pizzaDoos.onclick = () => {
@@ -630,86 +629,4 @@ console.log(verschillendepizza);
   function pizzaRecept(){
     txt1.setAttribute("value", )
   }
-
-
-
-
-  // function functioneerKraan(){
-  //   kraanAan = true;
-  //   setText("De handen zijn gewassen, doe nu de kraan uit", 3000);
-  //   waterdruppels[0].setAttribute("visible",true);
-  //   waterdruppels[1].setAttribute("visible",true);
-  //   waterdruppels[2].setAttribute("visible",true);
-  //
-  //   if (kraanAan == true) {
-  //     sink.onclick = () => {
-  //       kraanAan = false;
-  //       setText("De kraan is uit doe de handschoenen aan", 3000);
-  //       waterdruppels[0].setAttribute("visible",false);
-  //       waterdruppels[1].setAttribute("visible",false);
-  //       waterdruppels[2].setAttribute("visible",false);
-  //     }
-  //   }
-  // }
-
 }
-
-
-
-// niet nodige code weghalen als alles werkt
-// table1.onclick = (event) => {
-//     if(hold){
-//         console.log("table1");
-//         holdPizza.setAttribute("visible",false);
-//         pizzaOnTable.setAttribute("visible",true);
-//         let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
-//         pizzaOnTable.setAttribute("position", posi);
-//         //makePizza();
-//         hold = false;
-//         table1.removeAttribute("class");
-//         table2.removeAttribute("class");
-//         table3.removeAttribute("class");
-//         oven.removeAttribute("class");
-//         addListeners();
-//     }
-// };
-
-
-// table2.onclick = (event) => {
-//     if(hold){
-//         console.log("table2");
-//         // let child = makeObject("js--pizzaOnTable", "a-circle", event.detail.intersection.point, "0.25", scene, true, currentpizza);
-//         // child.setAttribute("scale", ".2 .2 .2");
-//         // child.setAttribute("rotation", "0 0 0");
-//         // document.getElementById("js--holdPizza").remove();
-//         holdPizza.setAttribute("visible",false);
-//         pizzaOnTable.setAttribute("visible",true);
-//         let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
-//         pizzaOnTable.setAttribute("position", posi);
-
-//         hold = false;
-//         table1.removeAttribute("class");
-//         table2.removeAttribute("class");
-//         table3.removeAttribute("class");
-//         oven.removeAttribute("class");
-//         addListeners();
-//     }
-// };
-
-// table3.onclick = (event) => {
-//     console.log("test");
-//     if(hold){
-//         console.log("table3");
-//         holdPizza.setAttribute("visible",false);
-//         pizzaOnTable.setAttribute("visible",true);
-//         let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
-//         pizzaOnTable.setAttribute("position", posi);
-
-//         hold = false;
-//         table1.removeAttribute("class");
-//         table2.removeAttribute("class");
-//         table3.removeAttribute("class");
-//         oven.removeAttribute("class");
-//         addListeners();
-//     }
-// };
