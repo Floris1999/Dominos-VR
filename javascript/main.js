@@ -1,5 +1,6 @@
 window.onload = function(){
 
+
     //basic declarations
     const table1 = document.getElementById('js--werkbank1');
     const table2 = document.getElementById('js--werkbank2');
@@ -114,9 +115,17 @@ window.onload = function(){
     const pizzaShoarma = ["tomatensaus", "kaas", "Shoarma", "knoflooksaus", "Pizza Shoarma"];
     const pizzaSalamis = ["tomatensaus", "kaas", "salami", "Pizza Salami"];
 
-    const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
+    var pizzaRecipe = {
+      ingredients: ['tomatensaus', 'kaas', 'shoarma', 'knoflooksaus'],
+      naam: "pizzashoarma",
+    };
 
-    console.log(verschillendepizza);
+    var pizzaGemaakt = {
+      ingredients: [],
+      model: "#pizzabodem_saus-glb",
+    }
+
+    const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
     // Variabelen pickup objecten
     var hold = false;
     var holdLepel = false;
@@ -134,6 +143,14 @@ window.onload = function(){
     this.console.log(pizzaDoos);
 
     addListeners();
+
+    loadModels = () =>{
+      for(let i = 0; i < ingredientsList.length; i++){
+        this.console.log(ingredientsList[3][0][i]);
+        ingredientsList[i][0][i].setAttribute("visible",true);
+      };
+    }
+
 
     oven.onclick = (event) => {
         if(hold){
@@ -175,10 +192,8 @@ window.onload = function(){
                 pizzaOnTable.setAttribute("visible",true);
                 let posi = event.detail.intersection.point.x + " 1.085 " + event.detail.intersection.point.z;
                 pizzaOnTable.setAttribute("position", posi);
-
                 hold = false;
                 removeClickAble();
-
                 oven.removeAttribute("class");
                 addListeners();
             }
@@ -204,6 +219,7 @@ window.onload = function(){
                         this.console.log(ingredientsList[0][0][i]);
                         ingredientsList[0][0][i].setAttribute("visible",true);
                         //feedback op de kaas
+                        pizzaGemaakt.ingredients.push("kaas");
                         kruisjeDesktop2.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
                         audio.play();
                     };
@@ -305,10 +321,11 @@ window.onload = function(){
     }
 
     checkButton.onclick = () => {
-      checkCount++;
-      if(checkCount > 2){
-        console.log("je komt hier");
-      }
+      console.log(pizzaGemaakt.ingredients);
+      // checkCount++;
+      // if(checkCount > 2){
+      //   console.log("je komt hier");
+      // }
     }
 
     tomatensaus.onclick = (event) => {
@@ -323,6 +340,7 @@ window.onload = function(){
         object.setAttribute("scale", "0.08 0.08 0.08");
         object.setAttribute("rotation", "0 0 10");
         saus_lepel.remove();
+        removeClickAble();
         if(deegbal_bereid === true){
           titel2.setAttribute("visible", false);
           opdracht2.setAttribute("visible", false);
@@ -610,6 +628,7 @@ window.onload = function(){
   }
 
   zeep.onclick = () => {
+    loadModels();
     zeepTrue();
   }
 
