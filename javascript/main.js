@@ -368,7 +368,7 @@ console.log(verschillendepizza);
     flessen_bakje.onclick = (event) => {
       if(holdSausflesKnoflook === true){
         let holdObject = document.getElementById("js--hold_sausfles_knoflook");
-        let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.467 1.1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
+        let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.9 1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
         static_object.setAttribute("scale", "0.3 0.3 0.3");
         holdObject.remove();
         setTimeout( (event) => {
