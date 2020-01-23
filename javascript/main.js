@@ -15,6 +15,7 @@ window.onload = function(){
     var cameratxt = document.getElementById('js--cameratxt');
     const holdPizza = document.getElementById("js--holdPizza");
     const pizzaOnTable = document.getElementById("js--pizzaOnTable");
+    const checkButton = document.getElementById("js--button");
 
     //alles tomatensaus
 
@@ -113,15 +114,13 @@ window.onload = function(){
 
     const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
 
-
-
-
-
-console.log(verschillendepizza);
+    console.log(verschillendepizza);
     // Variabelen pickup objecten
     var hold = false;
     var holdLepel = false;
     var holdSausflesKnoflook = false;
+
+    let checkCount = 0;
 
     // GLB models
     var soeplepel_saus = "#soeplepel_saus-glb";
@@ -130,13 +129,9 @@ console.log(verschillendepizza);
 
     //test vars hier
     const pizzaDoos = document.getElementById("js--pizzaDoos");
-
     this.console.log(pizzaDoos);
 
     addListeners();
-
-
-
 
     oven.onclick = (event) => {
         if(hold){
@@ -147,10 +142,7 @@ console.log(verschillendepizza);
           let att = document.createAttribute("animation");
           att.value = "property: position; easing: linear; dur: 5000; to: 4.5 1.22 -0.701";
           pizzaOnTable.setAttribute('animation', att.value);
-          table1.removeAttribute("class");
-          table2.removeAttribute("class");
-          table3.removeAttribute("class");
-          oven.removeAttribute("class");
+          removeClickAble();
           addListeners();
           setTimeout( (event) => {
             pizzaOnTable.removeAttribute("gltf-model");
@@ -168,8 +160,6 @@ console.log(verschillendepizza);
         doughfase1.setAttribute("position", "1 1.05 -5.14");
       }
     }
-    
-
 
     for(let i = 0; i < tables.length; i++){
         tables[i].onclick = (event) => {
@@ -182,16 +172,13 @@ console.log(verschillendepizza);
                 pizzaOnTable.setAttribute("position", posi);
 
                 hold = false;
-                table1.removeAttribute("class");
-                table2.removeAttribute("class");
-                table3.removeAttribute("class");
+                removeClickAble();
+
                 oven.removeAttribute("class");
                 addListeners();
             }
         };
     };
-
-
 
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
@@ -274,7 +261,6 @@ console.log(verschillendepizza);
               let saus = document.getElementById("js--knoflook_saus_pizza");
               saus.setAttribute("visible" ,false);
               console.log(saus);
-
               ingredientsList[5][1] = true;
               for(let i = 0; i < ingredientsList.length; i++){
                   this.console.log(ingredientsList[4][0][i]);
@@ -282,29 +268,27 @@ console.log(verschillendepizza);
               };
             }
             if(!hold){
-                // let object = makeObject("js--holdPizza", "a-circle", "0 -0.5 -1.2", "0.25", camera, true, currentpizza);
-                // object.setAttribute("scale", ".25 .25 .25");
                 holdPizza.setAttribute("visible",true);
                 pizzaOnTable.setAttribute("visible",false);
                 pizzaOnTable.setAttribute("position", "20 20 20");
-                //cheese.setAttribute("visible",true);
-                //document.getElementById('js--pizzaOnTable').remove();
-                table1.setAttribute("class", "clickable");
-                table2.setAttribute("class", "clickable");
-                table3.setAttribute("class", "clickable");
-                oven.setAttribute("class", "clickable");
+                setClickAble();
                 hold = true;
             }
         };
     }
 
+    checkButton.onclick = () => {
+      checkCount++;
+      if(checkCount > 2){
+        console.log("je komt hier");
+      }
+    }
+
     tomatensaus.onclick = (event) => {
       if(holdLepel === true){
-
         //monitor veranderen zodra lepel terug is gezet
         kruisjeDesktop1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
         audio.play();
-
         //krijtbord fucntioneren
         hygeniëVoltooid3();
         let saus_lepel = document.getElementById("js--holdLepel");
@@ -534,18 +518,21 @@ console.log(verschillendepizza);
             setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
 
         }
-
-
     }
   };
 
   removeClickAble = () => {
-    for(let i = 0; i < tables.length; i++){
-        tables[i].classList.remove("clickable");
-    }
+    table1.removeAttribute("class");
+    table2.removeAttribute("class");
+    table3.removeAttribute("class");
+    oven.removeAttribute("class");
   }
-
-
+  setClickAble = () => {
+    table1.setAttribute("class", "clickable");
+    table2.setAttribute("class", "clickable");
+    table3.setAttribute("class", "clickable");
+    oven.setAttribute("class", "clickable");
+  }
 
 //   function gebruikZeep(){
 //         setText("Er is zeep op de handen gedaan, zet nu de kraan aan om de handen te wassen!", 8000);
