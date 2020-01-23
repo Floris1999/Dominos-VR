@@ -67,6 +67,8 @@ window.onload = function(){
     const shoarma = document.getElementsByClassName('js--shoarmaClass');
     const tomaat = document.getElementsByClassName('js--tomaatClass');
     const ham = document.getElementsByClassName('js--hamClass');
+    const champignon = document.getElementsByClassName('js--champignonClass');
+    const mozzarella = document.getElementsByClassName('js--mozzarellaClass');
 
     const knoflook = document.getElementsByClassName('js--knoflookSausClass');
 
@@ -103,7 +105,7 @@ window.onload = function(){
 
 
 
-    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [knoflook, false]];
+    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [champignon, false], [mozzarella, false], [tomaat, false], [knoflook, false]];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
@@ -134,9 +136,6 @@ console.log(verschillendepizza);
     this.console.log(pizzaDoos);
 
     addListeners();
-
-
-
 
     oven.onclick = (event) => {
         if(hold){
@@ -174,6 +173,9 @@ console.log(verschillendepizza);
     for(let i = 0; i < tables.length; i++){
         tables[i].onclick = (event) => {
             console.log(tables);
+            if(holdLepel){
+              return;
+            }
             if(hold){
                 console.log("table3");
                 holdPizza.setAttribute("visible",false);
@@ -196,7 +198,7 @@ console.log(verschillendepizza);
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
             let att = document.createAttribute("animation");
-            let posi = teleport[i].getAttribute('position').x +" 1.8 " + teleport[i].getAttribute('position').z;
+            let posi = teleport[i].getAttribute('position').x + " 1.8 " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
             document.getElementById("rig").setAttribute('animation', att.value);
         };
@@ -240,11 +242,32 @@ console.log(verschillendepizza);
                             audio.play();
                         };
                         break;
-                case "bakje_tomaat":
+                case "bakje_ham":
                         ingredientsList[4][1] = true;
                         for(let i = 0; i < ingredientsList.length; i++){
                             this.console.log(ingredientsList[4][0][i]);
                             ingredientsList[4][0][i].setAttribute("visible",true);
+                        };
+                        break;
+                case "bakje_champignon":
+                        ingredientsList[5][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[5][0][i].setAttribute("visible",true);
+                        };
+                        break;
+                case "bakje_mozzarella":
+                        ingredientsList[6][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[6][0][i].setAttribute("visible",true);
+                        };
+                        break;
+                case "bakje_tomaat":
+                        ingredientsList[7][1] = true;
+                        for(let i = 0; i < ingredientsList.length; i++){
+                            this.console.log(ingredientsList[4][0][i]);
+                            ingredientsList[7][0][i].setAttribute("visible",true);
                         };
                         break;
             }
@@ -275,10 +298,10 @@ console.log(verschillendepizza);
               saus.setAttribute("visible" ,false);
               console.log(saus);
 
-              ingredientsList[5][1] = true;
+              ingredientsList[8][1] = true;
               for(let i = 0; i < ingredientsList.length; i++){
                   this.console.log(ingredientsList[4][0][i]);
-                  ingredientsList[5][0][i].setAttribute("visible",true);
+                  ingredientsList[8][0][i].setAttribute("visible",true);
               };
             }
             if(!hold){
@@ -356,8 +379,9 @@ console.log(verschillendepizza);
     flessen_bakje.onclick = (event) => {
       if(holdSausflesKnoflook === true){
         let holdObject = document.getElementById("js--hold_sausfles_knoflook");
-        let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.467 1.1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
+        let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.9 1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
         static_object.setAttribute("scale", "0.3 0.3 0.3");
+        static_object.setAttribute("class", "clickable");
         holdObject.remove();
         setTimeout( (event) => {
           hold = false;
