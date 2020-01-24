@@ -283,17 +283,15 @@
 
     <!-- Text  -->
       <!-- Titel -->
-      <a-text id="js--titel1" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Ga hygenisch te werk" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel1" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Ga hygenisch te werk" scale="0.5 0.5 0.5" visible="true"></a-text>
       <a-text id="js--titel2" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Bereid de pizza voor" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--titel3" position="0.1 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Doe je juiste ingrediënten op de pizza" scale="0.5 0.5 0.5" visible="true"></a-text>
-      <a-text id="js--titel4" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Kook de pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--titel5" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Maak de pizza klaar voor de klant" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel3" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Bekleed pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel4" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Maak de pizza klaar voor de klant" scale="0.5 0.5 0.5" visible="false"></a-text>
       <!-- Inhoud -->
-      <a-text id="js--optie1" position="0.2 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="1" value="1. Doe wat zeep op je handen \n 2. Zet de kraan aan en was je handen \n 3. Doe de kraan weer uit \n 4. Trek je handschoenen aan" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie1" position="0.2 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="1" value="1. Doe wat zeep op je handen \n 2. Zet de kraan aan en was je handen \n 3. Doe de kraan weer uit \n 4. Trek je handschoenen aan" scale="0.5 0.5 0.5" visible="true"></a-text>
       <a-text id="js--optie2" position="0.1 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Maak van de deegbal een pizzabodem \n 2. Pak de lepel met tomatensaus uit de pot \n 3. Smeer de tomatensaus uit op de pizza \n 4. Stop de lepel weer terug in de sauspot" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--optie3" position="0.1 2.442 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak de pizza op en neem hem mee naar de ingrediënten tafel \n 2. Op het scherm boven de ingediënten kan je vinden welke ingrediënten je op de pizza moet plaatsen" scale="0.5 0.5 0.5" visible="true"></a-text>
-      <a-text id="js--optie4"  position="0.2 2.249 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak je pizza en stop hem in de oven \n 2. Haal de pizza weer uit de oven" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--optie5" position="0.2 1.755 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Zet de pizza op het werkblad neer en snijd hem in 6 stukken \n 2. Plaats de pizza in de doos" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie3" position="-0.01301 2.38743 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak de pizza op en neem hem mee naar de ingrediënten tafel \n 2. Doe de juiste ingredienten die op het scherm staan op de pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie4"  position="0.11712 2.36313 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak je pizza en stop hem in de oven \n 2. Haal de pizza weer uit de oven \n 3. Plaats de pizza in de doos \n 4. Snijd de pizza in 8 stukken" scale="0.5 0.5 0.5" visible="false"></a-text>
       <!-- Lijn -->
         <!-- Opdracht 1 -->
         <a-image class="krijtlijn" id="js--krijtlijn1" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.17772 2.56292 -5.8" geometry="width: 2.46" material="" rotation="0 0 1.25"></a-image>
@@ -302,15 +300,27 @@
         <a-image class="krijtlijn" id="js--krijtlijn4" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.16347 2.0093 -5.794" geometry="width: 2.35" material="" rotation="0 0 -1.3"></a-image>
 
         <!-- Opdracht 2 -->
-        <a-image class="krijtlijn" id="js--krijtlijn1" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.27447 2.56292 -5.8" geometry="width: 3.02" material="" rotation="0 0 -1.032"></a-image>
-        <a-image class="krijtlijn" id="js--krijtlijn2" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.38785 2.36743 -5.798" geometry="width: 3.02" material=""></a-image>
-        <a-image class="krijtlijn" id="js--krijtlijn3" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.26589 2.18883 -5.796" geometry="width: 3.23" material=""></a-image>
-        <a-image class="krijtlijn" id="js--krijtlijn4" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.34853 2.0093 -5.794" geometry="width: 3.03" material="" rotation="0 0 1.16"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn5" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.27447 2.56292 -5.8" geometry="width: 3.02" material="" rotation="0 0 -1.032"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn6" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.38785 2.36743 -5.798" geometry="width: 3.02" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn7" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.26589 2.18883 -5.796" geometry="width: 3.23" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn8" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.34853 2.0093 -5.794" geometry="width: 3.03" material="" rotation="0 0 1.16"></a-image>
+
+        <!-- Opdracht 3 -->
+        <a-image class="krijtlijn" id="js--krijtlijn9" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.27447 2.63062 -5.8" geometry="width: 3.02" material="" rotation="0 0 -1.032"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn10" visible="false" src="../media/omgeving/krijt_lijn.png" position="0.55381 2.44264 -5.798" geometry="width: 1.37" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn11" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.26589 2.26404 -5.796" geometry="width: 3.23" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn12" visible="false" src="../media/omgeving/krijt_lijn.png" position="0.75798 2.07648 -5.794" geometry="width: 1.98" material="" rotation="0 0 -1.853"></a-image>
+
+        <!-- Opdracht 4 -->
+        <a-image class="krijtlijn" id="js--krijtlijn13" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.22292 2.61748 -5.8" geometry="width: 2.9" material="" rotation="0 0 -1.4"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn14" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.08868 2.44232 -5.798" geometry="width: 2.75" material="" rotation="0 0 1.032"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn15" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.00781 2.2525 -5.796" geometry="width: 2.42" material="" rotation="0 0 1.3"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn16" visible="false" src="../media/omgeving/krijt_lijn.png" position="0.97488 2.05742 -5.794" geometry="width: 2.43" material="" rotation="0 0 -1.3"></a-image>
 
     <!-- text monitor -->
     <a-text id="js--ingredient0" position="3.865 2.831 -5.715" color="#000000" rotation="10 0 0" opacity="5"  scale="0.5 0.5 0.5"></a-text>
     <a-text id="js--ingredient1" position="3.865 2.691 -5.721" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
-    <a-text id="js--ingredient2" position="3.865 2.536 -5.758" color="black" rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient2" position="3.865 2.536 -5.758" color="black" rotation="10 0false 0"  scale="0.5 0.5 0.5"></a-text>
     <a-text id="js--ingredient3" position="3.865 2.396 -5.785" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
     <a-text id="js--ingredient4"   position="3.865 2.225 -5.822" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
     <!-- <a-text  id="js--ingredient6" position="3.865 2.831 -5.715" color="black" font="../fonts/chalkfont.fnt" value="Haal de pizza uit de oven" scale="0.5 0.5 0.5"></a-text> -->
@@ -323,14 +333,10 @@
     <a-image id="js--kruisje-desk3" src="" rotation="10 0 0" position="5.369 2.396 -5.765" scale="0.2 0.2 0.2"></a-image>
     <a-image id="js--kruisje-desk4" src="" rotation="10 0 0" position="5.369 2.256 -5.765" scale="0.2 0.2 0.2"></a-image>
     <!-- krijtbord img -->
-    <a-image id="js--kruisje1" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.9777 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje2" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.801 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje3" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.595 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje4" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.419 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje5" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.242 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje6" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.075 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje7" src="../media/krijtbord/krijtbordimg3.png" position="2.4 1.928 -5.802" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje8" src="../media/krijtbord/krijtbordimg3.png" position="2.4 1.771 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje1" src="../media/krijtbord/krijtbordimg5.png" position="2.09903 2.81364 -5.79" scale="0.5 0.5 0.4" rotation="0 0 -15" visible="false"></a-image>
+    <a-image id="js--kruisje2" src="../media/krijtbord/krijtbordimg5.png" position="2.09903 2.81364 -5.79" scale="0.5 0.5 0.4" rotation="0 0 -15" visible="false"></a-image>
+    <a-image id="js--kruisje3" src="../media/krijtbord/krijtbordimg5.png" position="2.09903 2.81364 -5.79" scale="0.5 0.5 0.4" rotation="0 0 -15" visible="false"></a-image>
+    <a-image id="js--kruisje4" src="../media/krijtbord/krijtbordimg5.png" position="2.09903 2.81364 -5.79" scale="0.5 0.5 0.4" rotation="0 0 -15" visible="false"></a-image>
 
     <!-- a-cilinder voor oven -->
     <a-cylinder id="js--ovenbtn" class="clickable" position="7.543 1.252 -1.229" rotation="0 0 90" scale="0.042 0.042 0.042"></a-cylinder>
