@@ -707,7 +707,7 @@ window.onload = function(){
         doughfase1.setAttribute("position", "1 1.05 -9.14");
         pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
       }, 6000)
-    }
+    },1)
 
     ovenbtn.onclick = () => {
       timeout();
@@ -785,6 +785,7 @@ window.onload = function(){
           if(fouten == 0){
               setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
         }
+      }
     }
   };
 
@@ -911,8 +912,3 @@ window.onload = function(){
   // pizzasnijder.onclick = () => {
   //   gesnedenPizza.setAttribute("visible", true);
   // }
-
-  function pizzaRecept(){
-    txt1.setAttribute("value", )
-  }
-}
