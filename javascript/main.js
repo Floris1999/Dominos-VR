@@ -15,9 +15,8 @@ window.onload = function(){
     const holdPizza = document.getElementById("js--holdPizza");
     const pizzaOnTable = document.getElementById("js--pizzaOnTable");
 
-    //alles tomatensaus
-
-    //alles ingredienten
+    //Developer mode
+    var developer_mode = false;
 
 
     // krijtbordcheck
@@ -146,7 +145,7 @@ console.log(verschillendepizza);
     addListeners();
 
     oven.onclick = (event) => {
-      if(opdracht3Voltooid){
+      if(opdracht3Voltooid || developer_mode == true){
         if(hold){
           holdPizza.setAttribute("visible",false);
           pizzaOnTable.setAttribute("visible",true);
@@ -209,7 +208,7 @@ console.log(verschillendepizza);
 
     for(let i = 0; i < ingredientenBakjes.length; i++){
         ingredientenBakjes[i].onclick = (event) => {
-          if(opdracht1Voltooid && opdracht2Voltooid){
+          if( (opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
             ingredient = ingredientenBakjes[i].id;
             switch(ingredient){
                 case "bakje_kaas":
@@ -283,7 +282,7 @@ console.log(verschillendepizza);
 
     function addListeners(){
         pizzaOnTable.onclick = (event) => {
-          if(opdracht1Voltooid){
+          if(opdracht1Voltooid  || developer_mode == true){
             if(holdLepel){
               pizza = document.getElementById('js--pizzaOnTable');
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
@@ -332,7 +331,7 @@ console.log(verschillendepizza);
     }
 
     tomatensaus.onclick = (event) => {
-      if(opdracht1Voltooid){
+      if(opdracht1Voltooid || developer_mode == true){
         if(holdLepel === true){
 
           //monitor veranderen zodra lepel terug is gezet
@@ -374,7 +373,7 @@ console.log(verschillendepizza);
     };
 
     sausfles_knoflook.onclick = (event) => {
-      if(opdracht1Voltooid && opdracht2Voltooid){
+      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
         if(!hold){
           let static_object = document.getElementById("js--sausfles_knoflook");
           let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
@@ -472,7 +471,7 @@ console.log(verschillendepizza);
     }
 
     doughfase1.onclick= () => {
-      if(opdracht1Voltooid){
+      if(opdracht1Voltooid || developer_mode == true){
       //text op de monitor showen
         txt1.setAttribute("value", verschillendepizza[1][verschillendepizza[1].length-1]);
         txt2.setAttribute("value", verschillendepizza[1][0]);
@@ -556,7 +555,7 @@ console.log(verschillendepizza);
 
 
   pizzaDoos.onclick = () => {
-    if(opdracht3Voltooid){
+    if(opdracht3Voltooid || developer_mode == true){
       if(hold){
           let fouten = 0;
           console.log("pizzadoos");

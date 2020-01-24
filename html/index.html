@@ -6,8 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 
+  <script src="../javascript/api.js"></script>
+
   <script src="../javascript/main.js"></script>
-  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+
+
+  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
 
 
@@ -16,34 +20,34 @@
 
 </head>
 <body>
-  <a-scene stats device-orientation-permission-ui id="js--scene" visible="true">
+  <a-scene stats id="js--scene" visible="true">
     <!-- Assets -->
     <a-assets>
       <!-- Ingredienten voor in hand-->
-      <a-asset-item id="ananas-glb" src="../media/ananas/pinapple_2.glb"></a-asset-item>
-      <a-asset-item id="champignon-glb" src="../media/champignon/champignon.glb"></a-asset-item>
-      <a-asset-item id="ham-glb" src="../media/ham/ham_los.glb"></a-asset-item>
-      <a-asset-item id="kaas-glb" src="../media/kaas/cheese_los.glb"></a-asset-item>
-      <a-asset-item id="mozzarella-glb" src="../media/mozzarella/mozzarella_los.glb"></a-asset-item>
-      <a-asset-item id="salami-glb" src="../media/salami/salami_2.glb"></a-asset-item>
-      <a-asset-item id="shoarma-glb" src="../media/shoarma/shoarma_los.glb"></a-asset-item>
-      <a-asset-item id="tomaatje-glb" src="../media/tomaatje/tomaatje.glb"></a-asset-item>
-      <a-asset-item id='sausfles_knoflook-glb' src="../media/sausfles/sausfles_knoflook.glb"></a-asset-item>
-      <a-asset-item id='sausfles_bbq-glb' src="../media/sausfles/sausfles_bbq.glb"></a-asset-item>
+      <a-assit-item id="ananas-glb" src="../media/ananas/pinapple_2.glb"></a-assit-item>
+      <a-assit-item id="champignon-glb" src="../media/champignon/champignon.glb"></a-assit-item>
+      <a-assit-item id="ham-glb" src="../media/ham/ham_los.glb"></a-assit-item>
+      <a-assit-item id="kaas-glb" src="../media/kaas/cheese_los.glb"></a-assit-item>
+      <a-assit-item id="mozzarella-glb" src="../media/mozzarella/mozzarella_los.glb"></a-assit-item>
+      <a-assit-item id="salami-glb" src="../media/salami/salami_2.glb"></a-assit-item>
+      <a-assit-item id="shoarma-glb" src="../media/shoarma/shoarma_los.glb"></a-assit-item>
+      <a-assit-item id="tomaatje-glb" src="../media/tomaatje/tomaatje.glb"></a-assit-item>
+      <a-assit-item id='sausfles_knoflook-glb' src="../media/sausfles/sausfles_knoflook.glb"></a-assit-item>
+      <a-assit-item id='sausfles_bbq-glb' src="../media/sausfles/sausfles_bbq.glb"></a-assit-item>
 
       <!-- Ingredienten hoopjes -->
-      <a-asset-item id='kaas_hoop-glb' src="../media/kaas/cheese_hoopje.glb"></a-asset-item>
-      <a-asset-item id='shoarma_hoop-glb' src="../media/shoarma/shoarma_hoopje.glb"></a-asset-item>
-      <a-asset-item id='ananas_hoop-glb' src="../media/ananas/pinapple_1_hoopje.glb"></a-asset-item>
-      <a-asset-item id='ham_hoop-glb' src="../media/ham/ham_hoopje.glb"></a-asset-item>
-      <a-asset-item id='salami-glb' src="../media/salami/salami_1_hoopje.glb"></a-asset-item>
+      <a-assit-item id='kaas_hoop-glb' src="../media/kaas/cheese_hoopje.glb"></a-assit-item>
+      <a-assit-item id='shoarma_hoop-glb' src="../media/shoarma/shoarma_hoopje.glb"></a-assit-item>
+      <a-assit-item id='ananas_hoop-glb' src="../media/ananas/pinapple_1_hoopje.glb"></a-assit-item>
+      <a-assit-item id='ham_hoop-glb' src="../media/ham/ham_hoopje.glb"></a-assit-item>
+      <a-assit-item id='salami-glb' src="../media/salami/salami_1_hoopje.glb"></a-assit-item>
 
       <!-- Ingredienten hoopjes alternatief-->
-      <a-asset-item id='kaas_hoop_alt-glb' src="../media/kaas/cheese_hoopje_alt.glb"></a-asset-item>
-      <a-asset-item id='shoarma_hoop_alt-glb' src="../media/shoarma/shoarma_hoopje_alt.glb"></a-asset-item>
-      <a-asset-item id='ananas_hoop_alt-glb' src="../media/ananas/pineapple_hoopje_alt.glb"></a-asset-item>
-      <a-asset-item id='ham_hoop_alt-glb' src="../media/ham/ham_hoopje_alt.glb"></a-asset-item>
-      <a-asset-item id='salami_hoop_alt-glb' src="../media/salami/salami_hoopje_alt.glb"></a-asset-item>
+      <a-assit-item id='kaas_hoop_alt-glb' src="../media/kaas/cheese_hoopje_alt.glb"></a-assit-item>
+      <a-assit-item id='shoarma_hoop_alt-glb' src="../media/shoarma/shoarma_hoopje_alt.glb"></a-assit-item>
+      <a-assit-item id='ananas_hoop_alt-glb' src="../media/ananas/pineapple_hoopje_alt.glb"></a-assit-item>
+      <a-assit-item id='ham_hoop_alt-glb' src="../media/ham/ham_hoopje_alt.glb"></a-assit-item>
+      <a-assit-item id='salami_hoop_alt-glb' src="../media/salami/salami_hoopje_alt.glb"></a-assit-item>
 
       <!-- PNG ingrediënten hoopjes-->
       <img id="kaas_hoop-png" src="../media/ingredienten_jpg/kaas_hoop.PNG"></img>
@@ -56,76 +60,58 @@
       <img id="tomaatje_hoop-png" src="../media/ingredienten_jpg/tomaatjes_hoop.jpg"></img>
 
       <!-- Ingredienten op pizza -->
-      <a-asset-item id="champignon_on_pizza-glb" src="../media/champignon/champignon_op_pizza.glb"></a-asset-item>
-      <a-asset-item id="ham_on_pizza-glb" src="../media/ham/ham_op_pizza.glb"></a-asset-item>
-      <a-asset-item id="mozzarella_op_pizza-glb" src="../media/mozzarella/mozzarella_op_pizza.glb"></a-asset-item>
-      <a-asset-item id="pinapple_on_pizza-glb" src="../media/ananas/pinapple_on_pizza.glb"></a-asset-item>
-      <a-asset-item id="salami_on_pizza-glb" src="../media/salami/salami_op_pizza.glb"></a-asset-item>
-      <a-asset-item id="shoarma_on_pizza-glb" src="../media/shoarma/shoarma_op_pizza.glb"></a-asset-item>
-      <a-asset-item id="tomaat_on_pizza-glb" src="../media/tomaatje/tomaatje_op_pizza.glb"></a-asset-item>
-      <a-asset-item id="cheese_op_pizza-glb" src="../media/kaas/cheese_op_pizza.glb"></a-asset-item>
+      <a-assit-item id="champignon_on_pizza-glb" src="../media/champignon/champignon_op_pizza.glb"></a-assit-item>
+      <a-assit-item id="ham_on_pizza-glb" src="../media/ham/ham_op_pizza.glb"></a-assit-item>
+      <a-assit-item id="mozzarella_op_pizza-glb" src="../media/mozzarella/mozzarella_op_pizza.glb"></a-assit-item>
+      <a-assit-item id="pinapple_on_pizza-glb" src="../media/ananas/pinapple_on_pizza.glb"></a-assit-item>
+      <a-assit-item id="salami_on_pizza-glb" src="../media/salami/salami_op_pizza.glb"></a-assit-item>
+      <a-assit-item id="shoarma_on_pizza-glb" src="../media/shoarma/shoarma_op_pizza.glb"></a-assit-item>
+      <a-assit-item id="tomaat_on_pizza-glb" src="../media/tomaatje/tomaatje_op_pizza.glb"></a-assit-item>
+      <a-assit-item id="cheese_op_pizza-glb" src="../media/kaas/cheese_op_pizza.glb"></a-assit-item>
       <img id="knoflook_saus_op_pizza-png" src="../media/knoflook_saus/pizza_shoarma_saus.png">
 
       <!-- Deegbal naar pizzabodem -->
-      <a-asset-item id='deegbal_fase_1-glb' src="../media/deegbal_fases/deegbal_fase_1.glb"></a-asset-item>
-      <a-asset-item id='deegbal_fase_2-glb' src="../media/deegbal_fases/deegbal_fase_2.glb"></a-asset-item>
-      <a-asset-item id='deegbal_fase_3-glb' src="../media/deegbal_fases/deegbal_fase_3.glb"></a-asset-item>
+      <a-assit-item id='deegbal_fase_1-glb' src="../media/deegbal_fases/deegbal_fase_1.glb"></a-assit-item>
+      <a-assit-item id='deegbal_fase_2-glb' src="../media/deegbal_fases/deegbal_fase_2.glb"></a-assit-item>
+      <a-assit-item id='deegbal_fase_3-glb' src="../media/deegbal_fases/deegbal_fase_3.glb"></a-assit-item>
 
       <!-- prullebakken -->
-      <a-asset-item id='vuilnisbak-glb' src="../media/vuilnisbak/vuilnisbak.glb"></a-asset-item>
+      <a-assit-item id='vuilnisbak-glb' src="../media/vuilnisbak/vuilnisbak.glb"></a-assit-item>
 
       <!-- Ongekookte pizzabodem-->
-      <a-asset-item id='pizzabodem_rauw_saus_fase_1-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb"></a-asset-item>
-      <a-asset-item id='pizzabodem_rauw_saus_fase_2-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb"></a-asset-item>
-      <a-asset-item id='pizzabodem_rauw_saus_fase_3-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb"></a-asset-item>
-      <a-asset-item id='pizzabodem_rauw_saus-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb"></a-asset-item>
+      <a-assit-item id='pizzabodem_rauw_saus_fase_1-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb"></a-assit-item>
+      <a-assit-item id='pizzabodem_rauw_saus_fase_2-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb"></a-assit-item>
+      <a-assit-item id='pizzabodem_rauw_saus_fase_3-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb"></a-assit-item>
+      <a-assit-item id='pizzabodem_rauw_saus-glb' src="../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb"></a-assit-item>
 
       <!-- Gekookte pizzabodem -->
-      <a-asset-item id='pizzabodem-glb' src="../media/pizzabodem/pizzabodem.glb"></a-asset-item>
-      <a-asset-item id='pizzabodem_saus-glb' src="../media/pizzabodem_saus/pizzabodem_saus.glb"></a-asset-item>
+      <a-assit-item id='pizzabodem-glb' src="../media/pizzabodem/pizzabodem.glb"></a-assit-item>
+      <a-assit-item id='pizzabodem_saus-glb' src="../media/pizzabodem_saus/pizzabodem_saus.glb"></a-assit-item>
 
       <!-- Utensils -->
-      <a-asset-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-asset-item>
-      <a-asset-item id='soeplepel_saus-glb' src="../media/soeplepel/soeplepel_saus.glb"></a-asset-item>
-      <a-asset-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzacutter3.glb"></a-asset-item>
-      <a-asset-item id='tomatensaus-glb' src="../media/Tomatensaus/tomatensausbak_test.glb"></a-asset-item>
+      <a-assit-item id='lepel-glb' src="../media/soeplepel/soeplepel.glb"></a-assit-item>
+      <a-assit-item id='soeplepel_saus-glb' src="../media/soeplepel/soeplepel_saus.glb"></a-assit-item>
+      <a-assit-item id="pizzasnijder-glb" src="../media/pizzaCutter/pizzacutter3.glb"></a-assit-item>
+      <a-assit-item id='tomatensaus-glb' src="../media/Tomatensaus/tomatensausbak_test.glb"></a-assit-item>
 
       <!-- Items -->
-      <a-asset-item id="pizzadoos-obj" src="../media/pizzadoos/Pizzareal.obj"></a-asset-item>
-      <a-asset-item id="pizzadoos-mtl" src="../media/pizzadoos/Pizzareal.mtl"></a-asset-item>
-      <a-asset-item id='handschoenendoosje-glb' src="../media/Handschoenendoosje/handschoenendoosje.glb"></a-asset-item>
-      <a-asset-item id='zeep-glb' src="../media/soap/soap.glb"></a-asset-item>
-      <a-asset-item id='krijtbord-glb' src="../media/krijtbord/krijtbord.glb"></a-asset-item>
-      <a-asset-item id='scherm-glb' src="../media/scherm/scherm.glb"></a-asset-item>
+      <a-assit-item id="pizzadoos-obj" src="../media/pizzadoos/Pizzareal.obj"></a-assit-item>
+      <a-assit-item id="pizzadoos-mtl" src="../media/pizzadoos/Pizzareal.mtl"></a-assit-item>
+      <a-assit-item id='handschoenendoosje-glb' src="../media/Handschoenendoosje/handschoenendoosje.glb"></a-assit-item>
+      <a-assit-item id='zeep-glb' src="../media/soap/soap.glb"></a-assit-item>
+      <a-assit-item id='krijtbord-glb' src="../media/krijtbord/krijtbord.glb"></a-assit-item>
+      <a-assit-item id='scherm-glb' src="../media/scherm/scherm.glb"></a-assit-item>
 
       <!-- Omgeving -->
-      <a-asset-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-asset-item>
-      <a-asset-item id='werkbank-glb' src="../media/werkbank/werkbanknormaal_original.glb"></a-asset-item>
-      <a-asset-item id='sink-glb' src="../media/sink/sink.glb"></a-asset-item>
-      <a-asset-item id='bakje-glb' src="../media/Ingredientenbakje/bakje.glb"></a-asset-item>
-      <a-asset-item id='oven_1-glb' src="../media/oven state 1/oven1.glb"></a-asset-item>
-      <a-asset-item id='oven_2-glb' src="../media/oven state 2/oven2.glb"></a-asset-item>
-      <a-asset-item id='portal-glb' src="../media/portal/portal.glb"></a-asset-item>
-      <a-asset-item id='waterdruppel-glb' src="../media/teleporting/water.glb"></a-asset-item>
+      <a-assit-item id='werkbank_spleten-glb' src="../media/werkbank_spleten/werkbankspleten_original.glb"></a-assit-item>
+      <a-assit-item id='werkbank-glb' src="../media/werkbank/werkbanknormaal_original.glb"></a-assit-item>
+      <a-assit-item id='sink-glb' src="../media/sink/sink.glb"></a-assit-item>
+      <a-assit-item id='bakje-glb' src="../media/Ingredientenbakje/bakje.glb"></a-assit-item>
+      <a-assit-item id='oven_1-glb' src="../media/oven state 1/oven1.glb"></a-assit-item>
+      <a-assit-item id='oven_2-glb' src="../media/oven state 2/oven2.glb"></a-assit-item>
+      <a-assit-item id='portal-glb' src="../media/portal/portal.glb"></a-assit-item>
+      <a-assit-item id='waterdruppel-glb' src="../media/teleporting/water.glb"></a-assit-item>
     </a-assets>
-
-
-    <!-- <a-entity id="rig"
-          movement-controls="controls: checkpoint"
-          checkpoint-controls="mode: animate">
-  <a-entity camera position="4 1.6 0"  look-controls="pointerLockEnabled: true">
-            <a-entity
-              id="js--cursor"
-              animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-              animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1"
-              animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-              cursor="fuse: true; fuseTimeout: 2000"
-              material="color: black; shader: flat"
-              geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
-              position= "0 0 -0.5"
-              raycaster="objects: .clickable"
-            ></a-entity>
-  </a-entity> -->
 
   <a-entity id="rig"
             position="-2 1.8 -4">
@@ -143,7 +129,10 @@
         ></a-entity>
         <!-- <a-entity id="js--camertxt" text="value: Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!; color: white; width: 2; align: center;" position="0 -0.6 -1" >
     </a-entity> -->
+
+
       <a-entity id="js--holdPizza" class="clickable" position="0 -0.5 -1.2" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="false">
+        <!-- <a-entity id="js--holdPizza" class="clickable" position="0 -.6 -1.2" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="false"> -->
         <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
         <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
         <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
@@ -157,9 +146,33 @@
       <a-text id="js--cameratxt" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
       </a-camera>
     </a-entity>
-  </a-entity>
+  <!-- </a-entity> -->
+    <a-entity id="js--startschermMode">
+      <a-sky color="red"></a-sky>
+      <a-plane id="js--uitleg" color="grey" position="4.761 3.388 -7.812" rotation="0 -30 0" height="6" width="8" opacity="0.6" visible="false">
+        <a-image class="clickable" id="js--kruisjeuitleg" position="2.378 1.850 1.064" scale="0.6 0.6 0.6" src="../media/scherm/kruis.png">
+        </a-image>
+        <a-Text color="white" value=" - Druk op de pizza doos om het spel te beginnen \n - Objecten pak je vast door met de cursor 2 seconden op het object te blijven \n - Volg telkens de stappen aangegeven op het krijtbord, hier krijg je ook feedback op \n - Het is van belang dat je de stappen van onder naar beneden volgt \n - Om op andere delen van de kamer te komen moet je de cursor twee seconden op de blauwe teleport houden" position="-2.862 0.658 0.486" line-height="60" >
+        </a-text>
+      </a-plane>
+      <a-plane id="js--extra" color="grey" position="-8.733 3.388 -8.102" rotation="0 30 0" height="6" width="8" opacity="0.6" visible="false">
+          <a-image id="js--kruisjeinfo" class="clickable" id="js--kruisjeuitleg" position="3.296 1.445 1.594" scale="0.6 0.6 0.6" src="../media/scherm/kruis.png">
+          </a-image>
+          <a-Text color="white" value="Dit is een VR project gemaakt door Chris Bergsma, Floris Wieringa en Yoeri Massop. Wij studeren aan de hogeschool leiden en studeren informatica. Dit is een opdracht waarbij wij een taak moeten aanleren aan de gebruikers. Wij hebben voor de taak: pizza maken in domino's gekozen. Veel plezier met de VR experience" position="-2.151 0.658 0.075" line-height="60" >
+          </a-text>
+      </a-plane>
 
-
+  <a-image id="js--dominostarting" position="-2.333 3.682 -8.642" width="10" height="2" align="center" src="../media/startscreen/dominoslogo.png" animation__rotation="property: rotation; to: 0 720 0; delay: 500; dur: 6200; easing: easeOutCubic" animation__position="property: position; to: -2.333 3.682 -8.642; delay: 500; dur: 500; easing: easeOutCubic" animation__scale="property: scale; to: 1 1 1; delay: 500; dur: 500; easing: easeOutCubic"></a-image>
+  <a-image id="js--uitlegbtn" class="clickable" position="4.1 4.871 -8.642" width="1" align="center" src="../media/scherm/uitleg.png" ></a-image>
+  <a-image id="js--infobtn" class="clickable" position="-8.504 4.871 -8.642" width="1" align="center" src="../media/scherm/info.png" ></a-image>
+  <a-image class="clickable" id="js--startgame" scale="2 2 2" position="-1.5 0.5 -8.642" animation="property: position; to: -1.5 0 -8.642; dur: 1500; easing: linear; loop: true;" width="1" align="center" src="../media/scherm/pizzabox.png" ></a-image>
+  <a-text  id="js--blinking" width="7" position="-3.686 -4.400 -8.642" color="white" value="Druk op de doos om het spel te beginnen" animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" animation__position="property: position; to:-3.686 -1.400 -8.642 ; delay: 1000; dur: 1000; easing: easeOutCubic"></a-text>
+  <!-- <a-cylinder position="-0.539 1 -8.642" color="red"
+  ></a-cylinder> -->
+  <!-- <a-box class="clickable" id="js--startgame" color="red" depth="0.05" position="-3.449 1.724 -8.642" width="2" height="0.5"><a-text position="-0.580 0.020 0.13" value="Start Game" color="white"></a-text></a-box>
+  <a-box color="red" depth="0.05" position="-0.539 1.743 -8.642" width="2" height="0.5"><a-text position="-0.530 0.030 0.130" value="Time trial" color="white"></a-text></a-box> -->
+</a-entity>
+<a-entity id="js--fixopacity">
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" class="js--werkbank" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
@@ -201,6 +214,10 @@
     <a-plane class="ingredienten_bordjes" position="5.61 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Mozzarella" scale=".2 .3 1"></a-text></a-plane>
     <a-plane class="ingredienten_bordjes" position="5.945 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Tomaatjes" scale=".2 .3 1"></a-text></a-plane>
 
+    <a-plane id="js--button" color="blue" class="clickable" position="6.122 1.62 -5.994"  height=".5" width=".5" text="value: Check ingredienten; align: center; ">
+
+    </a-plane>
+
     <!-- Oven -->
     <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb" visible="true"></a-entity>
     <a-entity id="js--oven2" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_2-glb" visible="false"></a-entity>
@@ -233,14 +250,21 @@
     <a-image src="../media/Tomatensaus/logo.png" position="2.5 1.230 -5.016" scale="0.12 0.12 0.12"></a-image>
 
     <!-- vuilnisbak -->
-    <a-entity id="js--vuilnisbak" position="6.8 0.059 -5.179" scale="0.15 0.15 0.15"  gltf-model="#vuilnisbak-glb"></a-entity>
+    <a-entity class="clickable" id="js--vuilnisbak" position="6.8 0.059 -5.179" scale="0.15 0.15 0.15"  gltf-model="#vuilnisbak-glb"></a-entity>
 
 
     <!-- pizzadoos -->
     <a-entity id="js--pizzaDoos" class="clickable" scale="0.6 0.6 0.6" position="1.377 1.142 -0.646" rotation="0 -90 0" obj-model="obj: #pizzadoos-obj; mtl:#pizzadoos-mtl"></a-entity>
 
     <!-- Pizzasnijder -->
-    <a-entity scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
+    <a-entity class="clickable" id="js--pizzasnijder" scale="0.1 0.1 0.1" position="0.157 1.142 -0.95" rotation="90 -90 -40" gltf-model="#pizzasnijder-glb"></a-entity>
+
+    <a-image visible="false" id="js--gesneden1" src="../media/pizzaCutter/streep.png" rotation="90 0 50" scale="0.35 0.35 0.35" position="0.894 1.186 -0.663"></a-image>
+    <a-image visible="false" id="js--gesneden2" src="../media/pizzaCutter/streep.png" rotation="90 0 100" scale="0.35 0.35 0.35" position="0.894 1.186 -0.663"></a-image>
+    <a-image visible="false" id="js--gesneden3" src="../media/pizzaCutter/streep.png" rotation="90 0 140" scale="0.35 0.35 0.35" position="0.894 1.186 -0.663"></a-image>
+    <a-image visible="false" id="js--gesneden4" src="../media/pizzaCutter/streep.png" rotation="90 0 0" scale="0.35 0.35 0.35" position="0.894 1.186 -0.663"></a-image>
+
+
 
     <!-- Lepel -->
     <a-entity id="js--lepel" class="clickable" position="2.435 1.175 -5.25" rotation="0 0 10" scale="0.08 0.08 0.08" gltf-model="#lepel-glb"></a-entity>
@@ -254,40 +278,59 @@
     <a-plane src="../media/omgeving/ground.jpg" repeat="40 30" position="0 0 0" rotation="-90 0 0" width="20" height="15"></a-plane>
     <a-plane src="../media/omgeving/plafond.jpg" repeat="60 30" position="0 3.5 0" rotation="-270 0 0" width="20" height="15"></a-plane>
 
-    <!-- Krijtbord opdrachten  -->
-      <!-- Titel -->
-      <a-text id="js--titel1" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Ga hygenisch te werk" scale="0.5 0.5 0.5" visible="true"></a-text>
-      <a-text id="js--titel2" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Bereid de pizza voor" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--titel3" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Bekleed de pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--titel4" position="0.3 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Maak de pizza klaar voor de klant" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <!-- Inhoud -->
-      <a-text id="js--optie1" position="0.2 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="1" value="1. Doe wat zeep op je handen \n 2. Zet de kraan aan en was je handen \n 3. Doe de kraan weer uit \n 4. Trek je handschoenen aan" scale="0.5 0.5 0.5" visible="true"></a-text>
-      <a-text id="js--optie2" position="0 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="1" value="1. Maak van de deegbal een pizzabodem \n 2. Pak de lepel met tomatensaus uit de pot \n 3. Smeer de tomatensaus uit op de pizza \n 4. Stop de lepel weer terug in de sauspot" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--optie3" position="0 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak de pizza op en neem hem mee naar de ingrediënten tafel \n 2. Op het scherm boven de ingediënten kan je vinden welke ingrediënten je op de pizza moet plaatsen" scale="0.5 0.5 0.5" visible="false"></a-text>
-      <a-text id="js--optie4"  position="0 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak je pizza en stop hem in de oven \n 2. Haal de pizza weer uit de oven \n 3. Leg de pizza in de doos en snijd hem in 6 stukken" scale="0.48 0.5 0.5" visible="false"></a-text>
+    <a-image src="../media/omgeving/straat.jpg" position="-20 2.5 0" rotation="0 -90 0" width="24" height="10"></a-image>
+    <a-image src="../media/omgeving/glazen_deur.png" position="-10 1.95005 -1.51363" geometry="width: 9.25; height: 4.1" material="" rotation="0 -90 0"></a-image>
 
-      <!-- Voltooid images -->
-      <a-image id="js--kruisje1" src="../media/krijtbord/krijtbordimg5.png" position="2.2 2.855 -5.802" rotation="0 0 -15" scale="0.6 0.55 0.2" visible="false"></a-image>
-      <a-image id="js--kruisje2" src="../media/krijtbord/krijtbordimg5.png" position="2.2 2.855 -5.802" rotation="0 0 -15" scale="0.6 0.55 0.2" visible="false"></a-image>
-      <a-image id="js--kruisje3" src="../media/krijtbord/krijtbordimg5.png" position="2.2 2.855 -5.802" rotation="0 0 -15" scale="0.6 0.55 0.2" visible="false"></a-image>
-      <a-image id="js--kruisje4" src="../media/krijtbord/krijtbordimg5.png" position="2.2 2.855 -5.802" rotation="0 0 -15" scale="0.6 0.55 0.2" visible="false"></a-image>
+    <!-- Text  -->
+      <!-- Titel -->
+      <a-text id="js--titel1" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Ga hygenisch te werk" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel2" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Bereid de pizza voor" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel3" position="0.1 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Doe je juiste ingrediënten op de pizza" scale="0.5 0.5 0.5" visible="true"></a-text>
+      <a-text id="js--titel4" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Kook de pizza" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--titel5" position="0.4 2.9 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="3" value="Maak de pizza klaar voor de klant" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <!-- Inhoud -->
+      <a-text id="js--optie1" position="0.2 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" opacity="1" value="1. Doe wat zeep op je handen \n 2. Zet de kraan aan en was je handen \n 3. Doe de kraan weer uit \n 4. Trek je handschoenen aan" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie2" position="0.1 2.3 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Maak van de deegbal een pizzabodem \n 2. Pak de lepel met tomatensaus uit de pot \n 3. Smeer de tomatensaus uit op de pizza \n 4. Stop de lepel weer terug in de sauspot" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie3" position="0.1 2.442 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak de pizza op en neem hem mee naar de ingrediënten tafel \n 2. Op het scherm boven de ingediënten kan je vinden welke ingrediënten je op de pizza moet plaatsen" scale="0.5 0.5 0.5" visible="true"></a-text>
+      <a-text id="js--optie4"  position="0.2 2.249 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Pak je pizza en stop hem in de oven \n 2. Haal de pizza weer uit de oven" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <a-text id="js--optie5" position="0.2 1.755 -5.812" font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" value="1. Zet de pizza op het werkblad neer en snijd hem in 6 stukken \n 2. Plaats de pizza in de doos" scale="0.5 0.5 0.5" visible="false"></a-text>
+      <!-- Lijn -->
+        <!-- Opdracht 1 -->
+        <a-image class="krijtlijn" id="js--krijtlijn1" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.17772 2.56292 -5.8" geometry="width: 2.46" material="" rotation="0 0 1.25"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn2" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.29332 2.36743 -5.798" geometry="width: 2.75" material="" rotation="0 0 1.032"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn3" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.00781 2.18883 -5.796" geometry="width: 1.95" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn4" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.16347 2.0093 -5.794" geometry="width: 2.35" material="" rotation="0 0 -1.3"></a-image>
+
+        <!-- Opdracht 2 -->
+        <a-image class="krijtlijn" id="js--krijtlijn1" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.27447 2.56292 -5.8" geometry="width: 3.02" material="" rotation="0 0 -1.032"></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn2" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.38785 2.36743 -5.798" geometry="width: 3.02" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn3" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.26589 2.18883 -5.796" geometry="width: 3.23" material=""></a-image>
+        <a-image class="krijtlijn" id="js--krijtlijn4" visible="true" src="../media/omgeving/krijt_lijn.png" position="1.34853 2.0093 -5.794" geometry="width: 3.03" material="" rotation="0 0 1.16"></a-image>
 
     <!-- text monitor -->
-    <a-text id="js--ingredient1" position="3.865 2.831 -5.715" color="#000000" rotation="10 0 0" opacity="5"  scale="0.5 0.5 0.5"></a-text>
-    <a-text id="js--ingredient2" position="3.865 2.691 -5.721" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
-    <a-text id="js--ingredient3" position="3.865 2.536 -5.758" color="black" rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
-    <a-text id="js--ingredient4" position="3.865 2.396 -5.785" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
-    <a-text id="js--ingredient5"   position="3.865 2.225 -5.822" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient0" position="3.865 2.831 -5.715" color="#000000" rotation="10 0 0" opacity="5"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient1" position="3.865 2.691 -5.721" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient2" position="3.865 2.536 -5.758" color="black" rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient3" position="3.865 2.396 -5.785" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
+    <a-text id="js--ingredient4"   position="3.865 2.225 -5.822" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
     <!-- <a-text  id="js--ingredient6" position="3.865 2.831 -5.715" color="black" font="../fonts/chalkfont.fnt" value="Haal de pizza uit de oven" scale="0.5 0.5 0.5"></a-text> -->
 
     <a-text value="Dit werkblad heeft spleten. Dit zit hier zodat je ingrediënten kan morsen zonder een rommel te maken in de keuken"></a-text>
 
     <!-- desktop image -->
-    <a-image id="js--kruisje-desk1" src="../media/krijtbord/krijtbordimg3.png" rotation="10 0 0" position="5.369 2.691 -5.721" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje-desk2" src="../media/krijtbord/krijtbordimg3.png" rotation="10 0 0" position="5.369 2.536 -5.756" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje-desk3" src="../media/krijtbord/krijtbordimg3.png" rotation="10 0 0" position="5.369 2.396 -5.765" scale="0.2 0.2 0.2"></a-image>
-    <a-image id="js--kruisje-desk4" src="../media/krijtbord/krijtbordimg3.png" rotation="10 0 0" position="5.369 2.256 -5.765" scale="0.2 0.2 0.2"></a-image>
-
+    <a-image id="js--kruisje-desk1" src="" rotation="10 0 0" position="5.369 2.691 -5.721" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje-desk2" src="" rotation="10 0 0" position="5.369 2.536 -5.756" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje-desk3" src="" rotation="10 0 0" position="5.369 2.396 -5.765" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje-desk4" src="" rotation="10 0 0" position="5.369 2.256 -5.765" scale="0.2 0.2 0.2"></a-image>
+    <!-- krijtbord img -->
+    <a-image id="js--kruisje1" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.9777 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje2" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.801 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje3" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.595 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje4" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.419 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje5" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.242 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje6" src="../media/krijtbord/krijtbordimg3.png" position="2.4 2.075 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje7" src="../media/krijtbord/krijtbordimg3.png" position="2.4 1.928 -5.802" scale="0.2 0.2 0.2"></a-image>
+    <a-image id="js--kruisje8" src="../media/krijtbord/krijtbordimg3.png" position="2.4 1.771 -5.802" scale="0.2 0.2 0.2"></a-image>
 
     <!-- a-cilinder voor oven -->
     <a-cylinder id="js--ovenbtn" class="clickable" position="7.543 1.252 -1.229" rotation="0 0 90" scale="0.042 0.042 0.042"></a-cylinder>
@@ -317,7 +360,7 @@
 
     <!-- <a-box id="js--ingredient" position="0 1.2 -2" rotation="0 0 0" color="#4CC3D9" width='0.2' height="0.2"></a-box> -->
 
-    <a-entity id="js--pizzaOnTable" class="clickable" position="20.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="tue">
+    <a-entity id="js--pizzaOnTable" class="clickable" position="5.22 1.1 -5.14" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="true">
       <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--salami_pizza" class="js--salamiClass" position="0 0.04 0" rotation="0 0 0" scale="1 1 1" gltf-model="#salami_on_pizza-glb" visible="false"></a-entity>
@@ -330,6 +373,7 @@
     </a-entity>
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
+  </a-entity>
   </a-scene>
 
 </body>
