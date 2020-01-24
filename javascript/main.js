@@ -21,6 +21,10 @@ window.onload = function(){
     //Pizzasnijder
     const pizzasnijder = document.getElementById('js--pizzasnijder');
     const gesnedenPizza = document.getElementById('js--gesneden');
+    const lijn1 = document.getElementById("js--gesneden1");
+    const lijn2 = document.getElementById("js--gesneden2");
+    const lijn3 = document.getElementById("js--gesneden3");
+    const lijn4 = document.getElementById("js--gesneden4");
 
 
     // krijtbordcheck
@@ -248,24 +252,105 @@ console.log(verschillendepizza);
         };
     };
 
-    function holdPizzaSnijder(){
-      pizzasnijder.onclick = () => {
-        if(!hold){
-            let object = makeObject("js--pizzasnijder", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
-            object.setAttribute("scale", "0.1 0.1 0.1");
-            object.setAttribute("rotation", "0 0 -20");
-            pizzasnijder.setAttribute("visible",false);
-            holdSnijder = true;
-        }
-        if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646) {
-            pizzaOnTable.onclick = (event) => {
-          gesnedenPizza.setAttribute("visible", true);
+    var clickedPizza = 0;
 
-        }
-        }
+  //   function holdPizzaSnijder(){
+  //     pizzasnijder.onclick = () => {
+  //       if(!hold){
+  //           let object = makeObject("js--pizzasnijder", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
+  //           object.setAttribute("scale", "0.1 0.1 0.1");
+  //           object.setAttribute("rotation", "0 0 -20");
+  //           pizzasnijder.setAttribute("visible",false);
+  //           holdSnijder = true;
+  //       }
+  //
+  //       if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0) {
+  //           pizzaOnTable.onclick = (event) => {
+  //               gesnedenPizza.setAttribute("visible", true);
+  //               lijn1.setAttribute("visible", true);
+  //               clickedPizza += 1;
+  //               console.log(clickedPizza);
+  //
+  //       }
+  //     }
+  //
+  //       else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1) {
+  //         console.log("test");
+  //         pizzaOnTable.onclick = (event) => {
+  //             gesnedenPizza.setAttribute("visible", true);
+  //             lijn2.setAttribute("visible", true);
+  //             clickedPizza += 1;
+  //
+  //       }
+  //     }
+  //   }
+  // }
 
+  function holdPizzaSnijder(){
+    pizzasnijder.onclick = () => {
+      let pizzasnijderHold = makeObject("js--pizzasnijder", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
+      if(!holdSnijder){
+          pizzasnijderHold.setAttribute("scale", "0.1 0.1 0.1");
+          pizzasnijderHold.setAttribute("rotation", "0 0 -20");
+          pizzasnijder.setAttribute("visible",false);
+          holdSnijder = true;
       }
+      else if (holdSnijder == true) {
+        pizzasnijder.setAttribute("visible",true);
+        pizzasnijderHold.setAttribute("visible", false);
+      }
+
+      // var coordinaatx = pizzasnijder.getAttribute("rotation").x - 90;
+      // var coordinaaty = pizzasnijder.getAttribute("rotation").y;
+      // var coordinaatz = pizzasnijder.getAttribute("rotation").z;
+
+
+    pizzaOnTable.onclick = (event) => {
+      if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0) {
+        // gesnedenPizza.setAttribute("visible", true);
+        lijn1.setAttribute("visible", true);
+        pizzasnijderHold.remove();
+        pizzasnijder.setAttribute("position", "0.894 1.186 -0.380");
+        pizzasnijder.setAttribute("visible", true);
+        pizzasnijder.setAttribute("rotation", "0 260 " + lijn1.getAttribute("rotation").z);
+        pizzasnijder.setAttribute("animation","property: position; to: 0.894 1.186 -0.821; dur: 2000; easing: linear;")
+
+        clickedPizza += 1;
+      }
+
+      else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1) {
+        // gesnedenPizza.setAttribute("visible", true);
+        lijn2.setAttribute("visible", true);
+        pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
+        console.log(lijn2.getAttribute("position"));
+        pizzasnijder.setAttribute("visible", true);
+        pizzasnijder.setAttribute("rotation", "0 30 -40");
+        pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
+        clickedPizza += 1;
+
     }
+
+    else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2) {
+      // gesnedenPizza.setAttribute("visible", true);
+      lijn3.setAttribute("visible", true);
+      pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
+      pizzasnijder.setAttribute("visible", true);
+      pizzasnijder.setAttribute("rotation", "0 0 -40");
+      pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
+      clickedPizza += 1;
+    }
+    else {
+      // gesnedenPizza.setAttribute("visible", true);
+      lijn4.setAttribute("visible", true);
+      pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
+      pizzasnijder.setAttribute("visible", true);
+      pizzasnijder.setAttribute("rotation", "0 140 -40");
+      pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
+      clickedPizza += 1;
+    }
+  }
+}
+}
 
 
 
