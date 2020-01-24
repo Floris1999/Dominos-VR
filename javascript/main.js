@@ -1,8 +1,9 @@
 window.onload = function(){
     //line gefixt voor api
-    //getRecipe(1)
+    // getRecipe(1)
 
     //basic declarations
+
     const table1 = document.getElementById('js--werkbank1');
     const table2 = document.getElementById('js--werkbank2');
     const table3 = document.getElementById('js--werkbank3');
@@ -677,6 +678,8 @@ window.onload = function(){
   }
 
   zeep.onclick = () => {
+    console.log("test");
+    
     loadModels();
     zeepTrue();
   }

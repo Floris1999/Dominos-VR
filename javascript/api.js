@@ -15,5 +15,5 @@ window.onload = () => {
     console.log(randInt);
     
 
-    getRecipe(randInt);
+    // getRecipe(randInt);
 }
