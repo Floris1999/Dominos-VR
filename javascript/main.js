@@ -685,13 +685,13 @@ window.onload = function(){
 
 //In het begin zorgen dat de welkomst text 8sec gezien wordt
 
-  //   setText = (text, time) =>{
-  //     cameratxt.setAttribute("value",text);
-  //       setTimeout(function(){
-  //           cameratxt.setAttribute("value","");
-  //       },time);
-  //   }
-  //
+    setText = (text, time) =>{
+      cameratxt.setAttribute("value",text);
+        setTimeout(function(){
+            cameratxt.setAttribute("value","");
+        },time);
+    }
+
   // setText("Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!", 8000);
 
 
@@ -835,7 +835,7 @@ window.onload = function(){
   zeep.onclick = () => {
     console.log("test");
 
-    loadModels();
+    // loadModels();
     zeepTrue();
   }
 
