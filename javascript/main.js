@@ -388,6 +388,8 @@ window.onload = function(){
         pizzasnijder.setAttribute("visible",true);
         pizzasnijderHold.setAttribute("visible", false);
       }
+    }
+  }
 
       // var coordinaatx = pizzasnijder.getAttribute("rotation").x - 90;
       // var coordinaaty = pizzasnijder.getAttribute("rotation").y;
@@ -438,8 +440,6 @@ window.onload = function(){
       clickedPizza += 1;
     }
   }
-}
-}
 
 
 
@@ -708,6 +708,8 @@ window.onload = function(){
         pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
       }, 6000)
     },1)
+  }
+}
 
     ovenbtn.onclick = () => {
       timeout();
@@ -908,7 +910,7 @@ window.onload = function(){
     //   setText("Stop zeep op de handen en was ze daarna!", 4000);
     // }
   }
-
+}
   // pizzasnijder.onclick = () => {
   //   gesnedenPizza.setAttribute("visible", true);
   // }
