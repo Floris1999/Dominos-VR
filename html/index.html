@@ -140,6 +140,8 @@
         ></a-entity>
         <!-- <a-entity id="js--camertxt" text="value: Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!; color: white; width: 2; align: center;" position="0 -0.6 -1" >
     </a-entity> -->
+
+
       <a-entity id="js--holdPizza" class="clickable" position="0 -0.5 -1.2" rotation="0 0 0" scale=".2 .2 .2" gltf-model="#deegbal_fase_3-glb" visible="false">
         <a-entity id="js--cheese_pizza" class="js--pizzaTest" position="0 0.05 0" rotation="0 0 0" scale="1 1 1" gltf-model="#cheese_op_pizza-glb" visible="false"></a-entity>
         <a-entity id="js--ananas_pizza" class="js--ananasClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#pinapple_on_pizza-glb" visible="false"></a-entity>
@@ -151,9 +153,33 @@
       <a-text id="js--cameratxt" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
       </a-camera>
     </a-entity>
-  </a-entity>
+  <!-- </a-entity> -->
+    <a-entity id="js--startschermMode">
+      <a-sky color="red"></a-sky>
+      <a-plane id="js--uitleg" color="grey" position="4.761 3.388 -7.812" rotation="0 -30 0" height="6" width="8" opacity="0.6" visible="false">
+        <a-image class="clickable" id="js--kruisjeuitleg" position="2.378 1.850 1.064" scale="0.6 0.6 0.6" src="../media/scherm/kruis.png">
+        </a-image>
+        <a-Text color="white" value=" - Druk op de pizza doos om het spel te beginnen \n - Objecten pak je vast door met de cursor 2 seconden op het object te blijven \n - Volg telkens de stappen aangegeven op het krijtbord, hier krijg je ook feedback op \n - Het is van belang dat je de stappen van onder naar beneden volgt \n - Om op andere delen van de kamer te komen moet je de cursor twee seconden op de blauwe teleport houden" position="-2.862 0.658 0.486" line-height="60" >
+        </a-text>
+      </a-plane>
+      <a-plane id="js--extra" color="grey" position="-8.733 3.388 -8.102" rotation="0 30 0" height="6" width="8" opacity="0.6" visible="false">
+          <a-image id="js--kruisjeinfo" class="clickable" id="js--kruisjeuitleg" position="3.296 1.445 1.594" scale="0.6 0.6 0.6" src="../media/scherm/kruis.png">
+          </a-image>
+          <a-Text color="white" value="Dit is een VR project gemaakt door Chris Bergsma, Floris Wieringa en Yoeri Massop. Wij studeren aan de hogeschool leiden en studeren informatica. Dit is een opdracht waarbij wij een taak moeten aanleren aan de gebruikers. Wij hebben voor de taak: pizza maken in domino's gekozen. Veel plezier met de VR experience" position="-2.151 0.658 0.075" line-height="60" >
+          </a-text>
+      </a-plane>
 
-
+  <a-image id="js--dominostarting" position="-2.333 3.682 -8.642" width="10" height="2" align="center" src="../media/startscreen/dominoslogo.png" animation__rotation="property: rotation; to: 0 720 0; delay: 500; dur: 6200; easing: easeOutCubic" animation__position="property: position; to: -2.333 3.682 -8.642; delay: 500; dur: 500; easing: easeOutCubic" animation__scale="property: scale; to: 1 1 1; delay: 500; dur: 500; easing: easeOutCubic"></a-image>
+  <a-image id="js--uitlegbtn" class="clickable" position="4.1 4.871 -8.642" width="1" align="center" src="../media/scherm/uitleg.png" ></a-image>
+  <a-image id="js--infobtn" class="clickable" position="-8.504 4.871 -8.642" width="1" align="center" src="../media/scherm/info.png" ></a-image>
+  <a-image class="clickable" id="js--startgame" scale="2 2 2" position="-1.5 0.5 -8.642" animation="property: position; to: -1.5 0 -8.642; dur: 1500; easing: linear; loop: true;" width="1" align="center" src="../media/scherm/pizzabox.png" ></a-image>
+  <a-text  id="js--blinking" width="7" position="-3.686 -4.400 -8.642" color="white" value="Druk op de doos om het spel te beginnen" animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" animation__position="property: position; to:-3.686 -1.400 -8.642 ; delay: 1000; dur: 1000; easing: easeOutCubic"></a-text>
+  <!-- <a-cylinder position="-0.539 1 -8.642" color="red"
+  ></a-cylinder> -->
+  <!-- <a-box class="clickable" id="js--startgame" color="red" depth="0.05" position="-3.449 1.724 -8.642" width="2" height="0.5"><a-text position="-0.580 0.020 0.13" value="Start Game" color="white"></a-text></a-box>
+  <a-box color="red" depth="0.05" position="-0.539 1.743 -8.642" width="2" height="0.5"><a-text position="-0.530 0.030 0.130" value="Time trial" color="white"></a-text></a-box> -->
+</a-entity>
+<a-entity id="js--fixopacity">
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
     <a-entity id="js--werkbank2" class="js--werkbank" position="1.25 -0.045 -5.15" rotation ="0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank-glb"></a-entity>
@@ -314,6 +340,7 @@ s
     </a-entity>
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
+  </a-entity>
   </a-scene>
 
 </body>

@@ -109,6 +109,18 @@ window.onload = function(){
     const kruisjeDesktop3 = document.getElementById("js--kruisje-desk3");
     const kruisjeDesktop4 = document.getElementById("js--kruisje-desk4");
 
+    //startscherm
+    const entityStart = document.getElementById("js--fixopacity");
+    const startbtn = document.getElementById("js--startgame");
+    const startSchermEntity = document.getElementById("js--startschermMode");
+    var blinkingtxt = document.getElementById("js--blinking");
+    const modal1 = document.getElementById("js--uitleg");
+    const modal2 = document.getElementById("js--extra");
+    const uitlegbtn = document.getElementById("js--uitlegbtn");
+    const infobtn = document.getElementById("js--infobtn");
+    const kruisjeUitleg = document.getElementById("js--kruisjeuitleg");
+    const kruisjeInfo = document.getElementById("js--kruisjeinfo");
+    const dominostarting = document.getElementById("js--dominostarting");
 
 
     var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [knoflook, false]];
@@ -143,6 +155,7 @@ console.log(verschillendepizza);
 
     this.console.log(pizzaDoos);
 
+    startscherm();
     addListeners();
     holdPizzaSnijder();
 
@@ -579,14 +592,14 @@ console.log(verschillendepizza);
 
 //In het begin zorgen dat de welkomst text 8sec gezien wordt
 
-    setText = (text, time) =>{
-      cameratxt.setAttribute("value",text);
-        setTimeout(function(){
-            cameratxt.setAttribute("value","");
-        },time);
-    }
-
-  setText("Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!", 8000);
+  //   setText = (text, time) =>{
+  //     cameratxt.setAttribute("value",text);
+  //       setTimeout(function(){
+  //           cameratxt.setAttribute("value","");
+  //       },time);
+  //   }
+  //
+  // setText("Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!", 8000);
 
 
   const pizzaSalami = [true, false, true, false, true];
@@ -641,6 +654,34 @@ console.log(verschillendepizza);
   removeClickAble = () => {
     for(let i = 0; i < tables.length; i++){
         tables[i].classList.remove("clickable");
+    }
+  }
+
+  function startscherm(){
+    entityStart.setAttribute("visible", false);
+    startbtn.onclick = ()=> {
+      entityStart.setAttribute("visible", true);
+      startSchermEntity.setAttribute("visible", false);
+    }
+
+    uitlegbtn.onclick = ()=> {
+      modal1.setAttribute("visible", true);
+      dominostarting.setAttribute("visible", false);
+    }
+
+    infobtn.onclick = () => {
+      modal2.setAttribute("visible", true);
+      dominostarting.setAttribute("visible", false);
+    }
+
+    kruisjeUitleg.onclick = () => {
+      modal1.setAttribute("visible", false);
+      dominostarting.setAttribute("visible", true);
+    }
+
+    kruisjeInfo.onclick = () => {
+      modal2.setAttribute("visible", false);
+      dominostarting.setAttribute("visible", true);
     }
   }
 
