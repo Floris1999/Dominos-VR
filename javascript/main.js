@@ -348,8 +348,8 @@ window.onload = function(){
       console.log(pizzaGemaakt.ingredients);
       console.log(pizzaRecept);
       let counter = 1;
-      if(pizzaRecept.length < pizzaGemaakt.ingredients.length){
-        let teveel = pizzaGemaakt.ingredients.length - pizzaRecept.length;
+      if(pizzaRecept.length <= pizzaGemaakt.ingredients.length){
+        let teveel = pizzaGemaakt.ingredients.length - (pizzaRecept.length - 1);
         for(let i = 1; i < pizzaRecept.length; i++){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
