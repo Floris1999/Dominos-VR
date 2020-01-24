@@ -1,5 +1,6 @@
 window.onload = function(){
-
+    //line gefixt voor api
+    //getRecipe(1)
 
     //basic declarations
     const table1 = document.getElementById('js--werkbank1');
