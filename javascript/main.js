@@ -92,11 +92,11 @@ window.onload = function(){
     var deegbal_bereid = false;
 
     //tekst monitor
-    const txt1 = document.getElementById('js--ingredient1');
-    const txt2 = document.getElementById('js--ingredient2');
-    const txt3 = document.getElementById('js--ingredient3');
-    const txt4 = document.getElementById('js--ingredient4');
-    const txt5 = document.getElementById('js--ingredient5');
+    const txt1 = document.getElementById('js--ingredient0');
+    const txt2 = document.getElementById('js--ingredient1');
+    const txt3 = document.getElementById('js--ingredient2');
+    const txt4 = document.getElementById('js--ingredient3');
+    const txt5 = document.getElementById('js--ingredient4');
 
     //kruisje monitor
 
@@ -107,18 +107,16 @@ window.onload = function(){
 
 
 
-    var ingredientsList = [[cheese, false], [ananas, false], [salami, false] , [shoarma, false] , [ham, false] , [champignon, false], [mozzarella, false], [tomaat, false], [knoflook, false]];
+    var ingredientsList = [cheese, ananas, salami,  shoarma, ham, champignon, mozzarella, tomaat, knoflook];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
-    const pizzaMargherita = ["tomatensaus", "kaas","Pizza Margerita"];
-    const pizzaShoarma = ["tomatensaus", "kaas", "Shoarma", "knoflooksaus", "Pizza Shoarma"];
-    const pizzaSalamis = ["tomatensaus", "kaas", "salami", "Pizza Salami"];
+    const pizzaMargherita = ["Pizza Margerita", "tomatensaus", "kaas", "mozzarella"];
+    const pizzaShoarma = ["Pizza Shoarma", "tomatensaus", "kaas", "shoarma", "knoflooksaus"];
+    const pizzaSalamis = ["Pizza Salami", "tomatensaus", "kaas", "salami"];
 
-    var pizzaRecipe = {
-      ingredients: ['tomatensaus', 'kaas', 'shoarma', 'knoflooksaus'],
-      naam: "pizzashoarma",
-    };
+    var pizzaRecept;
+
 
     var pizzaGemaakt = {
       ingredients: [],
@@ -144,11 +142,17 @@ window.onload = function(){
 
     addListeners();
 
-    loadModels = () =>{
+    loadIngredients = () =>{
       for(let i = 0; i < ingredientsList.length; i++){
-        this.console.log(ingredientsList[3][0][i]);
-        ingredientsList[i][0][i].setAttribute("visible",true);
+        this.console.log(ingredientsList[3][i]);
+        ingredientsList[i][i].setAttribute("visible",true);
       };
+    }
+    removeIngredients = () =>{
+        for(let i = 0; i < ingredientsList.length; i++){
+            this.console.log(ingredientsList[3][0][i]);
+            ingredientsList[i][0][i].setAttribute("visible",false);
+          };
     }
 
 
@@ -175,8 +179,11 @@ window.onload = function(){
     vuilnisbak.onclick = () => {
       if(hold){
         holdPizza.setAttribute("visible",false);
-        pizzaOnTable.setAttribute("visible",false);
+        pizzaOnTable.setAttribute("visible",true);
+        pizzaOnTable.setAttribute("position", "30 1.05 -5.14");
         doughfase1.setAttribute("position", "1 1.05 -5.14");
+        hold = false;
+        removeClickAble();
       }
     }
 
@@ -211,69 +218,80 @@ window.onload = function(){
 
     for(let i = 0; i < ingredientenBakjes.length; i++){
         ingredientenBakjes[i].onclick = (event) => {
-            ingredient = ingredientenBakjes[i].id;
-            switch(ingredient){
+            ingredient = ingredientenBakjes[i].id; 
+            switch(ingredient) {
                 case "bakje_kaas":
-                    ingredientsList[0][1] = true;
-                    for(let i = 0; i < ingredientsList.length; i++){
-                        this.console.log(ingredientsList[0][0][i]);
-                        ingredientsList[0][0][i].setAttribute("visible",true);
+                    for(let i = 0; i < 2; i++){
+                        this.console.log(ingredientsList[0][i]);
+                        ingredientsList[0][i].setAttribute("visible",true);  
                         //feedback op de kaas
-                        pizzaGemaakt.ingredients.push("kaas");
-                        kruisjeDesktop2.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
-                        audio.play();
+                        if(!pizzaGemaakt.ingredients.includes("kaas")){
+                          pizzaGemaakt.ingredients.push("kaas");
+                      }
+                      audio.play();
                     };
                     break;
                 case "bakje_ananas":
-                        ingredientsList[1][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[1][0][i]);
-                            ingredientsList[1][0][i].setAttribute("visible",true);
-                        };
-                        break;
+                        for(let i = 0; i < 2; i++){
+                          this.console.log(ingredientsList[1][i]);
+                          ingredientsList[1][i].setAttribute("visible",true);  
+                          if(!pizzaGemaakt.ingredients.includes("ananas")){
+                            pizzaGemaakt.ingredients.push("ananas");
+                        }
+                      };
+                      break;
                 case "bakje_salami":
-                        ingredientsList[2][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[2][0][i]);
-                            ingredientsList[2][0][i].setAttribute("visible",true);
+                          for(let i = 0; i < 2; i++){
+                            this.console.log(ingredientsList[2][i]);
+                            ingredientsList[2][i].setAttribute("visible",true);  
+                            if(!pizzaGemaakt.ingredients.includes("salami")){
+                              pizzaGemaakt.ingredients.push("salami");
+                          }
                         };
                         break;
                 case "bakje_shoarma":
-                        ingredientsList[3][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[3][0][i]);
-                            ingredientsList[3][0][i].setAttribute("visible",true);
-                            //feedback shoarma
-                            kruisjeDesktop3.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
-                            audio.play();
+                          for(let i = 0; i < 2; i++){
+                            this.console.log(ingredientsList[3][i]);
+                            ingredientsList[3][i].setAttribute("visible",true);  
+                            if(!pizzaGemaakt.ingredients.includes("shoarma")){
+                              pizzaGemaakt.ingredients.push("shoarma");
+                          }
                         };
                         break;
                 case "bakje_ham":
-                        ingredientsList[4][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[4][0][i]);
-                            ingredientsList[4][0][i].setAttribute("visible",true);
+                          for(let i = 0; i < 2; i++){
+                            this.console.log(ingredientsList[4][i]);
+                            ingredientsList[4][i].setAttribute("visible",true);  
+                            if(!pizzaGemaakt.ingredients.includes("ham")){
+                              pizzaGemaakt.ingredients.push("ham");
+                          }
                         };
                         break;
                 case "bakje_champignon":
-                        ingredientsList[5][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[4][0][i]);
-                            ingredientsList[5][0][i].setAttribute("visible",true);
+                          for(let i = 0; i < 2; i++){
+                            this.console.log(ingredientsList[5][i]);
+                            ingredientsList[5][i].setAttribute("visible",true);  
+                            if(!pizzaGemaakt.ingredients.includes("champignon")){
+                              pizzaGemaakt.ingredients.push("champignon");
+                          }
                         };
                         break;
                 case "bakje_mozzarella":
-                        ingredientsList[6][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[4][0][i]);
-                            ingredientsList[6][0][i].setAttribute("visible",true);
+                          for(let i = 0; i < 2; i++){
+                            this.console.log(ingredientsList[6][i]);
+                            ingredientsList[6][i].setAttribute("visible",true);  
+                            if(!pizzaGemaakt.ingredients.includes("mozzarella")){
+                              pizzaGemaakt.ingredients.push("mozzarella");
+                          }
                         };
                         break;
                 case "bakje_tomaat":
-                        ingredientsList[7][1] = true;
-                        for(let i = 0; i < ingredientsList.length; i++){
-                            this.console.log(ingredientsList[4][0][i]);
-                            ingredientsList[7][0][i].setAttribute("visible",true);
+                          for(let i = 0; i < 2; i++){
+                            this.console.log(ingredientsList[7][i]);
+                            ingredientsList[7][i].setAttribute("visible",true);  
+                            if(!pizzaGemaakt.ingredients.includes("tomaat")){
+                              pizzaGemaakt.ingredients.push("tomaat");
+                          }
                         };
                         break;
             }
@@ -285,6 +303,9 @@ window.onload = function(){
     function addListeners(){
         pizzaOnTable.onclick = (event) => {
             if(holdLepel){
+              if(!pizzaGemaakt.ingredients.includes("tomatensaus")){
+                pizzaGemaakt.ingredients.push("tomatensaus");
+              }
               pizza = document.getElementById('js--pizzaOnTable');
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
               setTimeout((event) => {
@@ -304,11 +325,12 @@ window.onload = function(){
               saus.setAttribute("visible" ,false);
               console.log(saus);
 
-              ingredientsList[8][1] = true;
-              for(let i = 0; i < ingredientsList.length; i++){
-                  this.console.log(ingredientsList[4][0][i]);
-                  ingredientsList[8][0][i].setAttribute("visible",true);
+              for(let i = 0; i < 2; i++){
+                  ingredientsList[8][i].setAttribute("visible",true);  
+                  if(!pizzaGemaakt.ingredients.includes("knoflooksaus")){
+                    pizzaGemaakt.ingredients.push("knoflooksaus");
               };
+            };
             }
             if(!hold){
                 holdPizza.setAttribute("visible",true);
@@ -322,16 +344,39 @@ window.onload = function(){
 
     checkButton.onclick = () => {
       console.log(pizzaGemaakt.ingredients);
-      // checkCount++;
-      // if(checkCount > 2){
-      //   console.log("je komt hier");
-      // }
+      console.log(pizzaRecept);
+      let counter = 1;
+      if(pizzaRecept.length < pizzaGemaakt.ingredients.length){
+        let teveel = pizzaGemaakt.ingredients.length - pizzaRecept.length;
+        for(let i = 1; i < pizzaRecept.length; i++){
+          document.getElementById('js--ingredient'+ i).setAttribute("value", "");
+          document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
+        }
+        document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel");
+        return;
+      }
+      for(let i = 1; i < pizzaRecept.length; i++){
+          document.getElementById('js--ingredient'+ i).setAttribute("value", pizzaRecept[i]);
+      }
+      for(let i = 1; i < pizzaRecept.length; i++){
+        this.console.log(pizzaRecept[i])
+        if(pizzaGemaakt.ingredients.includes(pizzaRecept[i])){
+          this.console.log('dit werkt');
+          counter++;
+          document.getElementById("js--kruisje-desk" + i).setAttribute("src","../media/krijtbord/krijtbordimg5.png");
+        }
+      }
+      this.console.log(counter);
+      console.log(pizzaRecept.length);
+      
+      if(counter == pizzaRecept.length){
+        this.console.log("je hebt alles goed");
+      }
     }
 
     tomatensaus.onclick = (event) => {
       if(holdLepel === true){
         //monitor veranderen zodra lepel terug is gezet
-        kruisjeDesktop1.setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
         audio.play();
         //krijtbord fucntioneren
         hygeniëVoltooid3();
@@ -375,10 +420,6 @@ window.onload = function(){
         static_object.remove();
         hold = true;
         holdSausflesKnoflook = true;
-
-        //feedback knoflookSaus
-        kruisjeDesktop4.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
-        audio.play();
       };
     };
 
@@ -408,9 +449,7 @@ window.onload = function(){
         }
         parent.appendChild(child);
         return child;
-    }
-
-    
+    }    
 
 //functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
     function hygeniëVoltooid(){
@@ -446,12 +485,21 @@ window.onload = function(){
 
     doughfase1.onclick= () => {
       //text op de monitor showen
-          hygeniëVoltooid2();
-          txt1.setAttribute("value", verschillendepizza[1][verschillendepizza[1].length-1]);
-          txt2.setAttribute("value", verschillendepizza[1][0]);
-          txt3.setAttribute("value", verschillendepizza[1][1]);
-          txt4.setAttribute("value", verschillendepizza[1][2]);
-          txt5.setAttribute("value", verschillendepizza[1][3]);
+        let randomVar = Math.floor(Math.random() * 2); 
+        hygeniëVoltooid2();
+        pizzaRecept =  verschillendepizza[randomVar];
+
+        document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
+
+        // for(let i = 0; i < verschillendepizza[randomVar].length; i++){
+        //     this.console.log(pizzarecept);
+        //     document.getElementById('js--ingredient'+ i).setAttribute("value", verschillendepizza[randomVar][i]);
+        // }
+        // txt1.setAttribute("value", verschillendepizza[][verschillendepizza[1].length-1]);
+        // txt2.setAttribute("value", verschillendepizza[1][0]);
+        // txt3.setAttribute("value", verschillendepizza[1][1]);
+        // txt4.setAttribute("value", verschillendepizza[1][2]);
+        // txt5.setAttribute("value", verschillendepizza[1][3]);
 
 
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
