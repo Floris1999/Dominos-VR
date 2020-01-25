@@ -20,9 +20,9 @@ window.onload = function(){
     const pizzaOnTable = document.getElementById("js--pizzaOnTable");
     const checkButton = document.getElementById("js--button");
 
-    //alles tomatensaus
+    //Developer mode
+    var developer_mode = false;
 
-    //alles ingredienten
     //Pizzasnijder
     const pizzasnijder = document.getElementById('js--pizzasnijder');
     const gesnedenPizza = document.getElementById('js--gesneden');
@@ -32,11 +32,18 @@ window.onload = function(){
     const lijn4 = document.getElementById("js--gesneden4");
 
 
+
     // krijtbordcheck
     const doughfase1 = document.getElementById('js--fase1');
+
     var positiedeeg = doughfase1.getAttribute("position");
     console.log(positiedeeg);
-    const kruisjes = [document.getElementById('js--kruisje1'), document.getElementById('js--kruisje2'), document.getElementById('js--kruisje3'), document.getElementById('js--kruisje4'), document.getElementById('js--kruisje5'),document.getElementById('js--kruisje6')];
+    const kruisjes = [document.getElementById('js--kruisje1'), document.getElementById('js--kruisje2'), document.getElementById('js--kruisje3'), document.getElementById('js--kruisje4')];
+
+    const krijtlijn = document.getElementsByClassName("krijtlijn");
+    const krijtlijnen = [];
+
+    var pizzaStatus = "";
     const audio = new Audio("../media/sounds/krijtbordsound.mp3")
 
     //text
@@ -116,7 +123,17 @@ window.onload = function(){
     const kruisjeDesktop3 = document.getElementById("js--kruisje-desk3");
     const kruisjeDesktop4 = document.getElementById("js--kruisje-desk4");
 
-    //startscherm
+    //Opdracht array
+    var opdrachten1 = [false, false, false, false];
+    var opdrachten2 = [false, false, false, false];
+    var opdrachten3 = [false, false, false, false];
+    var opdrachten4 = [false, false, false, false];
+
+    var opdracht1Voltooid = false;
+    var opdracht2Voltooid = false;
+    var opdracht3Voltooid = false;
+    var opdracht4Voltooid = false;
+
     const entityStart = document.getElementById("js--fixopacity");
     const startbtn = document.getElementById("js--startgame");
     const startSchermEntity = document.getElementById("js--startschermMode");
@@ -184,7 +201,9 @@ window.onload = function(){
 
 
     oven.onclick = (event) => {
+      if(opdracht3Voltooid || developer_mode == true){
         if(hold){
+          krijtlijnen[12].setAttribute("visible", "true");
           holdPizza.setAttribute("visible",false);
           pizzaOnTable.setAttribute("visible",true);
           hold = false;
@@ -199,8 +218,10 @@ window.onload = function(){
             pizzaOnTable.setAttribute("gltf-model", "#pizzabodem_saus-glb");
             holdPizza.removeAttribute("gltf-model");
             holdPizza.setAttribute("gltf-model", "#pizzabodem_saus-glb");
+            pizzaStatus = "gekookt";
           },1000);
         }
+      }
     };
 
     vuilnisbak.onclick = () => {
@@ -212,6 +233,10 @@ window.onload = function(){
         hold = false;
         removeClickAble();
       }
+    }
+
+    for(let i = 0; i < krijtlijn.length; i++){
+      krijtlijnen.push(krijtlijn[i]);
     }
 
     for(let i = 0; i < tables.length; i++){
@@ -245,6 +270,7 @@ window.onload = function(){
 
     for(let i = 0; i < ingredientenBakjes.length; i++){
         ingredientenBakjes[i].onclick = (event) => {
+          if( (opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
             ingredient = ingredientenBakjes[i].id;
             switch(ingredient) {
                 case "bakje_kaas":
@@ -321,7 +347,8 @@ window.onload = function(){
                           }
                         };
                         break;
-            }
+            };
+          };
         };
     };
 
@@ -372,80 +399,35 @@ window.onload = function(){
         pizzasnijder.setAttribute("visible",true);
         pizzasnijderHold.setAttribute("visible", false);
       }
+    }
+  }
 
       // var coordinaatx = pizzasnijder.getAttribute("rotation").x - 90;
       // var coordinaaty = pizzasnijder.getAttribute("rotation").y;
       // var coordinaatz = pizzasnijder.getAttribute("rotation").z;
 
-
-    pizzaOnTable.onclick = (event) => {
-      if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0) {
-        // gesnedenPizza.setAttribute("visible", true);
-        lijn1.setAttribute("visible", true);
-        pizzasnijderHold.remove();
-        pizzasnijder.setAttribute("position", "0.894 1.186 -0.380");
-        pizzasnijder.setAttribute("visible", true);
-        pizzasnijder.setAttribute("rotation", "0 260 " + lijn1.getAttribute("rotation").z);
-        pizzasnijder.setAttribute("animation","property: position; to: 0.894 1.186 -0.821; dur: 2000; easing: linear;")
-
-        clickedPizza += 1;
-      }
-
-      else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1) {
-        // gesnedenPizza.setAttribute("visible", true);
-        lijn2.setAttribute("visible", true);
-        pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
-        console.log(lijn2.getAttribute("position"));
-        pizzasnijder.setAttribute("visible", true);
-        pizzasnijder.setAttribute("rotation", "0 30 -40");
-        pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
-        clickedPizza += 1;
-
-    }
-
-    else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2) {
-      // gesnedenPizza.setAttribute("visible", true);
-      lijn3.setAttribute("visible", true);
-      pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
-      pizzasnijder.setAttribute("visible", true);
-      pizzasnijder.setAttribute("rotation", "0 0 -40");
-      pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
-      clickedPizza += 1;
-    }
-    else {
-      // gesnedenPizza.setAttribute("visible", true);
-      lijn4.setAttribute("visible", true);
-      pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
-      pizzasnijder.setAttribute("visible", true);
-      pizzasnijder.setAttribute("rotation", "0 140 -40");
-      pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
-      clickedPizza += 1;
-    }
-  }
-}
-}
-
-
-
     function addListeners(){
         pizzaOnTable.onclick = (event) => {
+          if(opdracht1Voltooid  || developer_mode == true){
             if(holdLepel){
               if(!pizzaGemaakt.ingredients.includes("tomatensaus")){
                 pizzaGemaakt.ingredients.push("tomatensaus");
+                krijtlijnen[6].setAttribute("visible", "true");
               }
+              deegbal_bereid = true;
               pizza = document.getElementById('js--pizzaOnTable');
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_1.glb");
               setTimeout((event) => {
                 pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_2.glb");
-              }, 1000)
+              }, 1000);
               setTimeout((event) => {
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus_fase_3.glb");
-              }, 2000)
+              }, 2000);
               setTimeout((event) => {
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
-              }, 3000)
-              deegbal_bereid = true;
+              }, 3000);
+
             }
             if(holdSausflesKnoflook){
               let saus = document.getElementById("js--knoflook_saus_pizza");
@@ -460,12 +442,63 @@ window.onload = function(){
             };
             }
             if(!hold){
-                holdPizza.setAttribute("visible",true);
-                pizzaOnTable.setAttribute("visible",false);
-                pizzaOnTable.setAttribute("position", "20 20 20");
-                setClickAble();
-                hold = true;
+              if(opdracht2Voltooid == true){
+                krijtlijnen[8].setAttribute("visible", "true");
+                krijtlijnen[9].setAttribute("visible", "true");
+              }
+              if(pizzaStatus == "gekookt"){
+                krijtlijnen[13].setAttribute("visible", "true");
+              }
+              holdPizza.setAttribute("visible",true);
+              pizzaOnTable.setAttribute("visible",false);
+              pizzaOnTable.setAttribute("position", "20 20 20");
+              setClickAble();
+              hold = true;
             }
+            if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0) {
+              // gesnedenPizza.setAttribute("visible", true);
+              lijn1.setAttribute("visible", true);
+              pizzasnijderHold.remove();
+              pizzasnijder.setAttribute("position", "0.894 1.186 -0.380");
+              pizzasnijder.setAttribute("visible", true);
+              pizzasnijder.setAttribute("rotation", "0 260 " + lijn1.getAttribute("rotation").z);
+              pizzasnijder.setAttribute("animation","property: position; to: 0.894 1.186 -0.821; dur: 2000; easing: linear;")
+
+              clickedPizza += 1;
+            }
+
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1) {
+              // gesnedenPizza.setAttribute("visible", true);
+              lijn2.setAttribute("visible", true);
+              pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
+              console.log(lijn2.getAttribute("position"));
+              pizzasnijder.setAttribute("visible", true);
+              pizzasnijder.setAttribute("rotation", "0 30 -40");
+              pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
+              clickedPizza += 1;
+
+            }
+
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2) {
+              // gesnedenPizza.setAttribute("visible", true);
+              lijn3.setAttribute("visible", true);
+              pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
+              pizzasnijder.setAttribute("visible", true);
+              pizzasnijder.setAttribute("rotation", "0 0 -40");
+              pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
+              clickedPizza += 1;
+            }
+            else {
+              // gesnedenPizza.setAttribute("visible", true);
+              // opdrachtVoltooid4();
+              lijn4.setAttribute("visible", true);
+              pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
+              pizzasnijder.setAttribute("visible", true);
+              pizzasnijder.setAttribute("rotation", "0 140 -40");
+              pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
+              clickedPizza += 1;
+            }
+          }
         };
     }
 
@@ -497,56 +530,67 @@ window.onload = function(){
       console.log(pizzaRecept.length);
 
       if(counter == pizzaRecept.length){
+        opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
       }
     }
 
     tomatensaus.onclick = (event) => {
-      if(holdLepel === true){
-        //monitor veranderen zodra lepel terug is gezet
-        audio.play();
-        //krijtbord fucntioneren
-        hygeniëVoltooid3();
-        let saus_lepel = document.getElementById("js--holdLepel");
-        let object = makeObject("js--lepel", "a-circle", "2.435 1.175 -5.25", "0.08", scene, true, soeplepel);
-        object.setAttribute("scale", "0.08 0.08 0.08");
-        object.setAttribute("rotation", "0 0 10");
-        saus_lepel.remove();
-        removeClickAble();
-        if(deegbal_bereid === true){
-          titel2.setAttribute("visible", false);
-          opdracht2.setAttribute("visible", false);
-          titel3.setAttribute("visible", true);
-          opdracht3.setAttribute("visible", true);
+      if(opdracht1Voltooid || developer_mode == true){
+        if(holdLepel === true){
+
+          //monitor veranderen zodra lepel terug is gezet
+          audio.play();
+
+          //krijtbord fucntioneren
+          if(deegbal_bereid === true){
+            opdracht2Voltooid = true;
+            opdrachtVoltooid2();
+          }
+
+          //Maken van lepel in pot
+          let saus_lepel = document.getElementById("js--holdLepel");
+          let object = makeObject("js--lepel", "a-circle", "2.435 1.175 -5.25", "0.08", scene, true, soeplepel);
+          object.setAttribute("scale", "0.08 0.08 0.08");
+          object.setAttribute("rotation", "0 0 10");
+          saus_lepel.remove();
+
+          setTimeout( (event) => {
+            hold = false;
+            holdLepel = false;
+          },200)
         }
-        setTimeout( (event) => {
-          hold = false;
-          holdLepel = false;
-        },200)
-      }
-      if(!hold){
-        let lepel = document.getElementById("js--lepel");
-        let object = makeObject("js--holdLepel", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, soeplepel_saus);
-        object.setAttribute("scale", ".12 .12 .12");
-        object.setAttribute("rotation", "0 0 20");
-        lepel.remove();
-        table1.setAttribute("class", "clickable");
-        table2.setAttribute("class", "clickable");
-        table3.setAttribute("class", "clickable");
-        oven.setAttribute("class", "clickable");
-        hold = true;
-        holdLepel = true;
+        if(!hold){
+          krijtlijnen[5].setAttribute("visible", "true");
+          let lepel = document.getElementById("js--lepel");
+          let object = makeObject("js--holdLepel", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, soeplepel_saus);
+          object.setAttribute("scale", ".12 .12 .12");
+          object.setAttribute("rotation", "0 0 20");
+          lepel.remove();
+          table1.setAttribute("class", "clickable");
+          table2.setAttribute("class", "clickable");
+          table3.setAttribute("class", "clickable");
+          oven.setAttribute("class", "clickable");
+          hold = true;
+          holdLepel = true;
+        }
       }
     };
 
     sausfles_knoflook.onclick = (event) => {
-      if(!hold){
-        let static_object = document.getElementById("js--sausfles_knoflook");
-        let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
-        camera_object.setAttribute("scale", "0.3 0.3 0.3");
-        static_object.remove();
-        hold = true;
-        holdSausflesKnoflook = true;
+      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
+        if(!hold){
+          let static_object = document.getElementById("js--sausfles_knoflook");
+          let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
+          camera_object.setAttribute("scale", "0.3 0.3 0.3");
+          static_object.remove();
+          hold = true;
+          holdSausflesKnoflook = true;
+
+          //feedback knoflookSaus
+          kruisjeDesktop4.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
+          audio.play();
+        };
       };
     };
 
@@ -578,42 +622,80 @@ window.onload = function(){
         return child;
     }
 
-//functie die ervoor zorgt dat er feedback over de hygiëne wordt gezien
-    function hygeniëVoltooid(){
-      kruisjes[0].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
-      opdracht1.setAttribute("opacity","1");
-      opdracht2.setAttribute("opacity","5");
-      titel1.setAttribute("visible", false);
-      opdracht1.setAttribute("visible",false);
-      titel2.setAttribute("visible", true);
-      opdracht2.setAttribute("visible",true);
-      cameratxt.setAttribute("value","U bent hygenisch te werkgegaan");
-      audio.play();
-      setTimeout(function(){
-      cameratxt.setAttribute("value","");
-    },5000);
+//Functie die ervoor zorgt dat er feedback over de opdrachten gebeuren
+    function opdrachtVoltooid(){
+      if(opdrachten1.every( i => i === true)){
+        krijtlijnen[3].setAttribute("visible", "true");
+        kruisjes[0].setAttribute("visible", "true");
+        setTimeout(() => {
+          kruisjes[0].setAttribute("visible", "false");
+          titel1.setAttribute("visible", false);
+          opdracht1.setAttribute("visible",false);
+          titel2.setAttribute("visible", true);
+          opdracht2.setAttribute("visible",true);
+          krijtlijnen[0].setAttribute("visible", "false");
+          krijtlijnen[1].setAttribute("visible", "false");
+          krijtlijnen[2].setAttribute("visible", "false");
+          krijtlijnen[3].setAttribute("visible", "false");
+        },2000);
+        audio.play();
+        opdracht1Voltooid = true;
+      }
     }
 
-    function hygeniëVoltooid2(){
-      kruisjes[1].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
-      opdracht2.setAttribute("opacity","1");
-      opdracht3.setAttribute("opacity","5");
-      setText("De deegbal is gevormd!")
+    function opdrachtVoltooid2(){
+      kruisjes[1].setAttribute("visible", "true");
+      krijtlijnen[7].setAttribute("visible", "true");
+      setTimeout(() => {
+        kruisjes[1].setAttribute("visible", "false");
+        titel2.setAttribute("visible", false);
+        opdracht2.setAttribute("visible",false);
+        titel3.setAttribute("visible", true);
+        opdracht3.setAttribute("visible",true);
+        krijtlijnen[4].setAttribute("visible", "false");
+        krijtlijnen[5].setAttribute("visible", "false");
+        krijtlijnen[6].setAttribute("visible", "false");
+        krijtlijnen[7].setAttribute("visible", "false");
+      },2000);
       audio.play();
+      opdracht2Voltooid = true;
     }
 
-    function hygeniëVoltooid3(){
-      kruisjes[2].setAttribute("src", "../media/krijtbord/krijtbordimg5.png");
-      opdracht3.setAttribute("opacity","1");
-      opdracht4.setAttribute("opacity","5");
-      setText("De tomatensaus is verspreid over de bodem")
+    function opdrachtVoltooid3(){
+      kruisjes[2].setAttribute("visible", "true");
+      krijtlijnen[10].setAttribute("visible", "true");
+      krijtlijnen[11].setAttribute("visible", "true");
+      setTimeout(() => {
+        kruisjes[2].setAttribute("visible", "false");
+        titel3.setAttribute("visible", false);
+        opdracht3.setAttribute("visible",false);
+        titel4.setAttribute("visible", true);
+        opdracht4.setAttribute("visible",true);
+        krijtlijnen[10].setAttribute("visible", "false");
+        krijtlijnen[11].setAttribute("visible", "false");
+      },2000)
       audio.play();
+      opdracht3Voltooid = true;
+    }
+
+    function opdrachtVoltooid4(){
+      kruisjes[3].setAttribute("visible", "true");
+      krijtlijnen[15].setAttribute("visible", "true");
+      setTimeout(() => {
+        krijtlijnen[15].setAttribute("visible", "false");
+        kruisjes[3].setAttribute("visible", "false");
+        titel4.setAttribute("visible", false);
+        opdracht4.setAttribute("visible",false);
+      },4000)
+      audio.play();
+      opdracht4Voltooid = true;
     }
 
     doughfase1.onclick= () => {
+      if(opdracht1Voltooid || developer_mode == true){
       //text op de monitor showen
+        krijtlijnen[4].setAttribute("visible", "true");
         let randomVar = Math.floor(Math.random() * 2);
-        hygeniëVoltooid2();
         pizzaRecept =  verschillendepizza[randomVar];
 
         document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
@@ -637,23 +719,28 @@ window.onload = function(){
       setTimeout(() => {
         doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_2.glb");
         doughfase1.setAttribute('animation', att.value);
-      }, 2000)
 
-      setTimeout(() => {
-        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
+        setTimeout(() => {
+          doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_2.glb");
+          doughfase1.setAttribute('animation', att.value);
+        }, 2000)
 
-        let size = document.createAttribute("animation__scale");
-        size.value += "property: scale; to: .2 .2 .2; loop: false; dur: 2000";
-        //doughfase1.setAttribute('animation__turning', att.value);
-        doughfase1.setAttribute('animation', size.value);
+        setTimeout(() => {
+          doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
 
-      }, 4000)
+          let size = document.createAttribute("animation__scale");
+          size.value += "property: scale; to: .2 .2 .2; loop: false; dur: 2000";
+          //doughfase1.setAttribute('animation__turning', att.value);
+          doughfase1.setAttribute('animation', size.value);
 
+        }, 4000)
       setTimeout(() => {
         doughfase1.setAttribute("position", "1 1.05 -9.14");
         pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
       }, 6000)
-    }
+    },1)
+  }
+}
 
     ovenbtn.onclick = () => {
       timeout();
@@ -704,41 +791,35 @@ window.onload = function(){
 
 
   pizzaDoos.onclick = () => {
-    if(hold){
-        let fouten = 0;
-        console.log("pizzadoos");
-        holdPizza.setAttribute("visible",false);
-        pizzaOnTable.setAttribute("visible",true);
-        let posi = "0.9 1.162 -0.646";
-        pizzaOnTable.setAttribute("position", posi);
-        hold = false;
-        table1.removeAttribute("class");
-        table2.removeAttribute("class");
-        table3.removeAttribute("class");
-        oven.removeAttribute("class");
+    if(opdracht3Voltooid || developer_mode == true){
+      if(hold){
+          krijtlijnen[14].setAttribute("visible", "true");
+          let fouten = 0;
+          console.log("pizzadoos");
+          holdPizza.setAttribute("visible",false);
+          pizzaOnTable.setAttribute("visible",true);
+          let posi = "0.9 1.162 -0.646";
+          pizzaOnTable.setAttribute("position", posi);
+          hold = false;
+          table1.removeAttribute("class");
+          table2.removeAttribute("class");
+          table3.removeAttribute("class");
+          oven.removeAttribute("class");
 
 
-        for(var i = ingredientsList.length; i--;) {
-            if(ingredientsList[i][1] !== pizzaSalami[i]){
-                this.console.log(pizzaSalami[i]);
-                this.console.log(ingredientsList[i][1])
-                fouten++;
-                this.console.log(fouten);
-            }
+          for(var i = ingredientsList.length; i--;) {
+              if(ingredientsList[i][1] !== pizzaSalami[i]){
+                  this.console.log(pizzaSalami[i]);
+                  this.console.log(ingredientsList[i][1])
+                  fouten++;
+                  this.console.log(fouten);
+              }
+          }
+
+          if(fouten == 0){
+              setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
         }
-
-        if(fouten == 0){
-            setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
-
-        }
-        if(fouten == 1){
-            setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
-
-        }
-        if(fouten > 1){
-            setText("Goed zo je hebt je eerste pizza gemaakt", 8000);
-
-        }
+      }
     }
   };
 
@@ -818,60 +899,53 @@ window.onload = function(){
     waterdruppels[0].setAttribute("visible",true);
     waterdruppels[1].setAttribute("visible",true);
     waterdruppels[2].setAttribute("visible",true);
-    kraanBezig = true;
+    opdrachten1[1] = true;
+    krijtlijnen[1].setAttribute("visible", "true");
   }
 
   function kraanUit(){
     waterdruppels[0].setAttribute("visible",false);
     waterdruppels[1].setAttribute("visible",false);
     waterdruppels[2].setAttribute("visible",false);
-    kraanBezig = false;
+    opdrachten1[2] = true;
+    krijtlijnen[2].setAttribute("visible", "true");
   }
 
   function gebruikHandschoenen(){
-    handschoenenGebruikt = true;
+    opdrachten1[3] = true;
   }
 
   zeep.onclick = () => {
-    console.log("test");
-
-    // loadModels();
-    zeepTrue();
+    opdrachten1[0] = true;
+    krijtlijnen[0].setAttribute("visible", "true");
   }
 
   sink.onclick = () => {
-    if (kraanBezig == false && zeepGebruikt == true) {
+    if (opdrachten1[1] == false && opdrachten1[0] == true) {
       kraanAan();
     } else {
       kraanUit();
-      kraanuitgezetnawassen = true;
     }
   }
 
   handschoenen.onclick = () => {
-
-    if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == true) {
+    if (opdrachten1[2] == true) {
       gebruikHandschoenen();
-      hygeniëVoltooid();
+      opdrachtVoltooid();
     }
-    else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
-        setText("Zet de kraan eerst uit!", 4000);
-    }
-
-    else if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == false) {
-      setText("Was eerst de handen!", 4000);
-    }
-
-    else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
-      setText("Stop zeep op de handen en was ze daarna!", 4000);
-    }
+    // else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
+    //     setText("Zet de kraan eerst uit!", 4000);
+    // }
+    //
+    // else if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == false) {
+    //   setText("Was eerst de handen!", 4000);
+    // }
+    //
+    // else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
+    //   setText("Stop zeep op de handen en was ze daarna!", 4000);
+    // }
   }
-
+}
   // pizzasnijder.onclick = () => {
   //   gesnedenPizza.setAttribute("visible", true);
   // }
-
-  function pizzaRecept(){
-    txt1.setAttribute("value", )
-  }
-}
