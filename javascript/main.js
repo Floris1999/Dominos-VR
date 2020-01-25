@@ -146,14 +146,16 @@ window.onload = function(){
 
     loadIngredients = () =>{
       for(let i = 0; i < ingredientsList.length; i++){
-        this.console.log(ingredientsList[3][i]);
+        this.console.log(ingredientsList[i]);
         ingredientsList[i][i].setAttribute("visible",true);
       };
     }
     removeIngredients = () =>{
         for(let i = 0; i < ingredientsList.length; i++){
-            this.console.log(ingredientsList[3][0][i]);
-            ingredientsList[i][0][i].setAttribute("visible",false);
+            this.console.log(ingredientsList[i]);
+            for(let o = 0; o < 2; o++){
+              ingredientsList[i][o].setAttribute("visible",false);
+            }
           };
     }
 
@@ -183,9 +185,11 @@ window.onload = function(){
         holdPizza.setAttribute("visible",false);
         pizzaOnTable.setAttribute("visible",true);
         pizzaOnTable.setAttribute("position", "30 1.05 -5.14");
+        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
         doughfase1.setAttribute("position", "1 1.05 -5.14");
         hold = false;
         removeClickAble();
+        removeIngredients();
       }
     }
 
@@ -490,21 +494,14 @@ window.onload = function(){
         let randomVar = Math.floor(Math.random() * 2); 
         hygeniëVoltooid2();
         pizzaRecept =  verschillendepizza[randomVar];
-
         document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
-
-        // for(let i = 0; i < verschillendepizza[randomVar].length; i++){
-        //     this.console.log(pizzarecept);
-        //     document.getElementById('js--ingredient'+ i).setAttribute("value", verschillendepizza[randomVar][i]);
-        // }
-        // txt1.setAttribute("value", verschillendepizza[][verschillendepizza[1].length-1]);
-        // txt2.setAttribute("value", verschillendepizza[1][0]);
-        // txt3.setAttribute("value", verschillendepizza[1][1]);
-        // txt4.setAttribute("value", verschillendepizza[1][2]);
-        // txt5.setAttribute("value", verschillendepizza[1][3]);
 
 
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
+      doughfase1.removeAttribute('animation');
+      this.console.log(doughfase1);
+
+
       let att = document.createAttribute("animation__turning");
       att.value = "property: rotation; to: 0 360 0; loop: false; dur: 2000";
       doughfase1.setAttribute('animation', att.value);
