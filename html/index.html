@@ -49,6 +49,9 @@
       <a-assit-item id='ham_hoop_alt-glb' src="../media/ham/ham_hoopje_alt.glb"></a-assit-item>
       <a-assit-item id='salami_hoop_alt-glb' src="../media/salami/salami_hoopje_alt.glb"></a-assit-item>
 
+      <!-- balie -->
+      <a-assit-item id='balie-glb' src="../media/balie/balie.glb"></a-assit-item>
+
       <!-- PNG ingrediënten hoopjes-->
       <img id="kaas_hoop-png" src="../media/ingredienten_jpg/kaas_hoop.PNG"></img>
       <img id="ham_hoop-png" src="../media/ingredienten_jpg/ham_hoop.PNG"></img>
@@ -146,7 +149,7 @@
       <a-text id="js--cameratxt" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
       </a-camera>
 
-      
+
     </a-entity>
   <!-- </a-entity> -->
   <a-entity id="js--startschermMode">
@@ -274,6 +277,7 @@
     <!-- Omgeving -->
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 1 -6" width="20" height="5" opacity="5"></a-plane>
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 6"  rotation ="0 180 0" width="20" height="3.5"></a-plane>
+    <a-plane id="js--achterkant" src="../media/omgeving/brick.jpg" shader="flat" position="9.957 1.756 1.223"  rotation ="0 270 0" width="20" height="3.5"></a-plane>
 
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 3"  rotation ="0 180 0" width="20" height="8"></a-plane>
 
@@ -343,8 +347,49 @@
     <!-- a-cilinder voor oven -->
     <a-cylinder id="js--ovenbtn" class="clickable" position="7.543 1.252 -1.229" rotation="0 0 90" scale="0.042 0.042 0.042"></a-cylinder>
 
+    <!-- balie -->
+    <a-entity position="-3.396 0.602 -1.569" rotation="0 180 0" scale="1 0.7 0.7" gltf-model="#balie-glb"></a-entity>
+    <!-- voorkant -->
+            <a-image  position="-4.400 0.532 -5.176" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 -4.190" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 -3.193" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 -2.198" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 -1.569" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 -0.575" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 0.396" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 1.363" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-4.400 0.532 2.174" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <!-- achterkant -->
+            <a-image  position="-2.395 0.734 2.174" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 1.363" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 0.396" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 -0.575" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 -1.569" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 -2.198" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 -3.193" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 -4.190" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.395 0.734 -5.176" scale="1 1.132 1" rotation="0 270 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <!-- zijkant -->
+            <a-image  position="-3.856 0.524 2.678" scale="1.1 1 1" rotation="0 0 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.948 0.524 2.678" scale="1.1 1 1" rotation="0 0 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-3.856 0.524 -5.682" scale="1.1 1 1" rotation="0 0 0" src="../media/balie/zwartetegels.jpg"></a-image>
+            <a-image  position="-2.948 0.524 -5.682" scale="1.1 1 1" rotation="0 0 0" src="../media/balie/zwartetegels.jpg"></a-image>
 
-    <a-box id="js--table" position="-3.396 0.5 -2.567" rotation="0 -90 0" color="#4CC3D9" width='11'></a-box>
+          <!-- logo -->
+            <a-image id="js--logo" position="-4.425 0.660 -1.548" rotation="0 270 0" width="3" height="0.6" src="../media/balie/logo-dominos.png"></a-image>
+
+          <!-- menu bovenkant -->
+          <a-box position="-3.900 3.124 -1.427" rotation="90 90 180" scale="1 0.4 1" width="7" height="0.3" color="white"></a-box>
+
+          <!-- Scherm -->
+          <a-entity position="-5.525 2.189 -3.091" rotation="0 0 10" gltf-model="#scherm-glb"></a-entity>
+          <a-entity position="-5.525 2.189 0.327" rotation="0 0 10" gltf-model="#scherm-glb"></a-entity>
+          <a-image position="-4.734 2.830 0.307" rotation="10 270 0" scale="1 1 1" height="0.890" width="1.800" src="../media/balie/deals.jpg"></a-image>
+          <a-image position="-4.734 2.830 -3.084" rotation="10 270 0" scale="1 1 1" height="0.890" width="1.800" src="../media/balie/deals2.jpg"></a-image>
+
+
+
+    <!-- <a-box id="js--table" position="-3.396 0.5 -2.567" rotation="0 -90 0" color="#4CC3D9" width='11'></a-box> -->
 
     <!-- waterdruppel -->
     <a-entity class="js--waterdruppels" scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 1 -5.330; dur: 500; easing: linear; loop: true;" visible="false"></a-entity>
