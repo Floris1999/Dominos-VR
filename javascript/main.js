@@ -23,6 +23,11 @@ window.onload = function(){
     //Developer mode
     var developer_mode = false;
 
+    //teleportstart
+    var bigteleportOn = true;
+    const bigteleport = document.getElementById("js--bigteleport");
+
+
     //Pizzasnijder
     const pizzasnijder = document.getElementById('js--pizzasnijder');
     const gesnedenPizza = document.getElementById('js--gesneden');
@@ -186,6 +191,8 @@ window.onload = function(){
     addListeners();
     holdPizzaSnijder();
 
+
+
     loadIngredients = () =>{
       for(let i = 0; i < ingredientsList.length; i++){
         this.console.log(ingredientsList[3][i]);
@@ -267,6 +274,15 @@ window.onload = function(){
             document.getElementById("rig").setAttribute('animation', att.value);
         };
     };
+
+
+        bigteleport.onclick = (event) => {
+            bigteleport.setAttribute("scale", ".3 .3 .3")
+            let att = document.createAttribute("animation");
+            let posi = bigteleport.getAttribute('position').x + " 1.8 " + bigteleport.getAttribute('position').z;
+            att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
+            document.getElementById("rig").setAttribute('animation', att.value);
+        };
 
     for(let i = 0; i < ingredientenBakjes.length; i++){
         ingredientenBakjes[i].onclick = (event) => {
@@ -933,6 +949,9 @@ window.onload = function(){
       gebruikHandschoenen();
       opdrachtVoltooid();
     }
+  }
+}
+
     // else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
     //     setText("Zet de kraan eerst uit!", 4000);
     // }
@@ -944,8 +963,16 @@ window.onload = function(){
     // else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
     //   setText("Stop zeep op de handen en was ze daarna!", 4000);
     // }
-  }
-}
+
+
+  // bigteleport.onclick = () => {
+  //   if (bigteleportOn === true) {
+  //     console.log("clicked");
+  //     bigteleport.setAttribute("scale",".3 .3 .3");
+  //     bigteleportOn = false
+  //   }
+  // }
+
   // pizzasnijder.onclick = () => {
   //   gesnedenPizza.setAttribute("visible", true);
   // }

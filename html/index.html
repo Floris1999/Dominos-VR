@@ -117,7 +117,7 @@
     </a-assets>
 
   <a-entity id="rig"
-            position="-2 1.8 -4">
+            position="-7.712 1.80 -1.233">
       <a-camera id="js--camera" position="0 0 0">
         <a-entity
           id="js--cursor"
@@ -152,7 +152,7 @@
 
     </a-entity>
   <!-- </a-entity> -->
-  <a-entity id="js--startschermMode">
+  <a-entity id="js--startschermMode" position="-6.090 0 0">
       <a-sky color="red"></a-sky>
       <a-plane id="js--uitleg" color="grey" position="4.761 3.388 -7.812" rotation="0 -30 0" height="6" width="8" opacity="0.6" visible="false">
         <a-image class="clickable" id="js--kruisjeuitleg" position="2.378 1.850 1.064" scale="0.6 0.6 0.6" src="../media/scherm/kruis.png">
@@ -399,12 +399,14 @@
     <a-entity scale="0.05 0.05 0.05" position="-0.848 1.115 -5.330" gltf-model="#waterdruppel-glb"  animation="property: position; to: -0.848 0.90 -5.330; dur: 500; easing: linear; loop: true;"></a-entity> -->
 
 
-    <a-entity class="js--teleport clickable" position="-0.923 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <!-- <a-entity class="js--teleport clickable" position="-0.923 0.18 -4" scale=".3 .9 .3" gltf-model="#portal-glb"></a-entity> -->
+    <a-entity class="clickable" id="js--bigteleport" position="-0.923 0.18 -4" scale="1 1.5 1" gltf-model="#portal-glb"></a-entity>
     <a-entity class="js--teleport clickable" position="1.293 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <a-entity class="js--teleport clickable" position="1.293 0.18 -2" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <a-entity class="js--teleport clickable" position="4.527 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <a-entity class="js--teleport clickable" position="6.071 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
     <a-entity class="js--teleport clickable" position="6.071 0.18 -2" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="-7.712 0.180 -1.233" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
 
 
 
