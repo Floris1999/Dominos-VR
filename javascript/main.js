@@ -309,6 +309,7 @@ window.onload = function(){
 
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
+          
             let att = document.createAttribute("animation");
             let posi = teleport[i].getAttribute('position').x + " 1.8 " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
@@ -634,9 +635,15 @@ window.onload = function(){
         }
       }
       this.console.log(counter);
-      console.log(pizzaRecept.length);
 
       if(counter == pizzaRecept.length){
+
+        console.log(ingredientenBakjes);
+        for(let p = 0; p < ingredientenBakjes.length; p++){
+          console.log("test");
+          ingredientenBakjes[p].classList.remove("clickable");
+        }
+
         opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
       }
