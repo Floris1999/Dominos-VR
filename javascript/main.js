@@ -182,7 +182,7 @@ window.onload = function(){
     var holdSnijder = false;
 
     //Kijkt of de api gebruikt moet worden
-    var apiState = true;
+    var apiState = false;
 
     //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
     var newRun = true;
@@ -272,12 +272,11 @@ window.onload = function(){
       if(hold){
         holdPizza.setAttribute("visible",false);
         pizzaOnTable.setAttribute("visible",true);
-        pizzaOnTable.setAttribute("position", "30 1.05 -5.14");
-        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
-        doughfase1.setAttribute("position", "1 1.05 -5.14");
-        doughfase1.removeAttribute("animation");
+        pizzaOnTable.setAttribute("position", "4.531 1.085 -5.1");
+        pizzaOnTable.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+        holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
         hold = false;
-        pizzaGemaakt.ingredients = [];
+        pizzaGemaakt.ingredients = ["tomatensaus"];
         removeIngredients();
         removeClickAble();
         removeIngredients();
@@ -524,8 +523,8 @@ window.onload = function(){
 
               for(let i = 0; i < 2; i++){
                   ingredientsList[8][i].setAttribute("visible",true);
-                  if(!pizzaGemaakt.ingredients.includes("shoarmasaus")){
-                    pizzaGemaakt.ingredients.push("shoarmasaus");
+                  if(!pizzaGemaakt.ingredients.includes("knoflooksaus")){
+                    pizzaGemaakt.ingredients.push("knoflooksaus");
               };
             };
             }
