@@ -840,6 +840,7 @@ window.onload = function(){
             newRun = false;
           }
         } 
+      doughfase1.removeAttribute("class");
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
       doughfase1.removeAttribute('animation');
       this.console.log(doughfase1);
@@ -871,6 +872,7 @@ window.onload = function(){
 
         }, 4000)
       setTimeout(() => {
+        doughfase1.setAttribute("class", "clickable");
         pizzaOnTable.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
         holdPizza.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
         doughfase1.setAttribute("position", "1 1.05 -9.14");
