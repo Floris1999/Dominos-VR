@@ -86,6 +86,7 @@ window.onload = function(){
     const deegbal = document.getElementById("deegbal1");
     const tomatensaus = document.getElementById("js--tomatensaus");
     const sausfles_knoflook = document.getElementById("js--sausfles_knoflook");
+    const sausfles_bbq = document.getElementById("js--sausfles_bbq");
 
 
     //list met alle ingrediente
@@ -99,6 +100,7 @@ window.onload = function(){
     const mozzarella = document.getElementsByClassName('js--mozzarellaClass');
 
     const knoflook = document.getElementsByClassName('js--knoflookSausClass');
+    const bbq = document.getElementsByClassName('js--bbqSausClass');
 
 
     //kraanwater
@@ -155,7 +157,7 @@ window.onload = function(){
     const dominostarting = document.getElementById("js--dominostarting");
 
 
-    var ingredientsList = [cheese, ananas, salami,  shoarma, ham, champignon, mozzarella, tomaat, knoflook];
+    var ingredientsList = [cheese, ananas, salami,  shoarma, ham, champignon, mozzarella, tomaat, knoflook, bbq];
     const ingredientenBakjes = document.getElementsByClassName("ingredienten_bakje");
     const flessen_bakje = document.getElementById("js--bakje_sausflessen");
 
@@ -176,6 +178,7 @@ window.onload = function(){
     var hold = false;
     var holdLepel = false;
     var holdSausflesKnoflook = false;
+    var holdSausflesBbq = false;
     var holdSnijder = false;
 
     //Kijkt of de api gebruikt moet worden
@@ -190,11 +193,13 @@ window.onload = function(){
     var soeplepel_saus = "#soeplepel_saus-glb";
     var soeplepel = "#lepel-glb";
     var sausfles_knoflook_glb = "#sausfles_knoflook-glb";
+    var sausfles_bbq_glb = "#sausfles_bbq-glb";
     var pizzasnijderglb = "#pizzasnijder-glb";
 
     //test vars hier
     const pizzaDoos = document.getElementById("js--pizzaDoos");
     this.console.log(pizzaDoos);
+
 
     startscherm();
     addListeners();
@@ -431,16 +436,22 @@ window.onload = function(){
 
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
-      let pizzasnijderHold = makeObject("js--pizzasnijder", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
       if(!holdSnijder){
+          let pizzasnijderHold = makeObject("js--pizzasnijderHold", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
           pizzasnijderHold.setAttribute("scale", "0.1 0.1 0.1");
           pizzasnijderHold.setAttribute("rotation", "0 0 -20");
           pizzasnijder.setAttribute("visible",false);
-          holdSnijder = true;
+          setTimeout(() => {
+            holdSnijder = true;
+          }, 200)
       }
-      else if (holdSnijder == true) {
+      if (holdSnijder == true) {
         pizzasnijder.setAttribute("visible",true);
-        pizzasnijderHold.setAttribute("visible", false);
+        pizzasnijderHold.setAttribute("visible",false);
+        // pizzasnijderHold.remove();
+        setTimeout(() => {
+          holdSnijder = false;
+        }, 200)
       }
     }
   }
@@ -484,7 +495,19 @@ window.onload = function(){
               };
             };
             }
-            if(!hold){
+            if(holdSausflesBbq){
+              let saus = document.getElementById("js--bbq_saus_pizza");
+              saus.setAttribute("visible" ,false);
+              console.log(saus);
+
+              for(let i = 0; i < 2; i++){
+                  ingredientsList[9][i].setAttribute("visible",true);
+                  if(!pizzaGemaakt.ingredients.includes("bbqsaus")){
+                    pizzaGemaakt.ingredients.push("bbqsaus");
+              };
+            };
+            }
+            if(!hold && !holdSnijder){
               if(opdracht2Voltooid == true){
                 krijtlijnen[8].setAttribute("visible", "true");
                 krijtlijnen[9].setAttribute("visible", "true");
@@ -498,9 +521,11 @@ window.onload = function(){
               setClickAble();
               hold = true;
             }
-            if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0) {
+            if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true) {
+              console.log("hjecgiuehlwe");
               // gesnedenPizza.setAttribute("visible", true);
               lijn1.setAttribute("visible", true);
+              let pizzasnijderHold = document.getElementById("js--pizzasnijderHold");
               pizzasnijderHold.remove();
               pizzasnijder.setAttribute("position", "0.894 1.186 -0.380");
               pizzasnijder.setAttribute("visible", true);
@@ -510,7 +535,7 @@ window.onload = function(){
               clickedPizza += 1;
             }
 
-            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1) {
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
               // gesnedenPizza.setAttribute("visible", true);
               lijn2.setAttribute("visible", true);
               pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
@@ -522,7 +547,7 @@ window.onload = function(){
 
             }
 
-            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2) {
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
               // gesnedenPizza.setAttribute("visible", true);
               lijn3.setAttribute("visible", true);
               pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
@@ -531,15 +556,17 @@ window.onload = function(){
               pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
               clickedPizza += 1;
             }
-            else {
-              // gesnedenPizza.setAttribute("visible", true);
-              // opdrachtVoltooid4();
-              lijn4.setAttribute("visible", true);
-              pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
-              pizzasnijder.setAttribute("visible", true);
-              pizzasnijder.setAttribute("rotation", "0 140 -40");
-              pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
-              clickedPizza += 1;
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
+
+                // gesnedenPizza.setAttribute("visible", true);
+                // opdrachtVoltooid4();
+                lijn4.setAttribute("visible", true);
+                pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
+                pizzasnijder.setAttribute("visible", true);
+                pizzasnijder.setAttribute("rotation", "0 140 -40");
+                pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
+                clickedPizza += 1;
+
             }
           }
         };
@@ -556,9 +583,13 @@ window.onload = function(){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
+<<<<<<< HEAD
         document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel");
         document.getElementById('js--ingredient3').setAttribute("value", "Gooi de pizza weg");
 
+=======
+        document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel. \n gooi de pizza in de prullebak \n en maak een nieuwe");
+>>>>>>> development
         return;
       }
       for(let i = 1; i < pizzaRecept.length; i++){
@@ -622,7 +653,8 @@ window.onload = function(){
       }
     };
 
-    sausfles_knoflook.onclick = (event) => {
+    document.getElementById("js--sausfles_knoflook").onclick = () => {
+      console.log("Knoflook werkt");
       if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
         if(!hold){
           let static_object = document.getElementById("js--sausfles_knoflook");
@@ -632,23 +664,46 @@ window.onload = function(){
           hold = true;
           holdSausflesKnoflook = true;
 
-          //feedback knoflookSaus
-          kruisjeDesktop4.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
-          audio.play();
         };
       };
     };
 
-    flessen_bakje.onclick = (event) => {
+    document.getElementById("js--sausfles_bbq").onclick = () => {
+      console.log("Bbq werkt");
+      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
+        if(!hold){
+          let static_object = document.getElementById("js--sausfles_bbq");
+          let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_bbq_glb);
+          camera_object.setAttribute("scale", "0.3 0.3 0.3");
+          static_object.remove();
+          hold = true;
+          holdSausflesBbq = true;
+
+        };
+      };
+    };
+
+    flessen_bakje.onclick = () => {
       if(holdSausflesKnoflook === true){
         let holdObject = document.getElementById("js--hold_sausfles_knoflook");
         let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.9 1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
         static_object.setAttribute("scale", "0.3 0.3 0.3");
         static_object.setAttribute("class", "clickable");
         holdObject.remove();
-        setTimeout( (event) => {
+        setTimeout( () => {
           hold = false;
           holdSausflesKnoflook = false;
+        },200)
+      }
+      if(holdSausflesBbq === true){
+        let holdObject = document.getElementById("js--hold_sausfles_bbq");
+        let static_object = makeObject("js--sausfles_bbq", "a-circle", "7.1 1 -5.665", "0.08", scene, true, sausfles_bbq_glb);
+        static_object.setAttribute("scale", "0.3 0.3 0.3");
+        static_object.setAttribute("class", "clickable");
+        holdObject.remove();
+        setTimeout( () => {
+          hold = false;
+          holdSausflesBbq = false;
         },200)
       }
     };
@@ -716,6 +771,8 @@ window.onload = function(){
         opdracht3.setAttribute("visible",false);
         titel4.setAttribute("visible", true);
         opdracht4.setAttribute("visible",true);
+        krijtlijnen[8].setAttribute("visible", "false");
+        krijtlijnen[9].setAttribute("visible", "false");
         krijtlijnen[10].setAttribute("visible", "false");
         krijtlijnen[11].setAttribute("visible", "false");
       },2000)
