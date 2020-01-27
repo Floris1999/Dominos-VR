@@ -72,6 +72,7 @@
       <a-assit-item id="tomaat_on_pizza-glb" src="../media/tomaatje/tomaatje_op_pizza.glb"></a-assit-item>
       <a-assit-item id="cheese_op_pizza-glb" src="../media/kaas/cheese_op_pizza.glb"></a-assit-item>
       <img id="knoflook_saus_op_pizza-png" src="../media/knoflook_saus/pizza_shoarma_saus.png">
+      <img id="bbq_saus_op_pizza-png" src="../media/bbq_saus/pizza_bbq_saus.png">
 
       <!-- Deegbal naar pizzabodem -->
       <a-assit-item id='deegbal_fase_1-glb' src="../media/deegbal_fases/deegbal_fase_1.glb"></a-assit-item>
@@ -154,6 +155,7 @@
         <a-entity id="js--champignon_pizza" class="js--champignonClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#champignon_on_pizza-glb" visible="false"></a-entity>
         <a-entity id="js--ham_pizza" class="js--hamClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#ham_on_pizza-glb" visible="false"></a-entity>
         <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
+        <a-image id="js--bbq_saus_pizza" class="js--bbqSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#bbq_saus_op_pizza-png" visible="false"></a-image>
       </a-entity>
       <a-text id="js--cameratxt" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
       </a-camera>
@@ -248,7 +250,7 @@
 
     <!-- Sausflessen -->
     <a-entity id="js--sausfles_knoflook" class="clickable" position="6.9 1 -5.84" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_knoflook-glb"></a-entity>
-    <a-entity position="7.1 1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
+    <a-entity id="js--sausfles_bbq" class="clickable" position="7.1 1 -5.665" rotation="0 0 0" scale=".3 .3 .3" gltf-model="#sausfles_bbq-glb"></a-entity>
 
     <!-- Zeep -->
     <a-entity class="clickable" id="js--zeep" position="-0.472 1.080 -5.302" rotation="0 180 0" scale="0.08 0.08 0.08" gltf-model="#zeep-glb"></a-entity>
@@ -353,7 +355,7 @@
     <a-text id="js--ingredient4"   position="3.865 2.225 -5.822" color="black"  rotation="10 0 0"  scale="0.5 0.5 0.5"></a-text>
     <!-- <a-text  id="js--ingredient6" position="3.865 2.831 -5.715" color="black" font="../fonts/chalkfont.fnt" value="Haal de pizza uit de oven" scale="0.5 0.5 0.5"></a-text> -->
 
-    <a-text value="Dit werkblad heeft spleten. Dit zit hier zodat je ingrediënten kan morsen zonder een rommel te maken in de keuken"></a-text>
+    <!-- <a-text value="Dit werkblad heeft spleten. Dit zit hier zodat je ingrediënten kan morsen zonder een rommel te maken in de keuken"></a-text> -->
 
     <!-- desktop image -->
     <a-image id="js--kruisje-desk1" src="" rotation="10 0 0" position="5.369 2.691 -5.721" scale="0.2 0.2 0.2"></a-image>
@@ -447,6 +449,7 @@
       <a-entity id="js--champignon_pizza" class="js--champignonClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#champignon_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
       <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
+      <a-image id="js--bbq_saus_pizza" class="js--bbqSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#bbq_saus_op_pizza-png" visible="false"></a-image>
     </a-entity>
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->
