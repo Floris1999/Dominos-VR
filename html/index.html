@@ -8,9 +8,10 @@
 
   <script src="../javascript/main.js"></script>
 
-
   <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+
 
 
 
@@ -125,7 +126,7 @@
     </a-assets>
 
   <a-entity id="rig"
-            position="-7.712 1.80 -1.233">
+            position="-7.712 1.8 -1.233">
       <a-camera id="js--camera" position="0 0 0">
         <a-entity
           id="js--cursor"
@@ -228,6 +229,11 @@
     <a-plane class="ingredienten_bordjes" position="5.61 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Mozzarella" scale=".2 .3 1"></a-text></a-plane>
     <a-plane class="ingredienten_bordjes" position="5.945 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Tomaatjes" scale=".2 .3 1"></a-text></a-plane>
 
+    <a-plane position="6.459 1.976 -1.1" width="1.33" height="0.86" rotation="0 180 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="De oven is van te voren al \n ingesteld en geautomatiseerd.\n Dit betekent dat je niet de\n temperatuur hoeft in te stellen \n en geen rekening hoeft te \n houden met de tijd die de \n pizza in de oven zit." align="center"></a-text></a-plane>
+    <a-plane position="-5.884 1.638 -.6" width="1.33" height="0.86" rotation="0 250 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="Dit is de Domino's Pizza \n waar gaat oefenen. Hier leer je \n de basis dingen om een goeie \n pizza te maken. Ga naar \n de keuken en volg de \n instructies op het bord. \n Veel succes!" align="center"></a-text></a-plane>
+    <a-plane class="informatie_bordjes" id="info_bordje" position="-0.386 1.638 -4.990" width="1.2" height="0.64" rotation="0 30 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="Het pizzadeeg moet plat \n gemaakt  worden door de \n deegbal plat te duwen met \n je vingers terwijl je \n hem ronddraait" align="center"></a-text></a-plane>
+
+    <!-- Check knop -->
     <a-cylinder id="js--button" color="green" class="clickable" scale="0.4 0.4 0.4" position="6.504 1.879 -5.994" rotation="90 0 0"  height=".5" width=".5">
     </a-cylinder>
     <a-text position="6.504 1.879 -5.860" scale="0.4 0.4 0.4" id="js--buttontxt" value="Check recepten" align="center"></a-text>
@@ -286,7 +292,7 @@
     <!-- Omgeving -->
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 1 -6" width="20" height="5" opacity="5"></a-plane>
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 6"  rotation ="0 180 0" width="20" height="3.5"></a-plane>
-    <a-plane id="js--achterkant" src="../media/omgeving/brick.jpg" shader="flat" position="9.957 1.756 1.223"  rotation ="0 270 0" width="20" height="3.5"></a-plane>
+    <a-plane class="clickable" id="js--achterkant" src="../media/omgeving/brick.jpg" shader="flat" position="9.957 1.756 1.223"  rotation ="0 270 0" width="20" height="3.5"></a-plane>
 
     <a-plane src="../media/omgeving/brick.jpg" shader="flat" position="0 2 3"  rotation ="0 180 0" width="20" height="8"></a-plane>
     <a-plane src="../media/omgeving/red_brick_wall.jpg" repeat="5 3" shader="flat" position="4 2 2.95"  rotation ="0 180 0" width="13" height="8"></a-plane>
@@ -294,7 +300,7 @@
     <a-plane src="../media/omgeving/ground.jpg" repeat="40 30" position="0 0 0" rotation="-90 0 0" width="20" height="15"></a-plane>
     <a-plane src="../media/omgeving/plafond.jpg" repeat="60 30" position="0 3.5 0" rotation="-270 0 0" width="20" height="15"></a-plane>
 
-    <a-image src="../media/omgeving/straat.jpg" position="-20 2.5 0" rotation="0 -90 0" width="24" height="10"></a-image>
+    <a-image src="../media/omgeving/straat.jpg" scale="0.4 0.4 0.4" position="-10.009 1.925 -1.573" rotation="0 -90 0" width="24" height="10"></a-image>
     <a-image src="../media/omgeving/glazen_deur.png" position="-10 1.95005 -1.51363" geometry="width: 9.25; height: 4.1" material="" rotation="0 -90 0"></a-image>
 
     <a-entity id="js--kassa1" position="-3.703 1.224 -3.838" gltf-model="../media/scherm/kassa_scherm.glb" scale="0.3 0.3 0.3" rotation="0 180 0"></a-entity>
@@ -422,13 +428,14 @@
 
 
     <!-- <a-entity class="js--teleport clickable" position="-0.923 0.18 -4" scale=".3 .9 .3" gltf-model="#portal-glb"></a-entity> -->
-    <a-entity class="clickable" id="js--bigteleport" position="-0.923 0.18 -4" scale="1 1.5 1" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="1.293 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="1.293 0.18 -2" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="4.527 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="6.071 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="6.071 0.18 -2" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="-7.712 0.180 -1.233" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="clickable" id="js--bigteleport" position="-0.923 0.18 -3.6" scale="1 1.5 1" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.035 0.18 -3.6" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.035 0.18 -2.4" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.696 0.18 -3.6" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="6.782 0.18 -3.6" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="8.22 0.18 -2.4" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.696 0.18 -2.4" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="-7.712 0.180 -1.233" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
 
 
 
