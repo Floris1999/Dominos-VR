@@ -627,8 +627,6 @@ window.onload = function(){
           hold = true;
           holdSausflesKnoflook = true;
 
-          //feedback knoflookSaus
-          audio.play();
         };
       };
     };
@@ -643,8 +641,6 @@ window.onload = function(){
           hold = true;
           holdSausflesBbq = true;
 
-          //feedback knoflookSaus
-          audio.play();
         };
       };
     };
