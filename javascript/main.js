@@ -206,6 +206,8 @@ window.onload = function(){
     startscherm();
     addListeners();
     holdPizzaSnijder();
+    knoflookOnclick();
+    bbqOnclick();
 
     getRecipe = (random) =>{
       fetch(BASEURL)
@@ -436,6 +438,8 @@ window.onload = function(){
   //   }
   // }
 
+
+
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
       if(!holdSnijder){
@@ -523,7 +527,6 @@ window.onload = function(){
               let saus = document.getElementById("js--knoflook_saus_pizza");
               saus.setAttribute("visible" ,false);
               console.log(saus);
-
               for(let i = 0; i < 2; i++){
                   ingredientsList[8][i].setAttribute("visible",true);
                   if(!pizzaGemaakt.ingredients.includes("knoflooksaus")){
@@ -690,35 +693,39 @@ window.onload = function(){
         }
       }
     };
-
-    document.getElementById("js--sausfles_knoflook").onclick = () => {
-      console.log("Knoflook werkt");
-      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
-        if(!hold){
-          let static_object = document.getElementById("js--sausfles_knoflook");
-          let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
-          camera_object.setAttribute("scale", "0.3 0.3 0.3");
-          static_object.remove();
-          hold = true;
-          holdSausflesKnoflook = true;
+    function knoflookOnclick() {
+      console.log("test");
+      document.getElementById("js--sausfles_knoflook").onclick = () => {
+        console.log("Knoflook werkt");
+        if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
+          if(!hold){
+            let static_object = document.getElementById("js--sausfles_knoflook");
+            let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
+            camera_object.setAttribute("scale", "0.3 0.3 0.3");
+            static_object.remove();
+            hold = true;
+            holdSausflesKnoflook = true;
+          };
         };
       };
-    };
+    }
 
-    document.getElementById("js--sausfles_bbq").onclick = () => {
-      console.log("Bbq werkt");
-      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
-        if(!hold){
-          let static_object = document.getElementById("js--sausfles_bbq");
-          let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_bbq_glb);
-          camera_object.setAttribute("scale", "0.3 0.3 0.3");
-          static_object.remove();
-          hold = true;
-          holdSausflesBbq = true;
-
+    function bbqOnclick() {
+      console.log("bbq");
+      document.getElementById("js--sausfles_bbq").onclick = () => {
+        console.log("Bbq werkt");
+        if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
+          if(!hold){
+            let static_object = document.getElementById("js--sausfles_bbq");
+            let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_bbq_glb);
+            camera_object.setAttribute("scale", "0.3 0.3 0.3");
+            static_object.remove();
+            hold = true;
+            holdSausflesBbq = true;
+          };
         };
       };
-    };
+    }
 
     flessen_bakje.onclick = () => {
       if(holdSausflesKnoflook === true){
@@ -731,6 +738,7 @@ window.onload = function(){
           hold = false;
           holdSausflesKnoflook = false;
         },200)
+        knoflookOnclick()
       }
       if(holdSausflesBbq === true){
         let holdObject = document.getElementById("js--hold_sausfles_bbq");
@@ -742,6 +750,7 @@ window.onload = function(){
           hold = false;
           holdSausflesBbq = false;
         },200)
+        bbqOnclick()
       }
     };
 
