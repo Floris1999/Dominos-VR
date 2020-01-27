@@ -615,6 +615,7 @@ window.onload = function(){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
+
         document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel");
         document.getElementById('js--ingredient3').setAttribute("value", "Gooi de pizza weg");
         return;
