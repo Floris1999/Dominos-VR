@@ -273,6 +273,7 @@ window.onload = function(){
         pizzaGemaakt.ingredients = [];
         removeIngredients();
         removeClickAble();
+        removeIngredients();
       }
     }
 
@@ -752,6 +753,10 @@ window.onload = function(){
           }
         } 
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
+      doughfase1.removeAttribute('animation');
+      this.console.log(doughfase1);
+
+
       let att = document.createAttribute("animation__turning");
       att.value = "property: rotation; to: 0 360 0; loop: false; dur: 3000";
       doughfase1.setAttribute('animation', att.value);
