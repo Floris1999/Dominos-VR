@@ -12,6 +12,9 @@ window.onload = function(){
     const teleport = document.getElementsByClassName('js--teleport');
     const vuilnisbak = this.document.getElementById("js--vuilnisbak");
 
+    const BASEURL = "https://my-json-server.typicode.com/florisflorisw/demo/pizzas";
+
+
     //game declarations
     const camera = document.getElementById('js--camera');
     const scene = document.getElementById("js--scene");
@@ -21,7 +24,7 @@ window.onload = function(){
     const checkButton = document.getElementById("js--button");
 
     //Developer mode
-    var developer_mode = false;
+    var developer_mode = true;
 
     //teleportstart
     var bigteleportOn = true;
@@ -175,6 +178,12 @@ window.onload = function(){
     var holdSausflesKnoflook = false;
     var holdSnijder = false;
 
+    //Kijkt of de api gebruikt moet worden
+    var apiState = false;
+
+    //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
+    var newRun = true;
+
     let checkCount = 0;
 
     // GLB models
@@ -191,19 +200,40 @@ window.onload = function(){
     addListeners();
     holdPizzaSnijder();
 
+    getRecipe = (random) =>{
+      fetch(BASEURL)
+      .then((data) => {
+          return data.json();
+      })
+      .then((response) => {
+          console.log(response);
+          let chooosenPizza = response[random];
+          pizzaRecept = chooosenPizza.ingredients;
+          console.log(pizzaRecept);
+          document.getElementById('js--ingredient0').setAttribute("value", chooosenPizza.name);
+      });
+
+    }
+
 
 
     loadIngredients = () =>{
       for(let i = 0; i < ingredientsList.length; i++){
-        this.console.log(ingredientsList[3][i]);
-        ingredientsList[i][i].setAttribute("visible",true);
-      };
+        for(let o = 0; o < 2; o++){
+          ingredientsList[i][o].setAttribute("visible",true);
+          this.console.log(ingredientsList[i][o]);          
+        }
+      }
+      console.log("alle ingredienten zijn geladen");
     }
+
     removeIngredients = () =>{
-        for(let i = 0; i < ingredientsList.length; i++){
-            this.console.log(ingredientsList[3][0][i]);
-            ingredientsList[i][0][i].setAttribute("visible",false);
-          };
+      for(let i = 0; i < ingredientsList.length; i++){
+        for(let o = 0; o < 2; o++){
+          ingredientsList[i][o].setAttribute("visible",false);
+        }
+      }
+      console.log("alle ingredienten zijn verwijderd");
     }
 
 
@@ -236,8 +266,12 @@ window.onload = function(){
         holdPizza.setAttribute("visible",false);
         pizzaOnTable.setAttribute("visible",true);
         pizzaOnTable.setAttribute("position", "30 1.05 -5.14");
+        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
         doughfase1.setAttribute("position", "1 1.05 -5.14");
+        doughfase1.removeAttribute("animation");
         hold = false;
+        pizzaGemaakt.ingredients = [];
+        removeIngredients();
         removeClickAble();
       }
     }
@@ -291,7 +325,6 @@ window.onload = function(){
             switch(ingredient) {
                 case "bakje_kaas":
                     for(let i = 0; i < 2; i++){
-                        this.console.log(ingredientsList[0][i]);
                         ingredientsList[0][i].setAttribute("visible",true);
                         //feedback op de kaas
                         if(!pizzaGemaakt.ingredients.includes("kaas")){
@@ -302,7 +335,6 @@ window.onload = function(){
                     break;
                 case "bakje_ananas":
                         for(let i = 0; i < 2; i++){
-                          this.console.log(ingredientsList[1][i]);
                           ingredientsList[1][i].setAttribute("visible",true);
                           if(!pizzaGemaakt.ingredients.includes("ananas")){
                             pizzaGemaakt.ingredients.push("ananas");
@@ -311,7 +343,6 @@ window.onload = function(){
                       break;
                 case "bakje_salami":
                           for(let i = 0; i < 2; i++){
-                            this.console.log(ingredientsList[2][i]);
                             ingredientsList[2][i].setAttribute("visible",true);
                             if(!pizzaGemaakt.ingredients.includes("salami")){
                               pizzaGemaakt.ingredients.push("salami");
@@ -320,7 +351,6 @@ window.onload = function(){
                         break;
                 case "bakje_shoarma":
                           for(let i = 0; i < 2; i++){
-                            this.console.log(ingredientsList[3][i]);
                             ingredientsList[3][i].setAttribute("visible",true);
                             if(!pizzaGemaakt.ingredients.includes("shoarma")){
                               pizzaGemaakt.ingredients.push("shoarma");
@@ -329,7 +359,6 @@ window.onload = function(){
                         break;
                 case "bakje_ham":
                           for(let i = 0; i < 2; i++){
-                            this.console.log(ingredientsList[4][i]);
                             ingredientsList[4][i].setAttribute("visible",true);
                             if(!pizzaGemaakt.ingredients.includes("ham")){
                               pizzaGemaakt.ingredients.push("ham");
@@ -338,7 +367,6 @@ window.onload = function(){
                         break;
                 case "bakje_champignon":
                           for(let i = 0; i < 2; i++){
-                            this.console.log(ingredientsList[5][i]);
                             ingredientsList[5][i].setAttribute("visible",true);
                             if(!pizzaGemaakt.ingredients.includes("champignon")){
                               pizzaGemaakt.ingredients.push("champignon");
@@ -347,7 +375,6 @@ window.onload = function(){
                         break;
                 case "bakje_mozzarella":
                           for(let i = 0; i < 2; i++){
-                            this.console.log(ingredientsList[6][i]);
                             ingredientsList[6][i].setAttribute("visible",true);
                             if(!pizzaGemaakt.ingredients.includes("mozzarella")){
                               pizzaGemaakt.ingredients.push("mozzarella");
@@ -356,7 +383,6 @@ window.onload = function(){
                         break;
                 case "bakje_tomaat":
                           for(let i = 0; i < 2; i++){
-                            this.console.log(ingredientsList[7][i]);
                             ingredientsList[7][i].setAttribute("visible",true);
                             if(!pizzaGemaakt.ingredients.includes("tomaat")){
                               pizzaGemaakt.ingredients.push("tomaat");
@@ -521,7 +547,8 @@ window.onload = function(){
     checkButton.onclick = () => {
       console.log(pizzaGemaakt.ingredients);
       console.log(pizzaRecept);
-      let counter = 1;
+      counter = 1;
+
       if(pizzaRecept.length <= pizzaGemaakt.ingredients.length){
         let teveel = pizzaGemaakt.ingredients.length - (pizzaRecept.length - 1);
         for(let i = 1; i < pizzaRecept.length; i++){
@@ -529,6 +556,8 @@ window.onload = function(){
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
         document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel");
+        document.getElementById('js--ingredient3').setAttribute("value", "Gooi de pizza weg");
+
         return;
       }
       for(let i = 1; i < pizzaRecept.length; i++){
@@ -537,7 +566,6 @@ window.onload = function(){
       for(let i = 1; i < pizzaRecept.length; i++){
         this.console.log(pizzaRecept[i])
         if(pizzaGemaakt.ingredients.includes(pizzaRecept[i])){
-          this.console.log('dit werkt');
           counter++;
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","../media/krijtbord/krijtbordimg5.png");
         }
@@ -707,43 +735,42 @@ window.onload = function(){
       opdracht4Voltooid = true;
     }
 
-    doughfase1.onclick= () => {
+    doughfase1.onclick = () => {
       if(opdracht1Voltooid || developer_mode == true){
       //text op de monitor showen
         krijtlijnen[4].setAttribute("visible", "true");
-        let randomVar = Math.floor(Math.random() * 2);
-        pizzaRecept =  verschillendepizza[randomVar];
-
-        document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
-
-        // for(let i = 0; i < verschillendepizza[randomVar].length; i++){
-        //     this.console.log(pizzarecept);
-        //     document.getElementById('js--ingredient'+ i).setAttribute("value", verschillendepizza[randomVar][i]);
-        // }
-        // txt1.setAttribute("value", verschillendepizza[][verschillendepizza[1].length-1]);
-        // txt2.setAttribute("value", verschillendepizza[1][0]);
-        // txt3.setAttribute("value", verschillendepizza[1][1]);
-        // txt4.setAttribute("value", verschillendepizza[1][2]);
-        // txt5.setAttribute("value", verschillendepizza[1][3]);
-
-
+        if(newRun){
+          if(apiState){
+            let randInt = Math.floor(Math.random() * 6);
+            getRecipe(randInt);
+            newRun = false;
+          }else{
+            let randomVar = Math.floor(Math.random() * 2);
+            pizzaRecept = verschillendepizza[randomVar]
+            document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
+            newRun = false;
+          }
+        } 
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
       let att = document.createAttribute("animation__turning");
-      att.value = "property: rotation; to: 0 360 0; loop: false; dur: 2000";
+      att.value = "property: rotation; to: 0 360 0; loop: false; dur: 3000";
       doughfase1.setAttribute('animation', att.value);
 
       setTimeout(() => {
-        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_2.glb");
+        doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
         doughfase1.setAttribute('animation', att.value);
+        console.log(att.value);
+
 
         setTimeout(() => {
           doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_2.glb");
           doughfase1.setAttribute('animation', att.value);
+          console.log(doughfase1);
         }, 2000)
 
         setTimeout(() => {
           doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
-
+          console.log(doughfase1);
           let size = document.createAttribute("animation__scale");
           size.value += "property: scale; to: .2 .2 .2; loop: false; dur: 2000";
           //doughfase1.setAttribute('animation__turning', att.value);
@@ -751,6 +778,8 @@ window.onload = function(){
 
         }, 4000)
       setTimeout(() => {
+        pizzaOnTable.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
+        holdPizza.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_3.glb");
         doughfase1.setAttribute("position", "1 1.05 -9.14");
         pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
       }, 6000)
@@ -853,8 +882,11 @@ window.onload = function(){
   }
 
   function startscherm(){
+
     entityStart.setAttribute("visible", false);
     startbtn.onclick = ()=> {
+      // loadIngredients();
+      // removeIngredients();
       entityStart.setAttribute("visible", true);
       startSchermEntity.setAttribute("visible", false);
     }
@@ -878,6 +910,7 @@ window.onload = function(){
       modal2.setAttribute("visible", false);
       dominostarting.setAttribute("visible", true);
     }
+
   }
 
 
