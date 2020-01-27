@@ -182,7 +182,7 @@ window.onload = function(){
     var holdSnijder = false;
 
     //Kijkt of de api gebruikt moet worden
-    var apiState = true;
+    var apiState = false;
 
     //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
     var newRun = true;
