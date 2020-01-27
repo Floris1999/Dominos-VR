@@ -228,9 +228,9 @@
     <a-plane class="ingredienten_bordjes" position="5.61 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Mozzarella" scale=".2 .3 1"></a-text></a-plane>
     <a-plane class="ingredienten_bordjes" position="5.945 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Tomaatjes" scale=".2 .3 1"></a-text></a-plane>
 
-    <a-plane id="js--button" color="blue" class="clickable" position="6.122 1.62 -5.994"  height=".5" width=".5" text="value: Check ingredienten; align: center; ">
-
-    </a-plane>
+    <a-cylinder id="js--button" color="green" class="clickable" scale="0.4 0.4 0.4" position="6.504 1.879 -5.994" rotation="90 0 0"  height=".5" width=".5">
+    </a-cylinder>
+    <a-text position="6.504 1.879 -5.860" scale="0.4 0.4 0.4" id="js--buttontxt" value="Check recepten" align="center"></a-text>
 
     <!-- Oven -->
     <a-entity id="js--oven" position="5.786 0.98 -0.375" rotation="0 180 0" scale=".3 .3 .3" gltf-model="#oven_1-glb" visible="true"></a-entity>
@@ -297,7 +297,9 @@
     <a-image src="../media/omgeving/straat.jpg" position="-20 2.5 0" rotation="0 -90 0" width="24" height="10"></a-image>
     <a-image src="../media/omgeving/glazen_deur.png" position="-10 1.95005 -1.51363" geometry="width: 9.25; height: 4.1" material="" rotation="0 -90 0"></a-image>
 
-    <a-entity id="js--kassa" position="-2.91542 1.22424 -3.83799" gltf-model="../media/scherm/kassa_scherm.glb" scale="0.2 0.2 0.2" rotation="0 180 0"></a-entity>
+    <a-entity id="js--kassa1" position="-3.703 1.224 -3.838" gltf-model="../media/scherm/kassa_scherm.glb" scale="0.3 0.3 0.3" rotation="0 180 0"></a-entity>
+    <a-entity id="js--kassa2" position="-3.703 1.224 -1.175" gltf-model="../media/scherm/kassa_scherm.glb" scale="0.3 0.3 0.3" rotation="0 180 0"></a-entity>
+    <a-entity id="js--kassa3" position="-3.703 1.224 1.489" gltf-model="../media/scherm/kassa_scherm.glb" scale="0.3 0.3 0.3" rotation="0 180 0"></a-entity>
     <a-entity id="js--tafel" position="-8.08307 0 1.94488" gltf-model="../media/omgeving/tafel_stoel.glb" scale="0.8 0.8 0.8" rotation=""></a-entity>
     <a-entity id="js--tafel" position="-8.08307 0 -4.3" gltf-model="../media/omgeving/tafel_stoel.glb" scale="0.8 0.8 0.8" rotation=""></a-entity>
     <a-image src="../media/omgeving/nooduitgang.png" position="-9.96064 3.32528 -1.51827" geometry="" material="" scale="0.4 0.2 1" rotation="0 -90 0"></a-image>
