@@ -628,7 +628,6 @@ window.onload = function(){
           holdSausflesKnoflook = true;
 
           //feedback knoflookSaus
-          kruisjeDesktop4.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
           audio.play();
         };
       };
@@ -645,7 +644,6 @@ window.onload = function(){
           holdSausflesBbq = true;
 
           //feedback knoflookSaus
-          kruisjeDesktop4.setAttribute("src","../media/krijtbord/krijtbordimg5.png");
           audio.play();
         };
       };
