@@ -182,7 +182,7 @@ window.onload = function(){
     var holdSnijder = false;
 
     //Kijkt of de api gebruikt moet worden
-    var apiState = false;
+    var apiState = true;
 
     //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
     var newRun = true;
@@ -526,8 +526,8 @@ window.onload = function(){
 
               for(let i = 0; i < 2; i++){
                   ingredientsList[8][i].setAttribute("visible",true);
-                  if(!pizzaGemaakt.ingredients.includes("knoflooksaus")){
-                    pizzaGemaakt.ingredients.push("knoflooksaus");
+                  if(!pizzaGemaakt.ingredients.includes("shoarmasaus")){
+                    pizzaGemaakt.ingredients.push("shoarmasaus");
               };
             };
             }
@@ -538,8 +538,8 @@ window.onload = function(){
 
               for(let i = 0; i < 2; i++){
                   ingredientsList[9][i].setAttribute("visible",true);
-                  if(!pizzaGemaakt.ingredients.includes("bbqsaus")){
-                    pizzaGemaakt.ingredients.push("bbqsaus");
+                  if(!pizzaGemaakt.ingredients.includes("bbq saus")){
+                    pizzaGemaakt.ingredients.push("bbq saus");
               };
             };
             }
@@ -630,6 +630,7 @@ window.onload = function(){
         this.console.log(pizzaRecept[i])
         if(pizzaGemaakt.ingredients.includes(pizzaRecept[i])){
           counter++;
+          console.log(pizzaRecept[i]);
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","../media/krijtbord/krijtbordimg5.png");
         }
       }
@@ -694,7 +695,6 @@ window.onload = function(){
           static_object.remove();
           hold = true;
           holdSausflesKnoflook = true;
-
         };
       };
     };
