@@ -479,7 +479,7 @@ window.onload = function(){
               };
             };
             }
-            if(!hold){
+            if(!hold && !holdSnijder){
               if(opdracht2Voltooid == true){
                 krijtlijnen[8].setAttribute("visible", "true");
                 krijtlijnen[9].setAttribute("visible", "true");
@@ -569,7 +569,7 @@ window.onload = function(){
       this.console.log(counter);
       console.log(pizzaRecept.length);
 
-      if(counter == (pizzaRecept.length - 1)){
+      if(counter == (pizzaRecept.length)){
         opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
       }
