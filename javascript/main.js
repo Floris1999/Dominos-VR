@@ -228,7 +228,7 @@ window.onload = function(){
       for(let i = 0; i < ingredientsList.length; i++){
         for(let o = 0; o < 2; o++){
           ingredientsList[i][o].setAttribute("visible",true);
-          this.console.log(ingredientsList[i][o]);          
+          this.console.log(ingredientsList[i][o]);
         }
       }
       console.log("alle ingredienten zijn geladen");
@@ -618,13 +618,9 @@ window.onload = function(){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
-<<<<<<< HEAD
+
         document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel");
         document.getElementById('js--ingredient3').setAttribute("value", "Gooi de pizza weg");
-
-=======
-        document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel. \n gooi de pizza in de prullebak \n en maak een nieuwe");
->>>>>>> development
         return;
       }
       for(let i = 1; i < pizzaRecept.length; i++){
@@ -843,7 +839,7 @@ window.onload = function(){
             document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
             newRun = false;
           }
-        } 
+        }
       doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
       doughfase1.removeAttribute('animation');
       this.console.log(doughfase1);
