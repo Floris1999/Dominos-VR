@@ -409,7 +409,7 @@ window.onload = function(){
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
       if(!holdSnijder){
-          let pizzasnijderHold = makeObject("js--pizzasnijderHold", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
+          var pizzasnijderHold = makeObject("js--pizzasnijderHold", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
           pizzasnijderHold.setAttribute("scale", "0.1 0.1 0.1");
           pizzasnijderHold.setAttribute("rotation", "0 0 -20");
           pizzasnijder.setAttribute("visible",false);
@@ -418,9 +418,9 @@ window.onload = function(){
           }, 200)
       }
       if (holdSnijder == true) {
-        let pizzasnijderHold = document.getElementById("js--pizzasnijderHold");
         pizzasnijder.setAttribute("visible",true);
-        pizzasnijderHold.remove();
+        pizzasnijderHold.setAttribute("visible",false);
+        // pizzasnijderHold.remove();
         setTimeout(() => {
           holdSnijder = false;
         }, 200)
@@ -493,10 +493,11 @@ window.onload = function(){
               setClickAble();
               hold = true;
             }
-            if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true) {
+            if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true) || developer_mode) {
+              console.log("hjecgiuehlwe");
               // gesnedenPizza.setAttribute("visible", true);
               lijn1.setAttribute("visible", true);
-              pizzasnijderHold.remove();
+              document.getElementById("js--pizzasnijderHold").remove();
               pizzasnijder.setAttribute("position", "0.894 1.186 -0.380");
               pizzasnijder.setAttribute("visible", true);
               pizzasnijder.setAttribute("rotation", "0 260 " + lijn1.getAttribute("rotation").z);
@@ -505,7 +506,7 @@ window.onload = function(){
               clickedPizza += 1;
             }
 
-            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
+            else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) || developer_mode) {
               // gesnedenPizza.setAttribute("visible", true);
               lijn2.setAttribute("visible", true);
               pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
@@ -517,7 +518,7 @@ window.onload = function(){
 
             }
 
-            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
+            else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) || developer_mode) {
               // gesnedenPizza.setAttribute("visible", true);
               lijn3.setAttribute("visible", true);
               pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
@@ -526,8 +527,8 @@ window.onload = function(){
               pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
               clickedPizza += 1;
             }
-            else {
-              if(opdracht3Voltooid == true){
+            else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true) || developer_mode){
+
                 // gesnedenPizza.setAttribute("visible", true);
                 // opdrachtVoltooid4();
                 lijn4.setAttribute("visible", true);
@@ -536,7 +537,7 @@ window.onload = function(){
                 pizzasnijder.setAttribute("rotation", "0 140 -40");
                 pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
                 clickedPizza += 1;
-              }
+
             }
           }
         };
@@ -569,7 +570,7 @@ window.onload = function(){
       this.console.log(counter);
       console.log(pizzaRecept.length);
 
-      if(counter == (pizzaRecept.length)){
+      if(counter == pizzaRecept.length){
         opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
       }
