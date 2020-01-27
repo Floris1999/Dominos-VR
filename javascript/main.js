@@ -617,7 +617,8 @@ window.onload = function(){
       }
     };
 
-    sausfles_knoflook.onclick = (event) => {
+    document.getElementById("js--sausfles_knoflook").onclick = () => {
+      console.log("Knoflook werkt");
       if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
         if(!hold){
           let static_object = document.getElementById("js--sausfles_knoflook");
@@ -631,7 +632,8 @@ window.onload = function(){
       };
     };
 
-    sausfles_bbq.onclick = (event) => {
+    document.getElementById("js--sausfles_bbq").onclick = () => {
+      console.log("Bbq werkt");
       if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
         if(!hold){
           let static_object = document.getElementById("js--sausfles_bbq");
@@ -645,7 +647,7 @@ window.onload = function(){
       };
     };
 
-    flessen_bakje.onclick = (event) => {
+    flessen_bakje.onclick = () => {
       if(holdSausflesKnoflook === true){
         let holdObject = document.getElementById("js--hold_sausfles_knoflook");
         let static_object = makeObject("js--sausfles_knoflook", "a-circle", "6.9 1 -5.84", "0.08", scene, true, sausfles_knoflook_glb);
