@@ -552,7 +552,7 @@ window.onload = function(){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
-        document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel");
+        document.getElementById('js--ingredient2').setAttribute("value", "Je hebt " + teveel + " ingredienten teveel. \n gooi de pizza in de prullebak \n en maak een nieuwe");
         return;
       }
       for(let i = 1; i < pizzaRecept.length; i++){
