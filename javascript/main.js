@@ -22,9 +22,10 @@ window.onload = function(){
     const holdPizza = document.getElementById("js--holdPizza");
     const pizzaOnTable = document.getElementById("js--pizzaOnTable");
     const checkButton = document.getElementById("js--button");
+    const buttontxt = document.getElementById("js--buttontxt");
 
     //Developer mode
-    var developer_mode = true;
+    var developer_mode = false;
 
     //teleportstart
     var bigteleportOn = true;
@@ -144,6 +145,7 @@ window.onload = function(){
     var opdracht3Voltooid = false;
     var opdracht4Voltooid = false;
 
+    //startscherm
     const entityStart = document.getElementById("js--fixopacity");
     const startbtn = document.getElementById("js--startgame");
     const startSchermEntity = document.getElementById("js--startschermMode");
@@ -155,6 +157,12 @@ window.onload = function(){
     const kruisjeUitleg = document.getElementById("js--kruisjeuitleg");
     const kruisjeInfo = document.getElementById("js--kruisjeinfo");
     const dominostarting = document.getElementById("js--dominostarting");
+
+    //eindscherm
+    const entityEind = document.getElementById("js--eindscherm");
+    const eindbutton = document.getElementById("js--eindknop");
+    const opnieuwbutton = document.getElementById("js--opnieuwknop");
+    const eindschermtxt = document.getElementById("js--eindschermtxt");
 
 
     var ingredientsList = [cheese, ananas, salami,  shoarma, ham, champignon, mozzarella, tomaat, knoflook, bbq];
@@ -312,7 +320,7 @@ window.onload = function(){
 
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
-          
+
             let att = document.createAttribute("animation");
             let posi = teleport[i].getAttribute('position').x + " 1.8 " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
@@ -438,9 +446,19 @@ window.onload = function(){
   //     }
   //   }
   // }
+  function startEindScherm(){
+    entityEind.setAttribute("visible", true);
+    entityEind.setAttribute("animation", "property: position; from: 1.231 4.344 1.255; to: 1.231 2.366 1.255; dur: 5000; easing: linear");
+    // entityEind.setAttribute("position", "1.231 2.366 1.255")
+    document.getElementById("js--touw").setAttribute("visible", true);
+    opnieuwbutton.onclick = () => {
+      beginOpnieuw();
+    }
 
-
-
+    eindbutton.onclick = () => {
+      stopSpel();
+    }
+  }
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
       if(!holdSnijder){
@@ -603,12 +621,31 @@ window.onload = function(){
                 pizzasnijder.setAttribute("visible", true);
                 pizzasnijder.setAttribute("rotation", "0 140 -40");
                 pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
+                opdrachtVoltooid4();
+                setTimeout(function(){startEindScherm();}, 3000);
                 clickedPizza += 1;
             }
           }
         };
     }
 
+    checkButton.onmouseenter = () => {
+          checkButton.setAttribute("position","6.504 1.879 -6.099");
+          buttontxt.setAttribute("position", "6.504 1.879 -5.965");
+    }
+
+    checkButton.onmouseleave = () => {
+      checkButton.setAttribute("position","6.504 1.879 -5.994");
+      buttontxt.setAttribute("position", "6.504 1.879 -5.860");
+    }
+
+
+
+    // var btningedrukt = false;
+    // if (btningedrukt === false) {
+    //     checkButton.setAttribute("animation","property: position; to: 6.504 1.879 -6.099; dur: 1500; easing: linear");
+    //     btningedrukt = true;
+    // }
     checkButton.onclick = () => {
       console.log(pizzaGemaakt.ingredients);
       console.log(pizzaRecept);
@@ -1089,6 +1126,40 @@ window.onload = function(){
       gebruikHandschoenen();
       opdrachtVoltooid();
     }
+  }
+
+  function stopSpel(){
+    eindschermtxt.setAttribute("value","Wij willen u bedanken\n voor het beleven van \n onze VR experience \n waarbij we u een pizza \n hebben leren maken.")
+    eindschermtxt.setAttribute("scale","1 1.3 1");
+    eindschermtxt.setAttribute("position","1.227 0.005 0.327");
+    eindbutton.setAttribute("visible", false);
+    opnieuwbutton.setAttribute("visible", false);
+
+    //iets waardoor je niks meer kan oppakken
+  }
+  function beginOpnieuw(){
+    console.log("De functie beginOpnieuw() wordt aangeroepen");
+    opdrachten1 = [false, false, false, false];
+    opdrachten2 = [false, false, false, false];
+    opdrachten3 = [false, false, false, false];
+    opdrachten4 = [false, false, false, false];
+
+    opdracht1Voltooid = false;
+    opdracht2Voltooid = false;
+    opdracht3Voltooid = false;
+    opdracht4Voltooid = false;
+
+    krijtlijnen[8].setAttribute("visible", "false");
+    krijtlijnen[9].setAttribute("visible", "false");
+
+    krijtlijnen[12].setAttribute("visible", "false");
+    krijtlijnen[13].setAttribute("visible", "false");
+    krijtlijnen[14].setAttribute("visible", "false");
+    krijtlijnen[15].setAttribute("visible", "false");
+    titel1.setAttribute("visible", true);
+    opdracht1.setAttribute("visible", true);
+
+
   }
 }
 
