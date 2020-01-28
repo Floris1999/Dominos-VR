@@ -126,7 +126,7 @@
     </a-assets>
 
   <a-entity id="rig"
-            position="-7.712 1.80 -1.233">
+            position="-7.712 1.8 -1.233">
       <a-camera id="js--camera" position="0 0 0">
         <a-entity
           id="js--cursor"
@@ -154,7 +154,7 @@
         <a-entity id="js--champignon_pizza" class="js--champignonClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#champignon_on_pizza-glb" visible="false"></a-entity>
         <a-entity id="js--ham_pizza" class="js--hamClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#ham_on_pizza-glb" visible="false"></a-entity>
         <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
-        <a-image id="js--bbq_saus_pizza" class="js--bbqSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#bbq_saus_op_pizza-png" visible="false"></a-image>
+        <a-image id="js--bbq_saus_pizza" class="js--bbqSausClass" position="0 .15 0" rotation="90 90 0" scale="2.92 2.4 1" src="#bbq_saus_op_pizza-png" visible="false"></a-image>
       </a-entity>
       <a-text id="js--cameratxt" color="white" align="center" width="2"  position="0 -0.6 -1"></a-text>
       </a-camera>
@@ -182,6 +182,11 @@
       <a-image id="js--infobtn" class="clickable" position="-8.504 4.871 -8.642" width="1" align="center" src="../media/scherm/info.png" ></a-image>
       <a-image class="clickable" id="js--startgame" scale="2 2 2" position="-1.5 0.5 -8.642" animation="property: position; to: -1.5 0 -8.642; dur: 1500; easing: linear; loop: true;" width="1" align="center" src="../media/scherm/pizzabox.png" ></a-image>
       <a-text  id="js--blinking" width="7" position="-3.686 -4.400 -8.642" color="white" value="Druk op de doos om het spel te beginnen" animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" animation__position="property: position; to:-3.686 -1.400 -8.642 ; delay: 1000; dur: 1000; easing: easeOutCubic"></a-text>
+      <!-- <a-image id="js--dominostarting" position="-2.333 3.682 -8.642" material="alphaTest: 0.01;" width="10" height="2" align="center" src="../media/startscreen/dominoslogo.png" animation__rotation="property: rotation; to: 0 720 0; delay: 500; dur: 6200; easing: easeOutCubic" animation__position="property: position; to: -2.333 3.682 -8.642; delay: 500; dur: 500; easing: easeOutCubic" animation__scale="property: scale; to: 1 1 1; delay: 500; dur: 500; easing: easeOutCubic"></a-image>
+      <a-image id="js--uitlegbtn" class="clickable" position="4.1 4.871 -8.642" width="1" align="center" src="../media/scherm/uitleg.png" ></a-image>
+      <a-image id="js--infobtn" class="clickable" position="-8.504 4.871 -8.642" width="1" align="center" src="../media/scherm/info.png" ></a-image>
+      <a-image class="clickable" id="js--startgame" scale="2 2 2" position="-1.5 0.5 -8.642" animation="property: position; to: -1.5 0 -8.642; dur: 1500; easing: linear; loop: true;" width="1" align="center" src="../media/scherm/pizzabox.png" ></a-image>
+      <a-text  id="js--blinking" width="7" position="-3.686 -4.400 -8.642" color="white" value="Druk op de doos om het spel te beginnen" animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" animation__position="property: position; to:-3.686 -1.400 -8.642 ; delay: 1000; dur: 1000; easing: easeOutCubic"></a-text> -->
 </a-entity>
 
 
@@ -227,6 +232,11 @@
     <a-plane class="ingredienten_bordjes" position="5.61 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Mozzarella" scale=".2 .3 1"></a-text></a-plane>
     <a-plane class="ingredienten_bordjes" position="5.945 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Tomaatjes" scale=".2 .3 1"></a-text></a-plane>
 
+    <a-plane position="6.459 1.976 -1.1" width="1.33" height="0.86" rotation="0 180 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="De oven is van te voren al \n ingesteld en geautomatiseerd.\n Dit betekent dat je niet de\n temperatuur hoeft in te stellen \n en geen rekening hoeft te \n houden met de tijd die de \n pizza in de oven zit." align="center"></a-text></a-plane>
+    <a-plane position="-5.884 1.638 -.6" width="1.33" height="0.86" rotation="0 250 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="Dit is de Domino's Pizza \n waar gaat oefenen. Hier leer je \n de basis dingen om een goeie \n pizza te maken. Ga naar \n de keuken en volg de \n instructies op het bord. \n Veel succes!" align="center"></a-text></a-plane>
+    <a-plane class="informatie_bordjes" id="info_bordje" position="-0.386 1.638 -4.990" width="1.2" height="0.64" rotation="0 30 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="Het pizzadeeg moet plat \n gemaakt  worden door de \n deegbal plat te duwen met \n je vingers terwijl je \n hem ronddraait" align="center"></a-text></a-plane>
+
+    <!-- Check knop -->
     <a-cylinder id="js--button" color="green" class="clickable" scale="0.4 0.4 0.4" position="6.504 1.879 -5.994" rotation="90 0 0"  height=".5" width=".5">
     </a-cylinder>
     <a-text position="6.504 1.879 -5.860" scale="0.4 0.4 0.4" id="js--buttontxt" value="Check recepten" align="center"></a-text>
@@ -432,13 +442,14 @@
 
 
     <!-- <a-entity class="js--teleport clickable" position="-0.923 0.18 -4" scale=".3 .9 .3" gltf-model="#portal-glb"></a-entity> -->
-    <a-entity class="clickable" id="js--bigteleport" position="-0.923 0.18 -4" scale="1 1.5 1" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="1.293 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="1.293 0.18 -2" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="4.527 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="6.071 0.18 -4" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="6.071 0.18 -2" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
-    <a-entity class="js--teleport clickable" position="-7.712 0.180 -1.233" scale=".3 .3 .3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="clickable" id="js--bigteleport" position="-0.923 0.18 -3.6" scale="1 1.5 1" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.035 0.18 -3.6" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="1.035 0.18 -2.4" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.696 0.18 -3.6" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="6.782 0.18 -3.6" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="8.22 0.18 -2.4" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="4.696 0.18 -2.4" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
+    <a-entity class="js--teleport clickable" position="-7.712 0.180 -1.233" scale=".3 .3 .3" opacity="0.3" gltf-model="#portal-glb"></a-entity>
 
 
 
@@ -457,7 +468,7 @@
       <a-entity id="js--champignon_pizza" class="js--champignonClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#champignon_on_pizza-glb" visible="false"></a-entity>
       <a-entity id="js--tomaat_pizza" class="js--tomaatClass" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#tomaat_on_pizza-glb" visible="false"></a-entity>
       <a-image id="js--knoflook_saus_pizza" class="js--knoflookSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#knoflook_saus_op_pizza-png" visible="false"></a-image>
-      <a-image id="js--bbq_saus_pizza" class="js--bbqSausClass" position="0 .15 0" rotation="90 0 0" scale="2.92 2.4 1" src="#bbq_saus_op_pizza-png" visible="false"></a-image>
+      <a-image id="js--bbq_saus_pizza" class="js--bbqSausClass" position="0 .15 0" rotation="90 90 0" scale="2.92 2.4 1" src="#bbq_saus_op_pizza-png" visible="false"></a-image>
     </a-entity>
 
     <!-- <a-circle id="js--pizzaOnTable" class="clickable" radius="0.25" position="0 1.1 -2" rotation="-90 0 0"></a-circle> -->

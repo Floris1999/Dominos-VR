@@ -214,6 +214,8 @@ window.onload = function(){
     startscherm();
     addListeners();
     holdPizzaSnijder();
+    knoflookOnclick();
+    bbqOnclick();
 
     getRecipe = (random) =>{
       fetch(BASEURL)
@@ -317,6 +319,7 @@ window.onload = function(){
 
     for(let i = 0; i < teleport.length; i++){
         teleport[i].onclick = (event) => {
+
             let att = document.createAttribute("animation");
             let posi = teleport[i].getAttribute('position').x + " 1.8 " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
@@ -458,11 +461,12 @@ window.onload = function(){
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
       if(!holdSnijder){
-          let pizzasnijderHold = makeObject("js--pizzasnijderHold", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
+          let pizzasnijderHold = makeObject("js--pizzasnijderHold", "a-circle", ".2 0 -1.2", "0.25", camera, true, pizzasnijderglb);
           pizzasnijderHold.setAttribute("scale", "0.1 0.1 0.1");
           pizzasnijderHold.setAttribute("rotation", "0 0 -20");
           pizzasnijder.setAttribute("visible",false);
           setTimeout(() => {
+            console.log("snijder = true");
             holdSnijder = true;
           }, 200)
       }
@@ -475,7 +479,7 @@ window.onload = function(){
         }, 200)
       }
       if(pizzaSnijden){
-        if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) || (pizzaSnijden && clickedPizza === 1)) {
+        if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
           // gesnedenPizza.setAttribute("visible", true);
           lijn2.setAttribute("visible", true);
           pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
@@ -487,7 +491,7 @@ window.onload = function(){
 
         }
 
-        else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) || (pizzaSnijden && clickedPizza === 2)) {
+        else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
           // gesnedenPizza.setAttribute("visible", true);
           lijn3.setAttribute("visible", true);
           pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
@@ -496,10 +500,7 @@ window.onload = function(){
           pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
           clickedPizza += 1;
         }
-        else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true) || (pizzaSnijden && clickedPizza === 3)){
-
-            // gesnedenPizza.setAttribute("visible", true);
-            // opdrachtVoltooid4();
+        else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
             lijn4.setAttribute("visible", true);
             pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
             pizzasnijder.setAttribute("visible", true);
@@ -542,7 +543,6 @@ window.onload = function(){
               let saus = document.getElementById("js--knoflook_saus_pizza");
               saus.setAttribute("visible" ,false);
               console.log(saus);
-
               for(let i = 0; i < 2; i++){
                   ingredientsList[8][i].setAttribute("visible",true);
                   if(!pizzaGemaakt.ingredients.includes("knoflooksaus")){
@@ -576,7 +576,7 @@ window.onload = function(){
               setClickAble();
               hold = true;
             }
-            if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true) {
+            if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true){
               pizzaSnijden = true;
               // gesnedenPizza.setAttribute("visible", true);
               lijn1.setAttribute("visible", true);
@@ -590,7 +590,7 @@ window.onload = function(){
               clickedPizza += 1;
             }
 
-            else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) || (pizzaSnijden && clickedPizza === 1)) {
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
               // gesnedenPizza.setAttribute("visible", true);
               lijn2.setAttribute("visible", true);
               pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
@@ -602,7 +602,7 @@ window.onload = function(){
 
             }
 
-            else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) || (pizzaSnijden && clickedPizza === 2)) {
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
               // gesnedenPizza.setAttribute("visible", true);
               lijn3.setAttribute("visible", true);
               pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
@@ -611,7 +611,7 @@ window.onload = function(){
               pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
               clickedPizza += 1;
             }
-            else if ((holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true) || (pizzaSnijden && clickedPizza === 3)){
+            else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
 
                 // gesnedenPizza.setAttribute("visible", true);
                 // opdrachtVoltooid4();
@@ -673,9 +673,15 @@ window.onload = function(){
         }
       }
       this.console.log(counter);
-      console.log(pizzaRecept.length);
 
       if(counter == pizzaRecept.length){
+
+        console.log(ingredientenBakjes);
+        for(let p = 0; p < ingredientenBakjes.length; p++){
+          console.log("test");
+          ingredientenBakjes[p].classList.remove("clickable");
+        }
+
         opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
       }
@@ -709,7 +715,7 @@ window.onload = function(){
         if(!hold){
           krijtlijnen[5].setAttribute("visible", "true");
           let lepel = document.getElementById("js--lepel");
-          let object = makeObject("js--holdLepel", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, soeplepel_saus);
+          let object = makeObject("js--holdLepel", "a-circle", ".2 -0.5 -1.2", "0.25", camera, true, soeplepel_saus);
           object.setAttribute("scale", ".12 .12 .12");
           object.setAttribute("rotation", "0 0 20");
           lepel.remove();
@@ -722,35 +728,39 @@ window.onload = function(){
         }
       }
     };
-
-    document.getElementById("js--sausfles_knoflook").onclick = () => {
-      console.log("Knoflook werkt");
-      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
-        if(!hold){
-          let static_object = document.getElementById("js--sausfles_knoflook");
-          let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
-          camera_object.setAttribute("scale", "0.3 0.3 0.3");
-          static_object.remove();
-          hold = true;
-          holdSausflesKnoflook = true;
+    function knoflookOnclick() {
+      console.log("test");
+      document.getElementById("js--sausfles_knoflook").onclick = () => {
+        console.log("Knoflook werkt");
+        if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
+          if(!hold){
+            let static_object = document.getElementById("js--sausfles_knoflook");
+            let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
+            camera_object.setAttribute("scale", "0.3 0.3 0.3");
+            static_object.remove();
+            hold = true;
+            holdSausflesKnoflook = true;
+          };
         };
       };
-    };
+    }
 
-    document.getElementById("js--sausfles_bbq").onclick = () => {
-      console.log("Bbq werkt");
-      if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
-        if(!hold){
-          let static_object = document.getElementById("js--sausfles_bbq");
-          let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_bbq_glb);
-          camera_object.setAttribute("scale", "0.3 0.3 0.3");
-          static_object.remove();
-          hold = true;
-          holdSausflesBbq = true;
-
+    function bbqOnclick() {
+      console.log("bbq");
+      document.getElementById("js--sausfles_bbq").onclick = () => {
+        console.log("Bbq werkt");
+        if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
+          if(!hold){
+            let static_object = document.getElementById("js--sausfles_bbq");
+            let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", ".5 -0.5 -1.2", "0.25", camera, true, sausfles_bbq_glb);
+            camera_object.setAttribute("scale", "0.3 0.3 0.3");
+            static_object.remove();
+            hold = true;
+            holdSausflesBbq = true;
+          };
         };
       };
-    };
+    }
 
     flessen_bakje.onclick = () => {
       if(holdSausflesKnoflook === true){
@@ -763,6 +773,7 @@ window.onload = function(){
           hold = false;
           holdSausflesKnoflook = false;
         },200)
+        knoflookOnclick()
       }
       if(holdSausflesBbq === true){
         let holdObject = document.getElementById("js--hold_sausfles_bbq");
@@ -774,6 +785,7 @@ window.onload = function(){
           hold = false;
           holdSausflesBbq = false;
         },200)
+        bbqOnclick()
       }
     };
 
