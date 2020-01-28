@@ -234,6 +234,7 @@ window.onload = function(){
         }
       }
       console.log("alle ingredienten zijn geladen");
+      removeIngredients();
     }
 
     removeIngredients = () =>{
