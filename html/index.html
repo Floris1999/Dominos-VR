@@ -177,16 +177,14 @@
           </a-text>
       </a-plane>
 
-  <a-image id="js--dominostarting" position="-2.333 3.682 -8.642" width="10" height="2" align="center" src="../media/startscreen/dominoslogo.png" animation__rotation="property: rotation; to: 0 720 0; delay: 500; dur: 6200; easing: easeOutCubic" animation__position="property: position; to: -2.333 3.682 -8.642; delay: 500; dur: 500; easing: easeOutCubic" animation__scale="property: scale; to: 1 1 1; delay: 500; dur: 500; easing: easeOutCubic"></a-image>
-  <a-image id="js--uitlegbtn" class="clickable" position="4.1 4.871 -8.642" width="1" align="center" src="../media/scherm/uitleg.png" ></a-image>
-  <a-image id="js--infobtn" class="clickable" position="-8.504 4.871 -8.642" width="1" align="center" src="../media/scherm/info.png" ></a-image>
-  <a-image class="clickable" id="js--startgame" scale="2 2 2" position="-1.5 0.5 -8.642" animation="property: position; to: -1.5 0 -8.642; dur: 1500; easing: linear; loop: true;" width="1" align="center" src="../media/scherm/pizzabox.png" ></a-image>
-  <a-text  id="js--blinking" width="7" position="-3.686 -4.400 -8.642" color="white" value="Druk op de doos om het spel te beginnen" animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" animation__position="property: position; to:-3.686 -1.400 -8.642 ; delay: 1000; dur: 1000; easing: easeOutCubic"></a-text>
-  <!-- <a-cylinder position="-0.539 1 -8.642" color="red"
-  ></a-cylinder> -->
-  <!-- <a-box class="clickable" id="js--startgame" color="red" depth="0.05" position="-3.449 1.724 -8.642" width="2" height="0.5"><a-text position="-0.580 0.020 0.13" value="Start Game" color="white"></a-text></a-box>
-  <a-box color="red" depth="0.05" position="-0.539 1.743 -8.642" width="2" height="0.5"><a-text position="-0.530 0.030 0.130" value="Time trial" color="white"></a-text></a-box> -->
+      <a-image id="js--dominostarting" position="-2.333 3.682 -8.642" width="10" height="2" align="center" src="../media/startscreen/dominoslogo.png" animation__rotation="property: rotation; to: 0 720 0; delay: 500; dur: 6200; easing: easeOutCubic" animation__position="property: position; to: -2.333 3.682 -8.642; delay: 500; dur: 500; easing: easeOutCubic" animation__scale="property: scale; to: 1 1 1; delay: 500; dur: 500; easing: easeOutCubic"></a-image>
+      <a-image id="js--uitlegbtn" class="clickable" position="4.1 4.871 -8.642" width="1" align="center" src="../media/scherm/uitleg.png" ></a-image>
+      <a-image id="js--infobtn" class="clickable" position="-8.504 4.871 -8.642" width="1" align="center" src="../media/scherm/info.png" ></a-image>
+      <a-image class="clickable" id="js--startgame" scale="2 2 2" position="-1.5 0.5 -8.642" animation="property: position; to: -1.5 0 -8.642; dur: 1500; easing: linear; loop: true;" width="1" align="center" src="../media/scherm/pizzabox.png" ></a-image>
+      <a-text  id="js--blinking" width="7" position="-3.686 -4.400 -8.642" color="white" value="Druk op de doos om het spel te beginnen" animation__scale="property: scale; to: 0.75 0.75 0.75; delay: 1500; dur: 200; easing: easeOutCubic" animation__position="property: position; to:-3.686 -1.400 -8.642 ; delay: 1000; dur: 1000; easing: easeOutCubic"></a-text>
 </a-entity>
+
+
 <a-entity id="js--fixopacity">
     <!-- Werkbanken en sink -->
     <a-entity id="js--werkbank1" class="js--werkbank" position="4.7 0 -5.1" rotation = "0 270 0" scale="0.2 0.3 0.3" gltf-model="#werkbank_spleten-glb"></a-entity>
@@ -256,6 +254,16 @@
 
     <!-- Krijtbord -->
     <a-entity position="1.231 2.376 -5.848" rotation="270 0 0" scale="1 0.3 0.3" gltf-model="#krijtbord-glb"></a-entity>
+    <a-entity id="js--eindscherm" position="1.231 2.366 1.255" rotation="270 0 0" scale="1 0.3 0.3" gltf-model="#krijtbord-glb" visible="false">
+      <a-text  id="js--eindschermtxt" font="../fonts/chalkfont.fnt" position="1.167 0.005 1.24" rotation="270 180 0" fontImage="../fonts/chalkfont.png" opacity="3" value="Gefeliciteerd! u \n heeft een succesvolle \n pizza gemaakt" scale="1 1.3 1" visible="true"></a-text>
+      <a-plane class="clickable" id="js--opnieuwknop" position="-0.747 0.005 -1.625" rotation="270 0 0" color="white">
+          <a-text  font="../fonts/chalkfont.fnt" color="black" fontImage="../fonts/chalkfont.png" rotation="0 0 180" position="0.475 0 0" opacity="3" value="Maak meer" scale="0.8 0.8 0.8" visible="true"></a-text>
+      </a-plane>
+      <a-plane class="clickable" id="js--eindknop"position="0.717 0.005 -1.610" rotation="270 0 0" value="Stop spel" color="white">
+        <a-text  font="../fonts/chalkfont.fnt" rotation="0 0 180" position="0.475 0 0" color="black" fontImage="../fonts/chalkfont.png" opacity="3" value="Stop spel" scale="0.8 0.8 0.8" visible="true"></a-text>
+      </a-plane>
+    </a-entity>
+    <a-image id="js--touw" src="../media/balie/rope.png" position="1.335 3.596 1.262" rotation="0 0 90" visible="false"></a-image>
 
     <!-- Scherm -->
     <a-entity position="4.69 1.897 -4.958" rotation="0 90 10" gltf-model="#scherm-glb"></a-entity>
@@ -345,6 +353,7 @@
         <a-image class="krijtlijn" id="js--krijtlijn14" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.08868 2.44232 -5.798" geometry="width: 2.75" material="" rotation="0 0 1.032"></a-image>
         <a-image class="krijtlijn" id="js--krijtlijn15" visible="false" src="../media/omgeving/krijt_lijn.png" position="1.00781 2.2525 -5.796" geometry="width: 2.42" material="" rotation="0 0 1.3"></a-image>
         <a-image class="krijtlijn" id="js--krijtlijn16" visible="false" src="../media/omgeving/krijt_lijn.png" position="0.97488 2.05742 -5.794" geometry="width: 2.43" material="" rotation="0 0 -1.3"></a-image>
+
 
     <!-- text monitor -->
     <a-text id="js--ingredient0" position="3.865 2.831 -5.715" color="#000000" rotation="10 0 0" opacity="5"  scale="0.5 0.5 0.5"></a-text>
