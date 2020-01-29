@@ -557,6 +557,7 @@ window.onload = function(){
             }
             if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true){
               pizzaSnijden = true;
+              console.log("in eerste if statement");
               // gesnedenPizza.setAttribute("visible", true);
               lijn1.setAttribute("visible", true);
               let pizzasnijderHold = document.getElementById("js--pizzasnijderHold");
