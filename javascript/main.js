@@ -807,6 +807,11 @@ window.onload = function(){
 //Functie die ervoor zorgt dat er feedback over de opdrachten gebeuren
     function opdrachtVoltooid(){
       if(opdrachten1.every( i => i === true)){
+        //animatie dat het infobord verschijnt
+        document.getElementById("js--bordje2").setAttribute("visible", true);
+        document.getElementById("js--touw2").setAttribute("visible", true);
+        document.getElementById("js--bordje2").setAttribute("animation", "property: position; from: -0.977 4.065 -5.201; to:-0.977 2.384 -5.201; dur: 5000; easing: linear");
+          document.getElementById("js--touw2").setAttribute("animation", "property: position; from: -1.014 3.993 -5.201; to:-1.014 3.376 -5.201; dur: 5000; easing: linear");
         krijtlijnen[3].setAttribute("visible", "true");
         kruisjes[0].setAttribute("visible", "true");
         setTimeout(() => {
