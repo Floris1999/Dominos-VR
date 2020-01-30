@@ -290,10 +290,6 @@ window.onload = function(){
         hold = false;
         pizzaGemaakt.ingredients = ["tomatensaus"];
         for(let i = 1; i < pizzaRecept.length; i++){
-<<<<<<< HEAD
-          document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
-        }
-=======
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
@@ -301,7 +297,6 @@ window.onload = function(){
         // document.getElementById("js--kruisje-desk2").setAttribute("src","");
         // document.getElementById("js--kruisje-desk3").setAttribute("src","");
         // document.getElementById("js--kruisje-desk4").setAttribute("src","");
->>>>>>> 1e8f7939b24d720f053b9e9147ec0d5d654360f7
         removeIngredients();
         removeClickAble();
         removeIngredients();
@@ -1203,6 +1198,8 @@ window.onload = function(){
     removeIngredients();
   }
 }
+
+
 
     // else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
     //     setText("Zet de kraan eerst uit!", 4000);
