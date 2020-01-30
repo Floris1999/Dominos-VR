@@ -182,6 +182,8 @@ window.onload = function(){
       model: "#pizzabodem_saus-glb",
     }
 
+
+
     const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
     // Variabelen pickup objecten
     var hold = false;
@@ -256,9 +258,10 @@ window.onload = function(){
     }
 
 
-    oven.onclick = (event) => {
+    oven.onclick = (event) => {      
       if(opdracht3Voltooid || developer_mode == true){
         if(hold){
+          pizzaOnTable.removeAttribute("animation");
           krijtlijnen[12].setAttribute("visible", "true");
           holdPizza.setAttribute("visible",false);
           pizzaOnTable.setAttribute("visible",true);
@@ -290,18 +293,9 @@ window.onload = function(){
         hold = false;
         pizzaGemaakt.ingredients = ["tomatensaus"];
         for(let i = 1; i < pizzaRecept.length; i++){
-<<<<<<< HEAD
-          document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
-        }
-=======
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
-        // document.getElementById("js--kruisje-desk1").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk2").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk3").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk4").setAttribute("src","");
->>>>>>> 1e8f7939b24d720f053b9e9147ec0d5d654360f7
         removeIngredients();
         removeClickAble();
         removeIngredients();
@@ -342,14 +336,13 @@ window.onload = function(){
         };
     };
 
-
-        bigteleport.onclick = (event) => {
-            bigteleport.setAttribute("scale", ".3 .3 .3")
-            let att = document.createAttribute("animation");
-            let posi = bigteleport.getAttribute('position').x + " 1.8 " + bigteleport.getAttribute('position').z;
-            att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
-            document.getElementById("rig").setAttribute('animation', att.value);
-        };
+    bigteleport.onclick = (event) => {
+        bigteleport.setAttribute("scale", ".3 .3 .3")
+        let att = document.createAttribute("animation");
+        let posi = bigteleport.getAttribute('position').x + " 1.8 " + bigteleport.getAttribute('position').z;
+        att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
+        document.getElementById("rig").setAttribute('animation', att.value);
+    };
 
     for(let i = 0; i < ingredientenBakjes.length; i++){
         ingredientenBakjes[i].onclick = (event) => {
@@ -460,9 +453,11 @@ window.onload = function(){
   //     }
   //   }
   // }
-  function startEindScherm(){
+
+  function startEindScherm(startheight, height){
+    //entityEind.removeAttribute("animation")
     entityEind.setAttribute("visible", true);
-    entityEind.setAttribute("animation", "property: position; from: 1.231 4.344 1.255; to: 1.231 2.366 1.255; dur: 5000; easing: linear");
+    entityEind.setAttribute("animation", "property: position; from: 1.231 " +startHeight+ " 1.255; to: 1.231 "+height+" 1.255; dur: 5000; easing: linear");
     // entityEind.setAttribute("position", "1.231 2.366 1.255")
     document.getElementById("js--touw").setAttribute("visible", true);
     opnieuwbutton.onclick = () => {
@@ -473,6 +468,7 @@ window.onload = function(){
       stopSpel();
     }
   }
+
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
       if(!holdSnijder){
@@ -493,37 +489,37 @@ window.onload = function(){
           holdSnijder = false;
         }, 200)
       }
-      if(pizzaSnijden){
-        if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
-          // gesnedenPizza.setAttribute("visible", true);
-          lijn2.setAttribute("visible", true);
-          pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
-          console.log(lijn2.getAttribute("position"));
-          pizzasnijder.setAttribute("visible", true);
-          pizzasnijder.setAttribute("rotation", "0 30 -40");
-          pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
-          clickedPizza += 1;
+      // if(pizzaSnijden){
+      //   if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
+      //     // gesnedenPizza.setAttribute("visible", true);
+      //     lijn2.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
+      //     console.log(lijn2.getAttribute("position"));
+      //     pizzasnijder.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("rotation", "0 30 -40");
+      //     pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
+      //     clickedPizza += 1;
 
-        }
+      //   }
 
-        else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
-          // gesnedenPizza.setAttribute("visible", true);
-          lijn3.setAttribute("visible", true);
-          pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
-          pizzasnijder.setAttribute("visible", true);
-          pizzasnijder.setAttribute("rotation", "0 0 -40");
-          pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
-          clickedPizza += 1;
-        }
-        else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
-            lijn4.setAttribute("visible", true);
-            pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
-            pizzasnijder.setAttribute("visible", true);
-            pizzasnijder.setAttribute("rotation", "0 140 -40");
-            pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
-            clickedPizza += 1;
-        }
-      }
+      //   else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
+      //     // gesnedenPizza.setAttribute("visible", true);
+      //     lijn3.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
+      //     pizzasnijder.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("rotation", "0 0 -40");
+      //     pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
+      //     clickedPizza += 1;
+      //   }
+      //   else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
+      //       lijn4.setAttribute("visible", true);
+      //       pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
+      //       pizzasnijder.setAttribute("visible", true);
+      //       pizzasnijder.setAttribute("rotation", "0 140 -40");
+      //       pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
+      //       clickedPizza += 1;
+      //   }
+      //}
     }
   }
 
@@ -532,7 +528,7 @@ window.onload = function(){
       // var coordinaatz = pizzasnijder.getAttribute("rotation").z;
 
     function addListeners(){
-        pizzaOnTable.onclick = (event) => {
+        pizzaOnTable.onclick = (event) => {          
           if(opdracht1Voltooid  || developer_mode == true){
             if(holdLepel){
               if(!pizzaGemaakt.ingredients.includes("tomatensaus")){
@@ -593,7 +589,7 @@ window.onload = function(){
               hold = true;
             }
             if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true){
-              pizzaSnijden = true;
+              pizzaSnijden = true;              
               // gesnedenPizza.setAttribute("visible", true);
               lijn1.setAttribute("visible", true);
               let pizzasnijderHold = document.getElementById("js--pizzasnijderHold");
@@ -637,7 +633,7 @@ window.onload = function(){
                 pizzasnijder.setAttribute("rotation", "0 140 -40");
                 pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
                 opdrachtVoltooid4();
-                setTimeout(function(){startEindScherm();}, 3000);
+                setTimeout(function(){startEindScherm("4.344", "2.366");}, 3000);
                 clickedPizza += 1;
             }
           }
@@ -1007,6 +1003,8 @@ window.onload = function(){
 
 
   pizzaDoos.onclick = () => {
+    setTimeout(function(){startEindScherm("4.344", "2.366");}, 1500);
+
     if(opdracht3Voltooid || developer_mode == true){
       if(hold){
           krijtlijnen[14].setAttribute("visible", "true");
@@ -1139,6 +1137,7 @@ window.onload = function(){
   }
 
   zeep.onclick = () => {
+
     if(!opdracht3Voltooid){
       opdrachten1[0] = true;
       krijtlijnen[0].setAttribute("visible", "true");
@@ -1169,15 +1168,19 @@ window.onload = function(){
 
     //iets waardoor je niks meer kan oppakken
   }
+  
   function beginOpnieuw(){
     console.log("De functie beginOpnieuw() wordt aangeroepen");
-    console.log(ingredientenBakjes);
-    console.log(ingredientenBakjes.length);
+
+    //maak ingredienten clickable
     for(let q = 0; q < ingredientenBakjes.length; q++){
       console.log("testtt");
-      //ingredientenBakjes[q].setAttribute("class", "clickable");
+      ingredientenBakjes[q].classList.add("clickable")
     }
+    sausfles_bbq.classList.add("clickable");
+    sausfles_knoflook.classList.add("clickable");
 
+    //display new recipe
     if(apiState){
       let randInt = Math.floor(Math.random() * 6);
       getRecipe(randInt);
@@ -1198,33 +1201,21 @@ window.onload = function(){
     for(let i = 1; i < pizzaRecept.length; i++){
       document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
     }
-    removeIngredients();
     removeClickAble();
     removeIngredients();
+    holdSnijder = false;
+    hold = false;
+
+    clickedPizza = 0;
+
+    lijn1.setAttribute("visible", false);
+    lijn2.setAttribute("visible", false);
+    lijn3.setAttribute("visible", false);
+    lijn4.setAttribute("visible", false);
+    pizzasnijder.setAttribute("position", "0.157 1.142 -0.95");
+    pizzasnijder.setAttribute("rotation", "90 -90 -40");
+    
+    startEindScherm("2.366", "4.344");
+
   }
 }
-
-    // else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
-    //     setText("Zet de kraan eerst uit!", 4000);
-    // }
-    //
-    // else if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == false) {
-    //   setText("Was eerst de handen!", 4000);
-    // }
-    //
-    // else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
-    //   setText("Stop zeep op de handen en was ze daarna!", 4000);
-    // }
-
-
-  // bigteleport.onclick = () => {
-  //   if (bigteleportOn === true) {
-  //     console.log("clicked");
-  //     bigteleport.setAttribute("scale",".3 .3 .3");
-  //     bigteleportOn = false
-  //   }
-  // }
-
-  // pizzasnijder.onclick = () => {
-  //   gesnedenPizza.setAttribute("visible", true);
-  // }
