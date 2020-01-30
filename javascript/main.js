@@ -25,7 +25,7 @@ window.onload = function(){
     const buttontxt = document.getElementById("js--buttontxt");
 
     //Developer mode
-    var developer_mode = true;
+    var developer_mode = false;
 
     //teleportstart
     var bigteleportOn = true;
@@ -193,7 +193,7 @@ window.onload = function(){
     var holdSnijder = false;
 
     //Kijkt of de api gebruikt moet worden
-    var apiState = false;
+    var apiState = true;
 
     //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
     var newRun = true;
@@ -296,13 +296,6 @@ window.onload = function(){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
-<<<<<<< HEAD
-        // document.getElementById("js--kruisje-desk1").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk2").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk3").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk4").setAttribute("src","");
-=======
->>>>>>> e64e7a5208b83aaa0e9ab983ca6bfde671c45cba
         removeIngredients();
         removeClickAble();
         removeIngredients();
@@ -461,7 +454,7 @@ window.onload = function(){
   //   }
   // }
 
-  function startEindScherm(startheight, height){
+  function startEindScherm(startHeight, height){
     //entityEind.removeAttribute("animation")
     entityEind.setAttribute("visible", true);
     entityEind.setAttribute("animation", "property: position; from: 1.231 " +startHeight+ " 1.255; to: 1.231 "+height+" 1.255; dur: 5000; easing: linear");
@@ -664,12 +657,12 @@ window.onload = function(){
     //     checkButton.setAttribute("animation","property: position; to: 6.504 1.879 -6.099; dur: 1500; easing: linear");
     //     btningedrukt = true;
     // }
+
+
     checkButton.onclick = () => {
       console.log(pizzaGemaakt.ingredients);
       console.log(pizzaRecept);
       counter = 1;
-
-
 
       if(pizzaRecept.length <= pizzaGemaakt.ingredients.length){
         let teveel = pizzaGemaakt.ingredients.length - (pizzaRecept.length - 1);
@@ -928,7 +921,9 @@ window.onload = function(){
       att.value = "property: rotation; to: 0 360 0; loop: false; dur: 3000";
       doughfase1.setAttribute('animation', att.value);
 
+
       setTimeout(() => {
+        tomatensaus.classList.remove("clickable");
         doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
         doughfase1.setAttribute('animation', att.value);
         console.log(att.value);
@@ -957,6 +952,7 @@ window.onload = function(){
         krijtlijnen[4].setAttribute("visible", "true");
         deegbal_bereid = true;
       }, 6000)
+      tomatensaus.classList.add("clickable");
     },1)
   }
 }
@@ -1010,8 +1006,6 @@ window.onload = function(){
 
 
   pizzaDoos.onclick = () => {
-    setTimeout(function(){startEindScherm("4.344", "2.366");}, 1500);
-
     if(opdracht3Voltooid || developer_mode == true){
       if(hold){
           krijtlijnen[14].setAttribute("visible", "true");
@@ -1207,30 +1201,12 @@ window.onload = function(){
     pizzaGemaakt.ingredients = ["tomatensaus"];
     for(let i = 1; i < pizzaRecept.length; i++){
       document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
+      document.getElementById('js--ingredient'+i).setAttribute("value", "");
     }
     removeClickAble();
     removeIngredients();
-<<<<<<< HEAD
-  }
-}
-
-
-
-    // else if (kraanBezig == true && zeepGebruikt == true && kraanuitgezetnawassen == false) {
-    //     setText("Zet de kraan eerst uit!", 4000);
-    // }
-    //
-    // else if (kraanBezig == false && zeepGebruikt == true && kraanuitgezetnawassen == false) {
-    //   setText("Was eerst de handen!", 4000);
-    // }
-    //
-    // else if (kraanBezig == false && zeepGebruikt == false && kraanuitgezetnawassen == false) {
-    //   setText("Stop zeep op de handen en was ze daarna!", 4000);
-    // }
-=======
     holdSnijder = false;
     hold = false;
->>>>>>> e64e7a5208b83aaa0e9ab983ca6bfde671c45cba
 
     clickedPizza = 0;
 
@@ -1241,6 +1217,7 @@ window.onload = function(){
     pizzasnijder.setAttribute("position", "0.157 1.142 -0.95");
     pizzasnijder.setAttribute("rotation", "90 -90 -40");
     
+
     startEindScherm("2.366", "4.344");
 
   }
