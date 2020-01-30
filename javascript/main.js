@@ -25,7 +25,7 @@ window.onload = function(){
     const buttontxt = document.getElementById("js--buttontxt");
 
     //Developer mode
-    var developer_mode = false;
+    var developer_mode = true;
 
     //teleportstart
     var bigteleportOn = true;
@@ -287,6 +287,9 @@ window.onload = function(){
         holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
         hold = false;
         pizzaGemaakt.ingredients = ["tomatensaus"];
+        for(let i = 1; i < pizzaRecept.length; i++){
+          document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
+        }
         removeIngredients();
         removeClickAble();
         removeIngredients();
@@ -650,6 +653,8 @@ window.onload = function(){
       console.log(pizzaRecept);
       counter = 1;
 
+
+
       if(pizzaRecept.length <= pizzaGemaakt.ingredients.length){
         let teveel = pizzaGemaakt.ingredients.length - (pizzaRecept.length - 1);
         for(let i = 1; i < pizzaRecept.length; i++){
@@ -681,6 +686,7 @@ window.onload = function(){
           console.log("test");
           ingredientenBakjes[p].classList.remove("clickable");
         }
+
 
         opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
@@ -1002,10 +1008,7 @@ window.onload = function(){
 
           for(var i = ingredientsList.length; i--;) {
               if(ingredientsList[i][1] !== pizzaSalami[i]){
-                  this.console.log(pizzaSalami[i]);
-                  this.console.log(ingredientsList[i][1])
                   fouten++;
-                  this.console.log(fouten);
               }
           }
 
@@ -1143,27 +1146,36 @@ window.onload = function(){
   }
   function beginOpnieuw(){
     console.log("De functie beginOpnieuw() wordt aangeroepen");
-    opdrachten1 = [false, false, false, false];
-    opdrachten2 = [false, false, false, false];
-    opdrachten3 = [false, false, false, false];
-    opdrachten4 = [false, false, false, false];
+    console.log(ingredientenBakjes);
+    console.log(ingredientenBakjes.length);
+    for(let q = 0; q < ingredientenBakjes.length; q++){
+      console.log("testtt");
+      //ingredientenBakjes[q].setAttribute("class", "clickable");
+    }
 
-    opdracht1Voltooid = false;
-    opdracht2Voltooid = false;
-    opdracht3Voltooid = false;
-    opdracht4Voltooid = false;
-
-    krijtlijnen[8].setAttribute("visible", "false");
-    krijtlijnen[9].setAttribute("visible", "false");
-
-    krijtlijnen[12].setAttribute("visible", "false");
-    krijtlijnen[13].setAttribute("visible", "false");
-    krijtlijnen[14].setAttribute("visible", "false");
-    krijtlijnen[15].setAttribute("visible", "false");
-    titel1.setAttribute("visible", true);
-    opdracht1.setAttribute("visible", true);
-
-
+    if(apiState){
+      let randInt = Math.floor(Math.random() * 6);
+      getRecipe(randInt);
+      newRun = false;
+    }else{
+      let randomVar = Math.floor(Math.random() * 2);
+      pizzaRecept = verschillendepizza[randomVar]
+      document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
+      newRun = false;
+    }
+    holdPizza.setAttribute("visible",false);
+    pizzaOnTable.setAttribute("visible",true);
+    pizzaOnTable.setAttribute("position", "4.531 1.085 -5.1");
+    pizzaOnTable.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+    holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+    hold = false;
+    pizzaGemaakt.ingredients = ["tomatensaus"];
+    for(let i = 1; i < pizzaRecept.length; i++){
+      document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
+    }
+    removeIngredients();
+    removeClickAble();
+    removeIngredients();
   }
 }
 
