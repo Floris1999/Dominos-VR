@@ -167,6 +167,7 @@ window.onload = function(){
     const eindbutton = document.getElementById("js--eindknop");
     const opnieuwbutton = document.getElementById("js--opnieuwknop");
     const eindschermtxt = document.getElementById("js--eindschermtxt");
+    const bronnenknop = document.getElementById("js--bronnenknop");
 
 
     var ingredientsList = [cheese, ananas, salami,  shoarma, ham, champignon, mozzarella, tomaat, knoflook, bbq];
@@ -1115,6 +1116,13 @@ function startEindScherm(startHeight, height){
     eindschermtxt.setAttribute("position","1.227 0.005 0.327");
     eindbutton.setAttribute("visible", false);
     opnieuwbutton.setAttribute("visible", false);
+    bronnenknop.setAttribute("visible", true);
+
+    bronnenknop.onclick = ()=> {
+      eindschermtxt.setAttribute("value", "Gebruikte bronnen: \n - domino.nl \n -pizza.dominos.com");
+      opnieuwbutton.remove();
+      bronnenknop.remove();
+    }
 
     //iets waardoor je niks meer kan oppakken
   }
