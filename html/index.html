@@ -131,6 +131,7 @@
         <a-entity
           id="js--cursor"
           animation__click="property: scale; startEvents: click; linear: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation_mouseenter="property: components.material.material.color; type: color; to: blue; dur: 150;"
           animation__fusing="property: scale; startEvents: fusing; linear: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1"
           animation__mouseleave="property: scale; startEvents: mouseleave; linear: easeInCubic; dur: 500; to: 1 1 1"
           cursor="fuse: true; fuseTimeout: 1000"
@@ -139,6 +140,14 @@
           position= "0 0 -0.5"
           raycaster="objects: .clickable"
         ></a-entity>
+
+        <!-- <a-entity class="js--cameraAnimation" scale="0.5 0.5 0.5" 
+                animation__click="property: scale; startEvents:click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.5 0.5 0.5" 
+                animation__fusing="property: scale; startEvents:fusing; easing: easeInCubic; dur: 1000; from: 0.5 0.5 0.5; to: 0.1 0.1 0.1"
+                animation_defusing="property: scale; startEvents: mouseleave; to: 0.5 0.5 0.5" animation_mouseenter="property: components.material.material.color; type: color; to: white; startEvents: mouseenter; dur: 750" 
+                animation__mouseleave="property: components.material.material.color; type: color; to: black; startEvents: mouseleave; dur: 750"
+                cursor="fuse: true; fuseTimeout: 1000;" material="color: black; shader: flat" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02" position="0 0 -0.5" raycaster="objects: .clickable">
+        </a-entity> -->
         <!-- <a-entity id="js--camertxt" text="value: Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!; color: white; width: 2; align: center;" position="0 -0.6 -1" >
     </a-entity> -->
 
