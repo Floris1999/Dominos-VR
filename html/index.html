@@ -11,12 +11,6 @@
   <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
 
-
-
-
-
-
-
 </head>
 <body>
   <a-scene stats id="js--scene" visible="true">
@@ -176,7 +170,7 @@
       <a-plane id="js--uitleg" color="grey" position="4.761 3.388 -7.812" rotation="0 -30 0" height="6" width="8" opacity="0.6" visible="false">
         <a-image class="clickable" id="js--kruisjeuitleg" position="2.378 1.850 1.064" scale="0.6 0.6 0.6" src="../media/scherm/kruis.png">
         </a-image>
-        <a-Text color="white" value=" - Druk op de pizza doos om het spel te beginnen \n - Objecten pak je vast door met de cursor 2 seconden op het object te blijven \n - Volg telkens de stappen aangegeven op het krijtbord, hier krijg je ook feedback op \n - Het is van belang dat je de stappen van onder naar beneden volgt \n - Om op andere delen van de kamer te komen moet je de cursor twee seconden op de blauwe teleport houden \n gebruik de check button om te controelen of je de juiste pizza maakt" position="-2.862 0.658 0.486" line-height="60" >
+        <a-Text color="white" value=" - Druk op de pizza doos om het spel te beginnen \n - Objecten pak je vast door met de cursor 2 seconden op het object te blijven \n - Volg telkens de stappen aangegeven op het krijtbord, hier krijg je ook feedback op \n - Het is van belang dat je de stappen van onder naar beneden volgt \n - Om op andere delen van de kamer te komen moet je de cursor twee seconden op de blauwe teleport houden" position="-2.862 0.658 0.486" line-height="60" >
         </a-text>
       </a-plane>
       <a-plane id="js--extra" color="grey" position="-8.733 3.388 -8.102" rotation="0 30 0" height="6" width="8" opacity="0.6" visible="false">
@@ -244,7 +238,7 @@
     <!-- <a-plane position="6.459 1.976 -1.1" width="1.33" height="0.86" rotation="0 180 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="De oven is van te voren al \n ingesteld en geautomatiseerd.\n Dit betekent dat je niet de\n temperatuur hoeft in te stellen \n en geen rekening hoeft te \n houden met de tijd die de \n pizza in de oven zit." align="center"></a-text></a-plane> -->
     <!-- <a-plane position="-5.884 1.638 -.6" width="1.33" height="0.86" rotation="0 250 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="Dit is de Domino's Pizza \n waar gaat oefenen. Hier leer je \n de basis dingen om een goeie \n pizza te maken. Ga naar \n de keuken en volg de \n instructies op het bord. \n Veel succes!" align="center"></a-text></a-plane> -->
 
-    <a-entity id="js--bordje1" position="-5.419 1.931 -0.148" rotation="270 70 0" scale="0.4 0.4 0.3" gltf-model="#krijtbord-glb"><a-text font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" id="info_text" position="-0.029 0.023 0.220" scale="0.7 1.2 0.8" rotation="270 180 0" color="#fff" value="Dit is de Domino's Pizza \n waar je gaat oefenen. Hier leer \n je de basis dingen om een goeie \n pizza te maken. Ga naar \n de keuken en volg de \n instructies op het bord. \n Veel succes!" align="center"></a-text></a-entity>
+    <a-entity id="js--bordje1" position="-5.419 1.931 -0.148" rotation="270 70 0" scale="0.4 0.4 0.3" gltf-model="#krijtbord-glb"><a-text font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" id="info_text" position="-0.029 0.023 0.220" scale="0.7 1.2 0.8" rotation="270 180 0" color="#fff" value="Dit is de Domino's Pizza \n waar gaat oefenen. Hier leer je \n de basis dingen om een goeie \n pizza te maken. Ga naar \n de keuken en volg de \n instructies op het bord. \n Veel succes!" align="center"></a-text></a-entity>
     <a-image id="js--touw" src="../media/balie/rope.png" position="-5.393 3.227 -0.114" rotation="0 0 90"></a-image>
 
     <a-entity visible="false" id="js--bordje2" position="-0.977 2.384 -5.201" rotation="270 40 0" scale="0.4 0.4 0.2" gltf-model="#krijtbord-glb"><a-text font="../fonts/chalkfont.fnt" fontImage="../fonts/chalkfont.png" id="info_text" position="0.050 -0.005 0.22" scale="0.8 1.5 0.8" rotation="90 0 0" color="#fff" value="Het pizzadeeg moet plat \n gemaakt  worden door de \n deegbal plat te duwen met \n je vingers terwijl je \n hem ronddraait" align="center"></a-text></a-entity>
@@ -290,9 +284,6 @@
       <a-text  id="js--eindschermtxt" font="../fonts/chalkfont.fnt" position="1.167 0.005 1.24" rotation="270 180 0" fontImage="../fonts/chalkfont.png" opacity="3" value="Gefeliciteerd! u \n heeft een succesvolle \n pizza gemaakt" scale="1 1.3 1" visible="true"></a-text>
       <a-plane class="clickable" id="js--opnieuwknop" position="-0.747 0.005 -1.625" rotation="270 0 0" color="white">
           <a-text  font="../fonts/chalkfont.fnt" color="black" fontImage="../fonts/chalkfont.png" rotation="0 0 180" position="0.475 0 0" opacity="3" value="Maak meer" scale="0.8 0.8 0.8" visible="true"></a-text>
-      </a-plane>
-      <a-plane class="clickable" id="js--bronnenknop" visible="false" position="0.027 0.005 -1.625" rotation="270 0 0" color="white">
-          <a-text  font="../fonts/chalkfont.fnt" color="black" fontImage="../fonts/chalkfont.png" rotation="0 0 180" position="0.422 0 0" opacity="3" value="Zie bronnen" scale="0.6 0.8 0.8" ></a-text>
       </a-plane>
       <a-plane class="clickable" id="js--eindknop"position="0.717 0.005 -1.610" rotation="270 0 0" value="Stop spel" color="white">
         <a-text  font="../fonts/chalkfont.fnt" rotation="0 0 180" position="0.475 0 0" color="black" fontImage="../fonts/chalkfont.png" opacity="3" value="Stop spel" scale="0.8 0.8 0.8" visible="true"></a-text>
