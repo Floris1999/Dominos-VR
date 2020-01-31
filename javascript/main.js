@@ -1164,6 +1164,7 @@ function startEindScherm(startHeight, height){
     holdSnijder = false;
     hold = false;
 
+
     clickedPizza = 0;
 
     lijn1.setAttribute("visible", false);
