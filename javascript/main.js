@@ -261,7 +261,7 @@ window.onload = function(){
     }
 
 
-    oven.onclick = (event) => {      
+    oven.onclick = (event) => {
       if(opdracht3Voltooid || developer_mode == true){
         if(hold){
           pizzaOnTable.removeAttribute("animation");
@@ -496,7 +496,7 @@ function startEindScherm(startHeight, height){
 
 
     function addListeners(){
-        pizzaOnTable.onclick = (event) => {          
+        pizzaOnTable.onclick = (event) => {
           if(opdracht1Voltooid  || developer_mode == true){
             if(holdLepel){
               if(!pizzaGemaakt.ingredients.includes("tomatensaus")){
@@ -1099,7 +1099,7 @@ function startEindScherm(startHeight, height){
   sink.onclick = () => {
     if (opdrachten1[1] == false && opdrachten1[0] == true) {
       kraanAan();
-    } else {
+    } else if (opdrachten1[1] == true && opdrachten1[0] == true){
       kraanUit();
     }
   }
@@ -1120,7 +1120,7 @@ function startEindScherm(startHeight, height){
 
     //iets waardoor je niks meer kan oppakken
   }
-  
+
   function beginOpnieuw(){
     console.log("De functie beginOpnieuw() wordt aangeroepen");
 
@@ -1154,6 +1154,13 @@ function startEindScherm(startHeight, height){
       document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
       document.getElementById('js--ingredient'+i).setAttribute("value", "");
     }
+    opdracht3Voltooid = false;
+    opdracht4Voltooid = false;
+    pizzaStatus = "";
+    titel3.setAttribute("visible", true);
+    opdracht3.setAttribute("visible",true);
+    krijtlijnen[8].setAttribute("visible", "true");
+    krijtlijnen[9].setAttribute("visible", "true");
     removeClickAble();
     removeIngredients();
     holdSnijder = false;
@@ -1167,7 +1174,7 @@ function startEindScherm(startHeight, height){
     lijn4.setAttribute("visible", false);
     pizzasnijder.setAttribute("position", "0.157 1.142 -0.95");
     pizzasnijder.setAttribute("rotation", "90 -90 -40");
-    
+
 
     startEindScherm("2.366", "4.344");
 
