@@ -28,13 +28,11 @@ window.onload = function(){
     var developer_mode = false;
 
     //teleportstart
-    var bigteleportOn = true;
     const bigteleport = document.getElementById("js--bigteleport");
 
 
     //Pizzasnijder
     const pizzasnijder = document.getElementById('js--pizzasnijder');
-    const gesnedenPizza = document.getElementById('js--gesneden');
     const lijn1 = document.getElementById("js--gesneden1");
     const lijn2 = document.getElementById("js--gesneden2");
     const lijn3 = document.getElementById("js--gesneden3");
@@ -63,17 +61,14 @@ window.onload = function(){
     const opdracht2 = document.getElementById('js--optie2');
     const opdracht3 = document.getElementById('js--optie3');
     const opdracht4 = document.getElementById('js--optie4');
-    const opdracht5 = document.getElementById('js--optie5');
 
     const titel1 = document.getElementById("js--titel1");
     const titel2 = document.getElementById("js--titel2");
     const titel3 = document.getElementById("js--titel3");
     const titel4 = document.getElementById("js--titel4");
-    const titel5 = document.getElementById("js--titel5");
 
     //Zeep
     const zeep = document.getElementById('js--zeep');
-    var zeepGebruikt = false;
 
     //state veranderen oven
     const ovenstate1 = document.getElementById('js--oven');
@@ -87,7 +82,6 @@ window.onload = function(){
     // console.log(getstate1);
 
 
-    const deegbal = document.getElementById("deegbal1");
     const tomatensaus = document.getElementById("js--tomatensaus");
     const sausfles_knoflook = document.getElementById("js--sausfles_knoflook");
     const sausfles_bbq = document.getElementById("js--sausfles_bbq");
@@ -111,49 +105,27 @@ window.onload = function(){
 
     const sink = document.getElementById("js--sink");
     var waterdruppels = document.getElementsByClassName('js--waterdruppels');
-    var kraanBezig = false;
     kraanuitgezetnawassen = false;
 
 
     //handschoenen
 
     const handschoenen = document.getElementById('js--handschoenen');
-    var handschoenGebruikt = false;
 
     //States voor te doen bord
     var deegbal_bereid = false;
     var pizzaHeeftSaus = false;
-
-    //tekst monitor
-    const txt1 = document.getElementById('js--ingredient0');
-    const txt2 = document.getElementById('js--ingredient1');
-    const txt3 = document.getElementById('js--ingredient2');
-    const txt4 = document.getElementById('js--ingredient3');
-    const txt5 = document.getElementById('js--ingredient4');
-
-    //kruisje monitor
-
-    const kruisjeDesktop1 = document.getElementById("js--kruisje-desk1");
-    const kruisjeDesktop2 = document.getElementById("js--kruisje-desk2");
-    const kruisjeDesktop3 = document.getElementById("js--kruisje-desk3");
-    const kruisjeDesktop4 = document.getElementById("js--kruisje-desk4");
-
+    
     var opdrachten1 = [false, false, false, false];
-    var opdrachten2 = [false, false, false, false];
-    var opdrachten3 = [false, false, false, false];
-    var opdrachten4 = [false, false, false, false];
-
 
     var opdracht1Voltooid = false;
     var opdracht2Voltooid = false;
     var opdracht3Voltooid = false;
-    var opdracht4Voltooid = false;
 
     //startscherm
     const entityStart = document.getElementById("js--fixopacity");
     const startbtn = document.getElementById("js--startgame");
     const startSchermEntity = document.getElementById("js--startschermMode");
-    var blinkingtxt = document.getElementById("js--blinking");
     const modal1 = document.getElementById("js--uitleg");
     const modal2 = document.getElementById("js--extra");
     const uitlegbtn = document.getElementById("js--uitlegbtn");
@@ -184,7 +156,7 @@ window.onload = function(){
     var pizzaGemaakt = {
       ingredients: [],
       model: "#pizzabodem_saus-glb",
-    }
+    };
 
 
 
@@ -202,7 +174,6 @@ window.onload = function(){
     //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
     var newRun = true;
 
-    let checkCount = 0;
 
     // GLB models
     var soeplepel_saus = "#soeplepel_saus-glb";
