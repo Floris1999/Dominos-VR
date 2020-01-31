@@ -606,23 +606,21 @@ function startEindScherm(startHeight, height){
         };
     }
 
-    checkButton.onmouseenter = () => {
-          checkButton.setAttribute("position","6.504 1.879 -6.099");
-          buttontxt.setAttribute("position", "6.504 1.879 -5.965");
-    }
-
-    checkButton.onmouseleave = () => {
-      checkButton.setAttribute("position","6.504 1.879 -5.994");
-      buttontxt.setAttribute("position", "6.504 1.879 -5.860");
-    }
-
-
-
 
     checkButton.onclick = () => {
+      checkButton.setAttribute("position","6.504 1.879 -6.099");
+      buttontxt.setAttribute("position", "6.504 1.879 -5.965");
+
+      setTimeout( (event) => {
+        checkButton.setAttribute("position","6.504 1.879 -5.994");
+        buttontxt.setAttribute("position", "6.504 1.879 -5.860");
+      },1000)
+
       console.log(pizzaGemaakt.ingredients);
       console.log(pizzaRecept);
       counter = 1;
+
+
 
       if(pizzaRecept.length <= pizzaGemaakt.ingredients.length){
         let teveel = pizzaGemaakt.ingredients.length - (pizzaRecept.length - 1);
