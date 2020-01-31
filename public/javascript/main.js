@@ -167,6 +167,7 @@ window.onload = function(){
     const eindbutton = document.getElementById("js--eindknop");
     const opnieuwbutton = document.getElementById("js--opnieuwknop");
     const eindschermtxt = document.getElementById("js--eindschermtxt");
+    const bronnenknop = document.getElementById("js--bronnenknop");
 
 
     var ingredientsList = [cheese, ananas, salami,  shoarma, ham, champignon, mozzarella, tomaat, knoflook, bbq];
@@ -334,7 +335,7 @@ window.onload = function(){
         teleport[i].onclick = (event) => {
 
             let att = document.createAttribute("animation");
-            let posi = teleport[i].getAttribute('position').x + " 0 " + teleport[i].getAttribute('position').z;
+            let posi = teleport[i].getAttribute('position').x + " 1.8 " + teleport[i].getAttribute('position').z;
             att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
             document.getElementById("rig").setAttribute('animation', att.value);
         };
@@ -343,7 +344,7 @@ window.onload = function(){
     bigteleport.onclick = (event) => {
         bigteleport.setAttribute("scale", ".3 .3 .3")
         let att = document.createAttribute("animation");
-        let posi = bigteleport.getAttribute('position').x + " 0 " + bigteleport.getAttribute('position').z;
+        let posi = bigteleport.getAttribute('position').x + " 1.8 " + bigteleport.getAttribute('position').z;
         att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
         document.getElementById("rig").setAttribute('animation', att.value);
     };
@@ -1115,6 +1116,13 @@ function startEindScherm(startHeight, height){
     eindschermtxt.setAttribute("position","1.227 0.005 0.327");
     eindbutton.setAttribute("visible", false);
     opnieuwbutton.setAttribute("visible", false);
+    bronnenknop.setAttribute("visible", true);
+
+    bronnenknop.onclick = ()=> {
+      eindschermtxt.setAttribute("value", "Gebruikte bronnen: \n - domino.nl \n -pizza.dominos.com");
+      opnieuwbutton.remove();
+      bronnenknop.remove();
+    }
 
     //iets waardoor je niks meer kan oppakken
   }
