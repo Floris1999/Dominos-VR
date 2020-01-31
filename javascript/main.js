@@ -25,7 +25,7 @@ window.onload = function(){
     const buttontxt = document.getElementById("js--buttontxt");
 
     //Developer mode
-    var developer_mode = true;
+    var developer_mode = false;
 
     //teleportstart
     var bigteleportOn = true;
@@ -53,7 +53,10 @@ window.onload = function(){
     const krijtlijnen = [];
 
     var pizzaStatus = "";
-    const audio = new Audio("../media/sounds/krijtbordsound.mp3")
+    const audio = new Audio("../media/sounds/krijtbordsound.mp3");
+    const audio_schrijven = new Audio("../media/sounds/krijtbord_schrijven.mp3");
+
+    audio_schrijven.volume = 0.6;
 
     //text
     const opdracht1 = document.getElementById('js--optie1');
@@ -182,6 +185,8 @@ window.onload = function(){
       model: "#pizzabodem_saus-glb",
     }
 
+
+
     const verschillendepizza = [pizzaMargherita, pizzaShoarma, pizzaSalamis];
     // Variabelen pickup objecten
     var hold = false;
@@ -191,7 +196,7 @@ window.onload = function(){
     var holdSnijder = false;
 
     //Kijkt of de api gebruikt moet worden
-    var apiState = false;
+    var apiState = true;
 
     //kijkt of er een nieuw pizzarecept moet komen of hetzelfde recept moet houden
     var newRun = true;
@@ -259,7 +264,9 @@ window.onload = function(){
     oven.onclick = (event) => {
       if(opdracht3Voltooid || developer_mode == true){
         if(hold){
+          pizzaOnTable.removeAttribute("animation");
           krijtlijnen[12].setAttribute("visible", "true");
+          audio_schrijven.play();
           holdPizza.setAttribute("visible",false);
           pizzaOnTable.setAttribute("visible",true);
           hold = false;
@@ -293,10 +300,6 @@ window.onload = function(){
           document.getElementById('js--ingredient'+ i).setAttribute("value", "");
           document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
         }
-        // document.getElementById("js--kruisje-desk1").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk2").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk3").setAttribute("src","");
-        // document.getElementById("js--kruisje-desk4").setAttribute("src","");
         removeIngredients();
         removeClickAble();
         removeIngredients();
@@ -337,14 +340,13 @@ window.onload = function(){
         };
     };
 
-
-        bigteleport.onclick = (event) => {
-            bigteleport.setAttribute("scale", ".3 .3 .3")
-            let att = document.createAttribute("animation");
-            let posi = bigteleport.getAttribute('position').x + " 1.8 " + bigteleport.getAttribute('position').z;
-            att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
-            document.getElementById("rig").setAttribute('animation', att.value);
-        };
+    bigteleport.onclick = (event) => {
+        bigteleport.setAttribute("scale", ".3 .3 .3")
+        let att = document.createAttribute("animation");
+        let posi = bigteleport.getAttribute('position').x + " 1.8 " + bigteleport.getAttribute('position').z;
+        att.value = "property: position; easing: linear; dur: 1000; to: " + posi;
+        document.getElementById("rig").setAttribute('animation', att.value);
+    };
 
     for(let i = 0; i < ingredientenBakjes.length; i++){
         ingredientenBakjes[i].onclick = (event) => {
@@ -358,7 +360,6 @@ window.onload = function(){
                         if(!pizzaGemaakt.ingredients.includes("kaas")){
                           pizzaGemaakt.ingredients.push("kaas");
                       }
-                      audio.play();
                     };
                     break;
                 case "bakje_ananas":
@@ -424,10 +425,9 @@ window.onload = function(){
 
     var clickedPizza = 0;
 
-
-  function startEindScherm(){
+function startEindScherm(startHeight, height){
     entityEind.setAttribute("visible", true);
-    entityEind.setAttribute("animation", "property: position; from: 1.231 4.344 1.255; to: 1.231 2.366 1.255; dur: 5000; easing: linear");
+    entityEind.setAttribute("animation", "property: position; from: 1.231 " +startHeight+ " 1.255; to: 1.231 "+height+" 1.255; dur: 5000; easing: linear");
     // entityEind.setAttribute("position", "1.231 2.366 1.255")
     document.getElementById("js--touw").setAttribute("visible", true);
     opnieuwbutton.onclick = () => {
@@ -438,6 +438,7 @@ window.onload = function(){
       stopSpel();
     }
   }
+
   function holdPizzaSnijder(){
     pizzasnijder.onclick = () => {
       if(!holdSnijder){
@@ -458,37 +459,37 @@ window.onload = function(){
           holdSnijder = false;
         }, 200)
       }
-      if(pizzaSnijden){
-        if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
-          // gesnedenPizza.setAttribute("visible", true);
-          lijn2.setAttribute("visible", true);
-          pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
-          console.log(lijn2.getAttribute("position"));
-          pizzasnijder.setAttribute("visible", true);
-          pizzasnijder.setAttribute("rotation", "0 30 -40");
-          pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
-          clickedPizza += 1;
+      // if(pizzaSnijden){
+      //   if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1 && opdracht3Voltooid == true) {
+      //     // gesnedenPizza.setAttribute("visible", true);
+      //     lijn2.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("position", "0.771 1.186 -0.574");
+      //     console.log(lijn2.getAttribute("position"));
+      //     pizzasnijder.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("rotation", "0 30 -40");
+      //     pizzasnijder.setAttribute("animation","property: position; to: 1.066 1.186 -0.750; dur: 2000; easing: linear;")
+      //     clickedPizza += 1;
 
-        }
+      //   }
 
-        else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
-          // gesnedenPizza.setAttribute("visible", true);
-          lijn3.setAttribute("visible", true);
-          pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
-          pizzasnijder.setAttribute("visible", true);
-          pizzasnijder.setAttribute("rotation", "0 0 -40");
-          pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
-          clickedPizza += 1;
-        }
-        else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
-            lijn4.setAttribute("visible", true);
-            pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
-            pizzasnijder.setAttribute("visible", true);
-            pizzasnijder.setAttribute("rotation", "0 140 -40");
-            pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
-            clickedPizza += 1;
-        }
-      }
+      //   else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 2 && opdracht3Voltooid == true) {
+      //     // gesnedenPizza.setAttribute("visible", true);
+      //     lijn3.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("position", "0.730 1.186 -0.638");
+      //     pizzasnijder.setAttribute("visible", true);
+      //     pizzasnijder.setAttribute("rotation", "0 0 -40");
+      //     pizzasnijder.setAttribute("animation","property: position; to: 1.167 1.186 -0.638; dur: 2000; easing: linear;")
+      //     clickedPizza += 1;
+      //   }
+      //   else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 3 && opdracht3Voltooid == true){
+      //       lijn4.setAttribute("visible", true);
+      //       pizzasnijder.setAttribute("position", "1.022 1.186 -0.515");
+      //       pizzasnijder.setAttribute("visible", true);
+      //       pizzasnijder.setAttribute("rotation", "0 140 -40");
+      //       pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
+      //       clickedPizza += 1;
+      //   }
+      //}
     }
   }
 
@@ -514,6 +515,7 @@ window.onload = function(){
               pizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
               krijtlijnen[6].setAttribute("visible", "true");
+              audio_schrijven.play();
               pizzaHeeftSaus = true;
               }, 3000);
 
@@ -545,9 +547,11 @@ window.onload = function(){
               if(opdracht2Voltooid == true && !opdracht3Voltooid){
                 krijtlijnen[8].setAttribute("visible", "true");
                 krijtlijnen[9].setAttribute("visible", "true");
+                audio_schrijven.play();
               }
               if(pizzaStatus == "gekookt"){
                 krijtlijnen[13].setAttribute("visible", "true");
+                audio_schrijven.play();
               }
               holdPizza.setAttribute("visible",true);
               pizzaOnTable.setAttribute("visible",false);
@@ -601,30 +605,28 @@ window.onload = function(){
                 pizzasnijder.setAttribute("rotation", "0 140 -40");
                 pizzasnijder.setAttribute("animation","property: position; to:0.725 1.186 -0.807 ; dur: 2000; easing: linear;");
                 opdrachtVoltooid4();
-                setTimeout(function(){startEindScherm();}, 3000);
+                setTimeout(function(){startEindScherm("4.344", "2.366");}, 3000);
                 clickedPizza += 1;
             }
           }
         };
     }
 
-    checkButton.onmouseenter = () => {
-          checkButton.setAttribute("position","6.504 1.879 -6.099");
-          buttontxt.setAttribute("position", "6.504 1.879 -5.965");
-    }
-
-    checkButton.onmouseleave = () => {
-      checkButton.setAttribute("position","6.504 1.879 -5.994");
-      buttontxt.setAttribute("position", "6.504 1.879 -5.860");
-    }
-
-
-
 
     checkButton.onclick = () => {
+      checkButton.setAttribute("position","6.504 1.879 -6.099");
+      buttontxt.setAttribute("position", "6.504 1.879 -5.965");
+
+      setTimeout( (event) => {
+        checkButton.setAttribute("position","6.504 1.879 -5.994");
+        buttontxt.setAttribute("position", "6.504 1.879 -5.860");
+      },1000)
+
       console.log(pizzaGemaakt.ingredients);
       console.log(pizzaRecept);
       counter = 1;
+
+
 
       if(pizzaRecept.length <= pizzaGemaakt.ingredients.length){
         let teveel = pizzaGemaakt.ingredients.length - (pizzaRecept.length - 1);
@@ -660,6 +662,7 @@ window.onload = function(){
         sausfles_bbq.classList.remove("clickable");
         sausfles_knoflook.classList.remove("clickable");
 
+
         opdrachtVoltooid3();
         this.console.log("je hebt alles goed");
       }
@@ -672,7 +675,6 @@ window.onload = function(){
           if(deegbal_bereid === true && pizzaHeeftSaus){
             opdracht2Voltooid = true;
             opdrachtVoltooid2();
-            audio.play();
           }
           if(pizzaHeeftSaus){
             let saus_lepel = document.getElementById("js--holdLepel");
@@ -689,6 +691,7 @@ window.onload = function(){
         }
         if(!hold && deegbal_bereid && !opdracht3Voltooid){
           krijtlijnen[5].setAttribute("visible", "true");
+          audio_schrijven.play();
           let lepel = document.getElementById("js--lepel");
           let object = makeObject("js--holdLepel", "a-circle", ".2 -0.5 -1.2", "0.25", camera, true, soeplepel_saus);
           object.setAttribute("scale", ".12 .12 .12");
@@ -710,7 +713,7 @@ window.onload = function(){
         if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
           if(!hold){
             let static_object = document.getElementById("js--sausfles_knoflook");
-            let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", "0 0.5 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
+            let camera_object = makeObject("js--hold_sausfles_knoflook", "a-circle", "-.2 0.2 -1.2", "0.25", camera, true, sausfles_knoflook_glb);
             camera_object.setAttribute("scale", "0.3 0.3 0.3");
             camera_object.setAttribute("rotation", "0 0 160");
             static_object.remove();
@@ -728,7 +731,7 @@ window.onload = function(){
         if((opdracht1Voltooid && opdracht2Voltooid) || developer_mode == true){
           if(!hold){
             let static_object = document.getElementById("js--sausfles_bbq");
-            let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", "0 0.5 -1.2", "0.25", camera, true, sausfles_bbq_glb);
+            let camera_object = makeObject("js--hold_sausfles_bbq", "a-circle", "-.2 0.2 -1.2", "0.25", camera, true, sausfles_bbq_glb);
             camera_object.setAttribute("scale", "0.3 0.3 0.3");
             camera_object.setAttribute("rotation", "0 0 160");
             static_object.remove();
@@ -789,7 +792,9 @@ window.onload = function(){
         document.getElementById("js--bordje2").setAttribute("animation", "property: position; from: -0.977 4.065 -5.201; to:-0.977 2.384 -5.201; dur: 5000; easing: linear");
           document.getElementById("js--touw2").setAttribute("animation", "property: position; from: -1.014 3.993 -5.201; to:-1.014 3.376 -5.201; dur: 5000; easing: linear");
         krijtlijnen[3].setAttribute("visible", "true");
+        audio_schrijven.play();
         kruisjes[0].setAttribute("visible", "true");
+        audio.play();
         setTimeout(() => {
           kruisjes[0].setAttribute("visible", "false");
           titel1.setAttribute("visible", false);
@@ -802,7 +807,6 @@ window.onload = function(){
           krijtlijnen[3].setAttribute("visible", "false");
 
         },2000);
-        audio.play();
         opdracht1Voltooid = true;
       }
     }
@@ -811,6 +815,8 @@ window.onload = function(){
       if(!opdracht3Voltooid){
         kruisjes[1].setAttribute("visible", "true");
         krijtlijnen[7].setAttribute("visible", "true");
+        audio_schrijven.play();
+        audio.play();
         setTimeout(() => {
           kruisjes[1].setAttribute("visible", "false");
           titel2.setAttribute("visible", false);
@@ -822,7 +828,6 @@ window.onload = function(){
           krijtlijnen[6].setAttribute("visible", "false");
           krijtlijnen[7].setAttribute("visible", "false");
         },2000);
-        audio.play();
         opdracht2Voltooid = true;
       }
     }
@@ -831,6 +836,8 @@ window.onload = function(){
       kruisjes[2].setAttribute("visible", "true");
       krijtlijnen[10].setAttribute("visible", "true");
       krijtlijnen[11].setAttribute("visible", "true");
+      audio_schrijven.play();
+      audio.play();
       setTimeout(() => {
         kruisjes[2].setAttribute("visible", "false");
         titel3.setAttribute("visible", false);
@@ -842,20 +849,23 @@ window.onload = function(){
         krijtlijnen[10].setAttribute("visible", "false");
         krijtlijnen[11].setAttribute("visible", "false");
       },2000)
-      audio.play();
       opdracht3Voltooid = true;
     }
 
     function opdrachtVoltooid4(){
       kruisjes[3].setAttribute("visible", "true");
       krijtlijnen[15].setAttribute("visible", "true");
+      audio_schrijven.play();
+      audio.play();
       setTimeout(() => {
+        krijtlijnen[12].setAttribute("visible", "false");
+        krijtlijnen[13].setAttribute("visible", "false");
+        krijtlijnen[14].setAttribute("visible", "false");
         krijtlijnen[15].setAttribute("visible", "false");
         kruisjes[3].setAttribute("visible", "false");
         titel4.setAttribute("visible", false);
         opdracht4.setAttribute("visible",false);
       },4000)
-      audio.play();
       opdracht4Voltooid = true;
     }
 
@@ -883,7 +893,9 @@ window.onload = function(){
       att.value = "property: rotation; to: 0 360 0; loop: false; dur: 3000";
       doughfase1.setAttribute('animation', att.value);
 
+
       setTimeout(() => {
+        tomatensaus.classList.remove("clickable");
         doughfase1.setAttribute("gltf-model", "../media/deegbal_fases/deegbal_fase_1.glb");
         doughfase1.setAttribute('animation', att.value);
         console.log(att.value);
@@ -910,8 +922,10 @@ window.onload = function(){
         doughfase1.setAttribute("position", "1 1.05 -9.14");
         pizzaOnTable.setAttribute("position", "1 1.05 -5.14");
         krijtlijnen[4].setAttribute("visible", "true");
+        audio_schrijven.play();
         deegbal_bereid = true;
       }, 6000)
+      tomatensaus.classList.add("clickable");
     },1)
   }
 }
@@ -966,6 +980,7 @@ window.onload = function(){
     if(opdracht3Voltooid || developer_mode == true){
       if(hold){
           krijtlijnen[14].setAttribute("visible", "true");
+          audio_schrijven.play();
           let fouten = 0;
           console.log("pizzadoos");
           holdPizza.setAttribute("visible",false);
@@ -981,10 +996,7 @@ window.onload = function(){
 
           for(var i = ingredientsList.length; i--;) {
               if(ingredientsList[i][1] !== pizzaSalami[i]){
-                  this.console.log(pizzaSalami[i]);
-                  this.console.log(ingredientsList[i][1])
                   fouten++;
-                  this.console.log(fouten);
               }
           }
 
@@ -1052,6 +1064,7 @@ window.onload = function(){
       waterdruppels[2].setAttribute("visible",true);
       opdrachten1[1] = true;
       krijtlijnen[1].setAttribute("visible", "true");
+      audio_schrijven.play();
     }
   }
 
@@ -1062,6 +1075,7 @@ window.onload = function(){
       waterdruppels[2].setAttribute("visible",false);
       opdrachten1[2] = true;
       krijtlijnen[2].setAttribute("visible", "true");
+      audio_schrijven.play();
     }
   }
 
@@ -1072,16 +1086,18 @@ window.onload = function(){
   }
 
   zeep.onclick = () => {
+
     if(!opdracht3Voltooid){
       opdrachten1[0] = true;
       krijtlijnen[0].setAttribute("visible", "true");
+      audio_schrijven.play();
     }
   }
 
   sink.onclick = () => {
     if (opdrachten1[1] == false && opdrachten1[0] == true) {
       kraanAan();
-    } else {
+    } else if (opdrachten1[1] == true && opdrachten1[0] == true){
       kraanUit();
     }
   }
@@ -1102,25 +1118,63 @@ window.onload = function(){
 
     //iets waardoor je niks meer kan oppakken
   }
+
   function beginOpnieuw(){
     console.log("De functie beginOpnieuw() wordt aangeroepen");
 
+    //maak ingredienten clickable
+    for(let q = 0; q < ingredientenBakjes.length; q++){
+      console.log("testtt");
+      ingredientenBakjes[q].classList.add("clickable")
+    }
+    sausfles_bbq.classList.add("clickable");
+    sausfles_knoflook.classList.add("clickable");
 
-    opdracht1Voltooid = false;
-    opdracht2Voltooid = false;
+    //display new recipe
+    if(apiState){
+      let randInt = Math.floor(Math.random() * 6);
+      getRecipe(randInt);
+      newRun = false;
+    }else{
+      let randomVar = Math.floor(Math.random() * 2);
+      pizzaRecept = verschillendepizza[randomVar]
+      document.getElementById('js--ingredient0').setAttribute("value", pizzaRecept[0]);
+      newRun = false;
+    }
+    holdPizza.setAttribute("visible",false);
+    pizzaOnTable.setAttribute("visible",true);
+    pizzaOnTable.setAttribute("position", "4.531 1.085 -5.1");
+    pizzaOnTable.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+    holdPizza.setAttribute("gltf-model", "../media/pizzabodem_rauw_saus/pizzabodem_rauw_saus.glb");
+    hold = false;
+    pizzaGemaakt.ingredients = ["tomatensaus"];
+    for(let i = 1; i < pizzaRecept.length; i++){
+      document.getElementById("js--kruisje-desk" + i).setAttribute("src","");
+      document.getElementById('js--ingredient'+i).setAttribute("value", "");
+    }
     opdracht3Voltooid = false;
     opdracht4Voltooid = false;
+    pizzaStatus = "";
+    titel3.setAttribute("visible", true);
+    opdracht3.setAttribute("visible",true);
+    krijtlijnen[8].setAttribute("visible", "true");
+    krijtlijnen[9].setAttribute("visible", "true");
+    removeClickAble();
+    removeIngredients();
+    holdSnijder = false;
+    hold = false;
 
-    krijtlijnen[8].setAttribute("visible", "false");
-    krijtlijnen[9].setAttribute("visible", "false");
+    clickedPizza = 0;
 
-    krijtlijnen[12].setAttribute("visible", "false");
-    krijtlijnen[13].setAttribute("visible", "false");
-    krijtlijnen[14].setAttribute("visible", "false");
-    krijtlijnen[15].setAttribute("visible", "false");
-    titel1.setAttribute("visible", true);
-    opdracht1.setAttribute("visible", true);
+    lijn1.setAttribute("visible", false);
+    lijn2.setAttribute("visible", false);
+    lijn3.setAttribute("visible", false);
+    lijn4.setAttribute("visible", false);
+    pizzasnijder.setAttribute("position", "0.157 1.142 -0.95");
+    pizzasnijder.setAttribute("rotation", "90 -90 -40");
 
+
+    startEindScherm("2.366", "4.344");
 
   }
 }

@@ -131,6 +131,7 @@
         <a-entity
           id="js--cursor"
           animation__click="property: scale; startEvents: click; linear: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation_mouseenter="property: components.material.material.color; type: color; to: blue; dur: 150;"
           animation__fusing="property: scale; startEvents: fusing; linear: easeInCubic; dur: 1000; from: 1 1 1; to: 0.1 0.1 0.1"
           animation__mouseleave="property: scale; startEvents: mouseleave; linear: easeInCubic; dur: 500; to: 1 1 1"
           cursor="fuse: true; fuseTimeout: 1000"
@@ -139,6 +140,14 @@
           position= "0 0 -0.5"
           raycaster="objects: .clickable"
         ></a-entity>
+
+        <!-- <a-entity class="js--cameraAnimation" scale="0.5 0.5 0.5"
+                animation__click="property: scale; startEvents:click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.5 0.5 0.5"
+                animation__fusing="property: scale; startEvents:fusing; easing: easeInCubic; dur: 1000; from: 0.5 0.5 0.5; to: 0.1 0.1 0.1"
+                animation_defusing="property: scale; startEvents: mouseleave; to: 0.5 0.5 0.5" animation_mouseenter="property: components.material.material.color; type: color; to: white; startEvents: mouseenter; dur: 750"
+                animation__mouseleave="property: components.material.material.color; type: color; to: black; startEvents: mouseleave; dur: 750"
+                cursor="fuse: true; fuseTimeout: 1000;" material="color: black; shader: flat" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02" position="0 0 -0.5" raycaster="objects: .clickable">
+        </a-entity> -->
         <!-- <a-entity id="js--camertxt" text="value: Welkom bij de oefenmodus, de stappen staan uitgelegd op het krijtbord. Succes!; color: white; width: 2; align: center;" position="0 -0.6 -1" >
     </a-entity> -->
 
@@ -223,14 +232,14 @@
     <a-image position="5.945 1.19 -5.718" rotation="115 0 0" scale=".28 .39 .28" src="#tomaatje_hoop-png"></a-image>
 
     <!-- Informatie bordjes -->
-    <a-plane class="ingredienten_bordjes" position="3.4 1.5 -5.95" height=".3" width=".65" opacity=".5" color="#636e72"><a-text position="-.277 0 .01" color="#fff" value="Geraspte kaas" scale=".4 .4 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="3.95 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.09 0 .01" color="#fff" value="Ananas" scale=".25 .3 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="4.283 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.085 0 .01" color="#fff" value="Salami" scale=".25 .3 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="4.617 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.115 0 .01" color="#fff" value="Shoarma" scale=".25 .3 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="4.944 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.06 0 .01" color="#fff" value="Ham" scale=".25 .3 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="5.28 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.12 0 .01" color="#fff" value="Champignon" scale=".18 .3 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="5.61 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Mozzarella" scale=".2 .3 1"></a-text></a-plane>
-    <a-plane class="ingredienten_bordjes" position="5.945 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .01" color="#fff" value="Tomaatjes" scale=".2 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="3.4 1.5 -5.95" height=".3" width=".65" opacity=".5" color="#636e72"><a-text position="-.277 0 .03" color="#fff" value="Geraspte kaas" scale=".4 .4 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="3.95 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.09 0 .03" color="#fff" value="Ananas" scale=".25 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="4.283 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.085 0 .03" color="#fff" value="Salami" scale=".25 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="4.617 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.115 0 .03" color="#fff" value="Shoarma" scale=".25 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="4.944 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.06 0 .03" color="#fff" value="Ham" scale=".25 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="5.28 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.12 0 .03" color="#fff" value="Champignon" scale=".18 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="5.61 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .03" color="#fff" value="Mozzarella" scale=".2 .3 1"></a-text></a-plane>
+    <a-plane class="ingredienten_bordjes" position="5.945 1.5 -5.95" height=".2" width=".3" opacity=".5" color="#636e72"><a-text position="-.1 0 .03" color="#fff" value="Tomaatjes" scale=".2 .3 1"></a-text></a-plane>
 
     <!-- <a-plane position="6.459 1.976 -1.1" width="1.33" height="0.86" rotation="0 180 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="De oven is van te voren al \n ingesteld en geautomatiseerd.\n Dit betekent dat je niet de\n temperatuur hoeft in te stellen \n en geen rekening hoeft te \n houden met de tijd die de \n pizza in de oven zit." align="center"></a-text></a-plane> -->
     <!-- <a-plane position="-5.884 1.638 -.6" width="1.33" height="0.86" rotation="0 250 0" color="#636e72" opacity=".7"><a-text id="info_text" position="0 0 0.01" scale="0.4 0.4 1" color="#fff" value="Dit is de Domino's Pizza \n waar gaat oefenen. Hier leer je \n de basis dingen om een goeie \n pizza te maken. Ga naar \n de keuken en volg de \n instructies op het bord. \n Veel succes!" align="center"></a-text></a-plane> -->
