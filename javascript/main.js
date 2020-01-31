@@ -135,11 +135,11 @@ window.onload = function(){
     const kruisjeDesktop3 = document.getElementById("js--kruisje-desk3");
     const kruisjeDesktop4 = document.getElementById("js--kruisje-desk4");
 
-    //Opdracht array
     var opdrachten1 = [false, false, false, false];
     var opdrachten2 = [false, false, false, false];
     var opdrachten3 = [false, false, false, false];
     var opdrachten4 = [false, false, false, false];
+
 
     var opdracht1Voltooid = false;
     var opdracht2Voltooid = false;
@@ -422,40 +422,7 @@ window.onload = function(){
 
     var clickedPizza = 0;
 
-  //   function holdPizzaSnijder(){
-  //     pizzasnijder.onclick = () => {
-  //       if(!hold){
-  //           let object = makeObject("js--pizzasnijder", "a-circle", ".9 0 -1.2", "0.25", camera, true, pizzasnijderglb);
-  //           object.setAttribute("scale", "0.1 0.1 0.1");
-  //           object.setAttribute("rotation", "0 0 -20");
-  //           pizzasnijder.setAttribute("visible",false);
-  //           holdSnijder = true;
-  //       }
-  //
-  //       if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0) {
-  //           pizzaOnTable.onclick = (event) => {
-  //               gesnedenPizza.setAttribute("visible", true);
-  //               lijn1.setAttribute("visible", true);
-  //               clickedPizza += 1;
-  //               console.log(clickedPizza);
-  //
-  //       }
-  //     }
-  //
-  //       else if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 1) {
-  //         console.log("test");
-  //         pizzaOnTable.onclick = (event) => {
-  //             gesnedenPizza.setAttribute("visible", true);
-  //             lijn2.setAttribute("visible", true);
-  //             clickedPizza += 1;
-  //
-  //       }
-  //     }
-  //   }
-  // }
-
-  function startEindScherm(startHeight, height){
-    //entityEind.removeAttribute("animation")
+function startEindScherm(startHeight, height){
     entityEind.setAttribute("visible", true);
     entityEind.setAttribute("animation", "property: position; from: 1.231 " +startHeight+ " 1.255; to: 1.231 "+height+" 1.255; dur: 5000; easing: linear");
     // entityEind.setAttribute("position", "1.231 2.366 1.255")
@@ -523,9 +490,7 @@ window.onload = function(){
     }
   }
 
-      // var coordinaatx = pizzasnijder.getAttribute("rotation").x - 90;
-      // var coordinaaty = pizzasnijder.getAttribute("rotation").y;
-      // var coordinaatz = pizzasnijder.getAttribute("rotation").z;
+
 
     function addListeners(){
         pizzaOnTable.onclick = (event) => {          
@@ -589,7 +554,8 @@ window.onload = function(){
               hold = true;
             }
             if (holdSnijder == true && pizzaOnTable.getAttribute("position").x === 0.9 && pizzaOnTable.getAttribute("position").y === 1.162 && pizzaOnTable.getAttribute("position").z === -0.646 && clickedPizza === 0 && opdracht3Voltooid == true){
-              pizzaSnijden = true;              
+              pizzaSnijden = true;
+              console.log("in eerste if statement");
               // gesnedenPizza.setAttribute("visible", true);
               lijn1.setAttribute("visible", true);
               let pizzasnijderHold = document.getElementById("js--pizzasnijderHold");
@@ -651,12 +617,6 @@ window.onload = function(){
     }
 
 
-
-    // var btningedrukt = false;
-    // if (btningedrukt === false) {
-    //     checkButton.setAttribute("animation","property: position; to: 6.504 1.879 -6.099; dur: 1500; easing: linear");
-    //     btningedrukt = true;
-    // }
 
 
     checkButton.onclick = () => {
@@ -839,6 +799,7 @@ window.onload = function(){
           krijtlijnen[1].setAttribute("visible", "false");
           krijtlijnen[2].setAttribute("visible", "false");
           krijtlijnen[3].setAttribute("visible", "false");
+
         },2000);
         audio.play();
         opdracht1Voltooid = true;
@@ -998,9 +959,7 @@ window.onload = function(){
 
 
   const pizzaSalami = [true, false, true, false, true];
-  // const pizzaMargherita = [true, false, false, false, true];
-  // var receptenLijst = [pizzaSalami, pizzaMargherita];
-  // console.log(receptenLijst[1]);
+
 
 
 
@@ -1079,32 +1038,6 @@ window.onload = function(){
     }
 
   }
-
-
-
-//   function gebruikZeep(){
-//         setText("Er is zeep op de handen gedaan, zet nu de kraan aan om de handen te wassen!", 8000);
-//         zeepGebruikt = true;
-//
-//         if (zeepGebruikt == true) {
-//           sink.onclick = () => {
-//             functioneerKraan();
-//           }
-//         }
-//
-//         if (zeepGebruikt == false) {
-//           sink.onclick = () => {
-//             setText("Doe eerste zeep op de handen", 3000);
-//           }
-//         }
-//   }
-//
-//   zeep.onclick = () => {
-//     gebruikZeep();
-//   }
-//
-// console.log(zeepGebruikt);
-
 
 
   function zeepTrue(){
